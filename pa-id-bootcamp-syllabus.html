@@ -228,7 +228,25 @@ strong,b{color:var(--black);}
 
 </style>
 </head>
-<body>
+<body class="slocked">
+<style>
+body.slocked .wrap{display:none}
+.syl-gate{display:none}
+body.slocked .syl-gate{display:block}
+.syl-gate{max-width:560px;margin:34px auto 80px;padding:0 20px;text-align:center;font-family:'DM Sans',system-ui,sans-serif}
+.syl-gate .sg-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:40px 30px;box-shadow:0 16px 44px rgba(15,31,61,.09)}
+.syl-gate .sg-ic{width:56px;height:56px;border-radius:15px;background:#0F1F3D;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:25px}
+.syl-gate h3{font-family:'Syne','DM Sans',sans-serif;font-size:23px;font-weight:800;color:#0F1F3D;margin:0 0 9px}
+.syl-gate p.sg-lead{color:#3D4A5C;font-size:14px;line-height:1.62;margin:0 auto 22px;max-width:44ch}
+.syl-gate .sg-row{display:flex;gap:9px;max-width:370px;margin:0 auto}
+.syl-gate input{flex:1;padding:12px 14px;border:1.5px solid #E2E8F0;border-radius:11px;font-size:14px;font-family:inherit}
+.syl-gate input:focus{outline:none;border-color:#3b82f6}
+.syl-gate .sg-go{padding:12px 22px;background:#3b82f6;color:#fff;border:none;border-radius:11px;font-weight:700;font-size:14px;cursor:pointer}
+.syl-gate .sg-go:hover{background:#2563eb}
+.syl-gate .sg-err{color:#C8392B;font-size:12.5px;margin-top:12px;min-height:1.1em}
+.syl-gate .sg-hint{margin-top:16px;font-size:11.5px;color:#6B7A8D}
+.syl-gate .sg-hint a{color:#3b82f6;text-decoration:none}
+</style>
 <style>
 .xsite{background:#0B1A35;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 22px;font-family:'DM Sans',system-ui,sans-serif}
 .xsite-brand{color:#fff;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.2px;white-space:nowrap}
@@ -320,6 +338,19 @@ strong,b{color:var(--black);}
   <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:9px;color:var(--purple);">★ = Gap topic added</div>
 </div>
 
+<div class="syl-gate">
+  <div class="sg-card">
+    <div class="sg-ic">🔒</div>
+    <h3>Full syllabus locked</h3>
+    <p class="sg-lead">You’re viewing the overview. The complete syllabus — every topic, board trap, and teaching pearl — is for enrolled Bootcamp students. Enter your access code to unlock it.</p>
+    <div class="sg-row">
+      <input id="sg-code" type="password" placeholder="Access code" autocomplete="off" onkeydown="if(event.key==='Enter')sylUnlock()">
+      <button type="button" class="sg-go" onclick="sylUnlock()">Unlock</button>
+    </div>
+    <div class="sg-err" id="sg-err"></div>
+    <div class="sg-hint">Don’t have a code? <a href="index.html#contact">Get in touch with Dr. Choudhary</a>.</div>
+  </div>
+</div>
 <div class="wrap">
 
 <!-- DOMAIN 1: SYSTEMIC -->
@@ -2902,6 +2933,17 @@ closeIdECG();}});
 <script>
 function ddToggle(btn,e){ if(e){e.stopPropagation();e.preventDefault();} var dd=btn.closest(".nav-dd"); var open=dd.classList.toggle("open"); btn.setAttribute("aria-expanded",open?"true":"false"); }
 document.addEventListener("click",function(e){ document.querySelectorAll(".nav-dd.open").forEach(function(dd){ if(!dd.contains(e.target)) dd.classList.remove("open"); }); });
+</script>
+<script>
+(function(){
+  var CODE="bootcamp", KEY="pa_syllabus_unlocked";
+  try{ if(localStorage.getItem(KEY)==="1") document.body.classList.remove("slocked"); }catch(e){}
+  window.sylUnlock=function(){
+    var el=document.getElementById("sg-code"); var v=((el&&el.value)||"").trim().toLowerCase();
+    if(v===CODE){ try{localStorage.setItem(KEY,"1");}catch(e){} document.body.classList.remove("slocked"); window.scrollTo(0,0); }
+    else { var er=document.getElementById("sg-err"); if(er) er.textContent="That code isn’t right. Check with Dr. Choudhary."; }
+  };
+})();
 </script>
 </body>
 </html>
