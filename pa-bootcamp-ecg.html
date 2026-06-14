@@ -268,6 +268,30 @@ body.ecg-unlocked .ecg-preview{display:none;}
 .nav-dd-menu .dd-eyebrow{font-family:monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#7e8ba6;padding:6px 13px 4px}
 @media(max-width:760px){.nav-dd-menu{left:auto;right:0;transform:translateY(-6px)}.nav-dd.open .nav-dd-menu{transform:translateY(0)}}
 </style>
+<style id="mnav">
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
+.nav-burger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.22s}
+.nav.open .nav-burger span:nth-child(1),.site-nav.open .nav-burger span:nth-child(1),.xsite.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-burger span:nth-child(2),.site-nav.open .nav-burger span:nth-child(2),.xsite.open .nav-burger span:nth-child(2){opacity:0}
+.nav.open .nav-burger span:nth-child(3),.site-nav.open .nav-burger span:nth-child(3),.xsite.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.xsite{position:relative}
+@media(max-width:760px){
+  .nav-burger{display:flex}
+  .nav-links,.snav-links,.xsite-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0b1a35;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0;display:none;box-shadow:0 22px 44px rgba(0,0,0,.45);max-height:calc(100vh - 60px);overflow:auto;z-index:500}
+  .nav.open .nav-links,.site-nav.open .snav-links,.xsite.open .xsite-links{display:flex}
+  .nav-links>a,.snav-links>a,.xsite-links>a{display:block!important;padding:13px 24px!important;font-size:15px;border-bottom:1px solid rgba(255,255,255,.05);color:#cdd8ee!important}
+  .nav-links>a:hover,.snav-links>a:hover,.xsite-links>a:hover{color:#fff!important}
+  .nav-links .btn,.snav-links .btn,.xsite-links .xsite-cta{margin:12px 24px!important;text-align:center;display:block!important;background:#3b82f6!important;color:#fff!important;border-radius:10px}
+  .nav-dd{display:block!important;width:100%}
+  .nav-dd-btn{width:100%;justify-content:space-between!important;padding:13px 24px!important;font-size:15px;color:#cdd8ee!important}
+  .nav-dd-menu{position:static!important;transform:none!important;opacity:1!important;visibility:visible!important;background:rgba(255,255,255,.03)!important;border:none!important;box-shadow:none!important;border-radius:0!important;min-width:0!important;padding:0!important;display:none!important}
+  .nav-dd.open .nav-dd-menu{display:block!important}
+  .nav-dd-menu a{padding:11px 24px 11px 42px!important;border-bottom:1px solid rgba(255,255,255,.04)}
+  .nav-dd-menu .dd-eyebrow{padding:9px 24px 4px!important}
+}
+</style>
+<script src="analytics.js"></script>
+
 </head>
 <body>
 
@@ -276,6 +300,7 @@ body.ecg-unlocked .ecg-preview{display:none;}
     <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="8" stroke="#60A5FA" stroke-width="2.4"/><path d="M14 20h12M20 14v12" stroke="#60A5FA" stroke-width="2.4" stroke-linecap="round"/></svg>
     <span class="t">PA <b>Clinical</b> Bootcamp</span>
   </a>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" onclick="navToggle(this)"><span></span><span></span><span></span></button>
   <div class="snav-links">
     <a href="index.html#bootcamp">The Bootcamp</a>
     <a href="pa-bootcamp-diagnostic.html">Question Bank</a>
@@ -1748,14 +1773,14 @@ window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(
 const ECG_ACCESS_CODE='bootcamp';
 let ECG_UNLOCKED=false; try{ ECG_UNLOCKED = localStorage.getItem('pa_ecg_unlocked')==='1'; }catch(e){}
 function applyEGate(){ document.body.classList.toggle('ecg-unlocked', ECG_UNLOCKED); }
-function openEGate(){ const o=document.getElementById('elock-overlay'); o.classList.add('show'); setTimeout(()=>{const i=document.getElementById('elock-input'); if(i){i.value='';i.focus();}},40); }
+function openEGate(){ const o=document.getElementById('elock-overlay'); o.classList.add('show'); if(window.track)track('gate_viewed',{label:'ecg'}); setTimeout(()=>{const i=document.getElementById('elock-input'); if(i){i.value='';i.focus();}},40); }
 function closeEGate(){ document.getElementById('elock-overlay').classList.remove('show'); document.getElementById('elock-err').textContent=''; }
 function tryEUnlock(){
   const i=document.getElementById('elock-input'), err=document.getElementById('elock-err');
   if(((i.value)||'').trim().toLowerCase()===ECG_ACCESS_CODE){
-    ECG_UNLOCKED=true; try{localStorage.setItem('pa_ecg_unlocked','1');}catch(e){}
+    ECG_UNLOCKED=true; try{localStorage.setItem('pa_ecg_unlocked','1');}catch(e){} if(window.track)track('unlock_success',{label:'ecg'});
     applyEGate(); closeEGate();
-  } else { err.textContent='That code didn\u2019t work \u2014 check with your instructor.'; i.value=''; i.focus(); }
+  } else { if(window.track)track('unlock_failed',{label:'ecg'}); err.textContent='That code didn\u2019t work \u2014 check with your instructor.'; i.value=''; i.focus(); }
 }
 function initEGate(){
   applyEGate();
@@ -1885,5 +1910,6 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"||e.key==="Es
 function ddToggle(btn,e){ if(e){e.stopPropagation();e.preventDefault();} var dd=btn.closest('.nav-dd'); var open=dd.classList.toggle('open'); btn.setAttribute('aria-expanded',open?'true':'false'); }
 document.addEventListener('click',function(e){ document.querySelectorAll('.nav-dd.open').forEach(function(dd){ if(!dd.contains(e.target)) dd.classList.remove('open'); }); });
 </script>
+<script>function navToggle(btn){var n=btn.closest(".nav,.site-nav,.xsite");if(!n)return;var o=n.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");}</script>
 </body>
 </html>

@@ -338,6 +338,30 @@ strong,b{color:var(--black);}
 
 
 </style>
+<style id="mnav">
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
+.nav-burger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.22s}
+.nav.open .nav-burger span:nth-child(1),.site-nav.open .nav-burger span:nth-child(1),.xsite.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-burger span:nth-child(2),.site-nav.open .nav-burger span:nth-child(2),.xsite.open .nav-burger span:nth-child(2){opacity:0}
+.nav.open .nav-burger span:nth-child(3),.site-nav.open .nav-burger span:nth-child(3),.xsite.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.xsite{position:relative}
+@media(max-width:760px){
+  .nav-burger{display:flex}
+  .nav-links,.snav-links,.xsite-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0b1a35;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0;display:none;box-shadow:0 22px 44px rgba(0,0,0,.45);max-height:calc(100vh - 60px);overflow:auto;z-index:500}
+  .nav.open .nav-links,.site-nav.open .snav-links,.xsite.open .xsite-links{display:flex}
+  .nav-links>a,.snav-links>a,.xsite-links>a{display:block!important;padding:13px 24px!important;font-size:15px;border-bottom:1px solid rgba(255,255,255,.05);color:#cdd8ee!important}
+  .nav-links>a:hover,.snav-links>a:hover,.xsite-links>a:hover{color:#fff!important}
+  .nav-links .btn,.snav-links .btn,.xsite-links .xsite-cta{margin:12px 24px!important;text-align:center;display:block!important;background:#3b82f6!important;color:#fff!important;border-radius:10px}
+  .nav-dd{display:block!important;width:100%}
+  .nav-dd-btn{width:100%;justify-content:space-between!important;padding:13px 24px!important;font-size:15px;color:#cdd8ee!important}
+  .nav-dd-menu{position:static!important;transform:none!important;opacity:1!important;visibility:visible!important;background:rgba(255,255,255,.03)!important;border:none!important;box-shadow:none!important;border-radius:0!important;min-width:0!important;padding:0!important;display:none!important}
+  .nav-dd.open .nav-dd-menu{display:block!important}
+  .nav-dd-menu a{padding:11px 24px 11px 42px!important;border-bottom:1px solid rgba(255,255,255,.04)}
+  .nav-dd-menu .dd-eyebrow{padding:9px 24px 4px!important}
+}
+</style>
+<script src="analytics.js"></script>
+
 </head>
 <body class="slocked">
 <style>
@@ -382,6 +406,7 @@ body.slocked .syl-gate{display:block}
 </style>
 <nav class="xsite">
   <a class="xsite-brand" href="index.html">PA <b>Clinical</b> Bootcamp</a>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" onclick="navToggle(this)"><span></span><span></span><span></span></button>
   <div class="xsite-links">
     <a href="index.html#bootcamp">The Bootcamp</a>
     <a href="pa-bootcamp-diagnostic.html">Question Bank</a>
@@ -3430,10 +3455,11 @@ document.addEventListener("click",function(e){ document.querySelectorAll(".nav-d
   try{ if(localStorage.getItem(KEY)==="1") document.body.classList.remove("slocked"); }catch(e){}
   window.sylUnlock=function(){
     var el=document.getElementById("sg-code"); var v=((el&&el.value)||"").trim().toLowerCase();
-    if(v===CODE){ try{localStorage.setItem(KEY,"1");}catch(e){} document.body.classList.remove("slocked"); window.scrollTo(0,0); }
-    else { var er=document.getElementById("sg-err"); if(er) er.textContent="That code isn’t right. Check with Dr. Choudhary."; }
+    if(v===CODE){ try{localStorage.setItem(KEY,"1");}catch(e){} document.body.classList.remove("slocked"); if(window.track)track("unlock_success",{label:window.PAGE_ID}); window.scrollTo(0,0); }
+    else { if(window.track)track("unlock_failed",{label:window.PAGE_ID}); var er=document.getElementById("sg-err"); if(er) er.textContent="That code isn’t right. Check with Dr. Choudhary."; }
   };
 })();
 </script>
+<script>function navToggle(btn){var n=btn.closest(".nav,.site-nav,.xsite");if(!n)return;var o=n.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");}</script>
 </body>
 </html>

@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="analytics.js"></script>
+
 <style>
 :root{
   --navy-900:#0B172E; --navy-800:#13294a; --navy-700:#1a3058; --navy-600:#234072;
@@ -352,6 +354,25 @@ a{color:var(--blue-deep)}
 .nav-dd-menu a:hover{background:rgba(255,255,255,.09);color:#fff!important}
 .nav-dd-menu .dd-eyebrow{font-family:var(--mono,monospace);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#7e8ba6;padding:6px 13px 4px}
 @media(max-width:760px){.nav-dd-menu{left:auto;right:0;transform:translateY(-6px)}.nav-dd.open .nav-dd-menu{transform:translateY(0)}}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
+.nav-burger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.22s}
+.nav.open .nav-burger span:nth-child(1),.site-nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-burger span:nth-child(2),.site-nav.open .nav-burger span:nth-child(2){opacity:0}
+.nav.open .nav-burger span:nth-child(3),.site-nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){
+  .nav-burger{display:flex}
+  .snav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0b1a35;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0;display:none;box-shadow:0 22px 44px rgba(0,0,0,.45);max-height:calc(100vh - 60px);overflow:auto;z-index:500}
+  .site-nav.open .snav-links{display:flex}
+  .snav-links>a{display:block!important;padding:13px 24px!important;font-size:15px;border-bottom:1px solid rgba(255,255,255,.05);color:#cdd8ee!important}
+  .snav-links>a:hover{color:#fff!important}
+  .snav-links .btn{margin:12px 24px!important;text-align:center;display:block!important;background:#3b82f6!important;color:#fff!important;border-radius:10px}
+  .nav-dd{display:block!important;width:100%}
+  .nav-dd-btn{width:100%;justify-content:space-between!important;padding:13px 24px!important;font-size:15px;color:#cdd8ee!important}
+  .nav-dd-menu{position:static!important;transform:none!important;opacity:1!important;visibility:visible!important;background:rgba(255,255,255,.03)!important;border:none!important;box-shadow:none!important;border-radius:0!important;min-width:0!important;padding:0!important;display:none!important}
+  .nav-dd.open .nav-dd-menu{display:block!important}
+  .nav-dd-menu a{padding:11px 24px 11px 42px!important;border-bottom:1px solid rgba(255,255,255,.04)}
+  .nav-dd-menu .dd-eyebrow{padding:9px 24px 4px!important}
+}
 </style>
 </head>
 <body>
@@ -360,6 +381,7 @@ a{color:var(--blue-deep)}
     <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="8" stroke="#79a0f3" stroke-width="2.4"/><path d="M14 20h12M20 14v12" stroke="#79a0f3" stroke-width="2.4" stroke-linecap="round"/></svg>
     <span class="t">PA <b>Clinical</b> Bootcamp</span>
   </a>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" onclick="navToggle(this)"><span></span><span></span><span></span></button>
   <div class="snav-links">
     <a href="index.html#bootcamp">The Bootcamp</a>
     <a href="#" class="active" aria-current="page">Question Bank</a>
@@ -389,7 +411,7 @@ a{color:var(--blue-deep)}
       <h1>Board prep, built from the bedside.</h1>
       <p class="wel-lead">A PANCE / PANRE question bank and vignette library written from an inpatient, hospitalist’s-eye view — the way disease actually presents on the wards — then engineered to measure what you truly know.</p>
       <div class="wel-cta-row">
-        <button class="btn" onclick="show('login')">Sign in to the question bank</button>
+        <button class="btn" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')">Sign in to the question bank</button>
         <button class="btn ghost" onclick="openVignettes()">Browse vignettes — free</button>
       </div>
     </div>
@@ -411,12 +433,12 @@ a{color:var(--blue-deep)}
     <div class="zone-h"><span class="zh-eyebrow">The question bank</span><span class="zh-line"></span></div>
     <p class="zone-sub">Timed pre/post-rotation diagnostics, system practice, spaced review, and progress analytics. Sign in with your student access code to begin.</p>
     <div class="modes wel-bank">
-      <button class="mode" onclick="show('login')"><span class="tag">Step 1 &amp; 2</span><h3>Pre &amp; Post-Rotation Tests</h3><p>Blueprint-weighted, timed diagnostics that benchmark where you start and what moved.</p><div class="foot">🔒 Sign in to start</div></button>
-      <button class="mode" onclick="show('login')"><span class="tag">Anytime</span><h3>Practice by system</h3><p>Drill a single system with instant feedback and full rationales.</p><div class="foot">🔒 Sign in to start</div></button>
-      <button class="mode" onclick="show('login')"><span class="tag">Daily</span><h3>Spaced review</h3><p>Your missed and shaky questions, resurfaced on a spaced schedule.</p><div class="foot">🔒 Sign in to start</div></button>
-      <button class="mode" onclick="show('login')"><span class="tag">Insights</span><h3>Progress analytics</h3><p>Confidence calibration, per-question timing, and per-system trends over time.</p><div class="foot">🔒 Sign in to start</div></button>
+      <button class="mode" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')"><span class="tag">Step 1 &amp; 2</span><h3>Pre &amp; Post-Rotation Tests</h3><p>Blueprint-weighted, timed diagnostics that benchmark where you start and what moved.</p><div class="foot">🔒 Sign in to start</div></button>
+      <button class="mode" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')"><span class="tag">Anytime</span><h3>Practice by system</h3><p>Drill a single system with instant feedback and full rationales.</p><div class="foot">🔒 Sign in to start</div></button>
+      <button class="mode" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')"><span class="tag">Daily</span><h3>Spaced review</h3><p>Your missed and shaky questions, resurfaced on a spaced schedule.</p><div class="foot">🔒 Sign in to start</div></button>
+      <button class="mode" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')"><span class="tag">Insights</span><h3>Progress analytics</h3><p>Confidence calibration, per-question timing, and per-system trends over time.</p><div class="foot">🔒 Sign in to start</div></button>
     </div>
-    <button class="btn" style="width:100%;margin-top:14px" onclick="show('login')">Sign in with your access code →</button>
+    <button class="btn" style="width:100%;margin-top:14px" onclick="if(window.track)track('gate_viewed',{label:'question_bank'});show('login')">Sign in with your access code →</button>
   </section>
 
   <section id="screen-login" class="login-shell">
@@ -3384,9 +3406,9 @@ function login(){
   const code = $("#in-pass").value;
   const err = $("#login-err");
   if(!name){ err.textContent="Please enter your name."; return; }
-  if(code!==ACCESS_CODE){ err.textContent="That access code isn’t right. Check with Dr. Choudhary."; return; }
+  if(code!==ACCESS_CODE){ if(window.track)track("unlock_failed",{label:"question_bank"}); err.textContent="That access code isn’t right. Check with Dr. Choudhary."; return; }
   err.textContent="";
-  STATE.name = name; STATE.slug = slugify(name)||"student";
+  STATE.name = name; STATE.slug = slugify(name)||"student"; if(window.track)track("unlock_success",{label:"question_bank"});
   renderHome();
 }
 
@@ -4156,6 +4178,8 @@ function renderVignetteSnapshot(){
 
 function ddToggle(btn,e){ if(e){e.stopPropagation();e.preventDefault();} var dd=btn.closest(".nav-dd"); var open=dd.classList.toggle("open"); btn.setAttribute("aria-expanded",open?"true":"false"); }
 document.addEventListener("click",function(e){ document.querySelectorAll(".nav-dd.open").forEach(function(dd){ if(!dd.contains(e.target)) dd.classList.remove("open"); }); });
+
+function navToggle(btn){ var n=btn.closest(".nav,.site-nav,.xsite"); if(!n)return; var o=n.classList.toggle("open"); btn.setAttribute("aria-expanded",o?"true":"false"); }
 
 /* ============================ INIT / EVENTS ============================ */
 $("#btn-login").addEventListener("click",login);
