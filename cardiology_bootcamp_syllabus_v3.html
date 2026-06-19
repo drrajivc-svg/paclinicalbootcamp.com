@@ -1036,18 +1036,18 @@ strong, b { color: var(--black); }
       </tbody>
     </table></div>
 
-    <div class="sub"><div class="sub-label sl-purple">Swan-Ganz (Right Heart Catheterization) — Key Values</div>
+    <div class="sub"><div class="sub-label sl-purple">Right Heart Catheterization — PANCE Essentials</div>
+    <p>PA students need to recognize what Swan-Ganz findings mean clinically — not memorize normal pressures. The key PANCE application is the hemodynamic profile:</p>
     <table class="btable">
-      <thead><tr><th>Chamber / Parameter</th><th>Normal Pressures</th><th>Board Application</th></tr></thead>
+      <thead><tr><th>Shock Type</th><th>PCWP</th><th>CO/CI</th><th>SVR</th></tr></thead>
       <tbody>
-        <tr><td class="td-bold">Right atrial pressure (RAP/CVP)</td><td>0–8 mmHg</td><td>↑ in right HF, cardiac tamponade; ↓ in hypovolemia</td></tr>
-        <tr><td class="td-bold">RV systolic / diastolic</td><td>15–30 / 0–8 mmHg</td><td>↑ RV systolic → pulmonary HTN, PE</td></tr>
-        <tr><td class="td-bold">PA systolic / diastolic</td><td>15–30 / 4–12 mmHg</td><td>Mean PA &gt;20 mmHg = pulmonary hypertension</td></tr>
-        <tr><td class="td-bold">PCWP (wedge pressure)</td><td>6–12 mmHg</td><td class="td-red">↑ PCWP → left-sided filling ↑ = pulmonary edema. Key: PCWP &gt;18 = cardiogenic pulmonary edema.</td></tr>
-        <tr><td class="td-bold">Cardiac index (CI)</td><td>2.5–4.0 L/min/m²</td><td class="td-red">CI ≤2.2 = cardiogenic shock threshold</td></tr>
-        <tr><td class="td-bold">Mixed venous O₂ sat (SvO₂)</td><td>60–80%</td><td>↓ SvO₂ = ↑ O₂ extraction = low CO. ↑ SvO₂ = distributive shock (sepsis).</td></tr>
+        <tr><td class="td-bold">Cardiogenic</td><td>↑ (&gt;18)</td><td>↓</td><td>↑</td></tr>
+        <tr><td class="td-bold">Distributive (Septic)</td><td>Normal/↓</td><td>↑</td><td>↓↓</td></tr>
+        <tr><td class="td-bold">Hypovolemic</td><td>↓</td><td>↓</td><td>↑</td></tr>
+        <tr><td class="td-bold">Obstructive (PE/Tamponade)</td><td>↓ (RV↑)</td><td>↓</td><td>↑</td></tr>
       </tbody>
-    </table></div>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> The boards test which profile matches the clinical scenario — not the actual mmHg values. Know the pattern, not the numbers.</p></div>
 
     <div class="sub"><div class="sub-label sl-amber">Hemodynamic Profiles — The Forrester Matrix <button class="img-popup-btn" onclick="openPopup('forrester')"><span class="btn-icon">📊</span> View Matrix</button></div>
     <table class="btable">
@@ -1060,15 +1060,7 @@ strong, b { color: var(--black); }
       </tbody>
     </table></div>
 
-    <div class="sub"><div class="sub-label sl-green">PV Loop Essentials</div>
-    <ul class="bl">
-      <li><b>Width of the PV loop</b> = Stroke Volume</li>
-      <li><b>Area within the loop</b> = Stroke work</li>
-      <li><b>Increased preload</b> → loop shifts right (larger EDV), wider loop</li>
-      <li><b>Increased afterload</b> → loop shifts up and narrows (↑ ESP, ↓ SV)</li>
-      <li><b>Increased contractility</b> → ESPVR steepens, loop shifts left with greater SV</li>
-      <li><b>Heart failure</b> → ESPVR flattens, loop shifts right with reduced SV</li>
-    </ul></div>
+    
 
     <div class="box box-red">
       <div class="box-label">⚑ Board Traps — Cardiac Physiology</div>
@@ -2843,7 +2835,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
         <li>AL (light-chain) amyloid: plasma cell dyscrasia (MM). ATTR: transthyretin, wild-type (elderly men) or hereditary</li>
         <li>Echo: "sparkling" granular myocardium + thickened walls + small cavity + diastolic dysfunction</li>
         <li>Low-voltage EKG despite thick walls (infiltrative — not hypertrophy)</li>
-        <li>ATTR amyloid: tafamidis (TTR stabilizer) — FDA approved 2019</li>
+        <li>ATTR amyloid (ATTR): tafamidis approved 2019 — recognize the diagnosis, refer to cardiology</li>
         <li>⚑ Digoxin CONTRAINDICATED — amyloid fibrils bind digoxin → toxicity at low levels</li>
         <li>⚑ CCB AVOID — negative inotropy worsens diastolic dysfunction</li>
       </ul></div>
@@ -4141,7 +4133,7 @@ const DIAGRAMS = {
   "stemi-territories": { title:"STEMI Territories — Leads, Arteries & Reciprocal Changes", source:"PA Clinical Bootcamp — ACS Module", capTitle:"Lead Group → Territory → Artery", caption:"Each STEMI territory corresponds to a lead group, culprit artery, and reciprocal changes. <b>Inferior STEMI</b> always requires right-sided leads (V4R) to exclude RV involvement before giving nitrates.", kp:["Inferior (II,III,aVF) → RCA → get V4R","Anterior (V1-V4) → LAD → highest mortality","Lateral (I,aVL,V5-V6) → LCx","Posterior → tall R in V1-V2 + ST depression","RV MI: V4R elevation + NO nitrates"] },
   "heart-blocks":      { title:"Heart Blocks — EKG Patterns & Pacemaker Indications", source:"PA Clinical Bootcamp — Arrhythmia Module", capTitle:"The Key Distinction: Mobitz I vs Mobitz II", caption:"The single most important distinction: <b>Mobitz I</b> (PR lengthens → dropped beat) is usually benign. <b>Mobitz II</b> (fixed PR → sudden drop) always needs a pacemaker. 3rd degree always needs a pacemaker.", kp:["Mobitz I: PR lengthens → dropped beat (benign)","Mobitz II: fixed PR → sudden drop (PACEMAKER)","3rd degree: complete AV dissociation (PACEMAKER)","Always pacemaker: Mobitz II, 3rd degree, symptomatic Mobitz I"] },
   "murmur-maneuvers":  { title:"Dynamic Murmur Maneuvers — Effect on Intensity", source:"PA Clinical Bootcamp — Valvular Disease Module", capTitle:"The Preload Rule + HCM Exception", caption:"Almost all murmurs get <b>louder with more blood (↑ preload)</b>. <b>HCM is the critical exception</b> — it gets louder with ↓ preload because the LVOT obstruction worsens as the ventricle gets smaller.", kp:["HCM: ↓ preload (Valsalva) → LOUDER","HCM: ↑ preload (squatting) → softer","AS/MR: ↑ preload → LOUDER","MVP click: EARLIER with Valsalva, LATER with squatting","Right-sided murmurs louder with inspiration"] },
-  "stemi-equivalents": { title:"STEMI Equivalents — No ST Elevation, But Cath Lab Now", source:"PA Clinical Bootcamp — ACS Module", capTitle:"Three Patterns Representing Active Occlusion", caption:"These patterns represent LAD or posterior occlusion <i>without</i> classic convex ST elevation. Missing them = missing a STEMI. <b>Wellens + stress test = contraindicated.</b>", kp:["Wellens Type A: biphasic T in V2-V3","Wellens Type B: deep symmetric inversion V2-V3","De Winter: upsloping ST depression + tall T waves","Posterior: tall R + ST depression V1-V2","All three = cath lab immediately"] },
+  "stemi-equivalents": { title:"STEMI Equivalents — No ST Elevation, But Cath Lab Now", source:"PA Clinical Bootcamp — ACS Module", capTitle:"Three Patterns Representing Active Occlusion", caption:"These patterns represent LAD or posterior occlusion <i>without</i> classic convex ST elevation. Missing them = missing a STEMI. <b>Wellens + stress test = contraindicated.</b>", kp:["Wellens pattern: biphasic or deep symmetric T inversions in V2-V3 — critical LAD stenosis","De Winter: upsloping ST depression + tall T waves","Posterior: tall R + ST depression V1-V2","All three = cath lab immediately"] },
   "cha2ds2vasc":       { title:"CHA₂DS₂-VASc Score — AFib Anticoagulation", source:"PA Clinical Bootcamp — Atrial Fibrillation Module", capTitle:"Score → Stroke Risk → Decision", caption:"Guides anticoagulation in non-valvular AFib. <b>Men ≥2, Women ≥3 → anticoagulate.</b> Female sex is a risk modifier — a woman with score = 1 (sex only) does <b>NOT</b> need anticoagulation.", kp:["Score ≥2 men / ≥3 women → anticoagulate","DOACs preferred over warfarin","Female sex = modifier, NOT independent indication","Prior stroke/TIA = 2 points (highest weight)","Post-CV: 4 weeks OAC mandatory for ALL"] },
   "wide-complex":      { title:"Wide Complex Tachycardia — VT vs SVT with Aberrancy", source:"PA Clinical Bootcamp — Arrhythmia Module", capTitle:"Default: All Wide Complex = VT Until Proven Otherwise", caption:"VT is far more common in emergency settings. Features confirming VT: AV dissociation, fusion beats, capture beats, concordance, NW axis. <b>If unstable → cardiovert immediately regardless of diagnosis.</b>", kp:["AV dissociation = VT (most specific)","Concordance (all V1-V6 same direction) = VT","Fusion + capture beats = VT","Adenosine only if SVT strongly suspected","Unstable → immediate synchronized cardioversion"] },
   "aortic-dissection": { title:"Aortic Dissection — Stanford Classification", source:"PA Clinical Bootcamp — Vascular Module", capTitle:"Type A vs Type B — The Single Decision That Drives Management", caption:"<b>Type A (ascending) = emergency surgery.</b> Type B (descending only) = medical management. β-blocker BEFORE vasodilator — nitroprusside alone causes reflex tachycardia worsening dissection.", kp:["Type A: ascending aorta → emergency surgery","Type B: descending only → β-blocker + nitroprusside","Target SBP 100-120, HR <60","β-blocker FIRST, then nitroprusside","CT angiography = gold standard for diagnosis"] },
