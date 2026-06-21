@@ -679,6 +679,141 @@ strong,b{color:var(--black);}
   .site-dd-menu.site-open { display: block; }
 }
 
+
+/* ════ ACCESS CODE SYSTEM ════ */
+.pw-code-wrap {
+  background: white;
+  border: 2px solid var(--border, #E2E8F0);
+  border-radius: 14px;
+  padding: 32px 28px;
+  max-width: 420px;
+  margin: 0 auto 24px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(15,31,61,.08);
+}
+.pw-code-icon { font-size: 36px; margin-bottom: 12px; }
+.pw-code-title {
+  font-family: 'Sora', var(--disp, sans-serif);
+  font-size: 17px; font-weight: 800;
+  color: var(--navy, #0F1F3D);
+  margin-bottom: 7px;
+}
+.pw-code-sub {
+  font-size: 13px; color: var(--mid, #6B7A8D);
+  line-height: 1.55; margin-bottom: 20px;
+}
+.pw-code-input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.pw-code-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--border, #E2E8F0);
+  border-radius: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--navy, #0F1F3D);
+  outline: none;
+  transition: border-color .15s;
+  text-align: center;
+}
+.pw-code-input:focus { border-color: var(--navy, #0F1F3D); }
+.pw-code-input.error { border-color: #C8392B; animation: shake .3s; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
+.pw-code-btn {
+  padding: 12px 20px;
+  background: var(--navy, #0F1F3D);
+  color: white; border: none;
+  border-radius: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background .15s;
+  white-space: nowrap;
+}
+.pw-code-btn:hover { background: #1a3058; }
+.pw-code-error {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #C8392B; display: none; margin-bottom: 8px;
+}
+.pw-code-error.show { display: block; }
+.pw-code-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 14px 0; color: var(--mid, #6B7A8D);
+  font-size: 12px;
+}
+.pw-code-divider::before, .pw-code-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--border, #E2E8F0);
+}
+.pw-enroll-link {
+  display: inline-block;
+  font-size: 13px; color: var(--mid, #6B7A8D);
+  text-decoration: none;
+}
+.pw-enroll-link b { color: var(--navy, #0F1F3D); }
+.pw-enroll-link:hover b { text-decoration: underline; }
+
+/* Unlocked state */
+.pw-unlocked-banner {
+  display: none;
+  background: rgba(26,107,58,.08);
+  border: 1.5px solid rgba(26,107,58,.25);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #1A6B3A;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.pw-unlocked-banner.show { display: block; }
+
+/* When unlocked - show all locked content */
+body.pw-unlocked .topic-card.pw-locked {
+  position: relative;
+  overflow: visible;
+}
+body.pw-unlocked .topic-card.pw-locked .tc-body {
+  filter: none !important;
+  user-select: auto !important;
+  pointer-events: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+body.pw-unlocked .topic-card.pw-locked::after {
+  display: none !important;
+}
+body.pw-unlocked .pw-card-lock {
+  display: none !important;
+}
+body.pw-unlocked .tc-preview-badge {
+  display: none;
+}
+body.pw-unlocked #pw-gate .pw-gate-eyebrow,
+body.pw-unlocked #pw-gate h2,
+body.pw-unlocked #pw-gate .pw-gate-lead,
+body.pw-unlocked #pw-gate .pw-includes-box,
+body.pw-unlocked #pw-gate .pw-chips,
+body.pw-unlocked #pw-gate .pw-cta-row,
+body.pw-unlocked #pw-gate .pw-proof,
+body.pw-unlocked #pw-gate .pw-code-wrap {
+  display: none !important;
+}
+body.pw-unlocked #pw-gate {
+  padding: 12px 20px;
+  margin: 8px 0 16px;
+  border-color: rgba(26,107,58,.25);
+}
+body.pw-unlocked #pw-gate .pw-unlocked-banner {
+  display: block !important;
+}
+
 </style>
 </head>
 <body>
@@ -986,6 +1121,28 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="pw-proof-item"><span>📟</span><span>Full EKG library</span></div>
     <div class="pw-proof-item"><span>🩺</span><span>84 clinical vignettes</span></div>
     <div class="pw-proof-item"><span>👨‍⚕️</span><span>Dr. Rajiv Choudhary, MD MPH</span></div>
+  </div>
+
+  <!-- ACCESS CODE GATE -->
+  <div class="pw-unlocked-banner" id="pw-unlocked-banner-GI_and_Hepatology">
+    ✅ Full Access Unlocked — GI & Hepatology Bootcamp
+  </div>
+  <div class="pw-code-wrap" id="pw-code-wrap-GI_and_Hepatology">
+    <div class="pw-code-icon">🔑</div>
+    <div class="pw-code-title">Have an access code?</div>
+    <div class="pw-code-sub">Enter your bootcamp access code to unlock the full syllabus.</div>
+    <div class="pw-code-error" id="pw-code-error-GI_and_Hepatology">❌ Incorrect code — check with your instructor</div>
+    <div class="pw-code-input-row">
+      <input class="pw-code-input" id="pw-code-input-GI_and_Hepatology"
+        type="text" placeholder="ENTER CODE"
+        maxlength="30"
+        onkeydown="if(event.key==='Enter') pwSubmitCode('GI_and_Hepatology','BOOTCAMP2026','pcb_access_v1')">
+      <button class="pw-code-btn" onclick="pwSubmitCode('GI_and_Hepatology','BOOTCAMP2026','pcb_access_v1')">Unlock →</button>
+    </div>
+    <div class="pw-code-divider">or</div>
+    <a class="pw-enroll-link" href="https://paclinicalbootcamp.com/#contact">
+      Don't have a code? <b>Enroll in the bootcamp →</b>
+    </a>
   </div>
 </div>
 <div class="topic-card pw-locked tier-1" id="ugib">
@@ -3851,5 +4008,54 @@ document.addEventListener('click', function() {
 });
 
 </script>
+
+<script>
+(function() {
+  var CODE = 'BOOTCAMP2026';
+  var LS_KEY = 'pcb_access_v1_GI_and_Hepatology';
+  var SYS = 'GI_and_Hepatology';
+
+  function pwUnlock() {
+    document.body.classList.add('pw-unlocked');
+    var banner = document.getElementById('pw-unlocked-banner-' + SYS);
+    if (banner) banner.classList.add('show');
+    var wrap = document.getElementById('pw-code-wrap-' + SYS);
+    if (wrap) wrap.style.display = 'none';
+  }
+
+  function pwSubmitCode(sys, code, key) {
+    var inp = document.getElementById('pw-code-input-' + sys);
+    var err = document.getElementById('pw-code-error-' + sys);
+    if (!inp) return;
+    var val = inp.value.trim().toUpperCase();
+    if (val === code.toUpperCase()) {
+      try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
+      inp.classList.remove('error');
+      if (err) err.classList.remove('show');
+      pwUnlock();
+    } else {
+      inp.classList.add('error');
+      if (err) err.classList.add('show');
+      inp.value = '';
+      inp.focus();
+      setTimeout(function() { inp.classList.remove('error'); }, 600);
+    }
+  }
+
+  // Check localStorage on load
+  document.addEventListener('DOMContentLoaded', function() {
+    try {
+      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') {
+        pwUnlock();
+      }
+    } catch(e) {}
+  });
+
+  // Expose globally
+  window.pwSubmitCode = pwSubmitCode;
+  window.pwUnlock = pwUnlock;
+})();
+</script>
+
 </body>
 </html>
