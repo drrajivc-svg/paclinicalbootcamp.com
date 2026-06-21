@@ -802,9 +802,7 @@ body.pw-unlocked #pw-gate .pw-includes-box,
 body.pw-unlocked #pw-gate .pw-chips,
 body.pw-unlocked #pw-gate .pw-cta-row,
 body.pw-unlocked #pw-gate .pw-proof,
-body.pw-unlocked #pw-gate .pw-code-wrap {
-  display: none !important;
-}
+body.pw-unlocked #pw-gate /* pw-code-wrap display handled by JS */
 body.pw-unlocked #pw-gate {
   padding: 12px 20px;
   margin: 8px 0 16px;
@@ -4029,7 +4027,7 @@ document.addEventListener('click', function() {
     if (!inp) return;
     var val = inp.value.trim().toUpperCase();
     if (val === code.toUpperCase()) {
-      try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
+      try { localStorage.setItem(key, '1'); } catch(e) {}
       inp.classList.remove('error');
       if (err) err.classList.remove('show');
       pwUnlock();
@@ -4044,8 +4042,16 @@ document.addEventListener('click', function() {
 
   // Check localStorage on load
   document.addEventListener('DOMContentLoaded', function() {
+  // Clean up any doubled key from previous version
+  try {
+    var badKey = LS_KEY + '_' + SYS;
+    if (localStorage.getItem(badKey) === '1') {
+      localStorage.setItem(LS_KEY, '1');
+      localStorage.removeItem(badKey);
+    }
+  } catch(e) {}
     try {
-      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') {
+      if (localStorage.getItem(LS_KEY) === '1') {
         pwUnlock();
       }
     } catch(e) {}
