@@ -1017,6 +1017,76 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   display: block !important;
 }
 
+
+/* ════ SECTION JUMP NAV ════ */
+.jump-nav {
+  position: sticky;
+  top: 66px; /* sits directly below the 66px site nav */
+  z-index: 150;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--border, #E2E8F0);
+  box-shadow: 0 2px 12px rgba(15,31,61,.06);
+}
+.jump-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.jump-nav-inner::-webkit-scrollbar { display: none; }
+
+.jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 14px;
+  height: 42px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--slate, #5b6b86);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.jump-link:hover {
+  color: var(--ink, #0F1F3D);
+  border-bottom-color: var(--ink, #0F1F3D);
+}
+.jump-link.active {
+  color: var(--blue, #3b82f6);
+  border-bottom-color: var(--blue, #3b82f6);
+}
+
+/* Scroll arrow hints */
+.jump-nav-arrow {
+  display: none;
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
+  pointer-events: none;
+  z-index: 2;
+}
+.jump-nav-arrow.right { right: 0; }
+.jump-nav-arrow.left  { left: 0; background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.95)); }
+
+@media (max-width: 768px) {
+  .jump-link { font-size: 8.5px; padding: 0 10px; }
+}
+
 </style>
 </head>
 <body>
@@ -1050,6 +1120,28 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
     </div>
   </div>
 </nav>
+
+<div class="jump-nav" id="jump-nav">
+  <div class="jump-nav-inner">
+  <a class="jump-link" href="#how-to-use">📋 Before You Begin</a>
+  <a class="jump-link" href="#foundations">⚡ Foundations</a>
+  <a class="jump-link" href="#ischemic">❤️ Ischemic HD</a>
+  <a class="jump-link" href="#arrhythmias">〜 Arrhythmias</a>
+  <a class="jump-link" href="#heartfailure">💧 Heart Failure</a>
+  <a class="jump-link" href="#valvular">🔵 Valvular</a>
+  <a class="jump-link" href="#cardiomyopathy">🫀 Cardiomyopathy</a>
+  <a class="jump-link" href="#htn">📊 Hypertension</a>
+  <a class="jump-link" href="#pericard">🛡 Pericardial</a>
+  <a class="jump-link" href="#shock">⚠️ Shock</a>
+  <a class="jump-link" href="#vascular">🩸 Vascular</a>
+  <a class="jump-link" href="#gap-cardio">★ Gap Topics</a>
+  <a class="jump-link" href="#differentials">🔀 Differentials</a>
+  <a class="jump-link" href="#board-pearls">💎 Board Pearls</a>
+  <a class="jump-link" href="#pearls">⚡ Fast Review</a>
+  <a class="jump-link" href="#emergencies">🚨 Emergencies</a>
+  </div>
+</div>
+
 
 
 <!-- TOP BAR -->
@@ -4692,6 +4784,52 @@ document.addEventListener('click', function() {
   // Expose globally
   window.pwSubmitCode = pwSubmitCode;
   window.pwUnlock = pwUnlock;
+})();
+</script>
+
+
+<script>
+(function() {
+  var jumpLinks = document.querySelectorAll('.jump-link');
+  if (!jumpLinks.length) return;
+
+  function getOffset() {
+    // Site nav (66px) + jump nav (42px) + small buffer
+    return 66 + 42 + 8;
+  }
+
+  function updateActive() {
+    var offset = getOffset();
+    var sections = [];
+    jumpLinks.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      var el = document.getElementById(id);
+      if (el) sections.push({ id: id, el: el, link: link });
+    });
+
+    var current = null;
+    sections.forEach(function(s) {
+      var top = s.el.getBoundingClientRect().top;
+      if (top <= offset + 20) current = s;
+    });
+
+    jumpLinks.forEach(function(l) { l.classList.remove('active'); });
+    if (current) {
+      current.link.classList.add('active');
+      // Scroll the jump link into view within its nav
+      var nav = document.querySelector('.jump-nav-inner');
+      if (nav) {
+        var linkLeft = current.link.offsetLeft;
+        var linkWidth = current.link.offsetWidth;
+        var navWidth = nav.offsetWidth;
+        var scrollTarget = linkLeft - (navWidth / 2) + (linkWidth / 2);
+        nav.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
 })();
 </script>
 
