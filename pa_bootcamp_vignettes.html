@@ -92,14 +92,91 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   .vc { break-inside:avoid; border:1px solid #ccc; margin-bottom:12px; }
 }
 @media(max-width:600px) { .how-steps { flex-direction:column; } .hero { padding:32px 20px; } }
+
+/* ════ VIGNETTE ACCESS CODE LOCK ════ */
+
+/* Site nav */
+.site-nav{position:sticky;top:0;z-index:200;background:rgba(11,23,46,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.site-nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.site-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.site-brand svg{width:28px;height:28px}
+.site-brand-t{font-family:'Sora',sans-serif;font-weight:800;font-size:17px;color:#fff}
+.site-brand-t b{color:#60a5fa}
+.site-nav-links{display:flex;align-items:center;gap:20px}
+.site-nav-links a{font-family:'Sora',sans-serif;font-weight:600;font-size:13px;color:#aebbd2;text-decoration:none;transition:.15s}
+.site-nav-links a:hover{color:#fff}
+.site-nav-cta{padding:8px 16px;background:#3b82f6;color:#fff!important;border-radius:9px;font-size:13px!important}
+.site-nav-cta:hover{background:#2563eb!important}
+
+/* Preview badge on first 3 */
+.vc-preview-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(26,107,58,.1);color:#1A6B3A;border:1.5px solid rgba(26,107,58,.25);border-radius:4px;padding:3px 9px;margin-left:8px;vertical-align:middle}
+
+/* Locked vignette */
+.vc.vc-locked{position:relative;overflow:hidden}
+.vc.vc-locked .vc-stem,.vc.vc-locked .vc-pause,.vc.vc-locked .vc-reveal,.vc.vc-locked .vc-answer,.vc.vc-locked .vc-pearl{filter:blur(4px);user-select:none;pointer-events:none}
+.vc.vc-locked::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(248,250,252,0) 0%,rgba(248,250,252,.92) 50%,rgba(248,250,252,1) 100%);z-index:2;pointer-events:none}
+.vc-lock-callout{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;background:rgba(248,250,252,.98);border-top:1px dashed #E2E8F0;font-size:12.5px;color:#6B7A8D;text-align:center}
+.vc-lock-callout a{color:#0F1F3D;font-weight:700;text-decoration:none}
+.vc-lock-callout a:hover{text-decoration:underline}
+
+/* Gate between preview and locked content */
+.vig-gate{background:white;border:2px solid #E2E8F0;border-radius:16px;padding:40px 32px;margin:32px 0;text-align:center;box-shadow:0 8px 40px rgba(15,31,61,.09);position:relative;overflow:hidden}
+.vig-gate::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#0F1F3D 0%,#3b82f6 50%,#0D6E6E 100%)}
+.vig-gate-eyebrow{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#3b82f6;margin-bottom:14px}
+.vig-gate h2{font-family:'Sora',sans-serif;font-size:clamp(20px,3vw,26px);font-weight:800;color:#0F1F3D;margin-bottom:10px;line-height:1.2}
+.vig-gate p{font-size:14px;color:#6B7A8D;line-height:1.65;max-width:520px;margin:0 auto 24px}
+.vig-code-wrap{background:#F7F9FC;border:1.5px solid #E2E8F0;border-radius:12px;padding:20px 24px;max-width:400px;margin:0 auto 24px}
+.vig-code-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6B7A8D;margin-bottom:10px}
+.vig-code-row{display:flex;gap:8px}
+.vig-code-input{flex:1;padding:11px 16px;border:2px solid #E2E8F0;border-radius:10px;font-family:'DM Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F1F3D;outline:none;transition:border-color .15s;text-align:center}
+.vig-code-input:focus{border-color:#0F1F3D}
+.vig-code-input.error{border-color:#C8392B;animation:vigshake .3s}
+@keyframes vigshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.vig-code-btn{padding:11px 20px;background:#0F1F3D;color:white;border:none;border-radius:10px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap}
+.vig-code-btn:hover{background:#1a3058}
+.vig-code-error{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C8392B;margin-top:8px;display:none}
+.vig-code-error.show{display:block}
+.vig-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:#aebbd2;font-size:12px}
+.vig-divider::before,.vig-divider::after{content:'';flex:1;height:1px;background:#E2E8F0}
+.vig-enroll-link{font-size:13px;color:#6B7A8D;text-decoration:none}
+.vig-enroll-link b{color:#0F1F3D}
+.vig-enroll-link:hover b{text-decoration:underline}
+.vig-unlocked-banner{display:none;background:rgba(26,107,58,.08);border:1.5px solid rgba(26,107,58,.25);border-radius:10px;padding:10px 16px;font-family:'DM Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1A6B3A;text-align:center;margin:24px 0 16px}
+body.vig-unlocked .vig-unlocked-banner{display:block}
+body.vig-unlocked .vig-gate .vig-gate-eyebrow,
+body.vig-unlocked .vig-gate h2,
+body.vig-unlocked .vig-gate p,
+body.vig-unlocked .vig-gate .vig-code-wrap,
+body.vig-unlocked .vig-gate .vig-divider,
+body.vig-unlocked .vig-gate .vig-enroll-link{display:none!important}
+body.vig-unlocked .vig-gate{padding:12px 20px;border-color:rgba(26,107,58,.25);margin:8px 0}
+body.vig-unlocked .vc.vc-locked .vc-stem,
+body.vig-unlocked .vc.vc-locked .vc-pause,
+body.vig-unlocked .vc.vc-locked .vc-reveal,
+body.vig-unlocked .vc.vc-locked .vc-answer,
+body.vig-unlocked .vc.vc-locked .vc-pearl{filter:none!important;user-select:auto!important;pointer-events:auto!important}
+body.vig-unlocked .vc.vc-locked::after{display:none!important}
+body.vig-unlocked .vc-lock-callout{display:none!important}
+body.vig-unlocked .vc-preview-badge{display:none}
+
 </style>
 </head>
 <body>
 
-<div class="top-bar">
-  <div class="tb-brand">PA <span>Clinical</span> Bootcamp</div>
-  <div class="tb-badge">Vignette Teaching Library — Rajiv Choudhary MD MPH</div>
-</div>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="index.html">
+      <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="8" stroke="#79a0f3" stroke-width="2.4"/><path d="M14 20h12M20 14v12" stroke="#79a0f3" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="site-brand-t">PA <b>Clinical</b> Bootcamp</span>
+    </a>
+    <div class="site-nav-links">
+      <a href="index.html#bootcamp">The Bootcamp</a>
+      <a href="pa-board-questions.html">Question Banks</a>
+      <a href="pa-bootcamp-ecg.html">ECG</a>
+      <a class="site-nav-cta" href="index.html#contact">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
 <div class="hero">
   <h1>Clinical Vignette Teaching Library</h1>
@@ -143,7 +220,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   <div class="sub-head">Physiology & Foundations</div>
 <div class="vc" id="vc-f1">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><span class="vc-preview-badge">👁 Free Preview</span>
   </div>
   <div class="vc-stem">A 68-year-old man with dilated cardiomyopathy (EF 20%) develops hypotension, cold clammy skin, and oliguria despite being volume-overloaded with bilateral crackles and 3+ pitting edema.</div>
   <div class="vc-pause">
@@ -166,7 +243,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
 </div>
 <div class="vc" id="vc-f2">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><span class="vc-preview-badge">👁 Free Preview</span>
   </div>
   <div class="vc-stem">A 52-year-old woman presents with palpitations. Her EKG shows a regular narrow complex tachycardia at 160 bpm with no visible P waves. Her BP is 118/76 and she is hemodynamically stable.</div>
   <div class="vc-pause">
@@ -189,7 +266,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
 </div>
 <div class="vc" id="vc-murmurs">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><span class="vc-preview-badge">👁 Free Preview</span>
   </div>
   <div class="vc-stem">A 24-year-old competitive swimmer has a grade 2/6 systolic ejection murmur at the left upper sternal border that disappears when he stands up. He has no symptoms and a normal EKG.</div>
   <div class="vc-pause">
@@ -210,9 +287,30 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-shock_types">
+
+<div class="vig-gate" id="vig-gate">
+  <div class="vig-unlocked-banner" id="vig-unlocked-banner">✅ Full Access Unlocked — All 83 Vignettes</div>
+  <div class="vig-gate-eyebrow">🔒 Full Access Required</div>
+  <h2>You've seen the preview.<br>Unlock all 83 vignettes.</h2>
+  <p>The 3 vignettes above are free. The remaining 80 — including Intermediate, Advanced, and Trap Level cases across Cardiology, Pulmonary, GI & ID — are included with bootcamp enrollment.</p>
+  <div class="vig-code-wrap">
+    <div class="vig-code-label">Have an access code?</div>
+    <div class="vig-code-row">
+      <input class="vig-code-input" id="vig-code-input" type="text" placeholder="ENTER CODE" maxlength="30"
+        onkeydown="if(event.key==='Enter') vigSubmit()">
+      <button class="vig-code-btn" onclick="vigSubmit()">Unlock →</button>
+    </div>
+    <div class="vig-code-error" id="vig-code-error">❌ Incorrect code — check with your instructor</div>
+  </div>
+  <div class="vig-divider">or</div>
+  <a class="vig-enroll-link" href="https://paclinicalbootcamp.com/#contact">
+    Don't have a code? <b>Enroll in the bootcamp →</b>
+  </a>
+</div>
+
+<div class="vc vc-locked" id="vc-shock_types">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">Four patients arrive simultaneously: (A) trauma victim with BP 70/40, HR 130, pale, cool extremities; (B) septic patient with BP 80/50, HR 128, warm flushed skin, bounding pulses; (C) STEMI patient with BP 70/40, HR 110, elevated JVP, bilateral crackles; (D) massive PE patient with BP 75/40, HR 125, elevated JVP, clear lungs.</div>
   <div class="vc-pause">
@@ -233,9 +331,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-f3">
+<div class="vc vc-locked" id="vc-f3">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old diabetic man has 2 hours of 'indigestion' and diaphoresis. His EKG shows a 1mm ST depression in V1-V2 with tall R waves and upright T waves. Initial troponin is negative.</div>
   <div class="vc-pause">
@@ -259,9 +357,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Ischemic Heart Disease</div>
-<div class="vc" id="vc-c1">
+<div class="vc vc-locked" id="vc-c1">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 61-year-old woman is rushed to the ED with crushing substernal chest pain for 90 minutes. EKG: 4mm ST elevation in V1–V4. BP 96/60, HR 108. She had a hemorrhagic stroke 3 weeks ago.</div>
   <div class="vc-pause">
@@ -282,9 +380,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-c2">
+<div class="vc vc-locked" id="vc-c2">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 49-year-old smoker has chest pain only during emotional stress and cold exposure. Rest EKG is normal. Exercise stress test is negative. Coronary angiogram shows 20% stenosis in the LAD but transient spasm is induced with ergonovine.</div>
   <div class="vc-pause">
@@ -308,9 +406,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Arrhythmias</div>
-<div class="vc" id="vc-a1">
+<div class="vc vc-locked" id="vc-a1">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 72-year-old man with newly diagnosed AFib (first detected 36 hours ago) is rate-controlled with metoprolol. His CHA₂DS₂-VASc score is 4. You plan cardioversion.</div>
   <div class="vc-pause">
@@ -331,9 +429,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-a2">
+<div class="vc vc-locked" id="vc-a2">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 44-year-old with palpitations has a regular wide-complex tachycardia at 186 bpm. He is hemodynamically stable. His baseline EKG (brought from home) shows a delta wave and short PR interval.</div>
   <div class="vc-pause">
@@ -354,9 +452,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-a3">
+<div class="vc vc-locked" id="vc-a3">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 78-year-old woman is found to have a PR interval of 280ms on a routine EKG. She is asymptomatic. One week later she develops complete heart block with a ventricular escape rate of 38 bpm and syncopal episodes.</div>
   <div class="vc-pause">
@@ -380,9 +478,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Heart Failure & Cardiomyopathies</div>
-<div class="vc" id="vc-h1">
+<div class="vc vc-locked" id="vc-h1">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 65-year-old man with HFrEF (EF 30%) is on carvedilol and lisinopril. He is NYHA class II, stable. You want to optimize his GDMT. His K+ is 4.2, eGFR 58. He has no history of hospitalization for HF.</div>
   <div class="vc-pause">
@@ -403,9 +501,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cm1">
+<div class="vc vc-locked" id="vc-cm1">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 17-year-old basketball player collapses during practice. He is resuscitated from ventricular fibrillation. Family history: his uncle died suddenly at age 28 during a football game. Echo shows LV wall thickness of 22mm with systolic anterior motion of the mitral valve.</div>
   <div class="vc-pause">
@@ -426,9 +524,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cm2">
+<div class="vc vc-locked" id="vc-cm2">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 42-year-old man with a history of alcohol use (1 pint of whiskey daily for 15 years) presents with progressive dyspnea and bilateral leg edema. Echo shows EF of 18%, 4-chamber dilation, and moderate MR.</div>
   <div class="vc-pause">
@@ -449,9 +547,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-restrictive_cmp">
+<div class="vc vc-locked" id="vc-restrictive_cmp">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 71-year-old man with multiple myeloma has progressive dyspnea and lower extremity edema. Echo shows markedly thickened LV walls (17mm), a 'sparkling' myocardial texture, EF 42%, and Grade III diastolic dysfunction. His EKG shows low voltage throughout despite the thick walls.</div>
   <div class="vc-pause">
@@ -475,9 +573,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Valvular & Pericardial Disease</div>
-<div class="vc" id="vc-v1">
+<div class="vc vc-locked" id="vc-v1">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 78-year-old woman has exertional syncope, angina, and dyspnea on climbing one flight of stairs. Exam reveals a harsh crescendo-decrescendo murmur at the right upper sternal border with radiation to the carotids. Her aortic valve area is 0.7 cm².</div>
   <div class="vc-pause">
@@ -498,9 +596,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-v2">
+<div class="vc vc-locked" id="vc-v2">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 28-year-old IV drug user has a 5-day history of fever, back pain, and new confusion. Blood cultures grow MRSA. Echo shows a large (1.2 cm) tricuspid valve vegetation with moderate tricuspid regurgitation.</div>
   <div class="vc-pause">
@@ -521,9 +619,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-p1">
+<div class="vc vc-locked" id="vc-p1">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 45-year-old with newly diagnosed lung adenocarcinoma develops progressive dyspnea over 3 days. BP 84/60, HR 128, JVD present, lungs clear. Heart sounds are muffled. Pulsus paradoxus is 18 mmHg. Bedside echo shows a large pericardial effusion with RV diastolic collapse.</div>
   <div class="vc-pause">
@@ -544,9 +642,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-p2">
+<div class="vc vc-locked" id="vc-p2">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 19-year-old college student presents with 5 days of chest pain that worsens when lying flat and improves leaning forward. He had a URI 2 weeks ago. Troponin is 3.2 ng/mL. EKG shows diffuse ST elevation with PR depression.</div>
   <div class="vc-pause">
@@ -570,9 +668,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Hypertension & Shock</div>
-<div class="vc" id="vc-htn1">
+<div class="vc vc-locked" id="vc-htn1">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 55-year-old man presents with BP 220/130, blurry vision, and severe headache. Fundoscopic exam shows papilledema and flame hemorrhages. His creatinine has risen from 0.9 to 2.4 in 24 hours. He is alert and oriented.</div>
   <div class="vc-pause">
@@ -593,9 +691,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-sh1">
+<div class="vc vc-locked" id="vc-sh1">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 33-year-old woman with known anaphylaxis to bee stings is stung at a picnic. Within minutes: BP 62/40, HR 142, diffuse urticaria, stridor. She has no epinephrine auto-injector.</div>
   <div class="vc-pause">
@@ -619,9 +717,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Vascular Disease</div>
-<div class="vc" id="vc-vas1">
+<div class="vc vc-locked" id="vc-vas1">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 62-year-old hypertensive man has sudden tearing chest pain radiating to his back. BP right arm 178/96, left arm 142/84. CXR shows widened mediastinum. He is on an NSAID for gout and takes amlodipine.</div>
   <div class="vc-pause">
@@ -642,9 +740,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-vas2">
+<div class="vc vc-locked" id="vc-vas2">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 38-year-old woman on oral contraceptives presents with 3 days of pleuritic chest pain and dyspnea. HR 112, SpO₂ 92%, BP 118/74. Wells score is 6. EKG shows sinus tachycardia.</div>
   <div class="vc-pause">
@@ -665,9 +763,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-vas3">
+<div class="vc vc-locked" id="vc-vas3">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 68-year-old smoker complains of bilateral calf cramping after walking 2 blocks that resolves with rest. His ABI is 0.62 in the right leg and 0.71 in the left.</div>
   <div class="vc-pause">
@@ -691,9 +789,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Gap Topics</div>
-<div class="vc" id="vc-lipids">
+<div class="vc vc-locked" id="vc-lipids">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 52-year-old woman with T2DM, no history of ASCVD, LDL 148, is started on atorvastatin 40mg. Six weeks later she reports severe bilateral leg pain. CK is 8,400 U/L. She was recently started on diltiazem for AFib.</div>
   <div class="vc-pause">
@@ -714,9 +812,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-chd">
+<div class="vc vc-locked" id="vc-chd">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 6-week-old infant is brought in for poor feeding and diaphoresis with feedings. Exam: weight gain suboptimal, HR 168, RR 52, hepatomegaly. A holosystolic murmur is heard at the LLSB. CXR shows cardiomegaly and increased pulmonary vascular markings.</div>
   <div class="vc-pause">
@@ -737,9 +835,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-sss_pvc">
+<div class="vc vc-locked" id="vc-sss_pvc">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 65-year-old woman has episodic palpitations followed by dizziness. Her Holter shows alternating periods of sinus bradycardia (38 bpm) and paroxysmal AFib at 168 bpm. Her cardiologist wants to start flecainide for the AFib.</div>
   <div class="vc-pause">
@@ -760,9 +858,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-orthostatic_htn">
+<div class="vc vc-locked" id="vc-orthostatic_htn">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 78-year-old man on tamsulosin for BPH, lisinopril, and furosemide has a witnessed fall in his bathroom in the morning after rising from bed. He denies pre-syncope but his wife reports he stood up, took two steps, and went down. BP lying: 142/88. BP standing (1 min): 104/62.</div>
   <div class="vc-pause">
@@ -792,9 +890,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Obstructive Disease</div>
-<div class="vc" id="vc-asthma">
+<div class="vc vc-locked" id="vc-asthma">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 22-year-old female college student with asthma uses her albuterol inhaler 4 times per week and wakes up with symptoms twice a month. She has had no exacerbations requiring oral steroids.</div>
   <div class="vc-pause">
@@ -815,9 +913,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-copd">
+<div class="vc vc-locked" id="vc-copd">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 66-year-old male smoker with COPD presents with worsening dyspnea and increased yellow sputum for 3 days. SpO₂ is 81% on room air. You apply high-flow oxygen and bring his SpO₂ to 99%. Thirty minutes later he is drowsier and a repeat ABG shows pCO₂ 68 mmHg (baseline 52).</div>
   <div class="vc-pause">
@@ -841,9 +939,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Diagnostic</div>
-<div class="vc" id="vc-pfts">
+<div class="vc vc-locked" id="vc-pfts">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old never-smoker woman has progressive exertional dyspnea. PFTs: FVC 58% predicted, FEV1 62% predicted, FEV1/FVC 0.86, TLC 62% predicted, DLCO 41% predicted.</div>
   <div class="vc-pause">
@@ -867,9 +965,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Infectious & Inflammatory</div>
-<div class="vc" id="vc-cap">
+<div class="vc vc-locked" id="vc-cap">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 71-year-old nursing home resident with DM2 presents with fever, productive cough, and right lower lobe consolidation on CXR. CURB-65 score is 3. She is started on azithromycin monotherapy.</div>
   <div class="vc-pause">
@@ -890,9 +988,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-tb">
+<div class="vc vc-locked" id="vc-tb">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 34-year-old refugee from Southeast Asia has a positive IGRA. CXR shows a left upper lobe nodule with calcification and no infiltrates. He has no symptoms. HIV test is negative. He was previously treated for TB 12 years ago and reports he completed a 'short course.'</div>
   <div class="vc-pause">
@@ -913,9 +1011,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ild_topic">
+<div class="vc vc-locked" id="vc-ild_topic">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 64-year-old man with 40 pack-years of smoking has progressive dry cough and dyspnea over 18 months. Exam reveals bilateral inspiratory crackles at the bases and digital clubbing. HRCT shows bilateral subpleural honeycombing with traction bronchiectasis. PFTs show restriction with ↓DLCO.</div>
   <div class="vc-pause">
@@ -936,9 +1034,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-sarcoid">
+<div class="vc vc-locked" id="vc-sarcoid">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 28-year-old Black woman has bilateral ankle arthritis, painful red nodules on her shins, and bilateral hilar adenopathy on CXR. Her ACE level is 2× the upper limit of normal. She is afebrile and has no respiratory complaints.</div>
   <div class="vc-pause">
@@ -962,9 +1060,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Vascular & Pleural</div>
-<div class="vc" id="vc-pe">
+<div class="vc vc-locked" id="vc-pe">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 44-year-old woman on OCPs is 3 weeks post-right knee replacement. She presents with pleuritic chest pain and dyspnea. HR 116, SpO₂ 89%. EKG shows new S1Q3T3 and sinus tachycardia. Wells score is 7. BP 68/40.</div>
   <div class="vc-pause">
@@ -985,9 +1083,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-phtn">
+<div class="vc vc-locked" id="vc-phtn">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 38-year-old woman has progressive dyspnea and a syncopal episode with exertion. Exam: loud P2, RV heave, and JVD. Echo shows RVSP of 68 mmHg. Right heart catheterization confirms mPAP 42 mmHg with PCWP 10 mmHg (normal).</div>
   <div class="vc-pause">
@@ -1008,9 +1106,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-effusion">
+<div class="vc vc-locked" id="vc-effusion">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old man with recently diagnosed lung adenocarcinoma develops progressive dyspnea. CXR shows a large right pleural effusion. Thoracentesis yields 1.2L of bloody fluid. Pleural LDH:serum LDH ratio is 0.8. Cytology is pending.</div>
   <div class="vc-pause">
@@ -1031,9 +1129,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ptx">
+<div class="vc vc-locked" id="vc-ptx">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 26-year-old intubated ICU patient with ARDS (on lung-protective ventilation, PEEP 14, FiO₂ 0.80) suddenly deteriorates: SpO₂ drops from 88% to 62%, BP drops from 118/72 to 74/40, and peak airway pressures spike from 28 to 52 cmH₂O. Breath sounds are absent on the left.</div>
   <div class="vc-pause">
@@ -1057,9 +1155,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Malignancy & Critical Care</div>
-<div class="vc" id="vc-lung_cancer">
+<div class="vc vc-locked" id="vc-lung_cancer">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 67-year-old woman with 45 pack-years has a solitary 2.2 cm left upper lobe mass on CT. Biopsy shows adenocarcinoma positive for EGFR exon 19 deletion. She is staged as IVA (contralateral nodule only).</div>
   <div class="vc-pause">
@@ -1080,9 +1178,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ards">
+<div class="vc vc-locked" id="vc-ards">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 52-year-old with pancreatitis develops worsening hypoxia on day 2 of hospitalization. CXR shows bilateral diffuse opacities. ABG on 60% O₂: PaO₂ 72 mmHg (P:F ratio = 120). You intubate and set TV at 8 mL/kg ideal body weight. Plateau pressure is 34 cmH₂O.</div>
   <div class="vc-pause">
@@ -1106,9 +1204,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Gap Topics</div>
-<div class="vc" id="vc-osa">
+<div class="vc vc-locked" id="vc-osa">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 52-year-old obese man with resistant hypertension reports his wife keeps moving to the guest room because of his snoring. He falls asleep in the middle of conversations. Epworth score is 18. His BP is 168/102 on 4 antihypertensive medications.</div>
   <div class="vc-pause">
@@ -1129,9 +1227,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cf">
+<div class="vc vc-locked" id="vc-cf">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 16-year-old with known CF has a 2-week history of worsening cough, ↑sputum production, and 4 kg weight loss. Sputum culture grows mucoid Pseudomonas aeruginosa. CXR shows new right upper lobe infiltrate. His FEV1 has dropped from 72% to 58% predicted.</div>
   <div class="vc-pause">
@@ -1152,9 +1250,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-pertussis">
+<div class="vc vc-locked" id="vc-pertussis">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 6-week-old infant has paroxysmal coughing episodes followed by a high-pitched inspiratory sound and post-tussive emesis. CBC shows WBC 42,000 with 78% lymphocytes. The mother received no Tdap during pregnancy.</div>
   <div class="vc-pause">
@@ -1175,9 +1273,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-pneumoconiosis">
+<div class="vc vc-locked" id="vc-pneumoconiosis">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old sandblaster with 25 years of occupational exposure develops progressive dyspnea. CXR shows bilateral upper lobe nodules, hilar lymph node enlargement with 'eggshell' calcification, and a large conglomerate mass in the right upper lobe. PPD is 18 mm positive.</div>
   <div class="vc-pause">
@@ -1207,9 +1305,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Upper GI</div>
-<div class="vc" id="vc-gerd">
+<div class="vc vc-locked" id="vc-gerd">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 44-year-old obese man has a 6-month history of burning epigastric pain and regurgitation after meals that worsens when lying down. He responds partially to antacids. He has no dysphagia, weight loss, or GI bleeding.</div>
   <div class="vc-pause">
@@ -1230,9 +1328,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-pud">
+<div class="vc vc-locked" id="vc-pud">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 48-year-old man is found on endoscopy to have a 1.2 cm duodenal ulcer. H. pylori biopsy is positive. He takes ibuprofen daily for knee arthritis. He is asymptomatic between episodes.</div>
   <div class="vc-pause">
@@ -1253,9 +1351,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ugib">
+<div class="vc vc-locked" id="vc-ugib">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 67-year-old on warfarin and aspirin presents with 4 hours of hematemesis and melena. BP 88/56, HR 126. He is diaphoretic. INR is 3.4. Hgb is 6.8 g/dL.</div>
   <div class="vc-pause">
@@ -1279,9 +1377,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Liver & Biliary</div>
-<div class="vc" id="vc-varices">
+<div class="vc vc-locked" id="vc-varices">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 52-year-old with alcoholic cirrhosis (Child-Pugh C) presents with massive hematemesis. BP 72/44, HR 138. He is combative. Endoscopy shows actively bleeding esophageal varices. Band ligation is performed.</div>
   <div class="vc-pause">
@@ -1302,9 +1400,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cirrhosis">
+<div class="vc vc-locked" id="vc-cirrhosis">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old with cirrhosis is admitted with new confusion and asterixis. His ascites has increased. Diagnostic paracentesis: PMN count 380 cells/mm³. Creatinine rises from 1.1 to 2.4 mg/dL during hospitalization despite IV fluids.</div>
   <div class="vc-pause">
@@ -1325,9 +1423,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-hbv">
+<div class="vc vc-locked" id="vc-hbv">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 26-year-old nurse has a needle-stick injury from an HBsAg-positive patient. She cannot locate her vaccination records. Her baseline blood draw results: HBsAg negative, Anti-HBs negative, Anti-HBc IgM negative, Anti-HBc IgG negative.</div>
   <div class="vc-pause">
@@ -1348,9 +1446,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-liver_labs">
+<div class="vc vc-locked" id="vc-liver_labs">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 38-year-old man with daily alcohol use for 10 years has AST 278, ALT 118, GGT 4× ULN, bilirubin 3.2. His acetaminophen level is undetectable. He denies taking acetaminophen but reports his usual 8 drinks per day.</div>
   <div class="vc-pause">
@@ -1371,9 +1469,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-biliary">
+<div class="vc vc-locked" id="vc-biliary">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 68-year-old woman has 2 days of RUQ pain, fever to 39.4°C, and jaundice. She is confused. BP 84/52. Her bilirubin is 6.8, ALP 4× ULN, WBC 22,000. RUQ ultrasound shows a dilated CBD at 14mm.</div>
   <div class="vc-pause">
@@ -1397,9 +1495,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Lower GI & IBD</div>
-<div class="vc" id="vc-lgib">
+<div class="vc vc-locked" id="vc-lgib">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 74-year-old man has painless bright red blood per rectum that started suddenly. He had 3 prior similar episodes, all self-limited. He takes aspirin and lisinopril. Vital signs are stable. BUN:Creatinine ratio is 14.</div>
   <div class="vc-pause">
@@ -1420,9 +1518,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ibd">
+<div class="vc vc-locked" id="vc-ibd">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 24-year-old woman has 4 months of crampy abdominal pain, 6–8 loose stools per day with blood and mucus, and 8 lb weight loss. Colonoscopy shows continuous erythema from the rectum to the splenic flexure with pseudopolyps but no skip lesions. Biopsy: crypt abscesses, no granulomas.</div>
   <div class="vc-pause">
@@ -1443,9 +1541,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-crc">
+<div class="vc vc-locked" id="vc-crc">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 46-year-old healthy man with no family history of colorectal cancer asks when he should have his first colonoscopy. He read online that it was age 50.</div>
   <div class="vc-pause">
@@ -1466,9 +1564,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-diverticular">
+<div class="vc vc-locked" id="vc-diverticular">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 64-year-old man has left lower quadrant pain, fever 38.8°C, and WBC 14,200. CT shows pericolonic fat stranding around the sigmoid colon with a small (2.5 cm) adjacent abscess. He has no peritonitis and is tolerating liquids.</div>
   <div class="vc-pause">
@@ -1492,9 +1590,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Pancreas & Small Intestine</div>
-<div class="vc" id="vc-acute_panc">
+<div class="vc vc-locked" id="vc-acute_panc">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 44-year-old obese woman has sudden severe epigastric pain radiating to the back after a fatty meal. Lipase is 4,200 U/L. She appears dehydrated. Abdominal US shows gallstones but no CBD dilation.</div>
   <div class="vc-pause">
@@ -1515,9 +1613,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-chronic_panc">
+<div class="vc vc-locked" id="vc-chronic_panc">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 48-year-old man with a 20-year alcohol use history has recurrent epigastric pain, 25 lb weight loss, and oily, foul-smelling stools that float and are difficult to flush. CT abdomen shows pancreatic calcifications.</div>
   <div class="vc-pause">
@@ -1538,9 +1636,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-celiac">
+<div class="vc vc-locked" id="vc-celiac">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 31-year-old woman has fatigue, iron-deficiency anemia that doesn't respond to oral iron, and intermittent diarrhea. She has a BMI of 19. Her anti-tTG IgA is strongly positive. Total IgA level is normal.</div>
   <div class="vc-pause">
@@ -1561,9 +1659,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ibs">
+<div class="vc vc-locked" id="vc-ibs">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 29-year-old woman has 6 months of crampy lower abdominal pain that improves with bowel movements. She alternates between diarrhea and constipation. CRP, CBC, fecal calprotectin, and colonoscopy are all normal.</div>
   <div class="vc-pause">
@@ -1587,9 +1685,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Gap Topics</div>
-<div class="vc" id="vc-appendicitis">
+<div class="vc vc-locked" id="vc-appendicitis">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 19-year-old woman presents with 14 hours of periumbilical pain that has migrated to the right lower quadrant. She has anorexia and vomited twice. T 38.2°C, HR 104, tenderness at McBurney's point with rebound. WBC 14,800.</div>
   <div class="vc-pause">
@@ -1610,9 +1708,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-hepatitis_ac">
+<div class="vc vc-locked" id="vc-hepatitis_ac">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 34-year-old man who had a blood transfusion in 1988 is found on routine screening to have a positive anti-HCV antibody. He has no symptoms. HCV RNA is detectable at 2.4 million IU/mL. Genotype 1a. FIB-4 score is 1.8.</div>
   <div class="vc-pause">
@@ -1633,9 +1731,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-nafld">
+<div class="vc vc-locked" id="vc-nafld">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 51-year-old woman with T2DM, HTN, and BMI 38 has AST 52, ALT 78 on routine labs. She denies alcohol use. RUQ ultrasound shows a hyperechoic liver. Her FIB-4 score is 2.9.</div>
   <div class="vc-pause">
@@ -1656,9 +1754,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-hernias">
+<div class="vc vc-locked" id="vc-hernias">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 71-year-old man presents with sudden severe groin pain, nausea, and vomiting after lifting heavy boxes. Exam shows a tender, firm, non-reducible lump just below the inguinal ligament and lateral to the pubic tubercle.</div>
   <div class="vc-pause">
@@ -1679,9 +1777,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-bowel_obstruction">
+<div class="vc vc-locked" id="vc-bowel_obstruction">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 68-year-old man with two prior abdominal surgeries develops sudden crampy abdominal pain, bilious vomiting, and abdominal distension over 6 hours. AXR shows dilated small bowel loops with air-fluid levels and no air in the colon. He had a similar episode 2 years ago that resolved with conservative management.</div>
   <div class="vc-pause">
@@ -1702,9 +1800,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-anorectal">
+<div class="vc vc-locked" id="vc-anorectal">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 32-year-old woman has 4 months of severe sharp pain with defecation and a small amount of bright red blood on the toilet paper. She reports the pain peaks during defecation and then lasts for 30–60 minutes after. She has chronic constipation.</div>
   <div class="vc-pause">
@@ -1734,9 +1832,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Systemic Syndromes</div>
-<div class="vc" id="vc-sepsis">
+<div class="vc vc-locked" id="vc-sepsis">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 68-year-old nursing home patient arrives obtunded with BP 74/44, HR 128, T 39.4°C, RR 28, and lactate 5.2 mmol/L. Blood cultures are drawn. You want to start broad-spectrum antibiotics — but the ICU attending says 'we need a CT first to find the source.'</div>
   <div class="vc-pause">
@@ -1757,9 +1855,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cap">
+<div class="vc vc-locked" id="vc-cap">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 58-year-old man with COPD is admitted with productive cough, fever, and a right lower lobe infiltrate. He is saturating 91% on room air. He is not on ICU-level support. His CURB-65 score is 2.</div>
   <div class="vc-pause">
@@ -1780,9 +1878,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-uti">
+<div class="vc vc-locked" id="vc-uti">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 24-year-old healthy woman has 2 days of dysuria, urinary frequency, and urgency. She is afebrile. UA: positive leukocyte esterase, nitrites, WBC 30–40/hpf, bacteria +3. She is not pregnant.</div>
   <div class="vc-pause">
@@ -1806,9 +1904,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">CNS & Endovascular</div>
-<div class="vc" id="vc-meningitis">
+<div class="vc vc-locked" id="vc-meningitis">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 19-year-old college student has 6 hours of fever, severe headache, neck stiffness, and photophobia. He is confused. On exam: non-blanching petechiae on his legs and trunk. BP 94/56.</div>
   <div class="vc-pause">
@@ -1829,9 +1927,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ie">
+<div class="vc vc-locked" id="vc-ie">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 45-year-old man with a prosthetic aortic valve (placed 3 years ago) develops fever, night sweats, and malaise over 3 weeks. Blood cultures grow coagulase-negative Staphylococcus epidermidis × 3/3 bottles. Echo shows a new 8mm oscillating mass on the prosthetic valve.</div>
   <div class="vc-pause">
@@ -1855,9 +1953,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">STIs & GI Infections</div>
-<div class="vc" id="vc-sti">
+<div class="vc vc-locked" id="vc-sti">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 22-year-old sexually active woman has vaginal discharge, dyspareunia, and lower abdominal pain for 3 days. Pelvic exam: cervical motion tenderness, adnexal tenderness bilaterally, uterine tenderness. Pregnancy test is negative. Cervical NAAT is pending.</div>
   <div class="vc-pause">
@@ -1878,9 +1976,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-cdiff">
+<div class="vc vc-locked" id="vc-cdiff">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 72-year-old hospitalized patient has 8 watery stools per day for 4 days following a 10-day course of clindamycin. C. diff toxin PCR is positive. WBC 24,000. Temperature 38.9°C. He is alert and hemodynamically stable.</div>
   <div class="vc-pause">
@@ -1904,9 +2002,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Immunocompromised & Special</div>
-<div class="vc" id="vc-hiv">
+<div class="vc vc-locked" id="vc-hiv">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 32-year-old man newly diagnosed with HIV has a CD4 count of 68 and HIV RNA of 240,000 copies/mL. He has a 2-week history of headache, fever, and neck stiffness. CSF opening pressure is 340 mmH₂O, lymphocytes 18, glucose 38, protein 90, India ink +.</div>
   <div class="vc-pause">
@@ -1927,9 +2025,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-influenza">
+<div class="vc vc-locked" id="vc-influenza">
   <div class="vc-header" style="background:rgba(26,107,58,.08);border-left:4px solid #1A6B3A;">
-    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div>
+    <div class="vc-diff" style="color:#1A6B3A;">🟢 FOUNDATIONAL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 68-year-old woman with COPD presents on day 2 of influenza-like illness — fever, myalgia, cough. Rapid influenza test is positive. She is afebrile at the office but appears fatigued. Her daughter also has flu symptoms.</div>
   <div class="vc-pause">
@@ -1950,9 +2048,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-covid">
+<div class="vc vc-locked" id="vc-covid">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 61-year-old man with hypertension and DM2 tests positive for COVID-19 on day 2 of mild symptoms (fatigue, rhinorrhea, low-grade fever). He is not hospitalized. His eGFR is 42, and he is on simvastatin 40mg.</div>
   <div class="vc-pause">
@@ -1973,9 +2071,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-fungal">
+<div class="vc vc-locked" id="vc-fungal">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 26-year-old HIV-positive man (CD4 44, not on ART) from Arizona develops fever, weight loss, and a persistent non-productive cough for 3 weeks. CXR shows bilateral diffuse nodular infiltrates. BAL shows spherules with endospores. Serum Coccidioides IgM is positive.</div>
   <div class="vc-pause">
@@ -1996,9 +2094,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-lyme">
+<div class="vc vc-locked" id="vc-lyme">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 42-year-old woman in Connecticut had a tick bite 6 weeks ago and a self-resolving rash she described as 'like a target.' Now she has bilateral facial droop. Her ELISA for Lyme is positive; Western blot is positive for IgG only (IgM negative).</div>
   <div class="vc-pause">
@@ -2022,9 +2120,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
   </div>
   <div class="sub-section">
   <div class="sub-head">Gap Topics</div>
-<div class="vc" id="vc-rheumatic_fever">
+<div class="vc vc-locked" id="vc-rheumatic_fever">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 10-year-old boy has a 2-week history of fever, painful swollen knees that resolved and then his wrists became swollen, and the school nurse noticed he has been making involuntary arm movements during class. His throat culture was positive for GAS 3 weeks ago.</div>
   <div class="vc-pause">
@@ -2045,9 +2143,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-ebv_mono">
+<div class="vc vc-locked" id="vc-ebv_mono">
   <div class="vc-header" style="background:rgba(91,45,142,.1);border-left:4px solid #5B2D8E;">
-    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div>
+    <div class="vc-diff" style="color:#5B2D8E;">🔺 TRAP LEVEL</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 20-year-old college student has severe pharyngitis and is prescribed amoxicillin by urgent care. Three days later he develops a diffuse maculopapular rash covering his trunk, abdomen, and extremities. His CBC shows 58% lymphocytes with 22% atypical lymphocytes. Monospot is positive.</div>
   <div class="vc-pause">
@@ -2068,9 +2166,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-vzv_hsv">
+<div class="vc vc-locked" id="vc-vzv_hsv">
   <div class="vc-header" style="background:rgba(200,57,43,.09);border-left:4px solid #C8392B;">
-    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div>
+    <div class="vc-diff" style="color:#C8392B;">🔴 ADVANCED</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 72-year-old immunosuppressed transplant patient on tacrolimus develops a vesicular rash in the V1 trigeminal distribution (forehead, tip of nose). She reports visual blurring.</div>
   <div class="vc-pause">
@@ -2091,9 +2189,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-parasites">
+<div class="vc vc-locked" id="vc-parasites">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 28-year-old backpacker returns from a 6-week trip through Southeast Asia. For 3 weeks he has had explosive, foul-smelling, greasy diarrhea with bloating and flatulence. He has lost 8 pounds. He has no fever and no blood in the stool.</div>
   <div class="vc-pause">
@@ -2114,9 +2212,9 @@ body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--na
     </div>
   </div>
 </div>
-<div class="vc" id="vc-mmr">
+<div class="vc vc-locked" id="vc-mmr">
   <div class="vc-header" style="background:rgba(184,115,51,.08);border-left:4px solid #B87333;">
-    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div>
+    <div class="vc-diff" style="color:#B87333;">🟡 INTERMEDIATE</div><div class="vc-lock-callout">🔒 Enter access code above to unlock <a href="#vig-gate">→</a></div>
   </div>
   <div class="vc-stem">A 2-year-old unvaccinated child has 4 days of high fever (40°C), cough, runny nose, and red eyes. Today the mother notices small white spots inside the cheeks and a new rash starting behind the ears.</div>
   <div class="vc-pause">
@@ -2168,6 +2266,71 @@ document.addEventListener('keydown', e => {
     document.querySelectorAll('[id^="vi-"]').forEach(i => i.textContent = '▼');
   }
 });
+</script>
+
+<script>
+(function(){
+  var CODE = 'BOOTCAMP2026';
+  var LS_KEY = 'pcb_vignettes_v1';
+  function vigUnlock(){
+    document.body.classList.add('vig-unlocked');
+    var b = document.getElementById('vig-unlocked-banner');
+    if(b) b.style.display = 'block';
+  }
+  window.vigSubmit = function(){
+    var inp = document.getElementById('vig-code-input');
+    var err = document.getElementById('vig-code-error');
+    if(!inp) return;
+    var val = inp.value.trim().toUpperCase();
+    if(val === CODE.toUpperCase()){
+      try{ localStorage.setItem(LS_KEY,'1'); }catch(e){}
+      inp.classList.remove('error');
+      if(err) err.classList.remove('show');
+      vigUnlock();
+    } else {
+      inp.classList.add('error');
+      if(err) err.classList.add('show');
+      inp.value = '';
+      inp.focus();
+      setTimeout(function(){ inp.classList.remove('error'); },600);
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    try{
+      if(localStorage.getItem(LS_KEY)==='1') vigUnlock();
+    }catch(e){}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var CODE='BOOTCAMP2026',LS='pcb_vignettes_v1';
+  function unlock(){
+    document.body.classList.add('vig-unlocked');
+    var b=document.getElementById('vig-unlocked-banner');
+    if(b)b.style.display='block';
+  }
+  window.vigSubmit=function(){
+    var inp=document.getElementById('vig-code-input');
+    var err=document.getElementById('vig-code-error');
+    if(!inp)return;
+    if(inp.value.trim().toUpperCase()===CODE.toUpperCase()){
+      try{localStorage.setItem(LS,'1');}catch(e){}
+      inp.classList.remove('error');
+      if(err)err.classList.remove('show');
+      unlock();
+    }else{
+      inp.classList.add('error');
+      if(err)err.classList.add('show');
+      inp.value='';inp.focus();
+      setTimeout(function(){inp.classList.remove('error');},600);
+    }
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    try{if(localStorage.getItem(LS)==='1')unlock();}catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
