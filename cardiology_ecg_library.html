@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCZ6NQJ3T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NBCZ6NQJ3T');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PA Cardiology Bootcamp — EKG Visual Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0F1F3D; --navy-lt:#EEF2FA; --navy-bd:#C5D2EB;
+  --red:#C8392B; --red-lt:#FFF5F4; --red-bd:#F5C6C2;
+  --green:#1A6B3A; --green-lt:#EFF9F3; --green-bd:#A8D5B8;
+  --amber:#B87333; --amber-lt:#FFF8EF;
+  --teal:#0D6E6E; --teal-lt:#EEF8F8;
+  --purple:#5B2D8E; --purple-lt:#F5F0FF;
+  --mid:#6B7A8D; --slate:#3D4A5C;
+  --light:#F4F6F9; --border:#E2E8F0;
+  --ecg-bg:#0a1628; --ecg-grid:#1a3a5c; --ecg-line:#00ff88;
+  --ecg-paper:#fafff5; --ecg-grid-paper:#c8e6c0; --ecg-trace:#1a1a1a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:#0A0F1A;font-size:14.5px;line-height:1.7;}
+
+/* ── TOP BAR ── */
+.top-bar{position:sticky;top:0;z-index:200;background:var(--navy);border-bottom:3px solid var(--red);display:flex;align-items:center;padding:0 20px;overflow-x:auto;scrollbar-width:none;}
+.tb-brand{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:white;white-space:nowrap;padding:13px 18px 13px 0;border-right:1px solid rgba(255,255,255,.12);margin-right:14px;}
+.tb-brand span{color:#ff6b6b;}
+.tb-links{display:flex;gap:2px;}
+.tb-link{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;padding:10px 9px;border-radius:3px;white-space:nowrap;transition:all .12s;}
+.tb-link:hover{color:white;background:rgba(255,255,255,.08);}
+
+/* ── HERO ── */
+.hero{background:var(--ecg-bg);padding:52px 64px 44px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);background-size:20px 20px;}
+.hero-scan{position:absolute;top:0;left:-100%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,255,136,.06),transparent);animation:scan 4s linear infinite;}
+@keyframes scan{to{left:120%;}}
+.hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#00ff88;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1.5px;background:#00ff88;}
+.hero-title{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:white;letter-spacing:-2.5px;line-height:.95;margin-bottom:12px;}
+.hero-title span{color:#00ff88;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.45);max-width:660px;line-height:1.65;margin-bottom:30px;}
+.hero-chips{display:flex;gap:14px;flex-wrap:wrap;}
+.chip{background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);border-radius:6px;padding:10px 16px;text-align:center;}
+.chip-n{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#00ff88;display:block;line-height:1;}
+.chip-l{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px;}
+.hero-byline{font-size:12px;color:rgba(255,255,255,.3);margin-top:18px;}
+.hero-byline strong{color:rgba(255,255,255,.6);}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1100px;margin:0 auto;padding:40px 24px 80px;}
+.section-hd{margin:52px 0 20px;}
+.section-hd .tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;}
+.section-hd .ttl{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--navy);border-left:4px solid var(--red);padding-left:14px;}
+
+/* ── EKG CARD ── */
+.ecg-card{background:white;border-radius:12px;border:1.5px solid var(--border);margin-bottom:32px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.ecg-card-header{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 22px 14px;border-bottom:1px solid var(--border);gap:16px;}
+.ecg-card-meta{flex:1;}
+.ecg-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:10px;margin-bottom:8px;}
+.badge-stemi{background:var(--red-lt);color:var(--red);border:1px solid var(--red-bd);}
+.badge-arrhythmia{background:var(--purple-lt);color:var(--purple);}
+.badge-block{background:var(--amber-lt);color:var(--amber);}
+.badge-equivalent{background:var(--navy-lt);color:var(--navy);}
+.ecg-card-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.ecg-card-sub{font-size:12px;color:var(--mid);font-style:italic;}
+.ecg-actions{display:flex;gap:8px;flex-shrink:0;align-items:center;flex-wrap:wrap;}
+
+/* Audio button */
+.audio-btn{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:white;border:none;border-radius:5px;padding:7px 13px;cursor:pointer;transition:all .15s;}
+.audio-btn:hover{background:var(--teal);}
+.audio-btn.playing{background:var(--red);animation:pulse-btn .6s ease infinite alternate;}
+@keyframes pulse-btn{to{opacity:.7;}}
+.audio-btn .icon{font-size:13px;}
+
+/* Animate button */
+.anim-btn{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,255,136,.1);color:#00882a;border:1.5px solid rgba(0,255,136,.3);border-radius:5px;padding:7px 13px;cursor:pointer;transition:all .15s;}
+.anim-btn:hover{background:rgba(0,255,136,.2);}
+
+/* ── ECG PAPER ── */
+.ecg-paper-wrap{padding:16px 20px 20px;background:var(--light);}
+.ecg-paper{background:#fff9f0;border:1px solid #ddd;border-radius:6px;padding:12px 16px;position:relative;overflow:hidden;}
+
+/* Paper grid background */
+.ecg-paper::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--ecg-grid-paper) 1px,transparent 1px),
+    linear-gradient(90deg,var(--ecg-grid-paper) 1px,transparent 1px),
+    linear-gradient(rgba(150,200,150,.4) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(150,200,150,.4) 1px,transparent 1px);
+  background-size:4px 4px,4px 4px,20px 20px,20px 20px;
+  opacity:.7;
+}
+
+.ecg-leads-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1;}
+.ecg-lead{border-right:1px solid rgba(180,200,180,.4);border-bottom:1px solid rgba(180,200,180,.4);padding:4px 6px;}
+.ecg-lead:nth-child(4n){border-right:none;}
+.ecg-lead-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:700;color:#555;margin-bottom:2px;}
+.ecg-lead svg{width:100%;height:48px;display:block;}
+
+/* Rhythm strip at bottom */
+.ecg-rhythm-strip{border-top:1px solid rgba(180,200,180,.4);padding:4px 6px;margin-top:0;}
+.ecg-rhythm-strip svg{width:100%;height:48px;}
+
+/* ── ANIMATED STRIP ── */
+.anim-container{background:var(--ecg-bg);border-radius:8px;padding:16px 20px;margin:0 20px 20px;position:relative;overflow:hidden;}
+.anim-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:700;color:#00ff88;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.anim-strip-canvas{width:100%;height:80px;display:block;border-radius:4px;}
+.anim-hidden{display:none;}
+
+/* ── KEY FINDINGS ── */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;padding:16px 22px;border-top:1px solid var(--border);}
+.finding{background:var(--light);border-radius:6px;padding:10px 12px;border-left:3px solid var(--red);}
+.finding.green{border-left-color:var(--green);}
+.finding.amber{border-left-color:var(--amber);}
+.finding.navy{border-left-color:var(--navy);}
+.finding-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:3px;}
+.finding-val{font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;}
+
+/* ── MNEMONIC BOX ── */
+.mnemonic-box{margin:0 22px 18px;background:var(--navy);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:14px;}
+.mnemonic-text{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.8);line-height:1.6;flex:1;}
+.mnemonic-text strong{color:#00ff88;}
+.mnemonic-text em{color:#ffd166;font-style:normal;}
+
+/* ── BOARD TRAP STRIP ── */
+.trap-strip{margin:0 22px 20px;background:var(--red-lt);border:1.5px solid var(--red-bd);border-radius:6px;padding:10px 14px;font-size:12.5px;color:var(--slate);line-height:1.6;}
+.trap-strip b{color:var(--red);}
+.trap-strip .trap-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+
+/* ── FOOTER ── */
+.page-footer{background:var(--navy);color:rgba(255,255,255,.4);text-align:center;padding:28px;font-size:12.5px;margin-top:60px;}
+.page-footer strong{color:rgba(255,255,255,.7);}
+</style>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="tb-brand">PA <span>EKG</span> Library</div>
+  <div class="tb-links">
+    <a class="tb-link" href="#stemi">STEMI</a>
+    <a class="tb-link" href="#equivalents">STEMI Equivalents</a>
+    <a class="tb-link" href="#arrhythmias">Arrhythmias</a>
+    <a class="tb-link" href="#blocks">Heart Blocks</a>
+    <a class="tb-link" href="#bbb">Bundle Branch</a>
+    <a class="tb-link" href="#tamponade">Tamponade</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">PANCE · PANRE · Visual EKG Reference</div>
+    <h1 class="hero-title">EKG<br><span>Visual Library</span></h1>
+    <p class="hero-sub">High-fidelity 12-lead EKG schematics, animated rhythm strips, and audio mnemonics for every board-tested pattern. Click any mnemonic to hear it aloud. Click Animate to see the rhythm draw live.</p>
+    <div class="hero-chips">
+      <div class="chip"><span class="chip-n">7</span><span class="chip-l">EKG Patterns</span></div>
+      <div class="chip"><span class="chip-n">7</span><span class="chip-l">Animated Strips</span></div>
+      <div class="chip"><span class="chip-n">14+</span><span class="chip-l">Audio Mnemonics</span></div>
+      <div class="chip"><span class="chip-n">24</span><span class="chip-l">Lead Schematics</span></div>
+    </div>
+    <div class="hero-byline"><strong>Rajiv Choudhary, MD, MPH</strong> · PA Clinical Bootcamp</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════ STEMI ═══ -->
+<div class="section-hd" id="stemi">
+  <div class="tag">Section 1 · STEMI Recognition</div>
+  <div class="ttl">STEMI Patterns — Inferior &amp; Anterior</div>
+</div>
+
+<!-- ── INFERIOR STEMI ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-stemi">⚑ STEMI · Inferior</div>
+      <div class="ecg-card-title">Inferior STEMI — STE in II, III, aVF</div>
+      <div class="ecg-card-sub">Culprit: RCA (85%) · Reciprocal ST depression in I, aVL · Always get V4R to rule out RV MI</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('inferior-stemi')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-inferior')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-inferior"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-inferior"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-inferior">
+    <div class="anim-label"><span>● LIVE RHYTHM STRIP — Inferior STEMI Pattern</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead II · 25mm/s</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-inferior" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-inferior-stemi">
+      <strong>"II, III, aVF light up below — RCA's to blame, don't let the pressure go."</strong><br>
+      <em>Inferior = bottom leads = floor of the heart = RCA feeds there</em><br>
+      Reciprocal: I and aVL go DOWN when II/III/aVF go up · V4R = get it every time
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>Inferior STEMI + hypotension → NEVER give nitrates until RV MI excluded.</b> Get right-sided leads (V4R). RV MI is preload-dependent — nitrates drop preload → cardiovascular collapse. Give 1L IV NS bolus instead.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">STE Location</div><div class="finding-val">II, III, aVF (≥1mm)</div></div>
+    <div class="finding green"><div class="finding-label">Reciprocal ↓</div><div class="finding-val">I, aVL</div></div>
+    <div class="finding navy"><div class="finding-label">Culprit Artery</div><div class="finding-val">RCA (85%) / LCx (15%)</div></div>
+    <div class="finding amber"><div class="finding-label">Critical Next Step</div><div class="finding-val">Get V4R → rule out RV MI</div></div>
+  </div>
+</div>
+
+<!-- ── ANTERIOR STEMI ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-stemi">⚑ STEMI · Anterior</div>
+      <div class="ecg-card-title">Anterior STEMI — STE in V1–V4</div>
+      <div class="ecg-card-sub">Culprit: LAD · Highest mortality STEMI · Reciprocal depression in inferior leads · Risk of cardiogenic shock</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('anterior-stemi')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-anterior')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-anterior"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-anterior"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-anterior">
+    <div class="anim-label"><span>● LIVE RHYTHM STRIP — Anterior STEMI Pattern</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead V3 · 25mm/s</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-anterior" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-anterior-stemi">
+      <strong>"V1 through V4 — the LAD's war. Widowmaker high, the stakes don't lie."</strong><br>
+      <em>Anterior leads V1-V4 = LAD territory = anterior wall of LV = highest mortality</em><br>
+      Proximal LAD → huge territory → cardiogenic shock risk · Watch for new LBBB
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>New LBBB + chest pain = STEMI equivalent</b> — treat as anterior STEMI. Sgarbossa criteria (concordant STE ≥1mm, discordant STE ≥5mm, or concordant ST depression in V1-V3) confirm occlusion in LBBB. Cath lab now.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">STE Location</div><div class="finding-val">V1, V2, V3, V4</div></div>
+    <div class="finding green"><div class="finding-label">Reciprocal ↓</div><div class="finding-val">II, III, aVF (sometimes)</div></div>
+    <div class="finding navy"><div class="finding-label">Culprit Artery</div><div class="finding-val">LAD (Left Anterior Descending)</div></div>
+    <div class="finding amber"><div class="finding-label">Complication Risk</div><div class="finding-val">Cardiogenic shock, VT/VF</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ EQUIVALENTS ═══ -->
+<div class="section-hd" id="equivalents">
+  <div class="tag">Section 2 · STEMI Equivalents</div>
+  <div class="ttl">Wellens Syndrome &amp; De Winter T-Waves</div>
+</div>
+
+<!-- ── WELLENS TYPE B ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-equivalent">⚑ STEMI Equivalent · Wellens B</div>
+      <div class="ecg-card-title">Wellens Syndrome Type B — Deep Symmetric T Inversion V2–V3</div>
+      <div class="ecg-card-sub">Patient is PAIN-FREE · Critical LAD stenosis · Stress test absolutely contraindicated · Urgent cath</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('wellens')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-wellens')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-wellens"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-wellens"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-wellens">
+    <div class="anim-label"><span>● LIVE STRIP — Wellens Type B Pattern (V3)</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead V3 · 25mm/s</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-wellens" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-wellens">
+      <strong>"Wellens warns when the pain has gone — the LAD is teetering on a bomb."</strong><br>
+      <em>Pain-free patient + deep inverted T waves in V2-V3 = reperfused critical LAD stenosis</em><br>
+      Type A = biphasic · Type B = deep symmetric inversion (more common, ~75%)
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Deadliest Board Trap</div>
+    <b>Wellens + stress test = patient infarcted on the treadmill.</b> The "stable-appearing" pain-free patient with deeply inverted T waves in V2-V3 needs the cath lab today — not a stress test, not floor admission, not discharge. This is the most lethal missed EKG pattern on boards.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">Key Finding</div><div class="finding-val">Deep symmetric T inversion V2–V3</div></div>
+    <div class="finding green"><div class="finding-label">Clinical Context</div><div class="finding-val">Pain-FREE patient (reperfused)</div></div>
+    <div class="finding navy"><div class="finding-label">Culprit</div><div class="finding-val">Critical proximal LAD stenosis</div></div>
+    <div class="finding amber"><div class="finding-label">Action</div><div class="finding-val">Urgent cath — NO stress test</div></div>
+  </div>
+</div>
+
+<!-- ── DE WINTER ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-equivalent">⚑ STEMI Equivalent · De Winter</div>
+      <div class="ecg-card-title">De Winter T-Waves — Upsloping ST Depression + Tall Peaked T Waves</div>
+      <div class="ecg-card-sub">V1–V6 · Static pattern — will NEVER develop ST elevation · Proximal LAD occlusion · The pattern IS the MI</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('dewinter')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-dewinter')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-dewinter"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-dewinter"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-dewinter">
+    <div class="anim-label"><span>● LIVE STRIP — De Winter Pattern (V3)</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead V3 · 25mm/s</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-dewinter" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-dewinter">
+      <strong>"De Winter climbs up, never comes down — the LAD's occluded without a crown."</strong><br>
+      <em>Upsloping ST depression + tall symmetric T waves = static pattern = active proximal LAD occlusion</em><br>
+      No ST elevation ever · aVR may show STE · Immediate cath lab activation
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>Do NOT wait for ST elevation — it will never come.</b> De Winter is a static pattern. Unlike STEMI which evolves, De Winter stays this way throughout the occlusion. The upsloping ST depression + tall T waves IS the MI. Cath lab immediately.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">Key Finding</div><div class="finding-val">Upsloping ST ↓ + tall T in V1–V6</div></div>
+    <div class="finding green"><div class="finding-label">aVR</div><div class="finding-val">ST elevation (1–2mm)</div></div>
+    <div class="finding navy"><div class="finding-label">Culprit</div><div class="finding-val">Proximal LAD occlusion</div></div>
+    <div class="finding amber"><div class="finding-label">Critical Fact</div><div class="finding-val">Static — STE will NEVER appear</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ ARRHYTHMIAS ═══ -->
+<div class="section-hd" id="arrhythmias">
+  <div class="tag">Section 3 · Arrhythmias</div>
+  <div class="ttl">Atrial Fibrillation</div>
+</div>
+
+<!-- ── AFIB ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-arrhythmia">Arrhythmia · AFib</div>
+      <div class="ecg-card-title">Atrial Fibrillation — Irregularly Irregular, No P Waves</div>
+      <div class="ecg-card-sub">Fibrillatory baseline · No identifiable P waves · Irregularly irregular R-R intervals · Variable ventricular rate</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('afib')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-afib')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-afib"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-afib"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-afib">
+    <div class="anim-label"><span>● LIVE STRIP — Atrial Fibrillation</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead II · irregularly irregular</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-afib" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-afib">
+      <strong>"Fibrillation: 'Irregularly Irregular' — no two R-R intervals are the same."</strong><br>
+      <em>No P waves + chaotic baseline + variable R-R = AFib every time</em><br>
+      Rate control vs rhythm control · CHA₂DS₂-VASc drives anticoagulation · DOAC preferred
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>AFib with rapid ventricular response + wide QRS = consider WPW.</b> If AFib is treated with AV nodal blockers (digoxin, diltiazem, verapamil, adenosine) in WPW, all conduction routes via the accessory pathway → extremely rapid rate → VF. Use procainamide or cardioversion instead.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">Rhythm</div><div class="finding-val">Irregularly irregular</div></div>
+    <div class="finding green"><div class="finding-label">P Waves</div><div class="finding-val">Absent — fibrillatory baseline</div></div>
+    <div class="finding navy"><div class="finding-label">Rate</div><div class="finding-val">Variable (60–170 uncontrolled)</div></div>
+    <div class="finding amber"><div class="finding-label">QRS</div><div class="finding-val">Narrow (unless BBB or WPW)</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ HEART BLOCKS ═══ -->
+<div class="section-hd" id="blocks">
+  <div class="tag">Section 4 · Conduction</div>
+  <div class="ttl">3rd Degree (Complete) Heart Block</div>
+</div>
+
+<!-- ── 3RD DEGREE ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-block">⚑ Complete Heart Block · Pacemaker Required</div>
+      <div class="ecg-card-title">3rd Degree AV Block — Complete AV Dissociation</div>
+      <div class="ecg-card-sub">P waves march independently of QRS · P rate &gt; QRS rate · Ventricular escape rhythm · Pacemaker required</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('chb')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-chb')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-chb"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-chb"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-chb">
+    <div class="anim-label"><span>● LIVE STRIP — 3rd Degree Heart Block</span><span style="color:rgba(0,255,136,.5);font-size:9px;">P rate ~75 · QRS rate ~35 · Complete dissociation</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-chb" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-chb">
+      <strong>"P waves march — QRS doesn't follow. Complete divorce between atria and ventricle."</strong><br>
+      <em>Atria beat at ~75 bpm · Ventricles escape at ~30–40 bpm · No relationship between them</em><br>
+      Junctional escape = narrow QRS (40–60) · Ventricular escape = wide QRS (20–40, worse prognosis)
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>AV dissociation ≠ always 3rd degree block.</b> AV dissociation can occur with isorhythmic dissociation (rates nearly equal) or VT. True 3rd degree: P rate consistently faster than QRS rate, with NO relationship. Varying PR intervals with NO pattern (not progressively longer, not fixed) = complete block.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">P Wave Rate</div><div class="finding-val">~60–80 bpm (normal SA rate)</div></div>
+    <div class="finding green"><div class="finding-label">QRS Rate</div><div class="finding-val">20–40 bpm (escape rhythm)</div></div>
+    <div class="finding navy"><div class="finding-label">PR Relationship</div><div class="finding-val">None — completely independent</div></div>
+    <div class="finding amber"><div class="finding-label">Treatment</div><div class="finding-val">Pacemaker — no exceptions</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ BBB ═══ -->
+<div class="section-hd" id="bbb">
+  <div class="tag">Section 5 · Bundle Branch Blocks</div>
+  <div class="ttl">RBBB &amp; LBBB Patterns</div>
+</div>
+
+<!-- ── RBBB ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-block">Bundle Branch Block · RBBB</div>
+      <div class="ecg-card-title">Right Bundle Branch Block — RSR' in V1, Wide S in V6</div>
+      <div class="ecg-card-sub">QRS ≥120ms · RSR' ("rabbit ears") in V1 · Wide slurred S wave in I and V6 · May be normal variant</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('rbbb')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-rbbb')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-rbbb"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-rbbb"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-rbbb">
+    <div class="anim-label"><span>● LIVE STRIP — RBBB Pattern</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead V1 · RSR' morphology</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-rbbb" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-rbbb">
+      <strong>"WiRRoW: RBBB = Wide QRS, R in right (V1 RSR'), W in left (V6 wide S)"</strong><br>
+      <em>MaRRoW: In RBBB — M-shape in V1, W-shape in V6</em><br>
+      New RBBB in anterior STEMI = proximal LAD occlusion, worse prognosis · Isolated RBBB may be normal
+    </div>
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">V1 Pattern</div><div class="finding-val">RSR' ("rabbit ears" / M-shape)</div></div>
+    <div class="finding green"><div class="finding-label">V6 Pattern</div><div class="finding-val">Wide, slurred S wave (W-shape)</div></div>
+    <div class="finding navy"><div class="finding-label">QRS Duration</div><div class="finding-val">≥120ms (complete RBBB)</div></div>
+    <div class="finding amber"><div class="finding-label">Clinical Note</div><div class="finding-val">Can be normal variant in young</div></div>
+  </div>
+</div>
+
+<!-- ── LBBB ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-block">Bundle Branch Block · LBBB</div>
+      <div class="ecg-card-title">Left Bundle Branch Block — Broad R in V6, QS in V1</div>
+      <div class="ecg-card-sub">QRS ≥120ms · Broad notched R in V5-V6 · QS or rS in V1 · New LBBB + chest pain = STEMI equivalent</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('lbbb')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-lbbb')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-lbbb"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-lbbb"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-lbbb">
+    <div class="anim-label"><span>● LIVE STRIP — LBBB Pattern</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead V6 · Broad notched R wave</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-lbbb" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-lbbb">
+      <strong>"WiLLiaM MaRRoW: LBBB = W in V1, M in V6 (left side gets the M)"</strong><br>
+      <em>LBBB: W-shape in V1 (QS pattern), M-shape in V6 (broad notched R) · Always pathologic</em><br>
+      Discordant ST changes expected in LBBB — use Sgarbossa criteria to identify superimposed STEMI
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>New LBBB + ischemic symptoms = STEMI equivalent — activate cath lab.</b> Sgarbossa criteria: (1) Concordant STE ≥1mm in any lead, (2) Concordant ST depression ≥1mm in V1-V3, (3) Discordant STE ≥5mm (modified: ratio-based). ST changes in LBBB are expected to be discordant (opposite QRS) — concordant ST changes = ischemia.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">V1 Pattern</div><div class="finding-label" style="font-size:13px;color:var(--navy);font-weight:600;margin-top:2px;">QS complex (W-shape)</div></div>
+    <div class="finding green"><div class="finding-label">V5–V6 Pattern</div><div class="finding-val">Broad notched R (M-shape)</div></div>
+    <div class="finding navy"><div class="finding-label">Always</div><div class="finding-val">Pathologic — find the cause</div></div>
+    <div class="finding amber"><div class="finding-label">+ Symptoms</div><div class="finding-val">New LBBB = STEMI equivalent</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TAMPONADE ═══ -->
+<div class="section-hd" id="tamponade">
+  <div class="tag">Section 6 · Pericardial Disease</div>
+  <div class="ttl">Electrical Alternans — Cardiac Tamponade</div>
+</div>
+
+<!-- ── ELECTRICAL ALTERNANS ── -->
+<div class="ecg-card">
+  <div class="ecg-card-header">
+    <div class="ecg-card-meta">
+      <div class="ecg-badge badge-stemi">⚑ Tamponade · Electrical Alternans</div>
+      <div class="ecg-card-title">Electrical Alternans — Alternating QRS Amplitude</div>
+      <div class="ecg-card-sub">Heart swings in pericardial effusion · Beat-to-beat axis change · Pathognomonic for tamponade · Sinus tachycardia + alternans = emergency</div>
+    </div>
+    <div class="ecg-actions">
+      <button class="audio-btn" onclick="speakMnemonic('alternans')"><span class="icon">🔊</span> Hear Mnemonic</button>
+      <button class="anim-btn" onclick="toggleAnim('anim-alternans')"><span>▶</span> Animate Strip</button>
+    </div>
+  </div>
+
+  <div class="ecg-paper-wrap">
+    <div class="ecg-paper">
+      <div class="ecg-leads-grid" id="ecg-alternans"></div>
+      <div class="ecg-rhythm-strip" id="rstrip-alternans"></div>
+    </div>
+  </div>
+
+  <div class="anim-container anim-hidden" id="anim-alternans">
+    <div class="anim-label"><span>● LIVE STRIP — Electrical Alternans Pattern</span><span style="color:rgba(0,255,136,.5);font-size:9px;">Lead II · alternating QRS height</span></div>
+    <canvas class="anim-strip-canvas" id="canvas-alternans" width="1000" height="80"></canvas>
+  </div>
+
+  <div class="mnemonic-box">
+    <div class="mnemonic-text" id="mnemonic-alternans">
+      <strong>"The heart swings in its fluid sea — tall, short, tall, short, alternately."</strong><br>
+      <em>Pericardial effusion → heart swings like a pendulum → electrical axis rotates each beat → alternating QRS height</em><br>
+      Sinus tachycardia + electrical alternans = tamponade until proven otherwise · Give fluids, call surgery
+    </div>
+  </div>
+  <div class="trap-strip">
+    <div class="trap-label">⚑ Board Trap</div>
+    <b>NEVER give furosemide in tamponade.</b> Tamponade physiology is entirely preload-dependent. The compressed heart needs maximal filling pressure to maintain output. Diuresis removes the preload → cardiac collapse. Treatment: IV fluid bolus to maintain preload → urgent pericardiocentesis.
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-label">Key Finding</div><div class="finding-val">Alternating QRS amplitude</div></div>
+    <div class="finding green"><div class="finding-label">Rate</div><div class="finding-val">Sinus tachycardia (compensatory)</div></div>
+    <div class="finding navy"><div class="finding-label">Mechanism</div><div class="finding-val">Swinging heart in effusion</div></div>
+    <div class="finding amber"><div class="finding-label">Treatment</div><div class="finding-val">IV fluids + pericardiocentesis</div></div>
+  </div>
+</div>
+
+</div><!-- end wrap -->
+
+<div class="page-footer">
+  <strong>PA Clinical Bootcamp — EKG Visual Library</strong><br>
+  Rajiv Choudhary, MD, MPH · High-fidelity teaching schematics for PANCE/PANRE preparation
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// EKG WAVEFORM ENGINE
+// ═══════════════════════════════════════════════════════════════
+
+// ── WAVEFORM PRIMITIVES ─────────────────────────────────────
+
+// Returns array of [x,y] points for one cardiac complex
+// type: 'normal','stemi-inf','stemi-ant','wellens','dewinter','afib','chb','rbbb','lbbb','alternans-tall','alternans-short'
+function buildComplex(type, baseX, baseY, scale=1) {
+  const s = scale;
+  const b = baseY;
+  const x = baseX;
+  
+  const segs = {
+    normal: [
+      [x,b],[x+3,b],                              // flat
+      [x+3,b],[x+5,b-3*s],[x+7,b],               // P wave
+      [x+7,b],[x+11,b],                           // PR segment
+      [x+11,b],[x+12,b+2*s],                      // Q
+      [x+12,b+2*s],[x+13,b-14*s],                 // R up
+      [x+13,b-14*s],[x+15,b+4*s],                 // S down
+      [x+15,b+4*s],[x+16,b],[x+19,b],             // return + ST
+      [x+19,b],[x+22,b-5*s],[x+25,b],[x+28,b],   // T wave
+      [x+28,b],[x+34,b]                           // TP segment
+    ],
+    'stemi-inf': [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],
+      [x+12,b+2*s],[x+13,b-14*s],
+      [x+13,b-14*s],[x+15,b+4*s],
+      [x+15,b+4*s],[x+16,b-5*s],[x+19,b-5*s],    // elevated ST
+      [x+19,b-5*s],[x+22,b-10*s],[x+25,b-2*s],[x+28,b], // big T with STE
+      [x+28,b],[x+34,b]
+    ],
+    'stemi-inf-recip': [  // reciprocal - ST depression
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],
+      [x+12,b+2*s],[x+13,b-14*s],
+      [x+13,b-14*s],[x+15,b+4*s],
+      [x+15,b+4*s],[x+16,b+5*s],[x+19,b+5*s],   // depressed ST
+      [x+19,b+5*s],[x+22,b+2*s],[x+25,b-3*s],[x+28,b],
+      [x+28,b],[x+34,b]
+    ],
+    'stemi-ant': [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],
+      [x+12,b+2*s],[x+13,b-16*s],
+      [x+13,b-16*s],[x+14,b-8*s],[x+16,b-7*s],  // tombstone - stays up
+      [x+16,b-7*s],[x+20,b-7*s],                 // elevated ST plateau
+      [x+20,b-7*s],[x+23,b-12*s],[x+26,b-3*s],[x+29,b],
+      [x+29,b],[x+34,b]
+    ],
+    wellens: [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+1*s],[x+13,b-12*s],[x+15,b+3*s],[x+16,b],
+      [x+16,b],[x+18,b],                          // flat ST
+      [x+18,b],[x+20,b+8*s],[x+23,b+8*s],[x+26,b], // deep inverted T
+      [x+26,b],[x+34,b]
+    ],
+    dewinter: [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],
+      [x+12,b+2*s],[x+13,b-14*s],
+      [x+13,b-14*s],[x+15,b+6*s],                 // into ST depression
+      [x+15,b+6*s],[x+18,b+4*s],                  // upsloping ST depression
+      [x+18,b+4*s],[x+21,b-10*s],[x+24,b],[x+27,b], // tall peaked T
+      [x+27,b],[x+34,b]
+    ],
+    afib: null, // generated procedurally
+    chb: null,  // generated procedurally
+    rbbb: [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],
+      [x+12,b+2*s],[x+14,b-12*s],                 // R
+      [x+14,b-12*s],[x+16,b+3*s],                 // S
+      [x+16,b+3*s],[x+18,b-8*s],                  // R' (RSR' pattern)
+      [x+18,b-8*s],[x+21,b],[x+22,b],             // return
+      [x+22,b],[x+24,b],
+      [x+24,b],[x+27,b+4*s],[x+30,b],[x+34,b]     // inverted T
+    ],
+    lbbb: [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+12,b],
+      [x+12,b],[x+13,b-3*s],[x+15,b-14*s],        // broad notched R up
+      [x+15,b-14*s],[x+17,b-10*s],[x+19,b-14*s],  // notch
+      [x+19,b-14*s],[x+21,b],[x+22,b],             // down
+      [x+22,b],[x+25,b+5*s],[x+28,b],[x+34,b]      // discordant inverted T
+    ],
+    'alternans-tall': [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-3*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+2*s],[x+13,b-16*s],[x+15,b+4*s],[x+16,b],
+      [x+16,b],[x+19,b],
+      [x+19,b],[x+22,b-5*s],[x+25,b],[x+30,b]
+    ],
+    'alternans-short': [
+      [x,b],[x+3,b],
+      [x+3,b],[x+5,b-2*s],[x+7,b],
+      [x+7,b],[x+11,b],
+      [x+11,b],[x+12,b+1*s],[x+13,b-9*s],[x+15,b+3*s],[x+16,b],
+      [x+16,b],[x+19,b],
+      [x+19,b],[x+22,b-3*s],[x+25,b],[x+30,b]
+    ],
+  };
+  return segs[type] || segs.normal;
+}
+
+// ── SVG BUILDER ─────────────────────────────────────────────
+
+function ptsToPath(pts) {
+  if (!pts || pts.length < 2) return '';
+  return 'M ' + pts.map(p => p[0]+','+p[1]).join(' L ');
+}
+
+function buildLeadSVG(type, width=200, height=48, repeats=2, scale=1) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.setAttribute('width','100%');
+  svg.setAttribute('height', height);
+  
+  const baseY = height * 0.55;
+  let path = '';
+  
+  if (type === 'afib') {
+    // AFib: chaotic fibrillatory baseline + irregular QRS
+    let pts = [];
+    let curX = 0;
+    let fibs = 0;
+    while (curX < width) {
+      // fibrillatory baseline wiggles
+      for (let i=0; i<Math.floor(Math.random()*6+4); i++) {
+        pts.push([curX, baseY + (Math.random()-0.5)*4*scale]);
+        curX += 1 + Math.random()*2;
+        if (curX >= width) break;
+      }
+      if (curX >= width) break;
+      // random QRS
+      const qrsH = 10*scale + Math.random()*4*scale;
+      pts.push([curX, baseY+2*scale]);
+      pts.push([curX+1, baseY-qrsH]);
+      pts.push([curX+2, baseY+3*scale]);
+      pts.push([curX+3, baseY]);
+      curX += 3 + Math.random()*18 + 8; // irregular RR
+      fibs++;
+    }
+    path = ptsToPath(pts);
+  } else if (type === 'iso') {
+    path = `M 0,${baseY} L ${width},${baseY}`;
+  } else {
+    // Build repeating complexes
+    const complexW = 34;
+    let pts = [];
+    let startX = 0;
+    // flatten all repeats into one path
+    for (let r=0; r<repeats; r++) {
+      const cpts = buildComplex(type, startX + r*(width/repeats)*0.9, baseY, scale);
+      if (cpts) pts.push(...cpts);
+    }
+    path = ptsToPath(pts);
+  }
+  
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d', path);
+  p.setAttribute('fill','none');
+  p.setAttribute('stroke','#1a1a1a');
+  p.setAttribute('stroke-width','1.2');
+  p.setAttribute('stroke-linecap','round');
+  p.setAttribute('stroke-linejoin','round');
+  svg.appendChild(p);
+  return svg;
+}
+
+// ── 12-LEAD LAYOUT DEFINITIONS ──────────────────────────────
+
+const LEAD_CONFIGS = {
+  'inferior-stemi': {
+    leads: [
+      {label:'I',    type:'stemi-inf-recip'},
+      {label:'aVR',  type:'normal'},
+      {label:'V1',   type:'normal'},
+      {label:'V4',   type:'normal'},
+      {label:'II',   type:'stemi-inf'},
+      {label:'aVL',  type:'stemi-inf-recip'},
+      {label:'V2',   type:'normal'},
+      {label:'V5',   type:'normal'},
+      {label:'III',  type:'stemi-inf'},
+      {label:'aVF',  type:'stemi-inf'},
+      {label:'V3',   type:'normal'},
+      {label:'V6',   type:'normal'},
+    ],
+    rhythm: 'stemi-inf'
+  },
+  'anterior-stemi': {
+    leads: [
+      {label:'I',    type:'normal'},
+      {label:'aVR',  type:'iso'},
+      {label:'V1',   type:'stemi-ant'},
+      {label:'V4',   type:'stemi-ant'},
+      {label:'II',   type:'stemi-inf-recip'},
+      {label:'aVL',  type:'normal'},
+      {label:'V2',   type:'stemi-ant'},
+      {label:'V5',   type:'stemi-ant'},
+      {label:'III',  type:'stemi-inf-recip'},
+      {label:'aVF',  type:'stemi-inf-recip'},
+      {label:'V3',   type:'stemi-ant'},
+      {label:'V6',   type:'normal'},
+    ],
+    rhythm: 'stemi-ant'
+  },
+  wellens: {
+    leads: [
+      {label:'I',    type:'normal'},
+      {label:'aVR',  type:'normal'},
+      {label:'V1',   type:'normal'},
+      {label:'V4',   type:'normal'},
+      {label:'II',   type:'normal'},
+      {label:'aVL',  type:'normal'},
+      {label:'V2',   type:'wellens'},
+      {label:'V5',   type:'wellens'},
+      {label:'III',  type:'normal'},
+      {label:'aVF',  type:'normal'},
+      {label:'V3',   type:'wellens'},
+      {label:'V6',   type:'normal'},
+    ],
+    rhythm: 'wellens'
+  },
+  dewinter: {
+    leads: [
+      {label:'I',    type:'normal'},
+      {label:'aVR',  type:'stemi-ant'},
+      {label:'V1',   type:'dewinter'},
+      {label:'V4',   type:'dewinter'},
+      {label:'II',   type:'normal'},
+      {label:'aVL',  type:'normal'},
+      {label:'V2',   type:'dewinter'},
+      {label:'V5',   type:'dewinter'},
+      {label:'III',  type:'normal'},
+      {label:'aVF',  type:'normal'},
+      {label:'V3',   type:'dewinter'},
+      {label:'V6',   type:'dewinter'},
+    ],
+    rhythm: 'dewinter'
+  },
+  afib: {
+    leads: [
+      {label:'I',    type:'afib'},
+      {label:'aVR',  type:'afib'},
+      {label:'V1',   type:'afib'},
+      {label:'V4',   type:'afib'},
+      {label:'II',   type:'afib'},
+      {label:'aVL',  type:'afib'},
+      {label:'V2',   type:'afib'},
+      {label:'V5',   type:'afib'},
+      {label:'III',  type:'afib'},
+      {label:'aVF',  type:'afib'},
+      {label:'V3',   type:'afib'},
+      {label:'V6',   type:'afib'},
+    ],
+    rhythm: 'afib'
+  },
+  chb: {
+    leads: [
+      {label:'I',    type:'normal'},
+      {label:'aVR',  type:'normal'},
+      {label:'V1',   type:'normal'},
+      {label:'V4',   type:'normal'},
+      {label:'II',   type:'normal'},
+      {label:'aVL',  type:'normal'},
+      {label:'V2',   type:'normal'},
+      {label:'V5',   type:'normal'},
+      {label:'III',  type:'normal'},
+      {label:'aVF',  type:'normal'},
+      {label:'V3',   type:'normal'},
+      {label:'V6',   type:'normal'},
+    ],
+    rhythm: 'chb'  // special handling
+  },
+  rbbb: {
+    leads: [
+      {label:'I',    type:'normal'},
+      {label:'aVR',  type:'normal'},
+      {label:'V1',   type:'rbbb'},
+      {label:'V4',   type:'normal'},
+      {label:'II',   type:'normal'},
+      {label:'aVL',  type:'normal'},
+      {label:'V2',   type:'rbbb'},
+      {label:'V5',   type:'lbbb'},
+      {label:'III',  type:'normal'},
+      {label:'aVF',  type:'normal'},
+      {label:'V3',   type:'rbbb'},
+      {label:'V6',   type:'lbbb'},
+    ],
+    rhythm: 'rbbb'
+  },
+  lbbb: {
+    leads: [
+      {label:'I',    type:'lbbb'},
+      {label:'aVR',  type:'rbbb'},
+      {label:'V1',   type:'rbbb'},
+      {label:'V4',   type:'lbbb'},
+      {label:'II',   type:'normal'},
+      {label:'aVL',  type:'lbbb'},
+      {label:'V2',   type:'rbbb'},
+      {label:'V5',   type:'lbbb'},
+      {label:'III',  type:'normal'},
+      {label:'aVF',  type:'normal'},
+      {label:'V3',   type:'rbbb'},
+      {label:'V6',   type:'lbbb'},
+    ],
+    rhythm: 'lbbb'
+  },
+  alternans: {
+    leads: [
+      {label:'I',    type:'alternans-tall'},
+      {label:'aVR',  type:'alternans-short'},
+      {label:'V1',   type:'alternans-tall'},
+      {label:'V4',   type:'alternans-tall'},
+      {label:'II',   type:'alternans-tall'},
+      {label:'aVL',  type:'alternans-short'},
+      {label:'V2',   type:'alternans-tall'},
+      {label:'V5',   type:'alternans-tall'},
+      {label:'III',  type:'alternans-short'},
+      {label:'aVF',  type:'alternans-tall'},
+      {label:'V3',   type:'alternans-short'},
+      {label:'V6',   type:'alternans-short'},
+    ],
+    rhythm: 'alternans'
+  }
+};
+
+// ── RENDER ALL 12-LEAD LAYOUTS ───────────────────────────────
+
+function render12Lead(containerId, rstripId, configKey) {
+  const container = document.getElementById(containerId);
+  const rstrip = document.getElementById(rstripId);
+  const config = LEAD_CONFIGS[configKey];
+  if (!container || !config) return;
+
+  container.innerHTML = '';
+  config.leads.forEach(({label, type}) => {
+    const cell = document.createElement('div');
+    cell.className = 'ecg-lead';
+    const lbl = document.createElement('div');
+    lbl.className = 'ecg-lead-label';
+    lbl.textContent = label;
+    cell.appendChild(lbl);
+    const svg = buildLeadSVG(type, 200, 48, 2, 1.0);
+    cell.appendChild(svg);
+    container.appendChild(cell);
+  });
+
+  // Rhythm strip (lead II, longer)
+  if (rstrip) {
+    rstrip.innerHTML = '<div class="ecg-lead-label" style="font-family:\'DM Mono\',monospace;font-size:9px;color:#555;margin-bottom:2px;">II — Rhythm Strip</div>';
+    const rs = configKey === 'chb' ? buildCHBStrip(800,48) : buildLeadSVG(config.rhythm, 800, 48, 5, 1.0);
+    rstrip.appendChild(rs);
+  }
+}
+
+// Special CHB rhythm strip with visible P and QRS dissociation
+function buildCHBStrip(width, height) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.setAttribute('width','100%');
+  svg.setAttribute('height', height);
+  
+  const baseY = height * 0.55;
+  let d = `M 0,${baseY}`;
+  
+  // P waves every ~18px, QRS every ~38px
+  const pInterval = 18;
+  const qrsInterval = 38;
+  let pX = 5, qrsX = 12;
+  let allPts = [[0,baseY]];
+  
+  while (pX < width - 10) {
+    // Check if QRS comes before next P
+    while (qrsX < pX - 5 && qrsX < width - 10) {
+      allPts.push([qrsX, baseY]);
+      allPts.push([qrsX+1, baseY+2]);
+      allPts.push([qrsX+2, baseY-13]);
+      allPts.push([qrsX+3, baseY+4]);
+      allPts.push([qrsX+4, baseY]);
+      qrsX += qrsInterval;
+    }
+    // P wave
+    allPts.push([pX, baseY]);
+    allPts.push([pX+2, baseY-3]);
+    allPts.push([pX+4, baseY]);
+    pX += pInterval;
+    // maybe insert QRS between P waves
+    while (qrsX < pX - 3 && qrsX < width - 10) {
+      allPts.push([qrsX, baseY]);
+      allPts.push([qrsX+1, baseY+2]);
+      allPts.push([qrsX+2, baseY-13]);
+      allPts.push([qrsX+3, baseY+4]);
+      allPts.push([qrsX+4, baseY]);
+      qrsX += qrsInterval;
+    }
+  }
+  allPts.push([width, baseY]);
+  
+  const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+  path.setAttribute('d', 'M ' + allPts.map(p=>p[0]+','+p[1]).join(' L '));
+  path.setAttribute('fill','none');
+  path.setAttribute('stroke','#1a1a1a');
+  path.setAttribute('stroke-width','1.2');
+  path.setAttribute('stroke-linecap','round');
+  path.setAttribute('stroke-linejoin','round');
+  svg.appendChild(path);
+  return svg;
+}
+
+// ── ANIMATED CANVAS STRIPS ───────────────────────────────────
+
+const animStates = {};
+
+function getWaveformFn(type) {
+  // Returns function(x) -> y displacement from baseline
+  // x in "time units", output in pixels
+  const patterns = {
+    'inferior': x => {
+      const mod = x % 120;
+      if (mod < 5) return 0;
+      if (mod < 8) return -8 * Math.sin((mod-5)/3*Math.PI); // P
+      if (mod < 18) return 0;
+      if (mod < 20) return 8;  // Q
+      if (mod < 22) return -45; // R
+      if (mod < 24) return 12; // S
+      if (mod < 28) return -18 + (28-mod)*2; // elevated ST
+      if (mod < 38) return -18 + (mod-28)*1.5; // tall T with STE
+      if (mod < 45) return (45-mod)*0.8;
+      return 0;
+    },
+    'anterior': x => {
+      const mod = x % 120;
+      if (mod < 5) return 0;
+      if (mod < 8) return -7 * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      if (mod < 20) return 6;
+      if (mod < 22) return -50;
+      if (mod < 26) return -22;  // tombstone - stays elevated
+      if (mod < 32) return -22;  // plateau ST
+      if (mod < 42) return -22 + (mod-32)*1.8;
+      if (mod < 48) return (48-mod)*0.5;
+      return 0;
+    },
+    'wellens': x => {
+      const mod = x % 130;
+      if (mod < 5) return 0;
+      if (mod < 8) return -8 * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      if (mod < 20) return 6;
+      if (mod < 22) return -42;
+      if (mod < 25) return 10;
+      if (mod < 28) return 0;
+      if (mod < 36) return 26 * Math.sin((mod-28)/8*Math.PI); // deep inverted T (positive = down)
+      return 0;
+    },
+    'dewinter': x => {
+      const mod = x % 120;
+      if (mod < 5) return 0;
+      if (mod < 8) return -8 * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      if (mod < 20) return 6;
+      if (mod < 22) return -44;
+      if (mod < 26) return 16;  // into upsloping ST depression
+      if (mod < 32) return 14 - (mod-26);  // upsloping
+      if (mod < 38) return -38 * Math.sin((mod-32)/6*Math.PI); // tall peaked T
+      if (mod < 44) return (44-mod)*0.5;
+      return 0;
+    },
+    'afib': x => {
+      // Irregular QRS + fibrillatory baseline
+      // Use deterministic pseudo-random intervals
+      const intervals = [55,62,48,70,58,52,75,45,63,50];
+      let acc = 0; let beat = 0;
+      while (acc < x && beat < 100) { acc += intervals[beat % intervals.length]; beat++; }
+      const mod = x - (acc - intervals[(beat-1) % intervals.length]);
+      const fib = Math.sin(x*0.8)*1.5 + Math.sin(x*1.3)*1.2 + Math.sin(x*0.5)*0.8; // fibrillation
+      if (mod < 2) return 8 + fib;
+      if (mod < 4) return -28 + fib;
+      if (mod < 6) return 10 + fib;
+      return fib;
+    },
+    'chb': x => {
+      // P waves every 16 time units, QRS every 36 time units - no relationship
+      const pMod = x % 16;
+      const qrsMod = x % 36;
+      let y = 0;
+      if (pMod < 4) y += -8 * Math.sin(pMod/4*Math.PI);
+      if (qrsMod < 2) y += 8;
+      else if (qrsMod < 4) y += -40;
+      else if (qrsMod < 6) y += 12;
+      else if (qrsMod < 10) y += -8 * Math.exp(-(qrsMod-6)); // T wave
+      return y;
+    },
+    'rbbb': x => {
+      const mod = x % 130;
+      if (mod < 5) return 0;
+      if (mod < 8) return -8 * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      if (mod < 20) return 6;
+      if (mod < 22) return -38; // R
+      if (mod < 24) return 10;  // S
+      if (mod < 26) return -25; // R' (RSR' pattern)
+      if (mod < 29) return 0;
+      if (mod < 36) return 14 * Math.sin((mod-29)/7*Math.PI); // inverted T (discordant)
+      return 0;
+    },
+    'lbbb': x => {
+      const mod = x % 140;
+      if (mod < 5) return 0;
+      if (mod < 8) return -8 * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      // broad notched R
+      if (mod < 20) return -8;
+      if (mod < 23) return -42;
+      if (mod < 26) return -28;  // notch
+      if (mod < 29) return -42;
+      if (mod < 33) return 0;
+      if (mod < 42) return 18 * Math.sin((mod-33)/9*Math.PI); // discordant T (inverted in V6)
+      return 0;
+    },
+    'alternans': x => {
+      const beatN = Math.floor(x / 120);
+      const mod = x % 120;
+      const tall = beatN % 2 === 0;
+      const rH = tall ? 46 : 26;
+      if (mod < 5) return 0;
+      if (mod < 8) return (-6 + (tall?-2:0)) * Math.sin((mod-5)/3*Math.PI);
+      if (mod < 18) return 0;
+      if (mod < 20) return 6;
+      if (mod < 22) return -rH;
+      if (mod < 24) return 10;
+      if (mod < 28) return 0;
+      if (mod < 38) return -(tall?18:10) * Math.sin((mod-28)/10*Math.PI);
+      return 0;
+    }
+  };
+  return patterns[type] || patterns['inferior'];
+}
+
+function startAnim(canvasId, type) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const baseY = H * 0.55;
+  const speed = 1.5; // pixels per frame
+  
+  if (animStates[canvasId]) {
+    cancelAnimationFrame(animStates[canvasId].raf);
+  }
+  
+  const state = { t: 0, buffer: new Array(W).fill(baseY), running: true };
+  animStates[canvasId] = state;
+  
+  const waveFn = getWaveformFn(type);
+  const gridColor = 'rgba(0,255,136,0.08)';
+  const gridColorBold = 'rgba(0,255,136,0.15)';
+  
+  function drawGrid() {
+    // Minor grid
+    ctx.strokeStyle = gridColor;
+    ctx.lineWidth = 0.5;
+    for (let x=0; x<W; x+=8) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y=0; y<H; y+=8) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+    // Major grid
+    ctx.strokeStyle = gridColorBold;
+    ctx.lineWidth = 0.8;
+    for (let x=0; x<W; x+=40) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y=0; y<H; y+=40) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+  }
+  
+  function frame() {
+    if (!state.running) return;
+    
+    // Shift buffer left by speed
+    for (let i=0; i<speed; i++) {
+      state.buffer.shift();
+      const newY = baseY + waveFn(state.t);
+      state.buffer.push(Math.max(4, Math.min(H-4, newY)));
+      state.t += 0.6;
+    }
+    
+    // Clear
+    ctx.fillStyle = '#0a1628';
+    ctx.fillRect(0,0,W,H);
+    drawGrid();
+    
+    // Draw waveform
+    ctx.beginPath();
+    ctx.strokeStyle = '#00ff88';
+    ctx.lineWidth = 1.8;
+    ctx.shadowColor = '#00ff88';
+    ctx.shadowBlur = 4;
+    ctx.moveTo(0, state.buffer[0]);
+    for (let x=1; x<W; x++) {
+      ctx.lineTo(x, state.buffer[x]);
+    }
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    
+    // Scan line effect
+    const scanX = W - 20;
+    const grad = ctx.createLinearGradient(scanX-30, 0, scanX+5, 0);
+    grad.addColorStop(0, 'transparent');
+    grad.addColorStop(0.7, 'rgba(0,255,136,0.12)');
+    grad.addColorStop(1, 'rgba(0,255,136,0.3)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(scanX-30, 0, 35, H);
+    
+    state.raf = requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+function stopAnim(canvasId) {
+  if (animStates[canvasId]) {
+    animStates[canvasId].running = false;
+    cancelAnimationFrame(animStates[canvasId].raf);
+    delete animStates[canvasId];
+    const canvas = document.getElementById(canvasId);
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+  }
+}
+
+function toggleAnim(containerId) {
+  const container = document.getElementById(containerId);
+  const canvasId = containerId.replace('anim-','canvas-');
+  const btn = container.previousElementSibling.querySelector('.anim-btn');
+  
+  if (container.classList.contains('anim-hidden')) {
+    container.classList.remove('anim-hidden');
+    btn.innerHTML = '<span>⏹</span> Stop';
+    // Map container ID to waveform type
+    const typeMap = {
+      'anim-inferior':'inferior','anim-anterior':'anterior',
+      'anim-wellens':'wellens','anim-dewinter':'dewinter',
+      'anim-afib':'afib','anim-chb':'chb','anim-rbbb':'rbbb',
+      'anim-lbbb':'lbbb','anim-alternans':'alternans'
+    };
+    startAnim(canvasId, typeMap[containerId] || 'inferior');
+  } else {
+    container.classList.add('anim-hidden');
+    btn.innerHTML = '<span>▶</span> Animate Strip';
+    stopAnim(canvasId);
+  }
+}
+
+// ── AUDIO MNEMONICS ──────────────────────────────────────────
+
+const MNEMONICS = {
+  'inferior-stemi': "Two, Three, aVF light up below — RCA's to blame, don't let the pressure go. Get right-sided leads to rule out RV MI before giving nitrates.",
+  'anterior-stemi': "V1 through V4 — the LAD's war. The widowmaker strikes the anterior wall. Highest mortality STEMI — tombstone morphology means the cath lab now.",
+  'wellens': "Wellens warns when the pain has gone — the LAD is teetering on a bomb. Deep symmetric T wave inversion in V2 and V3, patient pain free. Do NOT stress test. Urgent cath today.",
+  'dewinter': "De Winter climbs up, never comes down — the LAD's occluded without a crown. Upsloping ST depression plus tall peaked T waves. Static pattern. Will never develop elevation. Cath lab now.",
+  'afib': "Irregularly irregular, no P waves in sight. The atria fibrillate day and night. Rate control, anticoagulation, CHA-2-DS-2-VASc guides the decision. DOACs preferred over warfarin.",
+  'chb': "P waves march — QRS doesn't follow. Complete divorce between atria and ventricle. The atria beat at seventy five, the ventricles escape at thirty five. Pacemaker required, no exceptions.",
+  'rbbb': "W-I-R-R-O-W: In RBBB, M-shape in V1 like a rabbit with two ears — R, S, R-prime. W-shape in V6 with a wide slurred S wave. May be normal in young patients.",
+  'lbbb': "William MarRow: In LBBB, W in V1 — a deep QS pattern. M in V6 — a broad notched R wave. Always pathologic. New LBBB plus chest pain equals STEMI equivalent. Activate the cath lab.",
+  'alternans': "The heart swings in its fluid sea — tall, short, tall, short, alternately. Electrical alternans plus sinus tachycardia equals tamponade until proven otherwise. Never give furosemide. Give fluids, then pericardiocentesis."
+};
+
+let currentSpeech = null;
+
+function speakMnemonic(key) {
+  const btn = event.target.closest('.audio-btn');
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+    document.querySelectorAll('.audio-btn.playing').forEach(b => {
+      b.classList.remove('playing');
+      b.innerHTML = '<span class="icon">🔊</span> Hear Mnemonic';
+    });
+    if (btn && btn.dataset.key === key && !btn.classList.contains('playing')) {
+      // Was already playing this one — stop only
+      return;
+    }
+  }
+  const text = MNEMONICS[key];
+  if (!text || !window.speechSynthesis) return;
+  
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.rate = 0.88;
+  utt.pitch = 1.0;
+  utt.volume = 1;
+  
+  // Pick a clear voice
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v => v.name.includes('Daniel') || v.name.includes('Alex') || v.name.includes('Google US English') || (v.lang === 'en-US' && !v.name.includes('Google')));
+  if (preferred) utt.voice = preferred;
+  
+  utt.onstart = () => {
+    if (btn) {
+      btn.classList.add('playing');
+      btn.dataset.key = key;
+      btn.innerHTML = '<span class="icon">⏹</span> Stop';
+    }
+  };
+  utt.onend = () => {
+    if (btn) {
+      btn.classList.remove('playing');
+      btn.innerHTML = '<span class="icon">🔊</span> Hear Mnemonic';
+    }
+    currentSpeech = null;
+  };
+  utt.onerror = () => { currentSpeech = null; };
+  
+  currentSpeech = utt;
+  window.speechSynthesis.speak(utt);
+}
+
+// Load voices async
+window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+
+// ── INIT ALL 12-LEAD LAYOUTS ─────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  render12Lead('ecg-inferior',  'rstrip-inferior',  'inferior-stemi');
+  render12Lead('ecg-anterior',  'rstrip-anterior',  'anterior-stemi');
+  render12Lead('ecg-wellens',   'rstrip-wellens',   'wellens');
+  render12Lead('ecg-dewinter',  'rstrip-dewinter',  'dewinter');
+  render12Lead('ecg-afib',      'rstrip-afib',      'afib');
+  render12Lead('ecg-chb',       'rstrip-chb',       'chb');
+  render12Lead('ecg-rbbb',      'rstrip-rbbb',      'rbbb');
+  render12Lead('ecg-lbbb',      'rstrip-lbbb',      'lbbb');
+  render12Lead('ecg-alternans', 'rstrip-alternans', 'alternans');
+});
+</script>
+</body>
+</html>

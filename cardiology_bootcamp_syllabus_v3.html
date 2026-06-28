@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCZ6NQJ3T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NBCZ6NQJ3T');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PA Cardiology Bootcamp — Complete Syllabus</title>
@@ -1209,7 +1217,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
     <div class="tc-main">
       <div class="tc-num">Topic F-1</div>
       <div class="tc-title">Cardiac Physiology &amp; Hemodynamics</div><span class="tc-preview-badge">👁 Free Preview</span>
-      <div class="tc-subtitle">Cardiac Cycle · Heart Sounds · CO = HR × SV · Frank-Starling · PV Loops · Shock Hemodynamics</div>
+      <div class="tc-subtitle">Cardiac Cycle · Heart Sounds · CO = HR × SV · Frank-Starling · PV Loops · Swan-Ganz Values</div>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">Expanded</span></div>
   </div>
@@ -1249,116 +1257,30 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
       <li><b>Frank-Starling law:</b> ↑ preload → ↑ stretch → ↑ force of contraction → ↑ CO — up to a physiologic limit. Beyond that, further preload causes pulmonary congestion without improving output (the "failing heart" steep part of the curve). <button class="img-popup-btn" onclick="openPopup('frank-starling')"><span class="btn-icon">📈</span> View Curve Diagram</button></li>
     </ul></div>
 
-    <!-- Frank-Starling 60-Second Clinical Summary -->
-    <style>
-      .fsc-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 8px 0 4px; }
-      .fsc-step { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .02em; color: var(--navy); background: var(--navy-lt); border: 1px solid #D5DEEF; border-radius: 4px; padding: 4px 9px; white-space: nowrap; }
-      .fsc-arrow { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 700; color: var(--mid); }
-      .fsc-flow.fsc-up .fsc-step { color: var(--green); background: var(--green-lt); border-color: var(--green-bd); }
-      .fsc-flow.fsc-up .fsc-arrow { color: var(--green); }
-      .fsc-flow.fsc-down .fsc-step { color: var(--red); background: var(--red-lt); border-color: var(--red-bd); }
-      .fsc-flow.fsc-down .fsc-arrow { color: var(--red); }
-      .fsc-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
-      .fsc-dot-g { background: var(--green); } .fsc-dot-b { background: var(--navy-md); } .fsc-dot-r { background: var(--red); }
-    </style>
-    <div class="sub"><div class="sub-label sl-teal">Frank-Starling Curve — The 60-Second Clinical Summary <button class="img-popup-btn" onclick="openPopup('frank-starling')"><span class="btn-icon">📈</span> View Curve Diagram</button></div>
-    <p><b>The core idea:</b> the more the ventricle fills, the harder it contracts and the more it ejects — <i>up to a point</i>. Once the ventricle is overstretched (especially in heart failure), additional filling produces congestion instead of more output.</p>
-    <div class="fsc-flow fsc-up">
-      <span class="fsc-step">↑ Filling</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">↑ Stretch</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">Stronger squeeze</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">↑ Stroke volume</span>
-    </div>
-
-    <div class="sub"><div class="sub-label sl-navy">The Three Curves — One Family, Different Contractile States</div>
-    <table class="btable">
-      <thead><tr><th>Curve</th><th>Contractile State</th><th>Drivers / Examples</th><th>Behavior</th></tr></thead>
-      <tbody>
-        <tr><td class="td-bold"><span class="fsc-dot fsc-dot-g"></span>Green</td><td class="td-green">↑ Contractility</td><td>Exercise, epinephrine, dobutamine</td><td>More stroke volume at <i>every</i> preload. <span class="td-green">e.g. healthy 25-yo running uphill — handles increased filling easily.</span></td></tr>
-        <tr><td class="td-bold"><span class="fsc-dot fsc-dot-b"></span>Blue</td><td>Normal heart</td><td>Healthy adult at rest</td><td>More preload → more stroke volume until the curve plateaus. <span class="td-green">e.g. 1 L IV fluids for dehydration raises BP.</span></td></tr>
-        <tr><td class="td-bold"><span class="fsc-dot fsc-dot-r"></span>Red</td><td class="td-red">↓ Contractility (HFrEF)</td><td>Dilated cardiomyopathy, prior MI, EF ~25%</td><td class="td-red">Flattened &amp; depressed. Even high preload → poor squeeze → low cardiac output.</td></tr>
-      </tbody>
-    </table>
-    <p class="pnote">🩺 <b>PANCE Pearl:</b> Moving <i>along</i> one curve = changing preload (fluids, diuretics, nitrates). Moving <i>between</i> curves = changing contractility (inotropes, ischemia, beta-blockers).</p></div>
-
-    <div class="sub"><div class="sub-label sl-amber">Five Patient Scenarios — Where on the Curve?</div>
-    <table class="btable">
-      <thead><tr><th>Scenario</th><th>Presentation</th><th>What's Happening</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td class="td-bold">Dehydration</td><td>Vomiting ×3d, BP 85/50, dry mucous membranes</td><td>Low preload → low SV → low CO</td><td class="td-green">IV fluids → ↑ preload → ride up the curve. Patient improves.</td></tr>
-        <tr><td class="td-bold">Septic shock</td><td>Pneumonia, hypotension, tachycardia</td><td>Vasodilation → relative hypovolemia → low preload</td><td class="td-green">Fluids → ↑ ventricular stretch → ↑ SV (moves up the curve).</td></tr>
-        <tr><td class="td-bold">Acute CHF (ADHF)</td><td>EF 20%, leg edema, crackles, ↑ BNP</td><td class="td-red">Already volume-overloaded — weak ventricle means more preload ≠ more output, just pulmonary edema</td><td class="td-red">NOT fluids. Lasix + nitroglycerin + afterload reduction → move <i>left</i> on the curve, reduce congestion.</td></tr>
-        <tr><td class="td-bold">Acute MI / STEMI</td><td>EF drops 60% → 30%</td><td>Sudden ↓ contractility — entire curve shifts <i>down</i>; same preload yields lower SV</td><td>Reperfuse. Inotrope (e.g. dobutamine) can shift the curve back up.</td></tr>
-        <tr><td class="td-bold">Exercise / sprint</td><td>Healthy athlete, peak effort</td><td class="td-green">↑ venous return + ↑ sympathetic tone + ↑ contractility → jumps to the green curve</td><td class="td-green">CO climbs from ~5 L/min to 20–30+ L/min.</td></tr>
-      </tbody>
-    </table>
-    <div class="fsc-flow fsc-down">
-      <span class="fsc-step">ADHF: very high preload</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">Weak ventricle</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">Pulmonary edema</span><span class="fsc-arrow">→</span>
-      <span class="fsc-step">Dyspnea (not ↑ output)</span>
-    </div></div>
-
-    <div class="box box-green">
-      <div class="box-label">✓ Fluids HELP — when preload is LOW</div>
-      <ul class="box-items">
-        <li><b>Dehydration</b> — true hypovolemia</li>
-        <li><b>Hemorrhage / bleeding</b> — lost intravascular volume</li>
-        <li><b>Early sepsis</b> — relative hypovolemia from vasodilation</li>
-      </ul>
-    </div>
-    <div class="box box-red">
-      <div class="box-label">✗ Fluids HURT — when preload is already HIGH</div>
-      <ul class="box-items">
-        <li><b>CHF exacerbation</b> — overloaded, weak ventricle</li>
-        <li><b>Pulmonary edema</b> — adding volume worsens congestion</li>
-        <li><b>Cardiogenic shock</b> — needs inotropes/afterload reduction, not preload</li>
-      </ul>
-    </div>
-    <div class="box box-navy">
-      <div class="box-label">⇅ Contractility Shifts the Whole Curve</div>
-      <ul class="box-items">
-        <li><b>Curve moves UP:</b> exercise, dobutamine, epinephrine, digoxin</li>
-        <li><b>Curve moves DOWN:</b> acute MI, HFrEF, cardiomyopathy, beta-blockers, ischemia</li>
-      </ul>
-    </div>
-    <div class="trick"><div class="trick-label">★ One-Sentence Takeaway</div>
-    <div class="trick-text">The Frank-Starling mechanism explains how increased ventricular filling increases stroke volume — but once the heart becomes overstretched, especially in heart failure, additional preload causes congestion rather than improved cardiac output.</div></div>
-    </div>
-
     <div class="sub"><div class="sub-label sl-navy">Core Hemodynamic Equations</div>
     <table class="btable">
       <thead><tr><th>Parameter</th><th>Formula</th><th>Normal Value</th></tr></thead>
       <tbody>
         <tr><td class="td-bold">Cardiac Output (CO)</td><td>HR × SV</td><td>4–8 L/min</td></tr>
-        <tr><td class="td-bold">Cardiac Index (CI)</td><td>CO / BSA</td><td>2.5–4.0 L/min/m²</td></tr>
-        <tr><td class="td-bold">MAP</td><td>DBP + 1/3 × pulse pressure</td><td>70–100 mmHg</td></tr>
+        <tr><td class="td-bold">MAP</td><td>DBP + 1/3 × pulse pressure (or CO × SVR)</td><td>70–100 mmHg</td></tr>
+        <tr><td class="td-bold">SVR</td><td>(MAP − RAP) / CO × 80</td><td>800–1200 dynes·s/cm⁵</td></tr>
+        <tr><td class="td-bold">PVR</td><td>(mean PAP − PCWP) / CO × 80</td><td>≤250 dynes·s/cm⁵</td></tr>
         <tr><td class="td-bold">Stroke Volume (SV)</td><td>CO / HR</td><td>60–100 mL/beat</td></tr>
       </tbody>
-    </table>
-    <p class="pnote">🩺 <b>PANCE Pearl:</b> Master CO = HR × SV and MAP conceptually. SVR is the afterload surrogate — ↑ in cardiogenic &amp; hypovolemic shock, ↓ in distributive (septic) shock. The exact SVR/PVR formulas and dyne·s/cm⁵ values are critical-care (ABIM) detail, not PANCE-level.</p></div>
+    </table></div>
 
-    <div class="sub"><div class="sub-label sl-purple">Hemodynamic Profiles in Shock — Directional Pattern (PANCE-Level)</div>
-    <p>What's testable is the <b>directional pattern</b> that separates the four shock types — not pressures in mmHg. Read the arrows and match the clinical scenario:</p>
+    <div class="sub"><div class="sub-label sl-purple">Right Heart Catheterization — PANCE Essentials</div>
+    <p>PA students need to recognize what Swan-Ganz findings mean clinically — not memorize normal pressures. The key PANCE application is the hemodynamic profile:</p>
     <table class="btable">
-      <thead><tr><th>Shock Type</th><th>Preload (PCWP)</th><th>CO / CI</th><th>SVR</th></tr></thead>
+      <thead><tr><th>Shock Type</th><th>PCWP</th><th>CO/CI</th><th>SVR</th></tr></thead>
       <tbody>
-        <tr><td class="td-bold">Cardiogenic</td><td class="td-red">↑</td><td class="td-red">↓</td><td>↑</td></tr>
-        <tr><td class="td-bold">Distributive (Septic)</td><td>Normal / ↓</td><td class="td-green">↑</td><td class="td-red">↓↓</td></tr>
-        <tr><td class="td-bold">Hypovolemic</td><td class="td-red">↓</td><td class="td-red">↓</td><td>↑</td></tr>
-        <tr><td class="td-bold">Obstructive (PE/Tamponade)</td><td>↓ (RV ↑)</td><td class="td-red">↓</td><td>↑</td></tr>
+        <tr><td class="td-bold">Cardiogenic</td><td>↑ (&gt;18)</td><td>↓</td><td>↑</td></tr>
+        <tr><td class="td-bold">Distributive (Septic)</td><td>Normal/↓</td><td>↑</td><td>↓↓</td></tr>
+        <tr><td class="td-bold">Hypovolemic</td><td>↓</td><td>↓</td><td>↑</td></tr>
+        <tr><td class="td-bold">Obstructive (PE/Tamponade)</td><td>↓ (RV↑)</td><td>↓</td><td>↑</td></tr>
       </tbody>
     </table>
-    <p class="pnote">🩺 <b>PANCE Pearl:</b> The boards test which profile matches the scenario — not the actual mmHg values. Know the pattern, not the numbers.</p>
-    <div class="box box-navy">
-      <div class="box-label">⚑ Beyond PANCE — ABIM / Critical-Care Depth</div>
-      <ul class="box-items">
-        <li><b>Swan-Ganz (PA catheter) mechanics</b> — insertion route, waveform tracing, lumen functions</li>
-        <li><b>Exact normal pressures</b> — PCWP 4–12 mmHg, the &gt;18 edema threshold, precise CI cutoffs</li>
-        <li><b>SVR / PVR formulas and dyne·s/cm⁵ values</b></li>
-      </ul>
-      <p style="font-size:12.5px; color:var(--slate); margin:7px 0 0;">Invasive PA catheters have largely fallen out of routine practice. For PANCE, recognize the <i>directional pattern</i> and the clinical picture — leave the numbers and catheter mechanics for ICU/ABIM-level study.</p>
-    </div></div>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> The boards test which profile matches the clinical scenario — not the actual mmHg values. Know the pattern, not the numbers.</p></div>
 
     <div class="sub"><div class="sub-label sl-amber">Hemodynamic Profiles — The Forrester Matrix <button class="img-popup-btn" onclick="openPopup('forrester')"><span class="btn-icon">📊</span> View Matrix</button></div>
     <table class="btable">
@@ -1378,8 +1300,8 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
       <ul class="box-items">
         <li><b>S3 is normal in young adults and athletes</b> — pathologic ONLY in patients &gt;40 or with symptoms of HF</li>
         <li><b>S4 is ALWAYS pathologic</b> — never dismiss it. It signals reduced ventricular compliance (LVH, diastolic dysfunction, ischemia).</li>
-        <li><b>Cardiogenic pulmonary edema = elevated PCWP (left-heart backup); non-cardiogenic / ARDS = normal PCWP</b> — this distinction is the concept the boards test, not the exact mmHg cutoff</li>
-        <li><b>Cardiogenic shock = low cardiac output despite adequate/high filling</b> — the clinical picture, not a memorized CI number, is what PANCE tests</li>
+        <li><b>PCWP &gt;18 mmHg = cardiogenic pulmonary edema</b> — distinguishes from non-cardiogenic (ARDS: PCWP normal)</li>
+        <li><b>CI ≤2.2 L/min/m² = cardiogenic shock</b> — the threshold for mechanical circulatory support consideration</li>
         <li><b>Frank-Starling: beyond the optimal preload, more volume = congestion not output</b> — this is why you diurese in decompensated HF even when BP is low</li>
       </ul>
     </div>
@@ -1388,7 +1310,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
 S4: "Ten-nes-see" (extra sound before S1) = Stiff ventricle = LVH/diastolic dysfunction
 "S3 comes after S2 like a 3rd wheel. S4 comes before S1 like an announcement."
 CO = HR × SV. Fix CO: rate + fill + squeeze.
-PCWP: high = cardiogenic edema (backed-up LV); normal = non-cardiogenic (ARDS)
+PCWP: "18 is the flood zone — above 18 = cardiogenic pulmonary edema"
 SVR: "Nitrates ↓ preload. ACE-I ↓ afterload. Dobutamine ↑ contractility."</div></div>
   </div>
 </div>
@@ -1582,14 +1504,6 @@ Hyperkalemia: "Peaks → widens → sine → flat = the K+ kill sequence"</div><
     </a>
   </div>
 </div>
-<style>
-  .qbank-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
-    font-family: 'DM Mono', monospace; font-size: 9.5px; font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
-    background: var(--navy); color: #fff; border: 1.5px solid var(--navy);
-    border-radius: 5px; padding: 6px 13px; transition: all .15s; white-space: nowrap; }
-  .qbank-btn:hover { background: #fff; color: var(--navy); }
-</style>
 <div class="topic-card pw-locked tier-1" id="murmurs">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1597,7 +1511,6 @@ Hyperkalemia: "Peaks → widens → sine → flat = the K+ kill sequence"</div><
       <div class="tc-num">Topic F-3</div>
       <div class="tc-title">Murmurs — Systematic Approach</div>
       <div class="tc-subtitle">Timing · Location · Radiation · Dynamic Maneuvers · HCM vs AS · All Diastolic Murmurs Are Pathologic</div>
-      <a class="qbank-btn" href="pa-board-questions.html?set=murmurs" target="_blank" rel="noopener">🎯 Practice Murmur Questions →</a>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Dynamic Maneuver Traps</span></div>
   </div>
