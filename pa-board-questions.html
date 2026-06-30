@@ -1534,8 +1534,23 @@ function startTestE(){
   var name=document.getElementById('student-name').value.trim();
   if(!name||name.length<2){
     var inp=document.getElementById('student-name');
-    inp.style.borderColor='var(--red)';inp.placeholder='Enter your name';inp.focus();return;
+    inp.style.borderColor='var(--red)';
+    inp.style.backgroundColor='rgba(200,57,43,.06)';
+    inp.placeholder='⚠ Please enter your name first';
+    inp.focus();
+    inp.scrollIntoView({behavior:'smooth', block:'center'});
+    // Flash the name field
+    inp.style.animation='none';
+    setTimeout(function(){
+      inp.style.transition='background-color .3s';
+      inp.style.backgroundColor='rgba(200,57,43,.12)';
+      setTimeout(function(){ inp.style.backgroundColor='rgba(200,57,43,.06)'; },300);
+    },10);
+    return;
   }
+  // Reset name field styling once valid
+  var inp2=document.getElementById('student-name');
+  inp2.style.borderColor='';inp2.style.backgroundColor='';
   STATE.name=name; CONF={}; QTIMES={};
 
   var pool;
