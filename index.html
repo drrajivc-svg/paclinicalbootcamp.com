@@ -192,6 +192,54 @@ textarea.cf-in{resize:vertical;min-height:120px;line-height:1.5}
 .cf-status.err{color:var(--red);font-weight:600}
 .cform-alt{font-size:12.5px;color:var(--mist-dim);text-decoration:none;margin-top:2px}
 .cform-alt:hover{color:var(--blue)}
+
+/* ── Hero override — guaranteed visibility ── */
+header.hero, .hero {
+  position: relative;
+  background: linear-gradient(160deg, #1a3058 0%, #0B172E 70%) !important;
+  color: #ffffff !important;
+  padding: 80px 0 60px !important;
+  overflow: hidden;
+}
+.hero .topline { 
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 28px;
+}
+.hero .topline .eyebrow { 
+  color: #aebbd2 !important; 
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hero h1 { 
+  font-size: clamp(38px, 6vw, 68px) !important;
+  color: #ffffff !important;
+  letter-spacing: -1.5px;
+  max-width: 16ch;
+  line-height: 1.1;
+  font-weight: 800;
+}
+.hero h1 .b { color: #60a5fa !important; }
+.hero .lede { 
+  color: #aebbd2 !important;
+  font-size: clamp(15px, 1.8vw, 18px) !important;
+  max-width: 54ch;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+.hero-cta { 
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.tile .num { color: #ffffff !important; }
+.tile .lbl { color: #aebbd2 !important; }
+
 </style>
 <style id="mnav">
 .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
@@ -366,7 +414,7 @@ textarea.cf-in{resize:vertical;min-height:120px;line-height:1.5}
       <div>
         <h3>Vignette Library <span class="free">Free</span></h3>
         <p>Board-aligned clinical vignettes — each with a stem, a forced pause, a collapsible answer, and a teaching pearl. The way a case should be taught.</p>
-        <a class="go js-vignette" href="pa_bootcamp_vignettes.html">Open the library <span class="arr">→</span></a>
+        <a class="go js-vignette" href="pa-board-questions.html">Open the question bank <span class="arr">→</span></a>
       </div>
     </div>
   </div>
