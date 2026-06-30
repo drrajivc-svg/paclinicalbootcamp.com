@@ -525,6 +525,14 @@ a{text-decoration:none;color:inherit}
   color: var(--red);
 }
 
+
+/* When topic drill active — dim system/difficulty cards to show they're bypassed */
+.builder-card.topic-drill-active {
+  opacity: .4;
+  pointer-events: none;
+  user-select: none;
+}
+
 </style>
 </head>
 <body>
@@ -633,7 +641,7 @@ a{text-decoration:none;color:inherit}
       
 
       <!-- Systems -->
-      <div class="builder-card">
+      <div class="builder-card" id="builder-card-systems">
         <div class="bc-label">02 &nbsp; Systems</div>
         <div class="bc-title">Which systems?</div>
         <div class="select-all-row">
@@ -1989,6 +1997,7 @@ function toggleTopicDrill(group, btn) {
     b.classList.remove('active');
   });
   btn.classList.add('active');
+  setTopicDrillDimState(true);
   updateSummary();
 }
 
@@ -1997,14 +2006,24 @@ function clearTopicDrill() {
   document.querySelectorAll('.topic-drill-btn').forEach(function(b) {
     b.classList.remove('active');
   });
+  setTopicDrillDimState(false);
   updateSummary();
 }
 
+function setTopicDrillDimState(active) {
+  var cards = ['builder-card-systems', 'difficulty-card'];
+  cards.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('topic-drill-active', active);
+  });
+}
+
 // ── Update getAvailableQuestions to respect topic drill ────────────────────
+// When a topic drill is active, bypass system/difficulty filters entirely
 var _origGetAvailable = getAvailableQuestions;
 getAvailableQuestions = function() {
-  var base = _origGetAvailable();
-  if (!ACTIVE_TOPIC_DRILL) return base;
+  if (!ACTIVE_TOPIC_DRILL) return _origGetAvailable();
+  // Topic drill mode: ignore system and difficulty checkboxes, return ALL matching questions
   return ALL_QUESTIONS.filter(function(q) {
     var group = (q.topic || '').split(' · ')[0].trim();
     return group === ACTIVE_TOPIC_DRILL;
