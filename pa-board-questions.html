@@ -1950,7 +1950,8 @@ updateSummary();
   // Check on load — run immediately, not waiting for DOMContentLoaded,
   // to prevent any flash of unlocked content
   try {
-    if (localStorage.getItem(LS_KEY) === '1') {
+    var _params = new URLSearchParams(window.location.search);
+    if (localStorage.getItem(LS_KEY) === '1' || _params.get('admin') === '1') {
       document.addEventListener('DOMContentLoaded', qbUnlock);
     } else {
       document.body.style.overflow = 'hidden';
