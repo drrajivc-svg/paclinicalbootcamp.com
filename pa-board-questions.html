@@ -872,7 +872,7 @@ function updateSummary() {
   
   document.getElementById('sum-avail').textContent = avail.length;
   document.getElementById('sum-count').textContent = count;
-  document.getElementById('sum-sys').textContent = sysArr.length === 5 ? 'All 5' : sysArr.length === 0 ? 'None' : sysArr.length + ' selected';
+  document.getElementById('sum-sys').textContent = ACTIVE_TOPIC_DRILL ? ('Topic: ' + ACTIVE_TOPIC_DRILL) : (sysArr.length === 5 ? 'All 5' : sysArr.length === 0 ? 'None' : sysArr.length + ' selected');
   document.getElementById('sum-mode').textContent = modeLabels[STATE.mode] || STATE.mode;
   
   const timeRow = document.getElementById('sum-time-row');
@@ -883,7 +883,7 @@ function updateSummary() {
   const warn = document.getElementById('sum-warn');
   warn.classList.toggle('show', avail.length < 5);
   
-  document.getElementById('start-btn').disabled = avail.length < 5 || STATE.systems.size === 0;
+  document.getElementById('start-btn').disabled = avail.length < 5 || (!ACTIVE_TOPIC_DRILL && STATE.systems.size === 0);
 
   const wc = Object.keys(WRONG_BANK).filter(function(id){return WRONG_BANK[id]>0;}).length;
   const el = document.getElementById('adaptive-info');
@@ -2030,22 +2030,7 @@ getAvailableQuestions = function() {
   });
 };
 
-// ── Update updateSummary to show topic drill status ────────────────────────
-var _origUpdateSummary = typeof updateSummary !== 'undefined' ? updateSummary : null;
-if (_origUpdateSummary) {
-  updateSummary = function() {
-    _origUpdateSummary();
-    if (ACTIVE_TOPIC_DRILL) {
-      var countEl = document.getElementById('sum-avail');
-      if (countEl) {
-        var n = ALL_QUESTIONS.filter(function(q){
-          return (q.topic||'').split(' · ')[0].trim() === ACTIVE_TOPIC_DRILL;
-        }).length;
-        countEl.textContent = n;
-      }
-    }
-  };
-}
+// Topic drill summary update handled directly in updateSummary
 
 // ── Init topic drill grid on DOM ready ────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
