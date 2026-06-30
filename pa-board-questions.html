@@ -779,6 +779,8 @@ let STATE = {
   startTime: null,
   submitted: false,
 };
+var ACTIVE_TOPIC_DRILL = null; // topic drill selection
+
 
 // ════════════════════════════════════════════════════════════
 // BUILDER UI
@@ -858,6 +860,12 @@ function toggleDiff(d) {
 }
 
 function getAvailableQuestions() {
+  // Topic drill bypasses all filters
+  if (ACTIVE_TOPIC_DRILL) {
+    return ALL_QUESTIONS.filter(function(q) {
+      return (q.topic || '').split(' · ')[0].trim() === ACTIVE_TOPIC_DRILL;
+    });
+  }
   return ALL_QUESTIONS.filter(q =>
     STATE.systems.has(q.system) &&
     STATE.difficulties.has(q.difficulty)
@@ -1985,7 +1993,7 @@ function buildTopicDrillGrid() {
   grid.appendChild(clearBtn);
 }
 
-var ACTIVE_TOPIC_DRILL = null;
+// ACTIVE_TOPIC_DRILL declared at top
 
 function toggleTopicDrill(group, btn) {
   if (ACTIVE_TOPIC_DRILL === group) {
@@ -2018,17 +2026,7 @@ function setTopicDrillDimState(active) {
   });
 }
 
-// ── Update getAvailableQuestions to respect topic drill ────────────────────
-// When a topic drill is active, bypass system/difficulty filters entirely
-var _origGetAvailable = getAvailableQuestions;
-getAvailableQuestions = function() {
-  if (!ACTIVE_TOPIC_DRILL) return _origGetAvailable();
-  // Topic drill mode: ignore system and difficulty checkboxes, return ALL matching questions
-  return ALL_QUESTIONS.filter(function(q) {
-    var group = (q.topic || '').split(' · ')[0].trim();
-    return group === ACTIVE_TOPIC_DRILL;
-  });
-};
+// getAvailableQuestions handles topic drill directly
 
 // Topic drill summary update handled directly in updateSummary
 
