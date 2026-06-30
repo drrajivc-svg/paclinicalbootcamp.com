@@ -338,9 +338,124 @@ a{text-decoration:none;color:inherit}
 .anav-btn{padding:9px 18px;background:var(--bg);color:var(--slate);border:1.5px solid var(--border);border-radius:9px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .15s}
 .anav-btn:hover{border-color:var(--ink);color:var(--ink)}
 
+
+/* ════ QUESTION BANK ACCESS GATE ════ */
+.qb-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: linear-gradient(160deg, #0B172E 0%, #1a3058 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.qb-gate-overlay.hidden { display: none; }
+.qb-gate-card {
+  background: white;
+  border-radius: 20px;
+  padding: 44px 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.4);
+  position: relative;
+  overflow: hidden;
+}
+.qb-gate-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #0F1F3D, #3b82f6, #0D6E6E);
+}
+.qb-gate-icon { font-size: 38px; margin-bottom: 14px; }
+.qb-gate-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: #3b82f6; margin-bottom: 10px;
+}
+.qb-gate-card h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px; font-weight: 800;
+  color: #0F1F3D; margin-bottom: 10px;
+  line-height: 1.2;
+}
+.qb-gate-card p {
+  font-size: 14px; color: #6B7A8D;
+  line-height: 1.6; margin-bottom: 26px;
+}
+.qb-gate-input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.qb-gate-input {
+  flex: 1; padding: 13px 16px;
+  border: 2px solid #E2E8F0; border-radius: 11px;
+  font-family: 'DM Mono', monospace;
+  font-size: 16px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #0F1F3D; outline: none;
+  transition: border-color .15s; text-align: center;
+}
+.qb-gate-input:focus { border-color: #0F1F3D; }
+.qb-gate-input.error { border-color: #C8392B; animation: qbshake .3s; }
+@keyframes qbshake {
+  0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+}
+.qb-gate-btn {
+  padding: 13px 22px; background: #0F1F3D; color: white;
+  border: none; border-radius: 11px;
+  font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background .15s; white-space: nowrap;
+}
+.qb-gate-btn:hover { background: #1a3058; }
+.qb-gate-error {
+  font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #C8392B; display: none; margin-bottom: 8px;
+}
+.qb-gate-error.show { display: block; }
+.qb-gate-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 18px 0; color: #aebbd2; font-size: 12px;
+}
+.qb-gate-divider::before, .qb-gate-divider::after {
+  content: ''; flex: 1; height: 1px; background: #E2E8F0;
+}
+.qb-gate-enroll {
+  font-size: 13px; color: #6B7A8D; text-decoration: none;
+}
+.qb-gate-enroll b { color: #0F1F3D; }
+.qb-gate-enroll:hover b { text-decoration: underline; }
+.qb-gate-back {
+  display: inline-block; margin-top: 18px;
+  font-size: 12.5px; color: #aebbd2; text-decoration: none;
+}
+.qb-gate-back:hover { color: #0F1F3D; }
+
 </style>
 </head>
 <body>
+<div class="qb-gate-overlay" id="qb-gate-overlay">
+  <div class="qb-gate-card">
+    <div class="qb-gate-icon">🔒</div>
+    <div class="qb-gate-eyebrow">Bootcamp Access Required</div>
+    <h1>Board Question Bank</h1>
+    <p>100 PANCE-style questions with timed tests, tutor mode, adaptive review, and full analytics. Enter your access code to begin.</p>
+    <div class="qb-gate-error" id="qb-gate-error">❌ Incorrect code — check with your instructor</div>
+    <div class="qb-gate-input-row">
+      <input class="qb-gate-input" id="qb-gate-input" type="text" placeholder="ENTER CODE" maxlength="30"
+        onkeydown="if(event.key==='Enter') qbGateSubmit()">
+      <button class="qb-gate-btn" onclick="qbGateSubmit()">Unlock →</button>
+    </div>
+    <div class="qb-gate-divider">or</div>
+    <a class="qb-gate-enroll" href="https://paclinicalbootcamp.com/#contact">
+      Don't have a code? <b>Enroll in the bootcamp →</b>
+    </a>
+    <br>
+    <a class="qb-gate-back" href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
 
 <!-- SENDING OVERLAY -->
 <div class="sending-overlay" id="send-overlay">
@@ -1657,6 +1772,49 @@ updateSummary();
   </div>
   <div class="analytics-body" id="analytics-body"></div>
 </div>
+
+
+<script>
+(function(){
+  var CODE = 'BOOTCAMP2026';
+  var LS_KEY = 'pcb_qbank_v1';
+
+  function qbUnlock() {
+    var overlay = document.getElementById('qb-gate-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  window.qbGateSubmit = function() {
+    var inp = document.getElementById('qb-gate-input');
+    var err = document.getElementById('qb-gate-error');
+    if (!inp) return;
+    var val = inp.value.trim().toUpperCase();
+    if (val === CODE.toUpperCase()) {
+      try { localStorage.setItem(LS_KEY, '1'); } catch(e) {}
+      inp.classList.remove('error');
+      if (err) err.classList.remove('show');
+      qbUnlock();
+    } else {
+      inp.classList.add('error');
+      if (err) err.classList.add('show');
+      inp.value = '';
+      inp.focus();
+      setTimeout(function() { inp.classList.remove('error'); }, 600);
+    }
+  };
+
+  // Check on load — run immediately, not waiting for DOMContentLoaded,
+  // to prevent any flash of unlocked content
+  try {
+    if (localStorage.getItem(LS_KEY) === '1') {
+      document.addEventListener('DOMContentLoaded', qbUnlock);
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  } catch(e) {}
+})();
+</script>
 
 </body>
 </html>
