@@ -1531,7 +1531,9 @@ function toggleFlagE(qid,idx){
 // ENHANCED startTest
 // ══════════════════════════════════════════════════
 function startTestE(){
+  console.log('[startTestE] called. ACTIVE_TOPIC_DRILL=', ACTIVE_TOPIC_DRILL, 'systems=', STATE.systems.size, 'count=', STATE.count);
   var name=document.getElementById('student-name').value.trim();
+  console.log('[startTestE] name=', name);
   if(!name||name.length<2){
     var inp=document.getElementById('student-name');
     inp.style.borderColor='var(--red)';
@@ -1539,16 +1541,15 @@ function startTestE(){
     inp.placeholder='⚠ Please enter your name first';
     inp.focus();
     inp.scrollIntoView({behavior:'smooth', block:'center'});
-    // Flash the name field
     inp.style.animation='none';
     setTimeout(function(){
       inp.style.transition='background-color .3s';
       inp.style.backgroundColor='rgba(200,57,43,.12)';
       setTimeout(function(){ inp.style.backgroundColor='rgba(200,57,43,.06)'; },300);
     },10);
+    console.log('[startTestE] BLOCKED - no name');
     return;
   }
-  // Reset name field styling once valid
   var inp2=document.getElementById('student-name');
   inp2.style.borderColor='';inp2.style.backgroundColor='';
   STATE.name=name; CONF={}; QTIMES={};
@@ -1570,7 +1571,9 @@ function startTestE(){
   document.getElementById('test-timer').style.display=isTimed?'':'none';
   document.getElementById('tutor-note').classList.toggle('show',STATE.mode==='tutor');
   if(isTimed){STATE.timeLeft=STATE.questions.length*60;startTimer();}
+  console.log('[startTestE] calling showScreen, questions=', STATE.questions.length);
   showScreen('screen-test');window.scrollTo(0,0);
+  console.log('[startTestE] done');
 }
 
 // ══════════════════════════════════════════════════
