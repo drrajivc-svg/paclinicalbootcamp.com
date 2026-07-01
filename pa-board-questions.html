@@ -893,7 +893,7 @@ function updateSummary() {
   
   document.getElementById('start-btn').disabled = avail.length < 5 || (!ACTIVE_TOPIC_DRILL && STATE.systems.size === 0);
 
-  const wc = Object.keys(WRONG_BANK).filter(function(id){return WRONG_BANK[id]>0;}).length;
+  const wc = Object.keys(WRONG_BANK||{}).filter(function(id){return WRONG_BANK[id]>0;}).length;
   const el = document.getElementById('adaptive-info');
   if(el) { el.style.display = (wc>0)?'block':'none'; el.textContent = wc+' questions in your adaptive bank (previously missed)'; }
 }
@@ -1292,7 +1292,7 @@ updateSummary();
 var LS_W='pcqb_wrong_v1',LS_H='pcqb_hist_v1',LS_N='pcqb_notes_v1';
 function lsS(k,d){try{localStorage.setItem(k,JSON.stringify(d));}catch(e){}}
 function lsL(k,fb){try{var d=localStorage.getItem(k);return d?JSON.parse(d):fb;}catch(e){return fb;}}
-var WRONG_BANK=lsL(LS_W,{});
+var WRONG_BANK=lsL(LS_W,{})||{};
 var HISTORY=lsL(LS_H,[]);
 var NOTES=lsL(LS_N,{});
 var CONF={};
@@ -1394,7 +1394,7 @@ function showQuestionE(idx){
   var diffClass=q.difficulty==='High Yield'?'high':'med';
   var savedNote=NOTES[q.id]||'';
   var conf=CONF[q.id]||0;
-  var isAdaptive=(WRONG_BANK[q.id]||0)>0;
+  var isAdaptive=((WRONG_BANK||{})[q.id]||0)>0;
 
   var optsHtml=q.options.map(function(opt,oi){
     var cls='q-opt';
@@ -1555,7 +1555,7 @@ function startTestE(){
   STATE.name=name; CONF={}; QTIMES={};
 
   var pool;
-  if(STATE.mode==='adaptive'&&Object.keys(WRONG_BANK).length>0){
+  if(STATE.mode==='adaptive'&&Object.keys(WRONG_BANK||{}).length>0){
     pool=getAdaptivePool();
   } else {
     pool=getAvailableQuestions().sort(function(){return Math.random()-.5;});
@@ -1774,7 +1774,7 @@ function buildReportE(perQ,sysBk,pct,correct,usedMin,timedOut){
 // RETAKE MISSED
 // ══════════════════════════════════════════════════
 function retakeMissed(){
-  var ids=Object.keys(WRONG_BANK).filter(function(id){return WRONG_BANK[id]>0;});
+  var ids=Object.keys(WRONG_BANK||{}).filter(function(id){return WRONG_BANK[id]>0;});
   if(!ids.length){alert('No missed questions to retake!');return;}
   var pool=ALL_QUESTIONS.filter(function(q){return ids.indexOf(q.id)>=0;});
   if(!pool.length){alert('No missed questions match current filters.');return;}
@@ -1806,7 +1806,7 @@ function showAnalyticsE(){
   var allPcts=HISTORY.map(function(h){return h.pct;});
   var avgPct=Math.round(allPcts.reduce(function(a,b){return a+b;},0)/allPcts.length);
   var bestPct=Math.max.apply(null,allPcts);
-  var wrongCt=Object.keys(WRONG_BANK).filter(function(id){return WRONG_BANK[id]>0;}).length;
+  var wrongCt=Object.keys(WRONG_BANK||{}).filter(function(id){return WRONG_BANK[id]>0;}).length;
 
   var sysTotals={};
   HISTORY.forEach(function(h){
@@ -1900,7 +1900,7 @@ function clearA(){
 var _origUpdateSummary = updateSummary;
 updateSummary = function() {
   _origUpdateSummary();
-  var wc = Object.keys(WRONG_BANK).filter(function(id){return WRONG_BANK[id]>0;}).length;
+  var wc = Object.keys(WRONG_BANK||{}).filter(function(id){return WRONG_BANK[id]>0;}).length;
   var el = document.getElementById('adaptive-info');
   if(el) { el.style.display = wc>0?'block':'none'; el.textContent = wc+' questions in your adaptive bank (previously missed)'; }
 };
