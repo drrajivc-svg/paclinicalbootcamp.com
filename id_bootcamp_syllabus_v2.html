@@ -272,7 +272,6 @@ strong,b{color:var(--black);}
     rgba(247,249,252,1) 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 /* Small lock callout at bottom of each locked card */
 .pw-card-lock {
@@ -455,8 +454,8 @@ strong,b{color:var(--black);}
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -755,7 +754,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -808,7 +807,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -818,6 +816,18 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
 }
 
+
+/* ── LOCK: hide tc-body when card is locked ── */
+.pw-locked .tc-body { display: none !important; }
+body.pw-unlocked .pw-locked .tc-body { display: block !important; }
+.pw-locked .tc-lock-prompt { display: flex; }
+body.pw-unlocked .pw-locked .tc-lock-prompt { display: none !important; }
+
+/* LOCK */
+.pw-locked .tc-body{display:none!important}
+body.pw-unlocked .pw-locked .tc-body{display:block!important}
+.pw-locked .tc-lock-prompt{display:flex!important}
+body.pw-unlocked .pw-locked .tc-lock-prompt{display:none!important}
 </style>
 </head>
 <body>
@@ -1119,22 +1129,18 @@ Vasopressor order: "NE → Vaso → Epi" — Never Very Easy to manage refractor
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">UTI — Cystitis &amp; Pyelonephritis</div>
       <div class="tc-subtitle">2025 IDSA Reclassification · Nitrofurantoin Limitation · ASB Rules · Duration of Therapy · Pregnancy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
       <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Nitrofurantoin Trap</span><span class="badge badge-new">2025 Update</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">2025 IDSA Reclassification — What "Complicated" Actually Means</div>
@@ -1286,6 +1292,7 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     </div>
   </div>
 </div>
+</div>
 
 <!-- MENINGITIS -->
 <div class="topic-card pw-locked tier-1" id="meningitis">
@@ -1293,22 +1300,18 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Bacterial Meningitis</div>
       <div class="tc-subtitle">Age-Based Coverage · CSF Patterns · Dexamethasone Timing · Never Delay ABx <button class="img-popup-btn" onclick="openIdDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Dexa Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1358,6 +1361,7 @@ Dexa timing: "BEFORE or WITH — not after. The first dose is the only chance."
 CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 2 -->
 <div class="section-header" id="organ-specific">
@@ -1371,22 +1375,18 @@ CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">2023 Duke Criteria · Organisms by Context · Osler vs Janeway · Surgical Indications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">2023 Duke Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1457,6 +1457,7 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
 "CoNS (&lt;60d prosthetic) → CoNS same (&gt;60d) → native valve organisms"</div></div>
   </div>
 </div>
+</div>
 
 <!-- STIs -->
 <div class="topic-card pw-locked tier-1" id="sti">
@@ -1464,22 +1465,18 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Sexually Transmitted Infections (STIs)</div>
       <div class="tc-subtitle">CDC 2021 · Doxy &gt; Azithro · Ceftriaxone Monotherapy · Syphilis Stages &amp; Serology <button class="img-popup-btn" onclick="openIdDiagram('syphilis-stages')"><span class="btn-icon">📊</span> View Syphilis Stages</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">CDC 2021</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1526,6 +1523,7 @@ Serology: "RPR/VDRL = Quantitative (monitor). FTA-ABS = Forever positive (confir
 Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</div></div>
   </div>
 </div>
+</div>
 
 <!-- C. DIFF -->
 <div class="topic-card pw-locked tier-1" id="cdiff">
@@ -1533,22 +1531,18 @@ Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Clostridioides difficile Infection (CDI)</div>
       <div class="tc-subtitle">Metronidazole No Longer First-Line · Vancomycin/Fidaxomicin · FMT · Soap &amp; Water</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Metronidazole Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1595,6 +1589,7 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     </div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 3: HIV -->
 <div class="section-header" id="hiv-domain">
@@ -1607,22 +1602,18 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">HIV/AIDS &amp; Opportunistic Infections</div>
       <div class="tc-subtitle">CD4 Thresholds · PCP / Toxo / Crypto / CMV / MAC · IRIS · TMP-SMX Dual Coverage <button class="img-popup-btn" onclick="openIdDiagram('hiv-cd4')"><span class="btn-icon">📊</span> View CD4 Ladder</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1679,6 +1670,7 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
 "Crypto: ALWAYS check the pressure — elevated ICP kills faster than the fungus"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 4: SKIN/VECTOR -->
 <div class="section-header" id="skin-domain">
@@ -1692,22 +1684,18 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
+  </div>
       <div class="tc-title">Skin &amp; Soft Tissue Infections</div>
       <div class="tc-subtitle">Cellulitis · Abscess I&amp;D · Necrotizing Fasciitis · Erysipelas · MRSA Coverage Rules <button class="img-popup-btn" onclick="openIdDiagram('ssti-decision')"><span class="btn-icon">📊</span> View SSTI Decision</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">MRSA Coverage Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1752,6 +1740,7 @@ Erysipelas: "Sharp borders + Group A Strep + Penicillin"
 NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div>
   </div>
 </div>
+</div>
 
 <!-- LYME COMPLETE -->
 <div class="topic-card pw-locked tier-1" id="lyme">
@@ -1759,22 +1748,18 @@ NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10</div>
+  </div>
       <div class="tc-title">Lyme Disease — Complete (Rebuilt from Truncated Source)</div>
       <div class="tc-subtitle">3 Stages · Treatment Table · Two-Tier Serology · Tick Prophylaxis · Coinfections <button class="img-popup-btn" onclick="openIdDiagram('lyme-stages')"><span class="btn-icon">🔬</span> View Lyme Stages</button> <button class="ecg-popup-btn" onclick="openIdECG()">📟 View Lyme Carditis EKG</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Serology Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1829,6 +1814,7 @@ Prophylaxis: "Single dose doxy if tick attached ≥36 hours"
 Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 5: GAP TOPICS -->
 <div class="section-header" id="gap-domain">
@@ -1842,22 +1828,18 @@ Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Influenza</div>
       <div class="tc-subtitle">Oseltamivir Timing · High-Risk Groups · Zanamivir Contraindication · Reye Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1922,6 +1904,7 @@ Zanamivir: "Inhaled = no asthma, no COPD — bronchospasm risk"
 Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vancomycin."</div></div>
   </div>
 </div>
+</div>
 
 <!-- COVID-19 -->
 <div class="topic-card pw-locked tier-1" id="covid">
@@ -1929,22 +1912,18 @@ Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vanc
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">COVID-19 (SARS-CoV-2)</div>
       <div class="tc-subtitle">Paxlovid · Ritonavir CYP3A4 Interactions · Dexamethasone Indication · COVID-19 Antivirals</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Paxlovid Interactions</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1998,6 +1977,7 @@ Dexamethasone: "Only when they need O₂ — don't use in mild outpatient diseas
 Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
   </div>
 </div>
+</div>
 
 <!-- FUNGAL -->
 <div class="topic-card pw-locked tier-2" id="fungal">
@@ -2005,22 +1985,18 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Fungal Infections</div>
       <div class="tc-subtitle">Invasive Candida · Aspergillus Halo Sign · Coccidioidomycosis · Histoplasmosis · Antifungal Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2055,6 +2031,7 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -2414,6 +2391,11 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Fever + Rash — The Must-Not-Miss Differential</div>
       <div class="tc-subtitle">RMSF · Meningococcemia · Viral Exanthem · Drug Reaction · Secondary Syphilis · Toxic Shock <button class="img-popup-btn" onclick="openIdDiagram('fever-rash')"><span class="btn-icon">🔬</span> View Fever+Rash Table</button></div>
     </div>
@@ -3937,6 +3919,77 @@ document.addEventListener('click', function() {
 })();
 </script>
 
+
+<script>
+(function() {
+  // Hide all locked card content on load, show on unlock
+  function applyLockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Hide everything inside card except tc-header, tc-badges, tc-lock-prompt
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        var cls = el.className || '';
+        if (cls.indexOf('tc-header') >= 0 || cls.indexOf('tc-lock-prompt') >= 0 || cls.indexOf('tc-badges') >= 0) {
+          // keep visible
+        } else {
+          el.setAttribute('data-locked', '1');
+          el.style.display = 'none';
+        }
+      }
+      // Show the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+  }
+
+  function applyUnlockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Show all children again
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        if (el.getAttribute('data-locked') === '1') {
+          el.style.display = '';
+          el.removeAttribute('data-locked');
+        }
+      }
+      // Hide the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'none';
+    });
+  }
+
+  // Also wrap the existing pwUnlock to call applyUnlockState
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply lock state immediately
+    applyLockState();
+    
+    // Check if already unlocked in localStorage
+    try {
+      var LS_KEY_CHECK = document.querySelector('[data-ls-key]');
+      // Try common keys
+      var keys = ['pcb_access_v1_Infectious_Disease'];
+      for (var k = 0; k < keys.length; k++) {
+        if (localStorage.getItem(keys[k]) === '1') {
+          applyUnlockState();
+          break;
+        }
+      }
+    } catch(e) {}
+
+    // Monkey-patch pwUnlock to also call applyUnlockState
+    var origUnlock = window.pwUnlock;
+    window.pwUnlock = function() {
+      if (origUnlock) origUnlock();
+      applyUnlockState();
+    };
+  });
+})();
+</script>
+
 </body>
 </html>
 /* ── ACCESS LOCK ─────────────────────────────── */
@@ -3999,7 +4052,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -4052,7 +4105,6 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -4363,22 +4415,18 @@ Vasopressor order: "NE → Vaso → Epi" — Never Very Easy to manage refractor
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">UTI — Cystitis &amp; Pyelonephritis</div>
       <div class="tc-subtitle">2025 IDSA Reclassification · Nitrofurantoin Limitation · ASB Rules · Duration of Therapy · Pregnancy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Nitrofurantoin Trap</span><span class="badge badge-new">2025 Update</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">2025 IDSA Reclassification — What "Complicated" Actually Means</div>
@@ -4530,6 +4578,7 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     </div>
   </div>
 </div>
+</div>
 
 <!-- MENINGITIS -->
 <div class="topic-card pw-locked tier-1" id="meningitis">
@@ -4537,22 +4586,18 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
-      <div class="tc-title">Bacterial Meningitis</div>
-      <div class="tc-subtitle">Age-Based Coverage · CSF Patterns · Dexamethasone Timing · Never Delay ABx <button class="img-popup-btn" onclick="openIdDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Dexa Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Bacterial Meningitis</div>
+      <div class="tc-subtitle">Age-Based Coverage · CSF Patterns · Dexamethasone Timing · Never Delay ABx <button class="img-popup-btn" onclick="openIdDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -4602,6 +4647,7 @@ Dexa timing: "BEFORE or WITH — not after. The first dose is the only chance."
 CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 2 -->
 <div class="section-header" id="organ-specific">
@@ -4615,22 +4661,18 @@ CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">2023 Duke Criteria · Organisms by Context · Osler vs Janeway · Surgical Indications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">2023 Duke Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -4701,6 +4743,7 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
 "CoNS (&lt;60d prosthetic) → CoNS same (&gt;60d) → native valve organisms"</div></div>
   </div>
 </div>
+</div>
 
 <!-- STIs -->
 <div class="topic-card pw-locked tier-1" id="sti">
@@ -4708,22 +4751,18 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Sexually Transmitted Infections (STIs)</div>
       <div class="tc-subtitle">CDC 2021 · Doxy &gt; Azithro · Ceftriaxone Monotherapy · Syphilis Stages &amp; Serology <button class="img-popup-btn" onclick="openIdDiagram('syphilis-stages')"><span class="btn-icon">📊</span> View Syphilis Stages</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">CDC 2021</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -4770,6 +4809,7 @@ Serology: "RPR/VDRL = Quantitative (monitor). FTA-ABS = Forever positive (confir
 Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</div></div>
   </div>
 </div>
+</div>
 
 <!-- C. DIFF -->
 <div class="topic-card pw-locked tier-1" id="cdiff">
@@ -4777,22 +4817,18 @@ Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Clostridioides difficile Infection (CDI)</div>
       <div class="tc-subtitle">Metronidazole No Longer First-Line · Vancomycin/Fidaxomicin · FMT · Soap &amp; Water</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Metronidazole Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -4839,6 +4875,7 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     </div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 3: HIV -->
 <div class="section-header" id="hiv-domain">
@@ -4851,22 +4888,18 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">HIV/AIDS &amp; Opportunistic Infections</div>
       <div class="tc-subtitle">CD4 Thresholds · PCP / Toxo / Crypto / CMV / MAC · IRIS · TMP-SMX Dual Coverage <button class="img-popup-btn" onclick="openIdDiagram('hiv-cd4')"><span class="btn-icon">📊</span> View CD4 Ladder</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -4923,6 +4956,7 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
 "Crypto: ALWAYS check the pressure — elevated ICP kills faster than the fungus"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 4: SKIN/VECTOR -->
 <div class="section-header" id="skin-domain">
@@ -4936,22 +4970,18 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
-      <div class="tc-title">Skin &amp; Soft Tissue Infections</div>
-      <div class="tc-subtitle">Cellulitis · Abscess I&amp;D · Necrotizing Fasciitis · Erysipelas · MRSA Coverage Rules <button class="img-popup-btn" onclick="openIdDiagram('ssti-decision')"><span class="btn-icon">📊</span> View SSTI Decision</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">MRSA Coverage Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Skin &amp; Soft Tissue Infections</div>
+      <div class="tc-subtitle">Cellulitis · Abscess I&amp;D · Necrotizing Fasciitis · Erysipelas · MRSA Coverage Rules <button class="img-popup-btn" onclick="openIdDiagram('ssti-decision')"><span class="btn-icon">📊</span> View SSTI Decision</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -4996,6 +5026,7 @@ Erysipelas: "Sharp borders + Group A Strep + Penicillin"
 NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div>
   </div>
 </div>
+</div>
 
 <!-- LYME COMPLETE -->
 <div class="topic-card pw-locked tier-1" id="lyme">
@@ -5003,22 +5034,18 @@ NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10</div>
+  </div>
       <div class="tc-title">Lyme Disease — Complete (Rebuilt from Truncated Source)</div>
       <div class="tc-subtitle">3 Stages · Treatment Table · Two-Tier Serology · Tick Prophylaxis · Coinfections <button class="img-popup-btn" onclick="openIdDiagram('lyme-stages')"><span class="btn-icon">🔬</span> View Lyme Stages</button> <button class="ecg-popup-btn" onclick="openIdECG()">📟 View Lyme Carditis EKG</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Serology Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5073,6 +5100,7 @@ Prophylaxis: "Single dose doxy if tick attached ≥36 hours"
 Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 5: GAP TOPICS -->
 <div class="section-header" id="gap-domain">
@@ -5086,22 +5114,18 @@ Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Influenza</div>
       <div class="tc-subtitle">Oseltamivir Timing · High-Risk Groups · Zanamivir Contraindication · Reye Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5166,6 +5190,7 @@ Zanamivir: "Inhaled = no asthma, no COPD — bronchospasm risk"
 Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vancomycin."</div></div>
   </div>
 </div>
+</div>
 
 <!-- COVID-19 -->
 <div class="topic-card pw-locked tier-1" id="covid">
@@ -5173,22 +5198,18 @@ Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vanc
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">COVID-19 (SARS-CoV-2)</div>
       <div class="tc-subtitle">Paxlovid · Ritonavir CYP3A4 Interactions · Dexamethasone Indication · COVID-19 Antivirals</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Paxlovid Interactions</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5242,6 +5263,7 @@ Dexamethasone: "Only when they need O₂ — don't use in mild outpatient diseas
 Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
   </div>
 </div>
+</div>
 
 <!-- FUNGAL -->
 <div class="topic-card pw-locked tier-2" id="fungal">
@@ -5249,22 +5271,18 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Fungal Infections</div>
       <div class="tc-subtitle">Invasive Candida · Aspergillus Halo Sign · Coccidioidomycosis · Histoplasmosis · Antifungal Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5299,6 +5317,7 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -5658,6 +5677,9 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Fever + Rash — The Must-Not-Miss Differential</div>
       <div class="tc-subtitle">RMSF · Meningococcemia · Viral Exanthem · Drug Reaction · Secondary Syphilis · Toxic Shock <button class="img-popup-btn" onclick="openIdDiagram('fever-rash')"><span class="btn-icon">🔬</span> View Fever+Rash Table</button></div>
     </div>
@@ -7410,8 +7432,8 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -7710,7 +7732,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -7763,7 +7785,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -7862,6 +7883,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 1</div>
+  </div>
       <div class="tc-title">Sepsis &amp; Septic Shock</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">Sepsis-3 · SSC 2021 Hour-1 Bundle · Norepinephrine First · Lactate Clearance <button class="img-popup-btn" onclick="openIdDiagram('sepsis-bundle')"><span class="btn-icon">📋</span> View SSC Bundle</button></div>
     </div>
@@ -8074,22 +8096,18 @@ Vasopressor order: "NE → Vaso → Epi" — Never Very Easy to manage refractor
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">UTI — Cystitis &amp; Pyelonephritis</div>
       <div class="tc-subtitle">2025 IDSA Reclassification · Nitrofurantoin Limitation · ASB Rules · Duration of Therapy · Pregnancy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Nitrofurantoin Trap</span><span class="badge badge-new">2025 Update</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">2025 IDSA Reclassification — What "Complicated" Actually Means</div>
@@ -8241,6 +8259,7 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     </div>
   </div>
 </div>
+</div>
 
 <!-- MENINGITIS -->
 <div class="topic-card pw-locked tier-1" id="meningitis">
@@ -8248,22 +8267,18 @@ Nitrofurantoin long-term: can cause pulmonary fibrosis (chronic use) or acute hy
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
-      <div class="tc-title">Bacterial Meningitis</div>
-      <div class="tc-subtitle">Age-Based Coverage · CSF Patterns · Dexamethasone Timing · Never Delay ABx <button class="img-popup-btn" onclick="openIdDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Dexa Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Bacterial Meningitis</div>
+      <div class="tc-subtitle">Age-Based Coverage · CSF Patterns · Dexamethasone Timing · Never Delay ABx <button class="img-popup-btn" onclick="openIdDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -8313,6 +8328,7 @@ Dexa timing: "BEFORE or WITH — not after. The first dose is the only chance."
 CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 2 -->
 <div class="section-header" id="organ-specific">
@@ -8326,22 +8342,18 @@ CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">2023 Duke Criteria · Organisms by Context · Osler vs Janeway · Surgical Indications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">2023 Duke Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8412,6 +8424,7 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
 "CoNS (&lt;60d prosthetic) → CoNS same (&gt;60d) → native valve organisms"</div></div>
   </div>
 </div>
+</div>
 
 <!-- STIs -->
 <div class="topic-card pw-locked tier-1" id="sti">
@@ -8419,22 +8432,18 @@ HACEK: "Culture-negative slow growers — treat with ceftriaxone"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Sexually Transmitted Infections (STIs)</div>
       <div class="tc-subtitle">CDC 2021 · Doxy &gt; Azithro · Ceftriaxone Monotherapy · Syphilis Stages &amp; Serology <button class="img-popup-btn" onclick="openIdDiagram('syphilis-stages')"><span class="btn-icon">📊</span> View Syphilis Stages</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">CDC 2021</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8481,6 +8490,7 @@ Serology: "RPR/VDRL = Quantitative (monitor). FTA-ABS = Forever positive (confir
 Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</div></div>
   </div>
 </div>
+</div>
 
 <!-- C. DIFF -->
 <div class="topic-card pw-locked tier-1" id="cdiff">
@@ -8488,22 +8498,18 @@ Jarisch-Herxheimer: "Feels worse before better — keep the antibiotics going"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Clostridioides difficile Infection (CDI)</div>
       <div class="tc-subtitle">Metronidazole No Longer First-Line · Vancomycin/Fidaxomicin · FMT · Soap &amp; Water</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Metronidazole Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8550,6 +8556,7 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     </div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 3: HIV -->
 <div class="section-header" id="hiv-domain">
@@ -8562,22 +8569,18 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">HIV/AIDS &amp; Opportunistic Infections</div>
       <div class="tc-subtitle">CD4 Thresholds · PCP / Toxo / Crypto / CMV / MAC · IRIS · TMP-SMX Dual Coverage <button class="img-popup-btn" onclick="openIdDiagram('hiv-cd4')"><span class="btn-icon">📊</span> View CD4 Ladder</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8634,6 +8637,7 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
 "Crypto: ALWAYS check the pressure — elevated ICP kills faster than the fungus"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 4: SKIN/VECTOR -->
 <div class="section-header" id="skin-domain">
@@ -8647,22 +8651,18 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
+  </div>
       <div class="tc-title">Skin &amp; Soft Tissue Infections</div>
       <div class="tc-subtitle">Cellulitis · Abscess I&amp;D · Necrotizing Fasciitis · Erysipelas · MRSA Coverage Rules <button class="img-popup-btn" onclick="openIdDiagram('ssti-decision')"><span class="btn-icon">📊</span> View SSTI Decision</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">MRSA Coverage Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8707,6 +8707,7 @@ Erysipelas: "Sharp borders + Group A Strep + Penicillin"
 NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div>
   </div>
 </div>
+</div>
 
 <!-- LYME COMPLETE -->
 <div class="topic-card pw-locked tier-1" id="lyme">
@@ -8714,22 +8715,18 @@ NF: "Pain out of proportion = danger out of proportion = OPERATE NOW"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10</div>
+  </div>
       <div class="tc-title">Lyme Disease — Complete (Rebuilt from Truncated Source)</div>
       <div class="tc-subtitle">3 Stages · Treatment Table · Two-Tier Serology · Tick Prophylaxis · Coinfections <button class="img-popup-btn" onclick="openIdDiagram('lyme-stages')"><span class="btn-icon">🔬</span> View Lyme Stages</button> <button class="ecg-popup-btn" onclick="openIdECG()">📟 View Lyme Carditis EKG</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Serology Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8784,6 +8781,7 @@ Prophylaxis: "Single dose doxy if tick attached ≥36 hours"
 Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div>
   </div>
 </div>
+</div>
 
 <!-- DOMAIN 5: GAP TOPICS -->
 <div class="section-header" id="gap-domain">
@@ -8797,22 +8795,18 @@ Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Influenza</div>
       <div class="tc-subtitle">Oseltamivir Timing · High-Risk Groups · Zanamivir Contraindication · Reye Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8877,6 +8871,7 @@ Zanamivir: "Inhaled = no asthma, no COPD — bronchospasm risk"
 Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vancomycin."</div></div>
   </div>
 </div>
+</div>
 
 <!-- COVID-19 -->
 <div class="topic-card pw-locked tier-1" id="covid">
@@ -8884,22 +8879,18 @@ Secondary bacterial pneumonia: "Gets better → gets MUCH worse = MRSA. Add vanc
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">COVID-19 (SARS-CoV-2)</div>
       <div class="tc-subtitle">Paxlovid · Ritonavir CYP3A4 Interactions · Dexamethasone Indication · COVID-19 Antivirals</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Paxlovid Interactions</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8953,6 +8944,7 @@ Dexamethasone: "Only when they need O₂ — don't use in mild outpatient diseas
 Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
   </div>
 </div>
+</div>
 
 <!-- FUNGAL -->
 <div class="topic-card pw-locked tier-2" id="fungal">
@@ -8963,19 +8955,16 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
       <div class="tc-title">Fungal Infections</div>
       <div class="tc-subtitle">Invasive Candida · Aspergillus Halo Sign · Coccidioidomycosis · Histoplasmosis · Antifungal Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-ID');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -9010,6 +8999,7 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -9369,6 +9359,8 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
       <div class="tc-title">Fever + Rash — The Must-Not-Miss Differential</div>
       <div class="tc-subtitle">RMSF · Meningococcemia · Viral Exanthem · Drug Reaction · Secondary Syphilis · Toxic Shock <button class="img-popup-btn" onclick="openIdDiagram('fever-rash')"><span class="btn-icon">🔬</span> View Fever+Rash Table</button></div>
     </div>

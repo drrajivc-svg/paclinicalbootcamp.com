@@ -266,7 +266,7 @@ strong, b { color: var(--black); }
 /* Overlay */
 .popup-overlay {
   display: none; position: fixed; inset: 0; z-index: 9000;
-  background: rgba(10,15,26,.82); backdrop-filter: blur(6px);
+  background: rgba(10,15,26,.82); backdrop-
   align-items: center; justify-content: center; padding: 24px;
 }
 .popup-overlay.active { display: flex; }
@@ -360,7 +360,7 @@ strong, b { color: var(--black); }
 /* EKG Modal */
 .ecg-overlay {
   display: none; position: fixed; inset: 0; z-index: 9100;
-  background: rgba(5,10,20,.88); backdrop-filter: blur(8px);
+  background: rgba(5,10,20,.88); backdrop-
   align-items: center; justify-content: center; padding: 20px;
 }
 .ecg-overlay.active { display: flex; }
@@ -539,7 +539,6 @@ strong, b { color: var(--black); }
     rgba(247,249,252,1) 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 /* Small lock callout at bottom of each locked card */
 .pw-card-lock {
@@ -722,8 +721,8 @@ strong, b { color: var(--black); }
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -1022,7 +1021,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -1075,7 +1074,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -1092,7 +1090,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 108px; /* sits below site-nav (66px) + jump-nav (42px) */
   z-index: 140;
   background: rgba(247,249,251,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 1.5px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 8px rgba(15,31,61,.05);
 }
@@ -1168,6 +1166,18 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .tier-count { display: none; }
 }
 
+
+/* ── LOCK: hide tc-body when card is locked ── */
+.pw-locked .tc-body { display: none !important; }
+body.pw-unlocked .pw-locked .tc-body { display: block !important; }
+.pw-locked .tc-lock-prompt { display: flex; }
+body.pw-unlocked .pw-locked .tc-lock-prompt { display: none !important; }
+
+/* LOCK */
+.pw-locked .tc-body{display:none!important}
+body.pw-unlocked .pw-locked .tc-body{display:block!important}
+.pw-locked .tc-lock-prompt{display:flex!important}
+body.pw-unlocked .pw-locked .tc-lock-prompt{display:none!important}
 </style>
 </head>
 <body>
@@ -1606,22 +1616,18 @@ Hyperkalemia: "Peaks → widens → sine → flat = the K+ kill sequence"</div><
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-3</div>
+  </div>
       <div class="tc-title">Murmurs — Systematic Approach</div>
       <div class="tc-subtitle">Timing · Location · Radiation · Dynamic Maneuvers · HCM vs AS · All Diastolic Murmurs Are Pathologic</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
       <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Dynamic Maneuver Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1695,6 +1701,7 @@ Inspiration: "Inspires right-sided murmurs to get louder (Carvallo)"
 AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expiration"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F-4: Shock Types -->
 <div class="topic-card pw-locked tier-1" id="shock-types">
@@ -1702,22 +1709,18 @@ AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expira
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-4</div>
+  </div>
       <div class="tc-title">Shock — Classification &amp; Hemodynamic Profiles</div>
       <div class="tc-subtitle">4 Categories · CVP/PCWP/CO/SVR Patterns · Bedside POCUS · Vasopressor Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Hemodynamic Profile Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1772,6 +1775,7 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
 "Normal BP ≠ no shock — check lactate, urine output, mental status."</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F3: EKG Differential — STEMI Mimics &amp; Missed Occlusions -->
 <div class="topic-card pw-locked tier-1" id="f3">
@@ -1779,22 +1783,18 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-3</div>
+  </div>
       <div class="tc-title">EKG Differential — STEMI Mimics &amp; Missed Occlusions <button class="img-popup-btn" onclick="openPopup('stemi-equivalents')"><span class="btn-icon">⚡</span> View STEMI Equivalents</button></div>
       <div class="tc-subtitle">False Positives · False Negatives · Conduction Masking · Sex-Based Thresholds</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2025 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1970,6 +1970,7 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
 
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 2: CHEST PAIN SYNDROMES
@@ -1985,22 +1986,18 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-1</div>
+  </div>
       <div class="tc-title">Acute Coronary Syndrome</div>
       <div class="tc-subtitle">STEMI · NSTEMI · Unstable Angina · Mechanical Complications <button class="ecg-popup-btn" onclick="openECGModal('anterior-stemi')">📟 Anterior STEMI EKG</button> <button class="img-popup-btn" onclick="openPopup('stemi-territories')"><span class="btn-icon">🫀</span> View STEMI Territories</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2097,6 +2094,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     </ul></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC C2: Stable Angina &amp; Vasospasm -->
 <div class="topic-card pw-locked tier-2" id="c2">
@@ -2104,22 +2102,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-2</div>
+  </div>
       <div class="tc-title">Stable Angina &amp; Vasospastic Angina</div>
       <div class="tc-subtitle">Prinzmetal · MINOCA · Diagnosis · Medical Management</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2146,6 +2140,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC C3: Cardiac Stress Testing -->
 <div class="topic-card pw-locked tier-2" id="c3">
@@ -2153,22 +2148,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-3</div>
+  </div>
       <div class="tc-title">Cardiac Stress Testing — Selection &amp; Interpretation</div>
       <div class="tc-subtitle">Exercise vs Pharmacologic · Imaging Modality Selection · Positive Criteria · Contraindications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -2274,6 +2265,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
 
   </div>
 </div>
+</div>
 
 
 
@@ -2291,22 +2283,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-1</div>
+  </div>
       <div class="tc-title">Atrial Fibrillation &amp; Atrial Flutter</div>
       <div class="tc-subtitle">Rate vs Rhythm · CHA₂DS₂-VASc · Cardioversion · Antiarrhythmics · 2023 Guidelines</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2023 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2397,6 +2385,7 @@ Diltiazem if EF normal · metoprolol if EF Low · digoxin if Elderly/sedentary �
 Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofetilide"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A2: SVT -->
 <div class="topic-card pw-locked tier-1" id="a2">
@@ -2404,22 +2393,18 @@ Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofet
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-2</div>
+  </div>
       <div class="tc-title">SVT &amp; Wide-Complex Tachycardia <button class="img-popup-btn" onclick="openPopup('wide-complex')"><span class="btn-icon">⚡</span> View VT vs SVT Guide</button></div>
       <div class="tc-subtitle">AVNRT · AVRT · Adenosine · Brugada Criteria · VT vs SVT</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2486,6 +2471,7 @@ Narrow + Stable = ADENOSINE (after vagal). Pulseless = DEFIBRILLATE (unsynchroni
 Torsades = MAGNESIUM always. Never amiodarone.</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A3: Heart Blocks -->
 <div class="topic-card pw-locked tier-1" id="a3">
@@ -2493,22 +2479,18 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-3</div>
-      <div class="tc-title">Heart Blocks &amp; Pacing Indications <button class="img-popup-btn" onclick="openPopup('heart-blocks')"><span class="btn-icon">📈</span> View Block Patterns</button></div>
-      <div class="tc-subtitle">Mobitz I vs II · Complete Heart Block · Pacemaker Thresholds <button class="ecg-popup-btn" onclick="openECGModal('chb')">📟 View 3rd Degree Block EKG</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Heart Blocks &amp; Pacing Indications <button class="img-popup-btn" onclick="openPopup('heart-blocks')"><span class="btn-icon">📈</span> View Block Patterns</button></div>
+      <div class="tc-subtitle">Mobitz I vs II · Complete Heart Block · Pacemaker Thresholds <button class="ecg-popup-btn" onclick="openECGModal('chb')">📟 View 3rd Degree Block EKG</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -2532,6 +2514,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 4: HEART FAILURE
@@ -2549,19 +2532,16 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
       <div class="tc-title">Heart Failure — HFrEF &amp; HFpEF</div>
       <div class="tc-subtitle">Four Pillars of GDMT · ADHF Management · Contraindicated Drugs</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2024 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -2627,6 +2607,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
 Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bisoprolol</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 5: VALVULAR
@@ -2641,22 +2622,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-1</div>
+  </div>
       <div class="tc-title">Valvular Disease — The Big Four</div>
       <div class="tc-subtitle">AS · AR · MS · MR · MVP · Prosthetic Valve Anticoagulation</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2692,6 +2669,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </table></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC V2: Endocarditis -->
 <div class="topic-card pw-locked tier-1" id="v2">
@@ -2699,22 +2677,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-2</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">Duke Criteria · Organisms · Surgical Indications · Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2766,6 +2740,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 6: CARDIOMYOPATHIES
@@ -2780,22 +2755,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic CM-1 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Hypertrophic Cardiomyopathy (HCM)</div>
       <div class="tc-subtitle">Most Common Cause of Sudden Cardiac Death in Young Athletes</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2844,28 +2815,25 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 "Fill it up = softer" — squatting, lying down, volume loading makes HCM softer</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="cm2">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic CM-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Dilated &amp; Other Cardiomyopathies</div>
       <div class="tc-subtitle">Dilated CM · ARVC · Takotsubo · Peripartum CMP</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2879,6 +2847,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       </tbody>
     </table>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -2898,19 +2867,16 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       <div class="tc-title">Primary Hypertension — Classification, Risk Stratification &amp; Treatment</div>
       <div class="tc-subtitle">2025 ACC/AHA BP Categories · PREVENT Risk Calculator · First-Line Drug Selection · BP Targets</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -3001,6 +2967,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC HTN-0b: Secondary Hypertension -->
 <div class="topic-card pw-locked tier-2" id="htn0b">
@@ -3008,22 +2975,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0b</div>
-      <div class="tc-title">Secondary Hypertension — Screening &amp; Etiology-Specific Workup</div>
-      <div class="tc-subtitle">Primary Aldosteronism · Pheochromocytoma · Renovascular HTN · Red Flags · Buzzword Vignettes</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span><span class="badge badge-trap">High Trap Risk</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Secondary Hypertension — Screening &amp; Etiology-Specific Workup</div>
+      <div class="tc-subtitle">Primary Aldosteronism · Pheochromocytoma · Renovascular HTN · Red Flags · Buzzword Vignettes</div>
+    
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-red">When to Suspect Secondary HTN</div>
@@ -3085,6 +3048,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC HTN-0c: Resistant HTN & Special Populations -->
 <div class="topic-card pw-locked tier-2" id="htn0c">
@@ -3092,22 +3056,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0c</div>
+  </div>
       <div class="tc-title">Resistant Hypertension &amp; Special Populations</div>
       <div class="tc-subtitle">Second-Line Agents · Spironolactone · Pregnancy · CKD · Elderly · Target Organ Damage</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-red">Resistant Hypertension — Definition &amp; Workup</div>
@@ -3170,28 +3130,25 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="htn1">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-1</div>
+  </div>
       <div class="tc-title">Hypertensive Emergency vs Urgency</div>
       <div class="tc-subtitle">End-Organ Damage · Drug Selection by Target Organ · Rate of BP Reduction</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Rate-of-Reduction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -3239,6 +3196,7 @@ Ischemic stroke: HANDS OFF unless >220/120. The penumbra needs that pressure.
 SAH: "Worst headache → CT first, treat second"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 8: ENDO/PERICARDITIS/MYOCARDITIS
@@ -3253,22 +3211,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic P-1</div>
-      <div class="tc-title">Pericarditis &amp; Cardiac Tamponade <button class="img-popup-btn" onclick="openPopup('tamponade')"><span class="btn-icon">❤️</span> View Tamponade Diagram</button></div>
-      <div class="tc-subtitle">Saddle ST · Beck's Triad · Pulsus Paradoxus · Pericardiocentesis</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Pericarditis &amp; Cardiac Tamponade <button class="img-popup-btn" onclick="openPopup('tamponade')"><span class="btn-icon">❤️</span> View Tamponade Diagram</button></div>
+      <div class="tc-subtitle">Saddle ST · Beck's Triad · Pulsus Paradoxus · Pericardiocentesis</div>
+    
+  <div class="tc-body">
     
 
 
@@ -3311,28 +3265,25 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="p2">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic P-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Myocarditis</div>
       <div class="tc-subtitle">Viral · Giant Cell · Immune Checkpoint Inhibitor · Distinct from Pericarditis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -3362,6 +3313,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 9: SHOCK STATES
@@ -3376,22 +3328,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic SH-1 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Shock — Classification &amp; Management</div>
       <div class="tc-subtitle">Cardiogenic · Distributive · Obstructive · Hypovolemic</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -3416,6 +3364,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 10: VASCULAR
@@ -3430,22 +3379,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic VAS-1</div>
+  </div>
       <div class="tc-title">Aortic Dissection &amp; AAA <button class="img-popup-btn" onclick="openPopup('aortic-dissection')"><span class="btn-icon">🩺</span> View Stanford Classification</button></div>
       <div class="tc-subtitle">Type A vs B · Stanford Classification · Surgical vs Medical</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -3482,6 +3427,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="vas2">
   <div class="tc-header">
@@ -3491,19 +3437,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">DVT &amp; Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells Criteria · CT-PA · PESI Score · Anticoagulation · Massive PE</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -3537,6 +3480,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="vas3">
   <div class="tc-header">
@@ -3546,19 +3490,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">Peripheral Artery Disease (PAD) &amp; AAA</div>
       <div class="tc-subtitle">ABI · Claudication · Critical Limb Ischemia · AAA Screening</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -3586,6 +3527,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -3962,6 +3904,11 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Acute Chest Pain — 8-Diagnosis Framework</div>
       <div class="tc-subtitle">ACS · Dissection · PE · Pericarditis · Tamponade · Pneumothorax · Boerhaave · GERD</div>
     </div>
@@ -5652,7 +5599,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -5705,7 +5652,6 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -5722,7 +5668,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 108px; /* sits below site-nav (66px) + jump-nav (42px) */
   z-index: 140;
   background: rgba(247,249,251,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 1.5px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 8px rgba(15,31,61,.05);
 }
@@ -6236,22 +6182,18 @@ Hyperkalemia: "Peaks → widens → sine → flat = the K+ kill sequence"</div><
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-3</div>
-      <div class="tc-title">Murmurs — Systematic Approach</div>
-      <div class="tc-subtitle">Timing · Location · Radiation · Dynamic Maneuvers · HCM vs AS · All Diastolic Murmurs Are Pathologic</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Dynamic Maneuver Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Murmurs — Systematic Approach</div>
+      <div class="tc-subtitle">Timing · Location · Radiation · Dynamic Maneuvers · HCM vs AS · All Diastolic Murmurs Are Pathologic</div>
+    
+  <div class="tc-body">
     
 
 
@@ -6325,6 +6267,7 @@ Inspiration: "Inspires right-sided murmurs to get louder (Carvallo)"
 AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expiration"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F-4: Shock Types -->
 <div class="topic-card pw-locked tier-1" id="shock-types">
@@ -6332,22 +6275,18 @@ AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expira
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-4</div>
+  </div>
       <div class="tc-title">Shock — Classification &amp; Hemodynamic Profiles</div>
       <div class="tc-subtitle">4 Categories · CVP/PCWP/CO/SVR Patterns · Bedside POCUS · Vasopressor Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Hemodynamic Profile Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -6402,6 +6341,7 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
 "Normal BP ≠ no shock — check lactate, urine output, mental status."</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F3: EKG Differential — STEMI Mimics &amp; Missed Occlusions -->
 <div class="topic-card pw-locked tier-1" id="f3">
@@ -6412,19 +6352,16 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
       <div class="tc-title">EKG Differential — STEMI Mimics &amp; Missed Occlusions <button class="img-popup-btn" onclick="openPopup('stemi-equivalents')"><span class="btn-icon">⚡</span> View STEMI Equivalents</button></div>
       <div class="tc-subtitle">False Positives · False Negatives · Conduction Masking · Sex-Based Thresholds</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2025 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -6600,6 +6537,7 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
 
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 2: CHEST PAIN SYNDROMES
@@ -6615,20 +6553,21 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-1</div>
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
+      <div class="tc-lock-icon">🔒</div>
+      <div class="tc-lock-title">Full content locked</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
+      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+    </div>
+  </div>
       <div class="tc-title">Acute Coronary Syndrome</div>
       <div class="tc-subtitle">STEMI · NSTEMI · Unstable Angina · Mechanical Complications <button class="ecg-popup-btn" onclick="openECGModal('anterior-stemi')">📟 Anterior STEMI EKG</button> <button class="img-popup-btn" onclick="openPopup('stemi-territories')"><span class="btn-icon">🫀</span> View STEMI Territories</button></div>
     </div>
-    <div class="tc-lock-prompt">
-      <div class="tc-lock-icon">🔒</div>
-      <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div>
+</div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
   </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
 </div>
     <div class="tc-body">
     
@@ -6734,22 +6673,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-2</div>
+  </div>
       <div class="tc-title">Stable Angina &amp; Vasospastic Angina</div>
       <div class="tc-subtitle">Prinzmetal · MINOCA · Diagnosis · Medical Management</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -6776,6 +6711,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC C3: Cardiac Stress Testing -->
 <div class="topic-card pw-locked tier-2" id="c3">
@@ -6786,19 +6722,16 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
       <div class="tc-title">Cardiac Stress Testing — Selection &amp; Interpretation</div>
       <div class="tc-subtitle">Exercise vs Pharmacologic · Imaging Modality Selection · Positive Criteria · Contraindications</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -6904,6 +6837,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
 
   </div>
 </div>
+</div>
 
 
 
@@ -6921,22 +6855,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-1</div>
-      <div class="tc-title">Atrial Fibrillation &amp; Atrial Flutter</div>
-      <div class="tc-subtitle">Rate vs Rhythm · CHA₂DS₂-VASc · Cardioversion · Antiarrhythmics · 2023 Guidelines</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2023 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Atrial Fibrillation &amp; Atrial Flutter</div>
+      <div class="tc-subtitle">Rate vs Rhythm · CHA₂DS₂-VASc · Cardioversion · Antiarrhythmics · 2023 Guidelines</div>
+    
+  <div class="tc-body">
     
 
 
@@ -7027,6 +6957,7 @@ Diltiazem if EF normal · metoprolol if EF Low · digoxin if Elderly/sedentary �
 Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofetilide"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A2: SVT -->
 <div class="topic-card pw-locked tier-1" id="a2">
@@ -7034,22 +6965,18 @@ Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofet
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-2</div>
-      <div class="tc-title">SVT &amp; Wide-Complex Tachycardia <button class="img-popup-btn" onclick="openPopup('wide-complex')"><span class="btn-icon">⚡</span> View VT vs SVT Guide</button></div>
-      <div class="tc-subtitle">AVNRT · AVRT · Adenosine · Brugada Criteria · VT vs SVT</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">SVT &amp; Wide-Complex Tachycardia <button class="img-popup-btn" onclick="openPopup('wide-complex')"><span class="btn-icon">⚡</span> View VT vs SVT Guide</button></div>
+      <div class="tc-subtitle">AVNRT · AVRT · Adenosine · Brugada Criteria · VT vs SVT</div>
+    
+  <div class="tc-body">
     
 
 
@@ -7116,6 +7043,7 @@ Narrow + Stable = ADENOSINE (after vagal). Pulseless = DEFIBRILLATE (unsynchroni
 Torsades = MAGNESIUM always. Never amiodarone.</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A3: Heart Blocks -->
 <div class="topic-card pw-locked tier-1" id="a3">
@@ -7123,22 +7051,18 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-3</div>
+  </div>
       <div class="tc-title">Heart Blocks &amp; Pacing Indications <button class="img-popup-btn" onclick="openPopup('heart-blocks')"><span class="btn-icon">📈</span> View Block Patterns</button></div>
       <div class="tc-subtitle">Mobitz I vs II · Complete Heart Block · Pacemaker Thresholds <button class="ecg-popup-btn" onclick="openECGModal('chb')">📟 View 3rd Degree Block EKG</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7162,6 +7086,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 4: HEART FAILURE
@@ -7176,22 +7101,18 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic H-1</div>
+  </div>
       <div class="tc-title">Heart Failure — HFrEF &amp; HFpEF</div>
       <div class="tc-subtitle">Four Pillars of GDMT · ADHF Management · Contraindicated Drugs</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2024 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7257,6 +7178,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
 Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bisoprolol</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 5: VALVULAR
@@ -7271,22 +7193,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-1</div>
-      <div class="tc-title">Valvular Disease — The Big Four</div>
-      <div class="tc-subtitle">AS · AR · MS · MR · MVP · Prosthetic Valve Anticoagulation</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Valvular Disease — The Big Four</div>
+      <div class="tc-subtitle">AS · AR · MS · MR · MVP · Prosthetic Valve Anticoagulation</div>
+    
+  <div class="tc-body">
     
 
 
@@ -7322,6 +7240,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </table></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC V2: Endocarditis -->
 <div class="topic-card pw-locked tier-1" id="v2">
@@ -7329,22 +7248,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-2</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">Duke Criteria · Organisms · Surgical Indications · Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7396,6 +7311,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 6: CARDIOMYOPATHIES
@@ -7410,22 +7326,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic CM-1 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Hypertrophic Cardiomyopathy (HCM)</div>
       <div class="tc-subtitle">Most Common Cause of Sudden Cardiac Death in Young Athletes</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7474,6 +7386,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 "Fill it up = softer" — squatting, lying down, volume loading makes HCM softer</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="cm2">
   <div class="tc-header">
@@ -7483,19 +7396,16 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       <div class="tc-title">Dilated &amp; Other Cardiomyopathies</div>
       <div class="tc-subtitle">Dilated CM · ARVC · Takotsubo · Peripartum CMP</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -7509,6 +7419,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       </tbody>
     </table>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -7525,22 +7436,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0a</div>
+  </div>
       <div class="tc-title">Primary Hypertension — Classification, Risk Stratification &amp; Treatment</div>
       <div class="tc-subtitle">2025 ACC/AHA BP Categories · PREVENT Risk Calculator · First-Line Drug Selection · BP Targets</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -7631,6 +7538,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC HTN-0b: Secondary Hypertension -->
 <div class="topic-card pw-locked tier-2" id="htn0b">
@@ -7638,22 +7546,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0b</div>
-      <div class="tc-title">Secondary Hypertension — Screening &amp; Etiology-Specific Workup</div>
-      <div class="tc-subtitle">Primary Aldosteronism · Pheochromocytoma · Renovascular HTN · Red Flags · Buzzword Vignettes</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span><span class="badge badge-trap">High Trap Risk</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Secondary Hypertension — Screening &amp; Etiology-Specific Workup</div>
+      <div class="tc-subtitle">Primary Aldosteronism · Pheochromocytoma · Renovascular HTN · Red Flags · Buzzword Vignettes</div>
+    
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-red">When to Suspect Secondary HTN</div>
@@ -7715,6 +7619,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC HTN-0c: Resistant HTN & Special Populations -->
 <div class="topic-card pw-locked tier-2" id="htn0c">
@@ -7722,22 +7627,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0c</div>
+  </div>
       <div class="tc-title">Resistant Hypertension &amp; Special Populations</div>
       <div class="tc-subtitle">Second-Line Agents · Spironolactone · Pregnancy · CKD · Elderly · Target Organ Damage</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-red">Resistant Hypertension — Definition &amp; Workup</div>
@@ -7800,28 +7701,25 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="htn1">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-1</div>
+  </div>
       <div class="tc-title">Hypertensive Emergency vs Urgency</div>
       <div class="tc-subtitle">End-Organ Damage · Drug Selection by Target Organ · Rate of BP Reduction</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Rate-of-Reduction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7869,6 +7767,7 @@ Ischemic stroke: HANDS OFF unless >220/120. The penumbra needs that pressure.
 SAH: "Worst headache → CT first, treat second"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 8: ENDO/PERICARDITIS/MYOCARDITIS
@@ -7883,22 +7782,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic P-1</div>
+  </div>
       <div class="tc-title">Pericarditis &amp; Cardiac Tamponade <button class="img-popup-btn" onclick="openPopup('tamponade')"><span class="btn-icon">❤️</span> View Tamponade Diagram</button></div>
       <div class="tc-subtitle">Saddle ST · Beck's Triad · Pulsus Paradoxus · Pericardiocentesis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -7941,6 +7836,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="p2">
   <div class="tc-header">
@@ -7950,19 +7846,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">Myocarditis</div>
       <div class="tc-subtitle">Viral · Giant Cell · Immune Checkpoint Inhibitor · Distinct from Pericarditis</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -7992,6 +7885,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 9: SHOCK STATES
@@ -8006,22 +7900,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic SH-1 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Shock — Classification &amp; Management</div>
       <div class="tc-subtitle">Cardiogenic · Distributive · Obstructive · Hypovolemic</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8046,6 +7936,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 10: VASCULAR
@@ -8063,19 +7954,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">Aortic Dissection &amp; AAA <button class="img-popup-btn" onclick="openPopup('aortic-dissection')"><span class="btn-icon">🩺</span> View Stanford Classification</button></div>
       <div class="tc-subtitle">Type A vs B · Stanford Classification · Surgical vs Medical</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -8112,28 +8000,25 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="vas2">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic VAS-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">DVT &amp; Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells Criteria · CT-PA · PESI Score · Anticoagulation · Massive PE</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8167,28 +8052,25 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="vas3">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic VAS-3 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Peripheral Artery Disease (PAD) &amp; AAA</div>
       <div class="tc-subtitle">ABI · Claudication · Critical Limb Ischemia · AAA Screening</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8216,6 +8098,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -8592,6 +8475,8 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
       <div class="tc-title">Acute Chest Pain — 8-Diagnosis Framework</div>
       <div class="tc-subtitle">ACS · Dissection · PE · Pericarditis · Tamponade · Pneumothorax · Boerhaave · GERD</div>
     </div>
@@ -10449,8 +10334,8 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -10749,7 +10634,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -10802,7 +10687,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -10819,7 +10703,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 108px; /* sits below site-nav (66px) + jump-nav (42px) */
   z-index: 140;
   background: rgba(247,249,251,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 1.5px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 8px rgba(15,31,61,.05);
 }
@@ -11036,6 +10920,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-1</div>
+  </div>
       <div class="tc-title">Cardiac Physiology &amp; Hemodynamics</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">Cardiac Cycle · Heart Sounds · CO = HR × SV · Frank-Starling · PV Loops · Swan-Ganz Values</div>
     </div>
@@ -11140,6 +11025,7 @@ SVR: "Nitrates ↓ preload. ACE-I ↓ afterload. Dobutamine ↑ contractility."<
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-2</div>
+  </div>
       <div class="tc-title">EKG Fundamentals &amp; Systematic Interpretation</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">5-Step Approach · Rate/Rhythm/Axis/Intervals/Morphology · Bundle Branch Blocks · High-Yield Patterns</div>
     </div>
@@ -11333,22 +11219,18 @@ Hyperkalemia: "Peaks → widens → sine → flat = the K+ kill sequence"</div><
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-3</div>
+  </div>
       <div class="tc-title">Murmurs — Systematic Approach</div>
       <div class="tc-subtitle">Timing · Location · Radiation · Dynamic Maneuvers · HCM vs AS · All Diastolic Murmurs Are Pathologic</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Dynamic Maneuver Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -11422,6 +11304,7 @@ Inspiration: "Inspires right-sided murmurs to get louder (Carvallo)"
 AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expiration"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F-4: Shock Types -->
 <div class="topic-card pw-locked tier-1" id="shock-types">
@@ -11429,22 +11312,18 @@ AR: "Lean forward, hold your breath, use the diaphragm — it whispers in expira
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-4</div>
+  </div>
       <div class="tc-title">Shock — Classification &amp; Hemodynamic Profiles</div>
       <div class="tc-subtitle">4 Categories · CVP/PCWP/CO/SVR Patterns · Bedside POCUS · Vasopressor Selection</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">Hemodynamic Profile Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -11499,6 +11378,7 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
 "Normal BP ≠ no shock — check lactate, urine output, mental status."</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC F3: EKG Differential — STEMI Mimics &amp; Missed Occlusions -->
 <div class="topic-card pw-locked tier-1" id="f3">
@@ -11506,22 +11386,18 @@ Hemodynamic profiles: "↓ CVP + ↓ PCWP = empty (hypovolemic). ↑ CVP + ↑ P
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic F-3</div>
+  </div>
       <div class="tc-title">EKG Differential — STEMI Mimics &amp; Missed Occlusions <button class="img-popup-btn" onclick="openPopup('stemi-equivalents')"><span class="btn-icon">⚡</span> View STEMI Equivalents</button></div>
       <div class="tc-subtitle">False Positives · False Negatives · Conduction Masking · Sex-Based Thresholds</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2025 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -11697,6 +11573,7 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
 
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 2: CHEST PAIN SYNDROMES
@@ -11712,22 +11589,18 @@ False STEMI causes: LVH (49%) → Early repol (24%) → RBBB (16%) → Brugada (
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-1</div>
+  </div>
       <div class="tc-title">Acute Coronary Syndrome</div>
       <div class="tc-subtitle">STEMI · NSTEMI · Unstable Angina · Mechanical Complications <button class="ecg-popup-btn" onclick="openECGModal('anterior-stemi')">📟 Anterior STEMI EKG</button> <button class="img-popup-btn" onclick="openPopup('stemi-territories')"><span class="btn-icon">🫀</span> View STEMI Territories</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -11824,6 +11697,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     </ul></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC C2: Stable Angina &amp; Vasospasm -->
 <div class="topic-card pw-locked tier-2" id="c2">
@@ -11831,22 +11705,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-2</div>
-      <div class="tc-title">Stable Angina &amp; Vasospastic Angina</div>
-      <div class="tc-subtitle">Prinzmetal · MINOCA · Diagnosis · Medical Management</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Stable Angina &amp; Vasospastic Angina</div>
+      <div class="tc-subtitle">Prinzmetal · MINOCA · Diagnosis · Medical Management</div>
+    
+  <div class="tc-body">
     
 
 
@@ -11873,6 +11743,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC C3: Cardiac Stress Testing -->
 <div class="topic-card pw-locked tier-2" id="c3">
@@ -11880,22 +11751,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic C-3</div>
+  </div>
       <div class="tc-title">Cardiac Stress Testing — Selection &amp; Interpretation</div>
       <div class="tc-subtitle">Exercise vs Pharmacologic · Imaging Modality Selection · Positive Criteria · Contraindications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -12001,6 +11868,7 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
 
   </div>
 </div>
+</div>
 
 
 
@@ -12018,22 +11886,18 @@ Inferior MI + Hypotension = RV MI → Fluids YES, Nitro NO</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-1</div>
-      <div class="tc-title">Atrial Fibrillation &amp; Atrial Flutter</div>
-      <div class="tc-subtitle">Rate vs Rhythm · CHA₂DS₂-VASc · Cardioversion · Antiarrhythmics · 2023 Guidelines</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2023 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Atrial Fibrillation &amp; Atrial Flutter</div>
+      <div class="tc-subtitle">Rate vs Rhythm · CHA₂DS₂-VASc · Cardioversion · Antiarrhythmics · 2023 Guidelines</div>
+    
+  <div class="tc-body">
     
 
 
@@ -12124,6 +11988,7 @@ Diltiazem if EF normal · metoprolol if EF Low · digoxin if Elderly/sedentary �
 Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofetilide"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A2: SVT -->
 <div class="topic-card pw-locked tier-1" id="a2">
@@ -12131,22 +11996,18 @@ Antiarrhythmics: "Structural disease? FLUNK everyone except Amiodarone and Dofet
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-2</div>
-      <div class="tc-title">SVT &amp; Wide-Complex Tachycardia <button class="img-popup-btn" onclick="openPopup('wide-complex')"><span class="btn-icon">⚡</span> View VT vs SVT Guide</button></div>
-      <div class="tc-subtitle">AVNRT · AVRT · Adenosine · Brugada Criteria · VT vs SVT</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">SVT &amp; Wide-Complex Tachycardia <button class="img-popup-btn" onclick="openPopup('wide-complex')"><span class="btn-icon">⚡</span> View VT vs SVT Guide</button></div>
+      <div class="tc-subtitle">AVNRT · AVRT · Adenosine · Brugada Criteria · VT vs SVT</div>
+    
+  <div class="tc-body">
     
 
 
@@ -12213,6 +12074,7 @@ Narrow + Stable = ADENOSINE (after vagal). Pulseless = DEFIBRILLATE (unsynchroni
 Torsades = MAGNESIUM always. Never amiodarone.</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC A3: Heart Blocks -->
 <div class="topic-card pw-locked tier-1" id="a3">
@@ -12220,22 +12082,18 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic A-3</div>
+  </div>
       <div class="tc-title">Heart Blocks &amp; Pacing Indications <button class="img-popup-btn" onclick="openPopup('heart-blocks')"><span class="btn-icon">📈</span> View Block Patterns</button></div>
       <div class="tc-subtitle">Mobitz I vs II · Complete Heart Block · Pacemaker Thresholds <button class="ecg-popup-btn" onclick="openECGModal('chb')">📟 View 3rd Degree Block EKG</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12259,6 +12117,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 4: HEART FAILURE
@@ -12273,22 +12132,18 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic H-1</div>
+  </div>
       <div class="tc-title">Heart Failure — HFrEF &amp; HFpEF</div>
       <div class="tc-subtitle">Four Pillars of GDMT · ADHF Management · Contraindicated Drugs</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span><span class="badge badge-new">2024 Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12354,6 +12209,7 @@ Torsades = MAGNESIUM always. Never amiodarone.</div></div>
 Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bisoprolol</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 5: VALVULAR
@@ -12368,22 +12224,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-1</div>
+  </div>
       <div class="tc-title">Valvular Disease — The Big Four</div>
       <div class="tc-subtitle">AS · AR · MS · MR · MVP · Prosthetic Valve Anticoagulation</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12419,6 +12271,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </table></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC V2: Endocarditis -->
 <div class="topic-card pw-locked tier-1" id="v2">
@@ -12426,22 +12279,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic V-2</div>
+  </div>
       <div class="tc-title">Infective Endocarditis</div>
       <div class="tc-subtitle">Duke Criteria · Organisms · Surgical Indications · Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12493,6 +12342,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 6: CARDIOMYOPATHIES
@@ -12507,22 +12357,18 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic CM-1 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Hypertrophic Cardiomyopathy (HCM)</div>
       <div class="tc-subtitle">Most Common Cause of Sudden Cardiac Death in Young Athletes</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12571,28 +12417,25 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 "Fill it up = softer" — squatting, lying down, volume loading makes HCM softer</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="cm2">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic CM-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Dilated &amp; Other Cardiomyopathies</div>
       <div class="tc-subtitle">Dilated CM · ARVC · Takotsubo · Peripartum CMP</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12606,6 +12449,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       </tbody>
     </table>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -12625,19 +12469,16 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       <div class="tc-title">Primary Hypertension — Classification, Risk Stratification &amp; Treatment</div>
       <div class="tc-subtitle">2025 ACC/AHA BP Categories · PREVENT Risk Calculator · First-Line Drug Selection · BP Targets</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
@@ -12728,6 +12569,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC HTN-0b: Secondary Hypertension -->
 <div class="topic-card pw-locked tier-2" id="htn0b">
@@ -12735,20 +12577,21 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-0b</div>
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
+      <div class="tc-lock-icon">🔒</div>
+      <div class="tc-lock-title">Full content locked</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
+      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+    </div>
+  </div>
       <div class="tc-title">Secondary Hypertension — Screening &amp; Etiology-Specific Workup</div>
       <div class="tc-subtitle">Primary Aldosteronism · Pheochromocytoma · Renovascular HTN · Red Flags · Buzzword Vignettes</div>
     </div>
-    <div class="tc-lock-prompt">
-      <div class="tc-lock-icon">🔒</div>
-      <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div>
+</div>
     <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span><span class="badge badge-trap">High Trap Risk</span></div>
   </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
 </div>
     <div class="tc-body">
     
@@ -12822,19 +12665,16 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
       <div class="tc-title">Resistant Hypertension &amp; Special Populations</div>
       <div class="tc-subtitle">Second-Line Agents · Spironolactone · Pregnancy · CKD · Elderly · Target Organ Damage</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-red">Resistant Hypertension — Definition &amp; Workup</div>
@@ -12897,28 +12737,25 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
 
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="htn1">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic HTN-1</div>
+  </div>
       <div class="tc-title">Hypertensive Emergency vs Urgency</div>
       <div class="tc-subtitle">End-Organ Damage · Drug Selection by Target Organ · Rate of BP Reduction</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Rate-of-Reduction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -12966,6 +12803,7 @@ Ischemic stroke: HANDS OFF unless >220/120. The penumbra needs that pressure.
 SAH: "Worst headache → CT first, treat second"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 8: ENDO/PERICARDITIS/MYOCARDITIS
@@ -12980,22 +12818,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic P-1</div>
+  </div>
       <div class="tc-title">Pericarditis &amp; Cardiac Tamponade <button class="img-popup-btn" onclick="openPopup('tamponade')"><span class="btn-icon">❤️</span> View Tamponade Diagram</button></div>
       <div class="tc-subtitle">Saddle ST · Beck's Triad · Pulsus Paradoxus · Pericardiocentesis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Common Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -13038,28 +12872,25 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="p2">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic P-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Myocarditis</div>
       <div class="tc-subtitle">Viral · Giant Cell · Immune Checkpoint Inhibitor · Distinct from Pericarditis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -13089,6 +12920,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 9: SHOCK STATES
@@ -13106,19 +12938,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">Shock — Classification &amp; Management</div>
       <div class="tc-subtitle">Cardiogenic · Distributive · Obstructive · Hypovolemic</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -13143,6 +12972,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ══════════════════════════════════════════
   SECTION 10: VASCULAR
@@ -13157,22 +12987,18 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic VAS-1</div>
+  </div>
       <div class="tc-title">Aortic Dissection &amp; AAA <button class="img-popup-btn" onclick="openPopup('aortic-dissection')"><span class="btn-icon">🩺</span> View Stanford Classification</button></div>
       <div class="tc-subtitle">Type A vs B · Stanford Classification · Surgical vs Medical</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Lethal Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -13209,28 +13035,25 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="vas2">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic VAS-2 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">DVT &amp; Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells Criteria · CT-PA · PESI Score · Anticoagulation · Massive PE</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -13264,6 +13087,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="vas3">
   <div class="tc-header">
@@ -13273,19 +13097,16 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       <div class="tc-title">Peripheral Artery Disease (PAD) &amp; AAA</div>
       <div class="tc-subtitle">ABI · Claudication · Critical Limb Ischemia · AAA Screening</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">Important</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -13313,6 +13134,7 @@ SAH: "Worst headache → CT first, treat second"</div></div>
       </ul>
     </div>
   </div>
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -15314,6 +15136,77 @@ document.addEventListener('click', function() {
     var total = document.querySelectorAll('.topic-card').length;
     var countEl = document.getElementById('tier-count');
     if (countEl) countEl.textContent = total + ' topics shown';
+  });
+})();
+</script>
+
+
+<script>
+(function() {
+  // Hide all locked card content on load, show on unlock
+  function applyLockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Hide everything inside card except tc-header, tc-badges, tc-lock-prompt
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        var cls = el.className || '';
+        if (cls.indexOf('tc-header') >= 0 || cls.indexOf('tc-lock-prompt') >= 0 || cls.indexOf('tc-badges') >= 0) {
+          // keep visible
+        } else {
+          el.setAttribute('data-locked', '1');
+          el.style.display = 'none';
+        }
+      }
+      // Show the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+  }
+
+  function applyUnlockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Show all children again
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        if (el.getAttribute('data-locked') === '1') {
+          el.style.display = '';
+          el.removeAttribute('data-locked');
+        }
+      }
+      // Hide the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'none';
+    });
+  }
+
+  // Also wrap the existing pwUnlock to call applyUnlockState
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply lock state immediately
+    applyLockState();
+    
+    // Check if already unlocked in localStorage
+    try {
+      var LS_KEY_CHECK = document.querySelector('[data-ls-key]');
+      // Try common keys
+      var keys = ['pcb_access_v1_Cardiology'];
+      for (var k = 0; k < keys.length; k++) {
+        if (localStorage.getItem(keys[k]) === '1') {
+          applyUnlockState();
+          break;
+        }
+      }
+    } catch(e) {}
+
+    // Monkey-patch pwUnlock to also call applyUnlockState
+    var origUnlock = window.pwUnlock;
+    window.pwUnlock = function() {
+      if (origUnlock) origUnlock();
+      applyUnlockState();
+    };
   });
 })();
 </script>

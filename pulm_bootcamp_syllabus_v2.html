@@ -260,7 +260,7 @@ strong,b{color:var(--black);}
 /* Overlay */
 .popup-overlay {
   display: none; position: fixed; inset: 0; z-index: 9000;
-  background: rgba(10,15,26,.82); backdrop-filter: blur(6px);
+  background: rgba(10,15,26,.82); backdrop-
   align-items: center; justify-content: center; padding: 24px;
 }
 .popup-overlay.active { display: flex; }
@@ -383,7 +383,6 @@ strong,b{color:var(--black);}
     rgba(247,249,252,1) 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 /* Small lock callout at bottom of each locked card */
 .pw-card-lock {
@@ -566,8 +565,8 @@ strong,b{color:var(--black);}
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -866,7 +865,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -919,7 +918,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -929,6 +927,18 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
 }
 
+
+/* ── LOCK: hide tc-body when card is locked ── */
+.pw-locked .tc-body { display: none !important; }
+body.pw-unlocked .pw-locked .tc-body { display: block !important; }
+.pw-locked .tc-lock-prompt { display: flex; }
+body.pw-unlocked .pw-locked .tc-lock-prompt { display: none !important; }
+
+/* LOCK */
+.pw-locked .tc-body{display:none!important}
+body.pw-unlocked .pw-locked .tc-body{display:block!important}
+.pw-locked .tc-lock-prompt{display:flex!important}
+body.pw-unlocked .pw-locked .tc-lock-prompt{display:none!important}
 </style>
 </head>
 <body>
@@ -1318,22 +1328,18 @@ COPD ABE: "A = Any bronchodilator. B = Both LAMA+LABA. E = Exacerbations = consi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">Pulmonary Function Test Interpretation</div>
       <div class="tc-subtitle">FEV1/FVC · Obstructive vs Restrictive · TLC · DLCO · Pattern Recognition <button class="img-popup-btn" onclick="openPulmDiagram('pft-loops')"><span class="btn-icon">📊</span> View Flow-Volume Loops</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
       <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Restriction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1387,6 +1393,7 @@ DLCO: "Emphysema destroys alveoli → destroys gas exchange → DLCO drops. Bron
 Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: INFECTIOUS LUNG DISEASE
@@ -1402,22 +1409,18 @@ Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Community-Acquired Pneumonia (CAP)</div>
       <div class="tc-subtitle">CURB-65 · PSI · Antibiotic Selection · 3-Day Course Update · Aspiration</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2024 Updated</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1473,6 +1476,7 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 5: TUBERCULOSIS (GAP) -->
 <div class="topic-card pw-locked tier-1" id="tb">
@@ -1480,22 +1484,18 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Tuberculosis (TB)</div>
       <div class="tc-subtitle">Latent vs Active · RIPE Therapy · TST vs IGRA · Contact Tracing</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Testing Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1570,6 +1570,7 @@ BCG trap: "BCG fools the TST but NOT the IGRA — use IGRA in immigrants"
 LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adherence"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: INTERSTITIAL &amp; PARENCHYMAL
@@ -1585,22 +1586,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Interstitial Lung Disease (ILD) &amp; Idiopathic Pulmonary Fibrosis</div>
       <div class="tc-subtitle">Honeycombing · Restrictive Pattern · Antifibrotics · Velcro Crackles <button class="img-popup-btn" onclick="openPulmDiagram('ipf-ild')"><span class="btn-icon">🫁</span> View ILD Framework</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1654,6 +1651,7 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: SARCOIDOSIS (GAP) -->
 <div class="topic-card pw-locked tier-2" id="sarcoid">
@@ -1661,22 +1659,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Sarcoidosis</div>
       <div class="tc-subtitle">Löfgren Syndrome · Bilateral Hilar Adenopathy · Non-Caseating Granulomas · ACE Level <button class="img-popup-btn" onclick="openPulmDiagram('sarcoidosis')"><span class="btn-icon">🔬</span> View Sarcoid Diagram</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1729,6 +1723,7 @@ Calcium: "Granulomas make vitamin D → calcium goes up → kidneys spill it →
 Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarcoid"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PULMONARY VASCULAR
@@ -1744,22 +1739,18 @@ Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarco
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells · PERC · CTPA · Massive vs Submassive <button class="img-popup-btn" onclick="openPulmDiagram('wells-pe')"><span class="btn-icon">📋</span> View Wells Algorithm</button> · DOACs · 2026 AHA/ACC Guidelines</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2026 Guidelines</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1844,6 +1835,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: PULMONARY HYPERTENSION (GAP) -->
 <div class="topic-card pw-locked tier-2" id="phtn">
@@ -1851,22 +1843,18 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Pulmonary Hypertension &amp; Cor Pulmonale</div>
       <div class="tc-subtitle">WHO Groups · RHC Diagnosis · Vasodilators · Cor Pulmonale Management</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1922,6 +1910,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 5: PLEURAL DISEASE
@@ -1937,22 +1926,18 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10</div>
+  </div>
       <div class="tc-title">Pleural Effusions</div>
       <div class="tc-subtitle">Light's Criteria · Transudate vs Exudate · Parapneumonic · Empyema · pH &lt;7.2</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Light's Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2019,6 +2004,7 @@ Parapneumonic pH: "pH 7.2 or less = Drain. pH above 7.2 = treat with ABx alone"
 HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient (&gt;1.2 = transudate)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 11: PNEUMOTHORAX -->
 <div class="topic-card pw-locked tier-1" id="ptx">
@@ -2026,22 +2012,18 @@ HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Pneumothorax</div>
       <div class="tc-subtitle">Primary vs Secondary · Tension PTX · Needle Decompression · Chest Tube · Recurrence <button class="img-popup-btn" onclick="openPulmDiagram('tension-ptx')"><span class="btn-icon">🫁</span> View PTX Guide</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Clinical Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2089,6 +2071,7 @@ Supplemental O₂ for PTX: "Nitrogen washout accelerates reabsorption — give O
 Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX = pleurodesis conversation."</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 6: MALIGNANCY (GAP)
@@ -2103,22 +2086,18 @@ Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Lung Cancer</div>
       <div class="tc-subtitle">USPSTF Screening · Cell Types · Paraneoplastic Syndromes · Superior Vena Cava Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2189,6 +2168,7 @@ Paraneoplastic: "SCLC = SIADH + Cushing's + Lambert-Eaton. Squamous = HyperCalce
 Lambert-Eaton: "Gets BETTER with exercise — OPPOSITE of myasthenia gravis (which gets WORSE)"
 Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face) + shoulder/arm pain"</div></div>
   </div>
+</div>
 </div>
 
 
@@ -2526,6 +2506,11 @@ Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Acute Dyspnea — Obstructive vs Infectious vs Vascular vs Cardiac</div>
       <div class="tc-subtitle">Asthma · COPD · PE · Pneumonia · Pneumothorax · ADHF · ARDS</div>
     </div>
@@ -4308,6 +4293,77 @@ document.addEventListener('click', function() {
 })();
 </script>
 
+
+<script>
+(function() {
+  // Hide all locked card content on load, show on unlock
+  function applyLockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Hide everything inside card except tc-header, tc-badges, tc-lock-prompt
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        var cls = el.className || '';
+        if (cls.indexOf('tc-header') >= 0 || cls.indexOf('tc-lock-prompt') >= 0 || cls.indexOf('tc-badges') >= 0) {
+          // keep visible
+        } else {
+          el.setAttribute('data-locked', '1');
+          el.style.display = 'none';
+        }
+      }
+      // Show the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+  }
+
+  function applyUnlockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Show all children again
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        if (el.getAttribute('data-locked') === '1') {
+          el.style.display = '';
+          el.removeAttribute('data-locked');
+        }
+      }
+      // Hide the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'none';
+    });
+  }
+
+  // Also wrap the existing pwUnlock to call applyUnlockState
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply lock state immediately
+    applyLockState();
+    
+    // Check if already unlocked in localStorage
+    try {
+      var LS_KEY_CHECK = document.querySelector('[data-ls-key]');
+      // Try common keys
+      var keys = ['pcb_access_v1_Pulmonary'];
+      for (var k = 0; k < keys.length; k++) {
+        if (localStorage.getItem(keys[k]) === '1') {
+          applyUnlockState();
+          break;
+        }
+      }
+    } catch(e) {}
+
+    // Monkey-patch pwUnlock to also call applyUnlockState
+    var origUnlock = window.pwUnlock;
+    window.pwUnlock = function() {
+      if (origUnlock) origUnlock();
+      applyUnlockState();
+    };
+  });
+})();
+</script>
+
 </body>
 </html>
 /* ── ACCESS LOCK ─────────────────────────────── */
@@ -4370,7 +4426,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -4423,7 +4479,6 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -4822,22 +4877,18 @@ COPD ABE: "A = Any bronchodilator. B = Both LAMA+LABA. E = Exacerbations = consi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
-      <div class="tc-title">Pulmonary Function Test Interpretation</div>
-      <div class="tc-subtitle">FEV1/FVC · Obstructive vs Restrictive · TLC · DLCO · Pattern Recognition <button class="img-popup-btn" onclick="openPulmDiagram('pft-loops')"><span class="btn-icon">📊</span> View Flow-Volume Loops</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Restriction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Pulmonary Function Test Interpretation</div>
+      <div class="tc-subtitle">FEV1/FVC · Obstructive vs Restrictive · TLC · DLCO · Pattern Recognition <button class="img-popup-btn" onclick="openPulmDiagram('pft-loops')"><span class="btn-icon">📊</span> View Flow-Volume Loops</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -4891,6 +4942,7 @@ DLCO: "Emphysema destroys alveoli → destroys gas exchange → DLCO drops. Bron
 Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: INFECTIOUS LUNG DISEASE
@@ -4906,22 +4958,18 @@ Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Community-Acquired Pneumonia (CAP)</div>
       <div class="tc-subtitle">CURB-65 · PSI · Antibiotic Selection · 3-Day Course Update · Aspiration</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2024 Updated</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -4977,6 +5025,7 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 5: TUBERCULOSIS (GAP) -->
 <div class="topic-card pw-locked tier-1" id="tb">
@@ -4984,22 +5033,18 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Tuberculosis (TB)</div>
       <div class="tc-subtitle">Latent vs Active · RIPE Therapy · TST vs IGRA · Contact Tracing</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Testing Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5074,6 +5119,7 @@ BCG trap: "BCG fools the TST but NOT the IGRA — use IGRA in immigrants"
 LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adherence"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: INTERSTITIAL &amp; PARENCHYMAL
@@ -5089,22 +5135,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Interstitial Lung Disease (ILD) &amp; Idiopathic Pulmonary Fibrosis</div>
       <div class="tc-subtitle">Honeycombing · Restrictive Pattern · Antifibrotics · Velcro Crackles <button class="img-popup-btn" onclick="openPulmDiagram('ipf-ild')"><span class="btn-icon">🫁</span> View ILD Framework</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5158,6 +5200,7 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: SARCOIDOSIS (GAP) -->
 <div class="topic-card pw-locked tier-2" id="sarcoid">
@@ -5165,22 +5208,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Sarcoidosis</div>
       <div class="tc-subtitle">Löfgren Syndrome · Bilateral Hilar Adenopathy · Non-Caseating Granulomas · ACE Level <button class="img-popup-btn" onclick="openPulmDiagram('sarcoidosis')"><span class="btn-icon">🔬</span> View Sarcoid Diagram</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5233,6 +5272,7 @@ Calcium: "Granulomas make vitamin D → calcium goes up → kidneys spill it →
 Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarcoid"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PULMONARY VASCULAR
@@ -5248,22 +5288,18 @@ Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarco
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells · PERC · CTPA · Massive vs Submassive <button class="img-popup-btn" onclick="openPulmDiagram('wells-pe')"><span class="btn-icon">📋</span> View Wells Algorithm</button> · DOACs · 2026 AHA/ACC Guidelines</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2026 Guidelines</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5348,6 +5384,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: PULMONARY HYPERTENSION (GAP) -->
 <div class="topic-card pw-locked tier-2" id="phtn">
@@ -5355,22 +5392,18 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Pulmonary Hypertension &amp; Cor Pulmonale</div>
       <div class="tc-subtitle">WHO Groups · RHC Diagnosis · Vasodilators · Cor Pulmonale Management</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5426,6 +5459,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 5: PLEURAL DISEASE
@@ -5441,22 +5475,18 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10</div>
+  </div>
       <div class="tc-title">Pleural Effusions</div>
       <div class="tc-subtitle">Light's Criteria · Transudate vs Exudate · Parapneumonic · Empyema · pH &lt;7.2</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Light's Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5523,6 +5553,7 @@ Parapneumonic pH: "pH 7.2 or less = Drain. pH above 7.2 = treat with ABx alone"
 HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient (&gt;1.2 = transudate)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 11: PNEUMOTHORAX -->
 <div class="topic-card pw-locked tier-1" id="ptx">
@@ -5530,22 +5561,18 @@ HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Pneumothorax</div>
       <div class="tc-subtitle">Primary vs Secondary · Tension PTX · Needle Decompression · Chest Tube · Recurrence <button class="img-popup-btn" onclick="openPulmDiagram('tension-ptx')"><span class="btn-icon">🫁</span> View PTX Guide</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Clinical Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5593,6 +5620,7 @@ Supplemental O₂ for PTX: "Nitrogen washout accelerates reabsorption — give O
 Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX = pleurodesis conversation."</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 6: MALIGNANCY (GAP)
@@ -5607,22 +5635,18 @@ Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Lung Cancer</div>
       <div class="tc-subtitle">USPSTF Screening · Cell Types · Paraneoplastic Syndromes · Superior Vena Cava Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5693,6 +5717,7 @@ Paraneoplastic: "SCLC = SIADH + Cushing's + Lambert-Eaton. Squamous = HyperCalce
 Lambert-Eaton: "Gets BETTER with exercise — OPPOSITE of myasthenia gravis (which gets WORSE)"
 Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face) + shoulder/arm pain"</div></div>
   </div>
+</div>
 </div>
 
 
@@ -6030,6 +6055,10 @@ Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Acute Dyspnea — Obstructive vs Infectious vs Vascular vs Cardiac</div>
       <div class="tc-subtitle">Asthma · COPD · PE · Pneumonia · Pneumothorax · ADHF · ARDS</div>
     </div>
@@ -8041,8 +8070,8 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -8341,7 +8370,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -8394,7 +8423,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -8590,6 +8618,7 @@ Mg in severe asthma: "Mag relaxes bronchospasm when nothing else works — 2g IV
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2</div>
+  </div>
       <div class="tc-title">Chronic Obstructive Pulmonary Disease (COPD)</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">GOLD 2026 ABE Groups · Pharmacotherapy · LTOT · BiPAP · Exacerbation <button class="img-popup-btn" onclick="openPulmDiagram('copd-asthma')"><span class="btn-icon">🫁</span> COPD vs Asthma</button></div>
     </div>
@@ -8793,22 +8822,18 @@ COPD ABE: "A = Any bronchodilator. B = Both LAMA+LABA. E = Exacerbations = consi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
-      <div class="tc-title">Pulmonary Function Test Interpretation</div>
-      <div class="tc-subtitle">FEV1/FVC · Obstructive vs Restrictive · TLC · DLCO · Pattern Recognition <button class="img-popup-btn" onclick="openPulmDiagram('pft-loops')"><span class="btn-icon">📊</span> View Flow-Volume Loops</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Restriction Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Pulmonary Function Test Interpretation</div>
+      <div class="tc-subtitle">FEV1/FVC · Obstructive vs Restrictive · TLC · DLCO · Pattern Recognition <button class="img-popup-btn" onclick="openPulmDiagram('pft-loops')"><span class="btn-icon">📊</span> View Flow-Volume Loops</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -8862,6 +8887,7 @@ DLCO: "Emphysema destroys alveoli → destroys gas exchange → DLCO drops. Bron
 Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: INFECTIOUS LUNG DISEASE
@@ -8877,22 +8903,18 @@ Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Community-Acquired Pneumonia (CAP)</div>
       <div class="tc-subtitle">CURB-65 · PSI · Antibiotic Selection · 3-Day Course Update · Aspiration</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2024 Updated</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -8948,6 +8970,7 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 5: TUBERCULOSIS (GAP) -->
 <div class="topic-card pw-locked tier-1" id="tb">
@@ -8955,22 +8978,18 @@ CAP course: "3 days if stable by day 3 — not 10. Stability = afebrile, HR/RR n
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Tuberculosis (TB)</div>
       <div class="tc-subtitle">Latent vs Active · RIPE Therapy · TST vs IGRA · Contact Tracing</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Testing Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9045,6 +9064,7 @@ BCG trap: "BCG fools the TST but NOT the IGRA — use IGRA in immigrants"
 LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adherence"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: INTERSTITIAL &amp; PARENCHYMAL
@@ -9060,22 +9080,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Interstitial Lung Disease (ILD) &amp; Idiopathic Pulmonary Fibrosis</div>
       <div class="tc-subtitle">Honeycombing · Restrictive Pattern · Antifibrotics · Velcro Crackles <button class="img-popup-btn" onclick="openPulmDiagram('ipf-ild')"><span class="btn-icon">🫁</span> View ILD Framework</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9129,6 +9145,7 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: SARCOIDOSIS (GAP) -->
 <div class="topic-card pw-locked tier-2" id="sarcoid">
@@ -9136,22 +9153,18 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Sarcoidosis</div>
       <div class="tc-subtitle">Löfgren Syndrome · Bilateral Hilar Adenopathy · Non-Caseating Granulomas · ACE Level <button class="img-popup-btn" onclick="openPulmDiagram('sarcoidosis')"><span class="btn-icon">🔬</span> View Sarcoid Diagram</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9204,6 +9217,7 @@ Calcium: "Granulomas make vitamin D → calcium goes up → kidneys spill it →
 Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarcoid"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PULMONARY VASCULAR
@@ -9219,22 +9233,18 @@ Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarco
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8</div>
+  </div>
       <div class="tc-title">Pulmonary Embolism</div>
       <div class="tc-subtitle">Wells · PERC · CTPA · Massive vs Submassive <button class="img-popup-btn" onclick="openPulmDiagram('wells-pe')"><span class="btn-icon">📋</span> View Wells Algorithm</button> · DOACs · 2026 AHA/ACC Guidelines</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">2026 Guidelines</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9319,6 +9329,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: PULMONARY HYPERTENSION (GAP) -->
 <div class="topic-card pw-locked tier-2" id="phtn">
@@ -9326,22 +9337,18 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9 <span class="gap-tag">★ Gap Added</span></div>
-      <div class="tc-title">Pulmonary Hypertension &amp; Cor Pulmonale</div>
-      <div class="tc-subtitle">WHO Groups · RHC Diagnosis · Vasodilators · Cor Pulmonale Management</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Pulmonary Hypertension &amp; Cor Pulmonale</div>
+      <div class="tc-subtitle">WHO Groups · RHC Diagnosis · Vasodilators · Cor Pulmonale Management</div>
+    
+  <div class="tc-body">
     
 
 
@@ -9397,6 +9404,7 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 5: PLEURAL DISEASE
@@ -9415,19 +9423,16 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
       <div class="tc-title">Pleural Effusions</div>
       <div class="tc-subtitle">Light's Criteria · Transudate vs Exudate · Parapneumonic · Empyema · pH &lt;7.2</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Light's Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -9494,6 +9499,7 @@ Parapneumonic pH: "pH 7.2 or less = Drain. pH above 7.2 = treat with ABx alone"
 HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient (&gt;1.2 = transudate)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 11: PNEUMOTHORAX -->
 <div class="topic-card pw-locked tier-1" id="ptx">
@@ -9501,22 +9507,18 @@ HF Light's trap: "HF on diuretics → Light's may lie → check albumin gradient
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Pneumothorax</div>
       <div class="tc-subtitle">Primary vs Secondary · Tension PTX · Needle Decompression · Chest Tube · Recurrence <button class="img-popup-btn" onclick="openPulmDiagram('tension-ptx')"><span class="btn-icon">🫁</span> View PTX Guide</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Clinical Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9564,6 +9566,7 @@ Supplemental O₂ for PTX: "Nitrogen washout accelerates reabsorption — give O
 Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX = pleurodesis conversation."</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 6: MALIGNANCY (GAP)
@@ -9578,22 +9581,18 @@ Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Lung Cancer</div>
       <div class="tc-subtitle">USPSTF Screening · Cell Types · Paraneoplastic Syndromes · Superior Vena Cava Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9664,6 +9663,7 @@ Paraneoplastic: "SCLC = SIADH + Cushing's + Lambert-Eaton. Squamous = HyperCalce
 Lambert-Eaton: "Gets BETTER with exercise — OPPOSITE of myasthenia gravis (which gets WORSE)"
 Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face) + shoulder/arm pain"</div></div>
   </div>
+</div>
 </div>
 
 
@@ -10001,6 +10001,8 @@ Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
       <div class="tc-title">Acute Dyspnea — Obstructive vs Infectious vs Vascular vs Cardiac</div>
       <div class="tc-subtitle">Asthma · COPD · PE · Pneumonia · Pneumothorax · ADHF · ARDS</div>
     </div>

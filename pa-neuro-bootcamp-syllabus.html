@@ -316,7 +316,6 @@ strong,b{color:var(--black);}
     rgba(247,249,252,1) 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 /* Small lock callout at bottom of each locked card */
 .pw-card-lock {
@@ -499,8 +498,8 @@ strong,b{color:var(--black);}
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -799,7 +798,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -852,7 +851,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -862,6 +860,18 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
 }
 
+
+/* ── LOCK: hide tc-body when card is locked ── */
+.pw-locked .tc-body { display: none !important; }
+body.pw-unlocked .pw-locked .tc-body { display: block !important; }
+.pw-locked .tc-lock-prompt { display: flex; }
+body.pw-unlocked .pw-locked .tc-lock-prompt { display: none !important; }
+
+/* LOCK */
+.pw-locked .tc-body{display:none!important}
+body.pw-unlocked .pw-locked .tc-body{display:block!important}
+.pw-locked .tc-lock-prompt{display:flex!important}
+body.pw-unlocked .pw-locked .tc-lock-prompt{display:none!important}
 </style>
 <style id="mnav">
 .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
@@ -1242,22 +1252,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 3</div>
+  </div>
       <div class="tc-title">Stroke &amp; Cerebrovascular Disease</div>
       <div class="tc-subtitle">Time is brain · vascular territories · tPA window · thrombectomy · SAH <button class="img-popup-btn" onclick="openNeuroDiagram('stroke-territories')"><span class="btn-icon">🧠</span> View Territories</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
       <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-stroke">
   <div class="vignette-header">
@@ -1348,6 +1354,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="section-header" id="h16">
   <div class="sh-tag">Domain 3 · Episodic Disorders</div>
@@ -1358,22 +1365,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 4</div>
+  </div>
       <div class="tc-title">Headaches</div>
       <div class="tc-subtitle">Primary headache phenotypes · SNOOP red flags · GCA · IIH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-headache">
   <div class="vignette-header">
@@ -1461,27 +1464,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="seizure">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 5</div>
+  </div>
       <div class="tc-title">Seizures &amp; Epilepsy</div>
       <div class="tc-subtitle">Classification · absence vs focal · status epilepticus · ASM side effects</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-seizure">
   <div class="vignette-header">
@@ -1541,6 +1541,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="cn-domain">
   <div class="sh-tag">Domain 4 · Cranial Nerves &amp; Movement</div>
   <div class="sh-title">Cranial Neuropathies, Movement &amp; Cognition</div>
@@ -1550,22 +1551,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 6</div>
+  </div>
       <div class="tc-title">Cranial Nerve Disorders</div>
       <div class="tc-subtitle">CN III palsy · trigeminal neuralgia · Bell palsy · vestibular schwannoma</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cn">
   <div class="vignette-header">
@@ -1628,28 +1625,25 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Forehead sparing separates a central (stroke) facial palsy from Bell palsy. The forehead has bilateral cortical input, so a UMN lesion spares it — if the whole half of the face including the forehead is weak, the lesion is peripheral (CN VII).</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="movement">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 7</div>
+  </div>
       <div class="tc-title">Movement Disorders</div>
       <div class="tc-subtitle">Parkinson · essential tremor · Huntington · drug-induced · NMS</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-movement">
   <div class="vignette-header">
@@ -1720,27 +1714,24 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Lead-pipe rigidity + fever + altered mental status + elevated CK after an antipsychotic is neuroleptic malignant syndrome — stop the drug and give dantrolene. Do not confuse with serotonin syndrome (which has hyperreflexia and clonus).</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="dementia">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 8</div>
+  </div>
       <div class="tc-title">Dementia &amp; Cognitive Disorders</div>
       <div class="tc-subtitle">Delirium vs dementia · Alzheimer · vascular · Lewy body · FTD · NPH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-dementia">
   <div class="vignette-header">
@@ -1790,27 +1781,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="ms">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 9</div>
+  </div>
       <div class="tc-title">Demyelinating Disorders</div>
       <div class="tc-subtitle">MS · McDonald criteria · INO · optic neuritis · NMO (Devic)</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-ms">
   <div class="vignette-header">
@@ -1884,6 +1872,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="nmj-domain">
   <div class="sh-tag">Domain 5 · Neuromuscular &amp; Peripheral Nerve</div>
   <div class="sh-title">Junction, Motor Neuron &amp; Nerve Disease</div>
@@ -1893,22 +1882,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 10</div>
+  </div>
       <div class="tc-title">Neuromuscular Disorders</div>
       <div class="tc-subtitle">Myasthenia gravis · Lambert-Eaton · ALS <button class="img-popup-btn" onclick="openNeuroDiagram('mg-lems')"><span class="btn-icon">🔬</span> View MG vs LEMS</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-nmj">
   <div class="vignette-header">
@@ -1975,28 +1960,25 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="neuropathy">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 11</div>
+  </div>
       <div class="tc-title">Peripheral Neuropathies</div>
       <div class="tc-subtitle">GBS · CIDP · diabetic neuropathy · high-yield mononeuropathies</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Guillain-Barré Syndrome</div>
     <ul class="bl">
@@ -2036,27 +2018,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="vertigo">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 12</div>
+  </div>
       <div class="tc-title">Dizziness &amp; Vertigo</div>
       <div class="tc-subtitle">Peripheral vs central · BPPV · vestibular neuritis · Ménière</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-vertigo">
   <div class="vignette-header">
@@ -2096,6 +2075,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="infection-domain">
   <div class="sh-tag">Domain 6 · CNS Infection, Tumor &amp; Cord</div>
   <div class="sh-title">Meningitis, Mass Lesions &amp; Spinal Emergencies</div>
@@ -2105,22 +2085,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 13</div>
+  </div>
       <div class="tc-title">CNS Infections</div>
       <div class="tc-subtitle">CSF interpretation · empiric antibiotics · encephalitis · brain abscess <button class="img-popup-btn" onclick="openNeuroDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cns-infection">
   <div class="vignette-header">
@@ -2171,27 +2147,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="tumors">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 14</div>
-      <div class="tc-title">Brain Tumors &amp; Increased ICP</div>
-      <div class="tc-subtitle">Primary tumors · metastases · ICP · herniation syndromes <button class="img-popup-btn" onclick="openNeuroDiagram('herniation')"><span class="btn-icon">🧠</span> View Herniation</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Brain Tumors &amp; Increased ICP</div>
+      <div class="tc-subtitle">Primary tumors · metastases · ICP · herniation syndromes <button class="img-popup-btn" onclick="openNeuroDiagram('herniation')"><span class="btn-icon">🧠</span> View Herniation</button></div>
+    
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Primary Brain Tumors</div>
     <table class="btable"><thead><tr><th>Tumor</th><th>Key Features / Board Pearl</th></tr></thead><tbody><tr><td>Glioblastoma (GBM)</td><td>Most common primary malignant brain tumor in adults. Ring-enhancing, 'butterfly' across corpus callosum. Poor prognosis. ring-enhancing; poor prognosis</td></tr><tr><td>Meningioma</td><td>Most common primary overall; extra-axial, dural-based, calcified; 'dural tail'; more common in women</td></tr><tr><td>Schwannoma</td><td>CN VIII, cerebellopontine angle; NF2 = bilateral</td></tr><tr><td>Pituitary adenoma</td><td>Bitemporal hemianopia; prolactinoma most common (cabergoline/bromocriptine)</td></tr><tr><td>Medulloblastoma</td><td>Most common malignant in children; posterior fossa; hydrocephalus</td></tr><tr><td>Craniopharyngioma</td><td>Suprasellar, calcified; children/young adults; bitemporal hemianopia</td></tr><tr><td>Oligodendroglioma</td><td>'Fried egg' cells, calcified; 1p/19q co-deletion; better prognosis</td></tr><tr><td>Ependymoma</td><td>Fourth ventricle in children; hydrocephalus</td></tr></tbody></table>
@@ -2210,6 +2183,7 @@ body.slocked .syl-gate{display:block}
     <div class="pearl"><div class="pearl-label">Board Pearl</div><div class="pearl-text">Uncal herniation — an ipsilateral fixed, dilated pupil is the earliest sign. (Kernohan notch can produce ipsilateral hemiparesis, a classic false-localizing sign.)</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="spinal">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -2218,19 +2192,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Spinal Cord Disorders</div>
       <div class="tc-subtitle">Cervical myelopathy · cauda equina · cord compression · transverse myelitis</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-spinal">
   <div class="vignette-header">
@@ -2294,22 +2265,21 @@ body.slocked .syl-gate{display:block}
     <p class="pnote">🩺 <b>PANCE Pearl:</b> "Cape distribution" sensory loss = syrinx. The dissociated sensory loss (pain/temp lost, touch preserved) distinguishes it from cord compression.</p></div>
   </div>
 </div>
+</div>
 <div class="section-header" id="emergencies">
   <div class="sh-tag">Domain 7 · Don't-Miss Emergencies</div>
   <div class="sh-title">Neuro Emergencies — Rapid Review</div>
 </div>
-<div class="topic-card pw-locked tier-1" id="emergencies-card"><div class="tc-header"><div class="tc-tier">Tier 1</div><div class="tc-main"><div class="tc-num">Module 16</div><div class="tc-title">Neuro Emergencies</div><div class="tc-subtitle">The ten presentations that must be recognized on sight</div></div>
-    <div class="tc-lock-prompt">
+<div class="topic-card pw-locked tier-1" id="emergencies-card"><div class="tc-header"><div class="tc-tier">Tier 1</div><div class="tc-main"><div class="tc-num">Module 16</div>
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div><div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div></div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+    </div><div class="tc-title">Neuro Emergencies</div><div class="tc-subtitle">The ten presentations that must be recognized on sight</div>
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-emergencies-card">
   <div class="vignette-header">
@@ -2350,27 +2320,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="bleeds">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Reference</div>
+  </div>
       <div class="tc-title">Epidural vs Subdural Hematoma</div>
       <div class="tc-subtitle">Two trauma bleeds the boards always contrast</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-bleeds">
   <div class="vignette-header">
@@ -2406,6 +2373,7 @@ body.slocked .syl-gate{display:block}
     </ul>
   </div>
 </div>
+</div>
 <div class="section-header" id="trauma-domain">
   <div class="sh-tag">Domain 8 · Trauma, Pediatric &amp; Additional Topics</div>
   <div class="sh-title">TBI, Concussion &amp; High-Yield Add-Ons</div>
@@ -2416,22 +2384,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 17</div>
+  </div>
       <div class="tc-title">Traumatic Brain Injury &amp; Concussion</div>
       <div class="tc-subtitle">GCS severity · concussion &amp; return-to-play · when to CT · post-concussive syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-red">Why the PANCE Tests This</div>
     <p>Head injury is one of the most common presentations in primary care, sports medicine, and the ED. Boards test concussion recognition, the rules for when imaging is required, return-to-play decisions, and the catastrophic complication — second-impact syndrome.</p></div>
@@ -2476,6 +2440,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="additional">
   <div class="tc-header">
@@ -2485,19 +2450,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Additional High-Yield Disorders</div>
       <div class="tc-subtitle">CRPS · Tourette &amp; tics · restless legs · cerebral palsy · Wernicke-Korsakoff</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-additional">
   <div class="vignette-header">
@@ -2564,6 +2526,7 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Give IV thiamine BEFORE glucose. Administering glucose first in a thiamine-deficient patient can precipitate or worsen Wernicke encephalopathy.</div></div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -3018,6 +2981,77 @@ document.addEventListener('click', function() {
 })();
 </script>
 
+
+<script>
+(function() {
+  // Hide all locked card content on load, show on unlock
+  function applyLockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Hide everything inside card except tc-header, tc-badges, tc-lock-prompt
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        var cls = el.className || '';
+        if (cls.indexOf('tc-header') >= 0 || cls.indexOf('tc-lock-prompt') >= 0 || cls.indexOf('tc-badges') >= 0) {
+          // keep visible
+        } else {
+          el.setAttribute('data-locked', '1');
+          el.style.display = 'none';
+        }
+      }
+      // Show the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+  }
+
+  function applyUnlockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Show all children again
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        if (el.getAttribute('data-locked') === '1') {
+          el.style.display = '';
+          el.removeAttribute('data-locked');
+        }
+      }
+      // Hide the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'none';
+    });
+  }
+
+  // Also wrap the existing pwUnlock to call applyUnlockState
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply lock state immediately
+    applyLockState();
+    
+    // Check if already unlocked in localStorage
+    try {
+      var LS_KEY_CHECK = document.querySelector('[data-ls-key]');
+      // Try common keys
+      var keys = ['pcb_access_v1_Neurology'];
+      for (var k = 0; k < keys.length; k++) {
+        if (localStorage.getItem(keys[k]) === '1') {
+          applyUnlockState();
+          break;
+        }
+      }
+    } catch(e) {}
+
+    // Monkey-patch pwUnlock to also call applyUnlockState
+    var origUnlock = window.pwUnlock;
+    window.pwUnlock = function() {
+      if (origUnlock) origUnlock();
+      applyUnlockState();
+    };
+  });
+})();
+</script>
+
 </body>
 </html>
 /* ── ACCESS LOCK ─────────────────────────────── */
@@ -3080,7 +3114,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -3133,7 +3167,6 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -3523,22 +3556,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 3</div>
+  </div>
       <div class="tc-title">Stroke &amp; Cerebrovascular Disease</div>
       <div class="tc-subtitle">Time is brain · vascular territories · tPA window · thrombectomy · SAH <button class="img-popup-btn" onclick="openNeuroDiagram('stroke-territories')"><span class="btn-icon">🧠</span> View Territories</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-stroke">
   <div class="vignette-header">
@@ -3629,6 +3658,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="section-header" id="h16">
   <div class="sh-tag">Domain 3 · Episodic Disorders</div>
@@ -3639,22 +3669,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 4</div>
+  </div>
       <div class="tc-title">Headaches</div>
       <div class="tc-subtitle">Primary headache phenotypes · SNOOP red flags · GCA · IIH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-headache">
   <div class="vignette-header">
@@ -3742,27 +3768,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="seizure">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 5</div>
+  </div>
       <div class="tc-title">Seizures &amp; Epilepsy</div>
       <div class="tc-subtitle">Classification · absence vs focal · status epilepticus · ASM side effects</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-seizure">
   <div class="vignette-header">
@@ -3822,6 +3845,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="cn-domain">
   <div class="sh-tag">Domain 4 · Cranial Nerves &amp; Movement</div>
   <div class="sh-title">Cranial Neuropathies, Movement &amp; Cognition</div>
@@ -3831,22 +3855,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 6</div>
+  </div>
       <div class="tc-title">Cranial Nerve Disorders</div>
       <div class="tc-subtitle">CN III palsy · trigeminal neuralgia · Bell palsy · vestibular schwannoma</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cn">
   <div class="vignette-header">
@@ -3909,28 +3929,25 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Forehead sparing separates a central (stroke) facial palsy from Bell palsy. The forehead has bilateral cortical input, so a UMN lesion spares it — if the whole half of the face including the forehead is weak, the lesion is peripheral (CN VII).</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="movement">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 7</div>
+  </div>
       <div class="tc-title">Movement Disorders</div>
       <div class="tc-subtitle">Parkinson · essential tremor · Huntington · drug-induced · NMS</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-movement">
   <div class="vignette-header">
@@ -4001,27 +4018,24 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Lead-pipe rigidity + fever + altered mental status + elevated CK after an antipsychotic is neuroleptic malignant syndrome — stop the drug and give dantrolene. Do not confuse with serotonin syndrome (which has hyperreflexia and clonus).</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="dementia">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 8</div>
+  </div>
       <div class="tc-title">Dementia &amp; Cognitive Disorders</div>
       <div class="tc-subtitle">Delirium vs dementia · Alzheimer · vascular · Lewy body · FTD · NPH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-dementia">
   <div class="vignette-header">
@@ -4071,27 +4085,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="ms">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 9</div>
+  </div>
       <div class="tc-title">Demyelinating Disorders</div>
       <div class="tc-subtitle">MS · McDonald criteria · INO · optic neuritis · NMO (Devic)</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-ms">
   <div class="vignette-header">
@@ -4165,6 +4176,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="nmj-domain">
   <div class="sh-tag">Domain 5 · Neuromuscular &amp; Peripheral Nerve</div>
   <div class="sh-title">Junction, Motor Neuron &amp; Nerve Disease</div>
@@ -4174,22 +4186,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 10</div>
-      <div class="tc-title">Neuromuscular Disorders</div>
-      <div class="tc-subtitle">Myasthenia gravis · Lambert-Eaton · ALS <button class="img-popup-btn" onclick="openNeuroDiagram('mg-lems')"><span class="btn-icon">🔬</span> View MG vs LEMS</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Neuromuscular Disorders</div>
+      <div class="tc-subtitle">Myasthenia gravis · Lambert-Eaton · ALS <button class="img-popup-btn" onclick="openNeuroDiagram('mg-lems')"><span class="btn-icon">🔬</span> View MG vs LEMS</button></div>
+    
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-nmj">
   <div class="vignette-header">
@@ -4256,28 +4264,25 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="neuropathy">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 11</div>
+  </div>
       <div class="tc-title">Peripheral Neuropathies</div>
       <div class="tc-subtitle">GBS · CIDP · diabetic neuropathy · high-yield mononeuropathies</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Guillain-Barré Syndrome</div>
     <ul class="bl">
@@ -4317,27 +4322,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="vertigo">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 12</div>
+  </div>
       <div class="tc-title">Dizziness &amp; Vertigo</div>
       <div class="tc-subtitle">Peripheral vs central · BPPV · vestibular neuritis · Ménière</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-vertigo">
   <div class="vignette-header">
@@ -4377,6 +4379,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="infection-domain">
   <div class="sh-tag">Domain 6 · CNS Infection, Tumor &amp; Cord</div>
   <div class="sh-title">Meningitis, Mass Lesions &amp; Spinal Emergencies</div>
@@ -4386,22 +4389,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 13</div>
+  </div>
       <div class="tc-title">CNS Infections</div>
       <div class="tc-subtitle">CSF interpretation · empiric antibiotics · encephalitis · brain abscess <button class="img-popup-btn" onclick="openNeuroDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cns-infection">
   <div class="vignette-header">
@@ -4452,27 +4451,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="tumors">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 14</div>
+  </div>
       <div class="tc-title">Brain Tumors &amp; Increased ICP</div>
       <div class="tc-subtitle">Primary tumors · metastases · ICP · herniation syndromes <button class="img-popup-btn" onclick="openNeuroDiagram('herniation')"><span class="btn-icon">🧠</span> View Herniation</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Primary Brain Tumors</div>
     <table class="btable"><thead><tr><th>Tumor</th><th>Key Features / Board Pearl</th></tr></thead><tbody><tr><td>Glioblastoma (GBM)</td><td>Most common primary malignant brain tumor in adults. Ring-enhancing, 'butterfly' across corpus callosum. Poor prognosis. ring-enhancing; poor prognosis</td></tr><tr><td>Meningioma</td><td>Most common primary overall; extra-axial, dural-based, calcified; 'dural tail'; more common in women</td></tr><tr><td>Schwannoma</td><td>CN VIII, cerebellopontine angle; NF2 = bilateral</td></tr><tr><td>Pituitary adenoma</td><td>Bitemporal hemianopia; prolactinoma most common (cabergoline/bromocriptine)</td></tr><tr><td>Medulloblastoma</td><td>Most common malignant in children; posterior fossa; hydrocephalus</td></tr><tr><td>Craniopharyngioma</td><td>Suprasellar, calcified; children/young adults; bitemporal hemianopia</td></tr><tr><td>Oligodendroglioma</td><td>'Fried egg' cells, calcified; 1p/19q co-deletion; better prognosis</td></tr><tr><td>Ependymoma</td><td>Fourth ventricle in children; hydrocephalus</td></tr></tbody></table>
@@ -4491,27 +4487,24 @@ body.slocked .syl-gate{display:block}
     <div class="pearl"><div class="pearl-label">Board Pearl</div><div class="pearl-text">Uncal herniation — an ipsilateral fixed, dilated pupil is the earliest sign. (Kernohan notch can produce ipsilateral hemiparesis, a classic false-localizing sign.)</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="spinal">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 15</div>
+  </div>
       <div class="tc-title">Spinal Cord Disorders</div>
       <div class="tc-subtitle">Cervical myelopathy · cauda equina · cord compression · transverse myelitis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-spinal">
   <div class="vignette-header">
@@ -4575,22 +4568,21 @@ body.slocked .syl-gate{display:block}
     <p class="pnote">🩺 <b>PANCE Pearl:</b> "Cape distribution" sensory loss = syrinx. The dissociated sensory loss (pain/temp lost, touch preserved) distinguishes it from cord compression.</p></div>
   </div>
 </div>
+</div>
 <div class="section-header" id="emergencies">
   <div class="sh-tag">Domain 7 · Don't-Miss Emergencies</div>
   <div class="sh-title">Neuro Emergencies — Rapid Review</div>
 </div>
-<div class="topic-card pw-locked tier-1" id="emergencies-card"><div class="tc-header"><div class="tc-tier">Tier 1</div><div class="tc-main"><div class="tc-num">Module 16</div><div class="tc-title">Neuro Emergencies</div><div class="tc-subtitle">The ten presentations that must be recognized on sight</div></div>
-    <div class="tc-lock-prompt">
+<div class="topic-card pw-locked tier-1" id="emergencies-card"><div class="tc-header"><div class="tc-tier">Tier 1</div><div class="tc-main"><div class="tc-num">Module 16</div>
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div><div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div></div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+    </div><div class="tc-title">Neuro Emergencies</div><div class="tc-subtitle">The ten presentations that must be recognized on sight</div>
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-emergencies-card">
   <div class="vignette-header">
@@ -4631,6 +4623,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="bleeds">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
@@ -4639,19 +4632,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Epidural vs Subdural Hematoma</div>
       <div class="tc-subtitle">Two trauma bleeds the boards always contrast</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-bleeds">
   <div class="vignette-header">
@@ -4687,6 +4677,7 @@ body.slocked .syl-gate{display:block}
     </ul>
   </div>
 </div>
+</div>
 <div class="section-header" id="trauma-domain">
   <div class="sh-tag">Domain 8 · Trauma, Pediatric &amp; Additional Topics</div>
   <div class="sh-title">TBI, Concussion &amp; High-Yield Add-Ons</div>
@@ -4700,19 +4691,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Traumatic Brain Injury &amp; Concussion</div>
       <div class="tc-subtitle">GCS severity · concussion &amp; return-to-play · when to CT · post-concussive syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-red">Why the PANCE Tests This</div>
     <p>Head injury is one of the most common presentations in primary care, sports medicine, and the ED. Boards test concussion recognition, the rules for when imaging is required, return-to-play decisions, and the catastrophic complication — second-impact syndrome.</p></div>
@@ -4757,6 +4745,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="additional">
   <div class="tc-header">
@@ -4766,19 +4755,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Additional High-Yield Disorders</div>
       <div class="tc-subtitle">CRPS · Tourette &amp; tics · restless legs · cerebral palsy · Wernicke-Korsakoff</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-additional">
   <div class="vignette-header">
@@ -4845,6 +4831,7 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Give IV thiamine BEFORE glucose. Administering glucose first in a thiamine-deficient patient can precipitate or worsen Wernicke encephalopathy.</div></div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -5528,8 +5515,8 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -5828,7 +5815,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -5881,7 +5868,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -6131,6 +6117,7 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 2</div>
+  </div>
       <div class="tc-title">Neuroanatomy for Boards</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">Lobe syndromes · aphasia · brainstem syndromes · cord tracts — the localization atlas <button class="img-popup-btn" onclick="openNeuroDiagram('cord-tracts')"><span class="btn-icon">🧠</span> View Cord Tracts</button></div>
     </div>
@@ -6271,22 +6258,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 3</div>
-      <div class="tc-title">Stroke &amp; Cerebrovascular Disease</div>
-      <div class="tc-subtitle">Time is brain · vascular territories · tPA window · thrombectomy · SAH <button class="img-popup-btn" onclick="openNeuroDiagram('stroke-territories')"><span class="btn-icon">🧠</span> View Territories</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Stroke &amp; Cerebrovascular Disease</div>
+      <div class="tc-subtitle">Time is brain · vascular territories · tPA window · thrombectomy · SAH <button class="img-popup-btn" onclick="openNeuroDiagram('stroke-territories')"><span class="btn-icon">🧠</span> View Territories</button></div>
+    
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-stroke">
   <div class="vignette-header">
@@ -6377,6 +6360,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="section-header" id="h16">
   <div class="sh-tag">Domain 3 · Episodic Disorders</div>
@@ -6387,22 +6371,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 4</div>
+  </div>
       <div class="tc-title">Headaches</div>
       <div class="tc-subtitle">Primary headache phenotypes · SNOOP red flags · GCA · IIH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-headache">
   <div class="vignette-header">
@@ -6490,27 +6470,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="seizure">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 5</div>
+  </div>
       <div class="tc-title">Seizures &amp; Epilepsy</div>
       <div class="tc-subtitle">Classification · absence vs focal · status epilepticus · ASM side effects</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-seizure">
   <div class="vignette-header">
@@ -6570,6 +6547,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="cn-domain">
   <div class="sh-tag">Domain 4 · Cranial Nerves &amp; Movement</div>
   <div class="sh-title">Cranial Neuropathies, Movement &amp; Cognition</div>
@@ -6579,22 +6557,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 6</div>
+  </div>
       <div class="tc-title">Cranial Nerve Disorders</div>
       <div class="tc-subtitle">CN III palsy · trigeminal neuralgia · Bell palsy · vestibular schwannoma</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cn">
   <div class="vignette-header">
@@ -6657,28 +6631,25 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Forehead sparing separates a central (stroke) facial palsy from Bell palsy. The forehead has bilateral cortical input, so a UMN lesion spares it — if the whole half of the face including the forehead is weak, the lesion is peripheral (CN VII).</div></div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="movement">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 7</div>
+  </div>
       <div class="tc-title">Movement Disorders</div>
       <div class="tc-subtitle">Parkinson · essential tremor · Huntington · drug-induced · NMS</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-movement">
   <div class="vignette-header">
@@ -6749,27 +6720,24 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Lead-pipe rigidity + fever + altered mental status + elevated CK after an antipsychotic is neuroleptic malignant syndrome — stop the drug and give dantrolene. Do not confuse with serotonin syndrome (which has hyperreflexia and clonus).</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="dementia">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 8</div>
+  </div>
       <div class="tc-title">Dementia &amp; Cognitive Disorders</div>
       <div class="tc-subtitle">Delirium vs dementia · Alzheimer · vascular · Lewy body · FTD · NPH</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-dementia">
   <div class="vignette-header">
@@ -6819,27 +6787,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="ms">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 9</div>
-      <div class="tc-title">Demyelinating Disorders</div>
-      <div class="tc-subtitle">MS · McDonald criteria · INO · optic neuritis · NMO (Devic)</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Demyelinating Disorders</div>
+      <div class="tc-subtitle">MS · McDonald criteria · INO · optic neuritis · NMO (Devic)</div>
+    
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-ms">
   <div class="vignette-header">
@@ -6913,6 +6878,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="nmj-domain">
   <div class="sh-tag">Domain 5 · Neuromuscular &amp; Peripheral Nerve</div>
   <div class="sh-title">Junction, Motor Neuron &amp; Nerve Disease</div>
@@ -6922,22 +6888,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 10</div>
+  </div>
       <div class="tc-title">Neuromuscular Disorders</div>
       <div class="tc-subtitle">Myasthenia gravis · Lambert-Eaton · ALS <button class="img-popup-btn" onclick="openNeuroDiagram('mg-lems')"><span class="btn-icon">🔬</span> View MG vs LEMS</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-nmj">
   <div class="vignette-header">
@@ -7004,28 +6966,25 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-1" id="neuropathy">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 11</div>
-      <div class="tc-title">Peripheral Neuropathies</div>
-      <div class="tc-subtitle">GBS · CIDP · diabetic neuropathy · high-yield mononeuropathies</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Peripheral Neuropathies</div>
+      <div class="tc-subtitle">GBS · CIDP · diabetic neuropathy · high-yield mononeuropathies</div>
+    
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Guillain-Barré Syndrome</div>
     <ul class="bl">
@@ -7065,27 +7024,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="vertigo">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 12</div>
+  </div>
       <div class="tc-title">Dizziness &amp; Vertigo</div>
       <div class="tc-subtitle">Peripheral vs central · BPPV · vestibular neuritis · Ménière</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-vertigo">
   <div class="vignette-header">
@@ -7125,6 +7081,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="section-header" id="infection-domain">
   <div class="sh-tag">Domain 6 · CNS Infection, Tumor &amp; Cord</div>
   <div class="sh-title">Meningitis, Mass Lesions &amp; Spinal Emergencies</div>
@@ -7134,22 +7091,18 @@ body.slocked .syl-gate{display:block}
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 13</div>
+  </div>
       <div class="tc-title">CNS Infections</div>
       <div class="tc-subtitle">CSF interpretation · empiric antibiotics · encephalitis · brain abscess <button class="img-popup-btn" onclick="openNeuroDiagram('csf-patterns')"><span class="btn-icon">📊</span> View CSF Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-cns-infection">
   <div class="vignette-header">
@@ -7200,27 +7153,24 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="tumors">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Module 14</div>
+  </div>
       <div class="tc-title">Brain Tumors &amp; Increased ICP</div>
       <div class="tc-subtitle">Primary tumors · metastases · ICP · herniation syndromes <button class="img-popup-btn" onclick="openNeuroDiagram('herniation')"><span class="btn-icon">🧠</span> View Herniation</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-navy">Primary Brain Tumors</div>
     <table class="btable"><thead><tr><th>Tumor</th><th>Key Features / Board Pearl</th></tr></thead><tbody><tr><td>Glioblastoma (GBM)</td><td>Most common primary malignant brain tumor in adults. Ring-enhancing, 'butterfly' across corpus callosum. Poor prognosis. ring-enhancing; poor prognosis</td></tr><tr><td>Meningioma</td><td>Most common primary overall; extra-axial, dural-based, calcified; 'dural tail'; more common in women</td></tr><tr><td>Schwannoma</td><td>CN VIII, cerebellopontine angle; NF2 = bilateral</td></tr><tr><td>Pituitary adenoma</td><td>Bitemporal hemianopia; prolactinoma most common (cabergoline/bromocriptine)</td></tr><tr><td>Medulloblastoma</td><td>Most common malignant in children; posterior fossa; hydrocephalus</td></tr><tr><td>Craniopharyngioma</td><td>Suprasellar, calcified; children/young adults; bitemporal hemianopia</td></tr><tr><td>Oligodendroglioma</td><td>'Fried egg' cells, calcified; 1p/19q co-deletion; better prognosis</td></tr><tr><td>Ependymoma</td><td>Fourth ventricle in children; hydrocephalus</td></tr></tbody></table>
@@ -7239,27 +7189,24 @@ body.slocked .syl-gate{display:block}
     <div class="pearl"><div class="pearl-label">Board Pearl</div><div class="pearl-text">Uncal herniation — an ipsilateral fixed, dilated pupil is the earliest sign. (Kernohan notch can produce ipsilateral hemiparesis, a classic false-localizing sign.)</div></div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-1" id="spinal">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Module 15</div>
+  </div>
       <div class="tc-title">Spinal Cord Disorders</div>
       <div class="tc-subtitle">Cervical myelopathy · cauda equina · cord compression · transverse myelitis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-spinal">
   <div class="vignette-header">
@@ -7323,22 +7270,20 @@ body.slocked .syl-gate{display:block}
     <p class="pnote">🩺 <b>PANCE Pearl:</b> "Cape distribution" sensory loss = syrinx. The dissociated sensory loss (pain/temp lost, touch preserved) distinguishes it from cord compression.</p></div>
   </div>
 </div>
+</div>
 <div class="section-header" id="emergencies">
   <div class="sh-tag">Domain 7 · Don't-Miss Emergencies</div>
   <div class="sh-title">Neuro Emergencies — Rapid Review</div>
 </div>
 <div class="topic-card pw-locked tier-1" id="emergencies-card"><div class="tc-header"><div class="tc-tier">Tier 1</div><div class="tc-main"><div class="tc-num">Module 16</div><div class="tc-title">Neuro Emergencies</div><div class="tc-subtitle">The ten presentations that must be recognized on sight</div></div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div><div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div></div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+    </div><div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-emergencies-card">
   <div class="vignette-header">
@@ -7379,6 +7324,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 <div class="topic-card pw-locked tier-2" id="bleeds">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
@@ -7387,19 +7333,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Epidural vs Subdural Hematoma</div>
       <div class="tc-subtitle">Two trauma bleeds the boards always contrast</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-bleeds">
   <div class="vignette-header">
@@ -7435,6 +7378,7 @@ body.slocked .syl-gate{display:block}
     </ul>
   </div>
 </div>
+</div>
 <div class="section-header" id="trauma-domain">
   <div class="sh-tag">Domain 8 · Trauma, Pediatric &amp; Additional Topics</div>
   <div class="sh-title">TBI, Concussion &amp; High-Yield Add-Ons</div>
@@ -7448,19 +7392,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Traumatic Brain Injury &amp; Concussion</div>
       <div class="tc-subtitle">GCS severity · concussion &amp; return-to-play · when to CT · post-concussive syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
     <div class="sub"><div class="sub-label sl-red">Why the PANCE Tests This</div>
     <p>Head injury is one of the most common presentations in primary care, sports medicine, and the ED. Boards test concussion recognition, the rules for when imaging is required, return-to-play decisions, and the catastrophic complication — second-impact syndrome.</p></div>
@@ -7505,6 +7446,7 @@ body.slocked .syl-gate{display:block}
     </div>
   </div>
 </div>
+</div>
 
 <div class="topic-card pw-locked tier-2" id="additional">
   <div class="tc-header">
@@ -7514,19 +7456,16 @@ body.slocked .syl-gate{display:block}
       <div class="tc-title">Additional High-Yield Disorders</div>
       <div class="tc-subtitle">CRPS · Tourette &amp; tics · restless legs · cerebral palsy · Wernicke-Korsakoff</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-new">Localize First</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 <div class="vignette-block" id="vignette-additional">
   <div class="vignette-header">
@@ -7593,6 +7532,7 @@ body.slocked .syl-gate{display:block}
     <div class="trick"><div class="trick-label">Classic Board Trap</div><div class="trick-text">Give IV thiamine BEFORE glucose. Administering glucose first in a thiamine-deficient patient can precipitate or worsen Wernicke encephalopathy.</div></div>
     </div>
   </div>
+</div>
 </div>
 
 

@@ -334,7 +334,6 @@ strong,b{color:var(--black);}
     rgba(247,249,252,1) 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 /* Small lock callout at bottom of each locked card */
 .pw-card-lock {
@@ -517,8 +516,8 @@ strong,b{color:var(--black);}
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -817,7 +816,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -870,7 +869,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -880,6 +878,18 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
 }
 
+
+/* ── LOCK: hide tc-body when card is locked ── */
+.pw-locked .tc-body { display: none !important; }
+body.pw-unlocked .pw-locked .tc-body { display: block !important; }
+.pw-locked .tc-lock-prompt { display: flex; }
+body.pw-unlocked .pw-locked .tc-lock-prompt { display: none !important; }
+
+/* LOCK */
+.pw-locked .tc-body{display:none!important}
+body.pw-unlocked .pw-locked .tc-body{display:block!important}
+.pw-locked .tc-lock-prompt{display:flex!important}
+body.pw-unlocked .pw-locked .tc-lock-prompt{display:none!important}
 </style>
 </head>
 <body>
@@ -1233,22 +1243,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2a</div>
+  </div>
       <div class="tc-title">Gastroparesis</div>
       <div class="tc-subtitle">Diabetic Etiology · Gastric Emptying Scintigraphy · Metoclopramide Black Box · Dietary Management</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
       <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Definition &amp; Etiology — The "Big Three"</div>
@@ -1315,6 +1321,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC: PYLORIC STENOSIS -->
 <div class="topic-card pw-locked tier-1" id="pyloric-stenosis">
@@ -1322,22 +1329,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2b</div>
+  </div>
       <div class="tc-title">Infantile Hypertrophic Pyloric Stenosis</div>
       <div class="tc-subtitle">Classic Triad · Hypochloremic Hypokalemic Alkalosis · Ultrasound Diagnosis · Ramstedt Pyloromyotomy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">High Trap Risk</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Classic Patient &amp; Epidemiology</div>
@@ -1388,6 +1391,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC: ZENKER DIVERTICULUM -->
 <div class="topic-card pw-locked tier-2" id="zenker">
@@ -1395,22 +1399,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2c</div>
+  </div>
       <div class="tc-title">Zenker Diverticulum</div>
       <div class="tc-subtitle">Killian Triangle · False Pulsion Diverticulum · Barium Swallow Diagnosis · Cricopharyngeal Myotomy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Definition &amp; Anatomy</div>
@@ -1450,6 +1450,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 
 <div class="topic-card pw-locked tier-1" id="ugib">
@@ -1457,22 +1458,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">Upper GI Bleeding</div>
       <div class="tc-subtitle">Glasgow-Blatchford · Endoscopic Management · Transfusion Threshold </div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1525,6 +1522,7 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
 "Erythromycin clears the view" — give 30-120 min before scope</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 4: VARICEAL BLEEDING -->
 <div class="topic-card pw-locked tier-1" id="varices">
@@ -1532,22 +1530,18 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Variceal Hemorrhage &amp; Portal Hypertension</div>
       <div class="tc-subtitle">Octreotide · Banding · TIPS · Carvedilol Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Over-Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1596,6 +1590,7 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
 "Cirrhosis INR = not useful for bleeding risk" — DO NOT use INR to guide pre-procedure FFP</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: HEPATOLOGY
@@ -1611,22 +1606,18 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Cirrhosis &amp; Its Complications</div>
       <div class="tc-subtitle">Ascites · SBP · Hepatic Encephalopathy · Hepatorenal Syndrome <button class="img-popup-btn" onclick="openGiDiagram('cirrhosis')"><span class="btn-icon">🔬</span> View Complications</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1708,6 +1699,7 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 6: HEPATITIS B SEROLOGY -->
 <div class="topic-card pw-locked tier-1" id="hbv">
@@ -1715,22 +1707,18 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Hepatitis B Serology</div>
       <div class="tc-subtitle">All 5 Markers · Window Period · Vaccinated vs Immune · Chronic vs Acute <button class="img-popup-btn" onclick="openGiDiagram('hbv-serology')"><span class="btn-icon">📊</span> View HBV Serology</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Window Period Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1779,6 +1767,7 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
 "If anti-HBc is positive, the patient touched real virus (not just vaccine)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: LIVER LABS &amp; ACETAMINOPHEN -->
 <div class="topic-card pw-locked tier-1" id="liver-labs">
@@ -1786,22 +1775,18 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Liver Enzyme Patterns &amp; Acetaminophen Toxicity</div>
       <div class="tc-subtitle">AST:ALT Ratios · Cholestatic Pattern · GGT Trick · NAC Timing <button class="img-popup-btn" onclick="openGiDiagram('lft-patterns')"><span class="btn-icon">📊</span> View LFT Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NAC Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1848,6 +1833,7 @@ APAP antidote: "NAC = N-AcetylCysteine = Natural GLUTathione precursor"
 NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: LOWER GI
@@ -1863,22 +1849,18 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Lower GI Bleeding</div>
       <div class="tc-subtitle">Diverticular · Angiodysplasia · LGIB vs UGIB Distinction · Colonoscopy Timing</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -1922,6 +1904,7 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: IBD -->
 <div class="topic-card pw-locked tier-1" id="ibd">
@@ -1929,22 +1912,18 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
+  </div>
       <div class="tc-title">Inflammatory Bowel Disease</div>
       <div class="tc-subtitle">Crohn vs UC · Extraintestinal Manifestations · Biologics · Surgical Indications <button class="img-popup-btn" onclick="openGiDiagram('ibd-comparison')"><span class="btn-icon">📊</span> View Crohn vs UC</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2027,6 +2006,7 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
 "APEPU" — Activity-independent manifestations: Ankylosing spondylitis, PSC, Episcleritis, Pyoderma, Uveitis</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 10: COLORECTAL CANCER SCREENING -->
 <div class="topic-card pw-locked tier-1" id="crc">
@@ -2034,22 +2014,18 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Colorectal Cancer Screening &amp; Surveillance</div>
       <div class="tc-subtitle">USPSTF Guidelines · Screening Intervals · IBD Surveillance · Lynch Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Interval Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2117,6 +2093,7 @@ Lynch syndrome: "Start Early at 20–25, see every 1–2 years — genes are agg
 UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PANCREAS &amp; BILIARY
@@ -2132,22 +2109,18 @@ UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Acute Pancreatitis</div>
       <div class="tc-subtitle">Revised Atlanta Criteria · I GET SMASHED · Early Feeding · Biliary Pancreatitis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NPO Trap · CT Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2226,6 +2199,7 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 12: BILIARY TRACT DISEASE -->
 <div class="topic-card pw-locked tier-1" id="biliary">
@@ -2233,22 +2207,18 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Biliary Tract Disease</div>
       <div class="tc-subtitle">Cholelithiasis · Cholecystitis · Choledocholithiasis · Cholangitis · Tokyo Criteria <button class="img-popup-btn" onclick="openGiDiagram('biliary')"><span class="btn-icon">🔬</span> View Biliary Syndromes</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Charcot/Tokyo Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2309,6 +2279,7 @@ ERCP: "Fix the duct first (ERCP), then fix the bag (CCY)"
 Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 13: CELIAC DISEASE -->
 <div class="topic-card pw-locked tier-2" id="celiac">
@@ -2316,22 +2287,18 @@ Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
-      <div class="tc-title">Celiac Disease (Gluten-Sensitive Enteropathy)</div>
-      <div class="tc-subtitle">Anti-tTG IgA · Villous Atrophy · Gluten-Free Diet · Associated Conditions</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diet Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Celiac Disease (Gluten-Sensitive Enteropathy)</div>
+      <div class="tc-subtitle">Anti-tTG IgA · Villous Atrophy · Gluten-Free Diet · Associated Conditions</div>
+    
+  <div class="tc-body">
     
 
 
@@ -2382,6 +2349,7 @@ Dermatitis herpetiformis: "Blistery elbows and knees = Celiac skin"
 Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celiac"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 14: CHRONIC PANCREATITIS (Tier 2) -->
 <div class="topic-card pw-locked tier-2" id="chronic-panc">
@@ -2389,22 +2357,18 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 14</div>
+  </div>
       <div class="tc-title">Chronic Pancreatitis</div>
       <div class="tc-subtitle">Triad · Exocrine Insufficiency · CREON · Pancreatic Cancer Risk</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★ Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2438,6 +2402,7 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: IBS -->
 <div class="topic-card pw-locked tier-1" id="ibs">
@@ -2445,22 +2410,18 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 15 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Irritable Bowel Syndrome (IBS)</div>
       <div class="tc-subtitle">Rome IV Criteria · Positive Diagnosis · NOT Exclusion · Subtypes · Treatment</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -2537,6 +2498,7 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: DIVERTICULAR DISEASE -->
 <div class="topic-card pw-locked tier-1" id="diverticular">
@@ -2547,19 +2509,16 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
       <div class="tc-title">Diverticular Disease</div>
       <div class="tc-subtitle">Diverticulosis · Diverticulitis · Antibiotics Paradigm Shift · Complications</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-new">Guideline Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -2637,6 +2596,7 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
       <div class="vig-ans">Answer: Uncomplicated acute diverticulitis (Hinchey Ia). Per current guidelines, antibiotics are NOT routinely required for uncomplicated diverticulitis in immunocompetent patients. Manage with clear liquid diet, advance as tolerated, oral analgesics, and close outpatient follow-up in 48–72 hours. Plan colonoscopy 6–8 weeks after resolution to exclude malignancy. If symptoms worsen or fail to improve in 48–72h, reassess and consider antibiotics.</div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -3034,6 +2994,12 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Acute Abdominal Pain — Location-Based Framework</div>
       <div class="tc-subtitle">RUQ · LUQ · RLQ · LLQ · Periumbilical · Diffuse · Epigastric <button class="img-popup-btn" onclick="openGiDiagram('abdominal-pain')"><span class="btn-icon">🗺️</span> View Pain Map</button></div>
     </div>
@@ -4558,6 +4524,77 @@ document.addEventListener('click', function() {
 })();
 </script>
 
+
+<script>
+(function() {
+  // Hide all locked card content on load, show on unlock
+  function applyLockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Hide everything inside card except tc-header, tc-badges, tc-lock-prompt
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        var cls = el.className || '';
+        if (cls.indexOf('tc-header') >= 0 || cls.indexOf('tc-lock-prompt') >= 0 || cls.indexOf('tc-badges') >= 0) {
+          // keep visible
+        } else {
+          el.setAttribute('data-locked', '1');
+          el.style.display = 'none';
+        }
+      }
+      // Show the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+  }
+
+  function applyUnlockState() {
+    var locked = document.querySelectorAll('.topic-card.pw-locked');
+    locked.forEach(function(card) {
+      // Show all children again
+      var children = card.children;
+      for (var i = 0; i < children.length; i++) {
+        var el = children[i];
+        if (el.getAttribute('data-locked') === '1') {
+          el.style.display = '';
+          el.removeAttribute('data-locked');
+        }
+      }
+      // Hide the lock prompt
+      var prompt = card.querySelector('.tc-lock-prompt');
+      if (prompt) prompt.style.display = 'none';
+    });
+  }
+
+  // Also wrap the existing pwUnlock to call applyUnlockState
+  document.addEventListener('DOMContentLoaded', function() {
+    // Apply lock state immediately
+    applyLockState();
+    
+    // Check if already unlocked in localStorage
+    try {
+      var LS_KEY_CHECK = document.querySelector('[data-ls-key]');
+      // Try common keys
+      var keys = ['pcb_access_v1_GI_and_Hepatology'];
+      for (var k = 0; k < keys.length; k++) {
+        if (localStorage.getItem(keys[k]) === '1') {
+          applyUnlockState();
+          break;
+        }
+      }
+    } catch(e) {}
+
+    // Monkey-patch pwUnlock to also call applyUnlockState
+    var origUnlock = window.pwUnlock;
+    window.pwUnlock = function() {
+      if (origUnlock) origUnlock();
+      applyUnlockState();
+    };
+  });
+})();
+</script>
+
 </body>
 </html>
 /* ── ACCESS LOCK ─────────────────────────────── */
@@ -4620,7 +4657,7 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -4673,7 +4710,6 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -5036,22 +5072,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2a</div>
-      <div class="tc-title">Gastroparesis</div>
-      <div class="tc-subtitle">Diabetic Etiology · Gastric Emptying Scintigraphy · Metoclopramide Black Box · Dietary Management</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Gastroparesis</div>
+      <div class="tc-subtitle">Diabetic Etiology · Gastric Emptying Scintigraphy · Metoclopramide Black Box · Dietary Management</div>
+    
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Definition &amp; Etiology — The "Big Three"</div>
@@ -5118,6 +5150,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC: PYLORIC STENOSIS -->
 <div class="topic-card pw-locked tier-1" id="pyloric-stenosis">
@@ -5125,22 +5158,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2b</div>
-      <div class="tc-title">Infantile Hypertrophic Pyloric Stenosis</div>
-      <div class="tc-subtitle">Classic Triad · Hypochloremic Hypokalemic Alkalosis · Ultrasound Diagnosis · Ramstedt Pyloromyotomy</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">High Trap Risk</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Infantile Hypertrophic Pyloric Stenosis</div>
+      <div class="tc-subtitle">Classic Triad · Hypochloremic Hypokalemic Alkalosis · Ultrasound Diagnosis · Ramstedt Pyloromyotomy</div>
+    
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Classic Patient &amp; Epidemiology</div>
@@ -5191,6 +5220,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC: ZENKER DIVERTICULUM -->
 <div class="topic-card pw-locked tier-2" id="zenker">
@@ -5198,22 +5228,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2c</div>
+  </div>
       <div class="tc-title">Zenker Diverticulum</div>
       <div class="tc-subtitle">Killian Triangle · False Pulsion Diverticulum · Barium Swallow Diagnosis · Cricopharyngeal Myotomy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Definition &amp; Anatomy</div>
@@ -5253,6 +5279,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 
 <div class="topic-card pw-locked tier-1" id="ugib">
@@ -5260,22 +5287,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">Upper GI Bleeding</div>
       <div class="tc-subtitle">Glasgow-Blatchford · Endoscopic Management · Transfusion Threshold </div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5328,6 +5351,7 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
 "Erythromycin clears the view" — give 30-120 min before scope</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 4: VARICEAL BLEEDING -->
 <div class="topic-card pw-locked tier-1" id="varices">
@@ -5335,22 +5359,18 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Variceal Hemorrhage &amp; Portal Hypertension</div>
       <div class="tc-subtitle">Octreotide · Banding · TIPS · Carvedilol Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Over-Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5399,6 +5419,7 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
 "Cirrhosis INR = not useful for bleeding risk" — DO NOT use INR to guide pre-procedure FFP</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: HEPATOLOGY
@@ -5414,22 +5435,18 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Cirrhosis &amp; Its Complications</div>
       <div class="tc-subtitle">Ascites · SBP · Hepatic Encephalopathy · Hepatorenal Syndrome <button class="img-popup-btn" onclick="openGiDiagram('cirrhosis')"><span class="btn-icon">🔬</span> View Complications</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5511,6 +5528,7 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 6: HEPATITIS B SEROLOGY -->
 <div class="topic-card pw-locked tier-1" id="hbv">
@@ -5518,22 +5536,18 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Hepatitis B Serology</div>
       <div class="tc-subtitle">All 5 Markers · Window Period · Vaccinated vs Immune · Chronic vs Acute <button class="img-popup-btn" onclick="openGiDiagram('hbv-serology')"><span class="btn-icon">📊</span> View HBV Serology</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Window Period Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5582,6 +5596,7 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
 "If anti-HBc is positive, the patient touched real virus (not just vaccine)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: LIVER LABS &amp; ACETAMINOPHEN -->
 <div class="topic-card pw-locked tier-1" id="liver-labs">
@@ -5589,22 +5604,18 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Liver Enzyme Patterns &amp; Acetaminophen Toxicity</div>
       <div class="tc-subtitle">AST:ALT Ratios · Cholestatic Pattern · GGT Trick · NAC Timing <button class="img-popup-btn" onclick="openGiDiagram('lft-patterns')"><span class="btn-icon">📊</span> View LFT Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NAC Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5651,6 +5662,7 @@ APAP antidote: "NAC = N-AcetylCysteine = Natural GLUTathione precursor"
 NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: LOWER GI
@@ -5666,22 +5678,18 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 8 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Lower GI Bleeding</div>
       <div class="tc-subtitle">Diverticular · Angiodysplasia · LGIB vs UGIB Distinction · Colonoscopy Timing</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5725,6 +5733,7 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: IBD -->
 <div class="topic-card pw-locked tier-1" id="ibd">
@@ -5732,22 +5741,18 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
+  </div>
       <div class="tc-title">Inflammatory Bowel Disease</div>
       <div class="tc-subtitle">Crohn vs UC · Extraintestinal Manifestations · Biologics · Surgical Indications <button class="img-popup-btn" onclick="openGiDiagram('ibd-comparison')"><span class="btn-icon">📊</span> View Crohn vs UC</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5830,6 +5835,7 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
 "APEPU" — Activity-independent manifestations: Ankylosing spondylitis, PSC, Episcleritis, Pyoderma, Uveitis</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 10: COLORECTAL CANCER SCREENING -->
 <div class="topic-card pw-locked tier-1" id="crc">
@@ -5837,22 +5843,18 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Colorectal Cancer Screening &amp; Surveillance</div>
       <div class="tc-subtitle">USPSTF Guidelines · Screening Intervals · IBD Surveillance · Lynch Syndrome</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Interval Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -5920,6 +5922,7 @@ Lynch syndrome: "Start Early at 20–25, see every 1–2 years — genes are agg
 UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PANCREAS &amp; BILIARY
@@ -5935,22 +5938,18 @@ UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Acute Pancreatitis</div>
       <div class="tc-subtitle">Revised Atlanta Criteria · I GET SMASHED · Early Feeding · Biliary Pancreatitis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NPO Trap · CT Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -6029,6 +6028,7 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 12: BILIARY TRACT DISEASE -->
 <div class="topic-card pw-locked tier-1" id="biliary">
@@ -6036,22 +6036,18 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
-      <div class="tc-title">Biliary Tract Disease</div>
-      <div class="tc-subtitle">Cholelithiasis · Cholecystitis · Choledocholithiasis · Cholangitis · Tokyo Criteria <button class="img-popup-btn" onclick="openGiDiagram('biliary')"><span class="btn-icon">🔬</span> View Biliary Syndromes</button></div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Charcot/Tokyo Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Biliary Tract Disease</div>
+      <div class="tc-subtitle">Cholelithiasis · Cholecystitis · Choledocholithiasis · Cholangitis · Tokyo Criteria <button class="img-popup-btn" onclick="openGiDiagram('biliary')"><span class="btn-icon">🔬</span> View Biliary Syndromes</button></div>
+    
+  <div class="tc-body">
     
 
 
@@ -6112,6 +6108,7 @@ ERCP: "Fix the duct first (ERCP), then fix the bag (CCY)"
 Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 13: CELIAC DISEASE -->
 <div class="topic-card pw-locked tier-2" id="celiac">
@@ -6119,22 +6116,18 @@ Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Celiac Disease (Gluten-Sensitive Enteropathy)</div>
       <div class="tc-subtitle">Anti-tTG IgA · Villous Atrophy · Gluten-Free Diet · Associated Conditions</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diet Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -6185,6 +6178,7 @@ Dermatitis herpetiformis: "Blistery elbows and knees = Celiac skin"
 Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celiac"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 14: CHRONIC PANCREATITIS (Tier 2) -->
 <div class="topic-card pw-locked tier-2" id="chronic-panc">
@@ -6195,19 +6189,16 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
       <div class="tc-title">Chronic Pancreatitis</div>
       <div class="tc-subtitle">Triad · Exocrine Insufficiency · CREON · Pancreatic Cancer Risk</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★ Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -6241,6 +6232,7 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: IBS -->
 <div class="topic-card pw-locked tier-1" id="ibs">
@@ -6248,22 +6240,18 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 15 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Irritable Bowel Syndrome (IBS)</div>
       <div class="tc-subtitle">Rome IV Criteria · Positive Diagnosis · NOT Exclusion · Subtypes · Treatment</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -6340,6 +6328,7 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: DIVERTICULAR DISEASE -->
 <div class="topic-card pw-locked tier-1" id="diverticular">
@@ -6347,22 +6336,18 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 16 <span class="gap-tag">★ Gap Added</span></div>
-      <div class="tc-title">Diverticular Disease</div>
-      <div class="tc-subtitle">Diverticulosis · Diverticulitis · Antibiotics Paradigm Shift · Complications</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-new">Guideline Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Diverticular Disease</div>
+      <div class="tc-subtitle">Diverticulosis · Diverticulitis · Antibiotics Paradigm Shift · Complications</div>
+    
+  <div class="tc-body">
     
 
 
@@ -6440,6 +6425,7 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
       <div class="vig-ans">Answer: Uncomplicated acute diverticulitis (Hinchey Ia). Per current guidelines, antibiotics are NOT routinely required for uncomplicated diverticulitis in immunocompetent patients. Manage with clear liquid diet, advance as tolerated, oral analgesics, and close outpatient follow-up in 48–72 hours. Plan colonoscopy 6–8 weeks after resolution to exclude malignancy. If symptoms worsen or fail to improve in 48–72h, reassess and consider antibiotics.</div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -6837,6 +6823,9 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
+  </div>
+  </div>
       <div class="tc-title">Acute Abdominal Pain — Location-Based Framework</div>
       <div class="tc-subtitle">RUQ · LUQ · RLQ · LLQ · Periumbilical · Diffuse · Epigastric <button class="img-popup-btn" onclick="openGiDiagram('abdominal-pain')"><span class="btn-icon">🗺️</span> View Pain Map</button></div>
     </div>
@@ -8590,8 +8579,8 @@ body.pw-unlocked .pw-locked .tc-lock-prompt {
   top: 0;
   z-index: 200;
   background: rgba(13,24,48,.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-
+  -webkit-backdrop-
   border-bottom: 1px solid rgba(255,255,255,.08);
   width: 100%;
 }
@@ -8890,7 +8879,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   top: 66px; /* sits directly below the 66px site nav */
   z-index: 150;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
+  backdrop-
   border-bottom: 2px solid var(--border, #E2E8F0);
   box-shadow: 0 2px 12px rgba(15,31,61,.06);
 }
@@ -8943,7 +8932,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  pointer-events: none;
   z-index: 2;
 }
 .jump-nav-arrow.right { right: 0; }
@@ -9046,6 +9034,7 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 1</div>
+  </div>
       <div class="tc-title">Gastroesophageal Reflux Disease (GERD)</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">Clinical Diagnosis · PPI Timing · Barrett Esophagus · Alarm Symptoms</div>
     </div>
@@ -9133,6 +9122,7 @@ LA Grade C/D = Chronic PPI or Cut (surgery) — never discontinue</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2</div>
+  </div>
       <div class="tc-title">Peptic Ulcer Disease &amp; H. pylori</div><span class="tc-preview-badge">👁 Free Preview</span>
       <div class="tc-subtitle">Gastric vs Duodenal Patterns · Eradication Regimens · Test of Cure</div>
     </div>
@@ -9306,20 +9296,21 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2a</div>
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
+      <div class="tc-lock-icon">🔒</div>
+      <div class="tc-lock-title">Full content locked</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
+      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+    </div>
+  </div>
       <div class="tc-title">Gastroparesis</div>
       <div class="tc-subtitle">Diabetic Etiology · Gastric Emptying Scintigraphy · Metoclopramide Black Box · Dietary Management</div>
     </div>
-    <div class="tc-lock-prompt">
-      <div class="tc-lock-icon">🔒</div>
-      <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-      <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
-    </div>
+</div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-new">New</span></div>
   </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
 </div>
     <div class="tc-body">
     
@@ -9395,22 +9386,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2b</div>
+  </div>
       <div class="tc-title">Infantile Hypertrophic Pyloric Stenosis</div>
       <div class="tc-subtitle">Classic Triad · Hypochloremic Hypokalemic Alkalosis · Ultrasound Diagnosis · Ramstedt Pyloromyotomy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Foundation</span><span class="badge badge-trap">High Trap Risk</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Classic Patient &amp; Epidemiology</div>
@@ -9461,6 +9448,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 <!-- TOPIC: ZENKER DIVERTICULUM -->
 <div class="topic-card pw-locked tier-2" id="zenker">
@@ -9468,22 +9456,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 2c</div>
+  </div>
       <div class="tc-title">Zenker Diverticulum</div>
       <div class="tc-subtitle">Killian Triangle · False Pulsion Diverticulum · Barium Swallow Diagnosis · Cricopharyngeal Myotomy</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ PANCE Relevant</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
     <div class="sub"><div class="sub-label sl-navy">Definition &amp; Anatomy</div>
@@ -9523,6 +9507,7 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
 
   </div>
 </div>
+</div>
 
 
 <div class="topic-card pw-locked tier-1" id="ugib">
@@ -9530,22 +9515,18 @@ Bismuth quad = "BMAT" — Bismuth + Metronidazole + Amoxicillin + Tetracycline +
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 3</div>
+  </div>
       <div class="tc-title">Upper GI Bleeding</div>
       <div class="tc-subtitle">Glasgow-Blatchford · Endoscopic Management · Transfusion Threshold </div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9598,6 +9579,7 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
 "Erythromycin clears the view" — give 30-120 min before scope</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 4: VARICEAL BLEEDING -->
 <div class="topic-card pw-locked tier-1" id="varices">
@@ -9605,22 +9587,18 @@ Transfusion: "7 is the magic number" — transfuse at Hgb &lt;7, target 7–9
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 4</div>
+  </div>
       <div class="tc-title">Variceal Hemorrhage &amp; Portal Hypertension</div>
       <div class="tc-subtitle">Octreotide · Banding · TIPS · Carvedilol Prophylaxis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Over-Transfusion Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9669,6 +9647,7 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
 "Cirrhosis INR = not useful for bleeding risk" — DO NOT use INR to guide pre-procedure FFP</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 2: HEPATOLOGY
@@ -9684,22 +9663,18 @@ Secondary prophylaxis: "Band and Block" — EVL banding + Non-selective beta-blo
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 5</div>
+  </div>
       <div class="tc-title">Cirrhosis &amp; Its Complications</div>
       <div class="tc-subtitle">Ascites · SBP · Hepatic Encephalopathy · Hepatorenal Syndrome <button class="img-popup-btn" onclick="openGiDiagram('cirrhosis')"><span class="btn-icon">🔬</span> View Complications</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9781,6 +9756,7 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 6: HEPATITIS B SEROLOGY -->
 <div class="topic-card pw-locked tier-1" id="hbv">
@@ -9788,22 +9764,18 @@ Hepatic encephalopathy precipitants: "HEPATICS"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 6</div>
+  </div>
       <div class="tc-title">Hepatitis B Serology</div>
       <div class="tc-subtitle">All 5 Markers · Window Period · Vaccinated vs Immune · Chronic vs Acute <button class="img-popup-btn" onclick="openGiDiagram('hbv-serology')"><span class="btn-icon">📊</span> View HBV Serology</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Window Period Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9852,6 +9824,7 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
 "If anti-HBc is positive, the patient touched real virus (not just vaccine)"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 7: LIVER LABS &amp; ACETAMINOPHEN -->
 <div class="topic-card pw-locked tier-1" id="liver-labs">
@@ -9859,22 +9832,18 @@ Chronic: "HBsAg stays positive, IgM is gone, IgG stays"
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 7</div>
+  </div>
       <div class="tc-title">Liver Enzyme Patterns &amp; Acetaminophen Toxicity</div>
       <div class="tc-subtitle">AST:ALT Ratios · Cholestatic Pattern · GGT Trick · NAC Timing <button class="img-popup-btn" onclick="openGiDiagram('lft-patterns')"><span class="btn-icon">📊</span> View LFT Patterns</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NAC Timing Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -9921,6 +9890,7 @@ APAP antidote: "NAC = N-AcetylCysteine = Natural GLUTathione precursor"
 NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 3: LOWER GI
@@ -9939,19 +9909,16 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
       <div class="tc-title">Lower GI Bleeding</div>
       <div class="tc-subtitle">Diverticular · Angiodysplasia · LGIB vs UGIB Distinction · Colonoscopy Timing</div>
     </div>
-    <div class="tc-lock-prompt">
+</div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+  
+  <div class="tc-body">
     
 
 
@@ -9995,6 +9962,7 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 9: IBD -->
 <div class="topic-card pw-locked tier-1" id="ibd">
@@ -10002,22 +9970,18 @@ NAC timing: "Best before 8 hours, helpful up to 72 — never too late to give"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 9</div>
+  </div>
       <div class="tc-title">Inflammatory Bowel Disease</div>
       <div class="tc-subtitle">Crohn vs UC · Extraintestinal Manifestations · Biologics · Surgical Indications <button class="img-popup-btn" onclick="openGiDiagram('ibd-comparison')"><span class="btn-icon">📊</span> View Crohn vs UC</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Many Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10100,6 +10064,7 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
 "APEPU" — Activity-independent manifestations: Ankylosing spondylitis, PSC, Episcleritis, Pyoderma, Uveitis</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 10: COLORECTAL CANCER SCREENING -->
 <div class="topic-card pw-locked tier-1" id="crc">
@@ -10107,22 +10072,18 @@ Does NOT correlate: Ankylosing spondylitis, Pyoderma gangrenosum, PSC, Uveitis
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 10 <span class="gap-tag">★ Gap Added</span></div>
-      <div class="tc-title">Colorectal Cancer Screening &amp; Surveillance</div>
-      <div class="tc-subtitle">USPSTF Guidelines · Screening Intervals · IBD Surveillance · Lynch Syndrome</div>
-    </div>
-    <div class="tc-lock-prompt">
+  </div>
+  </div>
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Interval Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+      <div class="tc-title">Colorectal Cancer Screening &amp; Surveillance</div>
+      <div class="tc-subtitle">USPSTF Guidelines · Screening Intervals · IBD Surveillance · Lynch Syndrome</div>
+    
+  <div class="tc-body">
     
 
 
@@ -10190,6 +10151,7 @@ Lynch syndrome: "Start Early at 20–25, see every 1–2 years — genes are agg
 UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</div></div>
   </div>
 </div>
+</div>
 
 <!-- ═══════════════════════════════════
   DOMAIN 4: PANCREAS &amp; BILIARY
@@ -10205,22 +10167,18 @@ UC colitis surveillance: "8–10 years to get started, then every 1–2 years"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 11</div>
+  </div>
       <div class="tc-title">Acute Pancreatitis</div>
       <div class="tc-subtitle">Revised Atlanta Criteria · I GET SMASHED · Early Feeding · Biliary Pancreatitis</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">NPO Trap · CT Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10299,6 +10257,7 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 12: BILIARY TRACT DISEASE -->
 <div class="topic-card pw-locked tier-1" id="biliary">
@@ -10306,22 +10265,18 @@ BISAP: "BUS-APE" — BUN, Impaired mental, SIRS, Age, Pleural effusion</div></di
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 12 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Biliary Tract Disease</div>
       <div class="tc-subtitle">Cholelithiasis · Cholecystitis · Choledocholithiasis · Cholangitis · Tokyo Criteria <button class="img-popup-btn" onclick="openGiDiagram('biliary')"><span class="btn-icon">🔬</span> View Biliary Syndromes</button></div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Charcot/Tokyo Traps</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10382,6 +10337,7 @@ ERCP: "Fix the duct first (ERCP), then fix the bag (CCY)"
 Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 13: CELIAC DISEASE -->
 <div class="topic-card pw-locked tier-2" id="celiac">
@@ -10389,22 +10345,18 @@ Acalculous: "No stones? Check for it in the ICU patient with fever"</div></div>
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Celiac Disease (Gluten-Sensitive Enteropathy)</div>
       <div class="tc-subtitle">Anti-tTG IgA · Villous Atrophy · Gluten-Free Diet · Associated Conditions</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diet Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10455,6 +10407,7 @@ Dermatitis herpetiformis: "Blistery elbows and knees = Celiac skin"
 Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celiac"</div></div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC 14: CHRONIC PANCREATITIS (Tier 2) -->
 <div class="topic-card pw-locked tier-2" id="chronic-panc">
@@ -10462,22 +10415,18 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
       <div class="tc-num">Topic 14</div>
+  </div>
       <div class="tc-title">Chronic Pancreatitis</div>
       <div class="tc-subtitle">Triad · Exocrine Insufficiency · CREON · Pancreatic Cancer Risk</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★ Important</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10511,6 +10460,7 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: IBS -->
 <div class="topic-card pw-locked tier-1" id="ibs">
@@ -10518,22 +10468,18 @@ Associated conditions: "Down, Turner, T1DM, autoimmune thyroid = screen for Celi
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 15 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Irritable Bowel Syndrome (IBS)</div>
       <div class="tc-subtitle">Rome IV Criteria · Positive Diagnosis · NOT Exclusion · Subtypes · Treatment</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-trap">Diagnosis Trap</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10610,6 +10556,7 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
     </div>
   </div>
 </div>
+</div>
 
 <!-- TOPIC: DIVERTICULAR DISEASE -->
 <div class="topic-card pw-locked tier-1" id="diverticular">
@@ -10617,22 +10564,18 @@ IBS-D drug: "Rifaximin clears the gut bugs (non-absorbable, safe, repeatable)"</
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Topic 16 <span class="gap-tag">★ Gap Added</span></div>
+  </div>
       <div class="tc-title">Diverticular Disease</div>
       <div class="tc-subtitle">Diverticulosis · Diverticulitis · Antibiotics Paradigm Shift · Complications</div>
     </div>
-    <div class="tc-lock-prompt">
+  <div class="tc-lock-prompt">
       <div class="tc-lock-icon">🔒</div>
       <div class="tc-lock-title">Full content locked</div>
-      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+      <div class="tc-lock-sub">Enter your bootcamp access code to unlock all topic cards.</div>
       <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
     </div>
-    <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-gap">Gap Topic</span><span class="badge badge-new">Guideline Updated</span></div>
-  </div>
-<div class="tc-lock-title">Full content available with bootcamp enrollment</div>
-  <div class="tc-lock-sub">Enter your access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
-  <a href="#access" class="tc-lock-btn" onclick="var el=document.getElementById('pw-code-wrap-GI');if(el){el.scrollIntoView({behavior:'smooth'});};return false;">Unlock with Access Code →</a>
-</div>
-    <div class="tc-body">
+
+  <div class="tc-body">
     
 
 
@@ -10710,6 +10653,7 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
       <div class="vig-ans">Answer: Uncomplicated acute diverticulitis (Hinchey Ia). Per current guidelines, antibiotics are NOT routinely required for uncomplicated diverticulitis in immunocompetent patients. Manage with clear liquid diet, advance as tolerated, oral analgesics, and close outpatient follow-up in 48–72 hours. Plan colonoscopy 6–8 weeks after resolution to exclude malignancy. If symptoms worsen or fail to improve in 48–72h, reassess and consider antibiotics.</div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -11107,6 +11051,7 @@ Colonoscopy: "6–8 weeks to let the fire cool down before scoping"</div></div>
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
       <div class="tc-num">Differential D-1</div>
+  </div>
       <div class="tc-title">Acute Abdominal Pain — Location-Based Framework</div>
       <div class="tc-subtitle">RUQ · LUQ · RLQ · LLQ · Periumbilical · Diffuse · Epigastric <button class="img-popup-btn" onclick="openGiDiagram('abdominal-pain')"><span class="btn-icon">🗺️</span> View Pain Map</button></div>
     </div>
