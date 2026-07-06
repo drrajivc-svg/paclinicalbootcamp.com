@@ -2858,5 +2858,27 @@ const sections=document.querySelectorAll('[id]');const links=document.querySelec
   });
 })();
 </script>
+<script>
+function siteNavToggle(btn) {
+  var links = document.getElementById('site-nav-links');
+  var open = links.classList.toggle('site-open');
+  btn.setAttribute('aria-expanded', open);
+}
+function siteDdToggle(e) {
+  e.stopPropagation();
+  var menu = document.getElementById('site-dd-menu');
+  var btn  = e.currentTarget;
+  var open = menu.classList.toggle('site-open');
+  btn.querySelector('.site-dd-caret').style.transform = open ? 'rotate(180deg)' : '';
+}
+document.addEventListener('click', function() {
+  var menu = document.getElementById('site-dd-menu');
+  if (menu) {
+    menu.classList.remove('site-open');
+    var caret = document.querySelector('.site-dd-caret');
+    if (caret) caret.style.transform = '';
+  }
+});
+</script>
 </body>
 </html>
