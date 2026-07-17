@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANCE Board-Taking Strategies | PA Clinical Bootcamp</title>
+<style>
+:root{
+  --navy:#1a2f4a;
+  --green:#1e7a4f;
+  --red:#b3312f;
+  --teal:#0f766e;
+  --gold:#b8860b;
+  --ink:#22303f;
+  --paper:#fdfdfb;
+  --line:#d8dee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px 80px;}
+header.hero{background:var(--navy);color:#fff;padding:44px 22px 36px;}
+header.hero .wrap{padding-bottom:0;}
+.eyebrow{font-family:Verdana,Arial,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#9fb4cc;margin-bottom:10px;}
+header.hero h1{font-size:2.1rem;line-height:1.2;font-weight:700;}
+header.hero p.sub{margin-top:10px;color:#cfd9e6;font-size:1.05rem;max-width:700px;}
+nav.crumb{font-family:Verdana,Arial,sans-serif;font-size:13px;margin-bottom:16px;}
+nav.crumb a{color:#9fb4cc;text-decoration:none;}
+nav.crumb a:hover{color:#fff;text-decoration:underline;}
+main{padding-top:34px;}
+h2{color:var(--navy);font-size:1.55rem;margin:52px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--navy);}
+h3{color:var(--teal);font-size:1.2rem;margin:30px 0 10px;}
+h4{color:var(--navy);font-size:1.02rem;margin:20px 0 8px;font-family:Verdana,Arial,sans-serif;}
+p{margin:10px 0;}
+ul,ol{margin:10px 0 10px 26px;}
+li{margin:5px 0;}
+strong{color:var(--navy);}
+.box{background:#eef3f8;border-left:5px solid var(--navy);padding:14px 18px;margin:18px 0;border-radius:0 6px 6px 0;}
+.box.green{background:#edf7f1;border-left-color:var(--green);}
+.trick{background:#fbeeee;border-left:5px solid var(--red);padding:14px 18px;margin:18px 0;border-radius:0 6px 6px 0;}
+.trick .tag{display:inline-block;font-family:Verdana,Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 9px;border-radius:3px;margin-bottom:8px;}
+.pnote{background:#f6f1e3;border-left:5px solid var(--gold);padding:14px 18px;margin:18px 0;border-radius:0 6px 6px 0;}
+.pnote .tag{display:inline-block;font-family:Verdana,Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--gold);padding:3px 9px;border-radius:3px;margin-bottom:8px;}
+.btable{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;}
+.btable th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-family:Verdana,Arial,sans-serif;font-size:13px;}
+.btable td{border:1px solid var(--line);padding:8px 12px;vertical-align:top;}
+.btable tr:nth-child(even) td{background:#f3f6f9;}
+.modhead{display:flex;align-items:baseline;gap:14px;margin-top:60px;}
+.modnum{font-family:Verdana,Arial,sans-serif;font-weight:bold;font-size:13px;color:#fff;background:var(--teal);padding:5px 12px;border-radius:4px;white-space:nowrap;}
+.modhead h2{margin:0;flex:1;}
+.meta{font-family:Verdana,Arial,sans-serif;font-size:13px;color:#5b6b7c;margin:6px 0 16px;}
+.q{background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:6px;padding:18px 20px;margin:22px 0;}
+.q .qnum{font-family:Verdana,Arial,sans-serif;font-weight:bold;color:var(--teal);font-size:13px;letter-spacing:.08em;text-transform:uppercase;}
+.q ol.choices{list-style-type:upper-alpha;margin-top:10px;}
+.q details{margin-top:12px;background:#f3f6f9;border-radius:6px;padding:10px 14px;}
+.q summary{cursor:pointer;font-family:Verdana,Arial,sans-serif;font-size:13px;font-weight:bold;color:var(--navy);}
+.q .traptag{display:inline-block;font-family:Verdana,Arial,sans-serif;font-size:11px;font-weight:bold;color:#fff;background:var(--red);padding:2px 8px;border-radius:3px;margin-right:6px;}
+.inote{display:none;background:#fff8e6;border:1px dashed var(--gold);padding:12px 16px;margin:14px 0;border-radius:6px;font-size:15px;}
+.inote::before{content:"INSTRUCTOR NOTE";display:block;font-family:Verdana,Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:.15em;color:var(--gold);margin-bottom:6px;}
+body.instructor .inote{display:block;}
+.toc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 26px;margin:26px 0;}
+.toc h3{margin-top:0;color:var(--navy);}
+.toc ol{columns:2;column-gap:36px;font-size:15px;}
+.algo{background:var(--navy);color:#fff;border-radius:8px;padding:24px 28px;margin:26px 0;}
+.algo h3{color:#ffd98a;margin-top:0;}
+.algo .letter{font-family:Verdana,Arial,sans-serif;font-weight:bold;font-size:20px;color:#ffd98a;margin-right:10px;}
+.algo p{margin:8px 0;}
+.instrbar{position:fixed;bottom:0;left:0;right:0;background:var(--gold);color:#fff;font-family:Verdana,Arial,sans-serif;font-size:12px;text-align:center;padding:5px;display:none;letter-spacing:.1em;}
+body.instructor .instrbar{display:block;}
+@media(max-width:640px){.toc ol{columns:1;}header.hero h1{font-size:1.6rem;}body{font-size:16px;}}
+@media print{.inote{display:block;}header.hero{background:#fff;color:var(--navy);}}
+/* ════════════════════════════════════
+   SITE NAV — scoped, no .wrap conflict
+   ════════════════════════════════════ */
+:root {
+  --navy-900:#0B172E; --navy-800:#13294a; --navy-700:#1a3058;
+  --blue:#3b82f6; --blue-lt:#60a5fa; --blue-deep:#2563eb;
+  --mist:#aebbd2; --mist-dim:#8294b5;
+  --disp:'Sora',system-ui,sans-serif;
+  --card-line:rgba(255,255,255,.10);
+}
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(13,24,48,.95);
+  backdrop-
+  -webkit-backdrop-
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  width: 100%;
+}
+.site-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+}
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.site-brand svg { width: 30px; height: 30px; flex: none; }
+.site-brand .site-t {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 19px;
+  color: #fff;
+  letter-spacing: -.3px;
+}
+.site-brand .site-t b { color: var(--blue-lt); }
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.site-nav-links a {
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--mist);
+  text-decoration: none;
+  transition: color .18s;
+  white-space: nowrap;
+}
+.site-nav-links a:hover,
+.site-nav-links a.site-active { color: #fff; }
+.site-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 17px;
+  background: var(--blue);
+  color: #fff !important;
+  border-radius: 10px;
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background .18s;
+  white-space: nowrap;
+}
+.site-btn:hover { background: var(--blue-deep) !important; }
+.site-dd { position: relative; }
+.site-dd-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--mist);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: color .18s;
+}
+.site-dd-btn:hover { color: #fff; }
+.site-dd-caret { font-size: 11px; transition: transform .2s; display: inline-block; }
+.site-dd-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy-800);
+  border: 1px solid var(--card-line);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 210px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4);
+  z-index: 300;
+}
+.site-dd-menu.site-open { display: block; }
+.site-dd-menu a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-family: var(--disp);
+  font-size: 13.5px;
+  color: var(--mist) !important;
+  text-decoration: none;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.site-dd-menu a:hover,
+.site-dd-menu a.site-active { background: rgba(255,255,255,.08); color: #fff !important; }
+.site-dd-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mist-dim);
+  padding: 4px 14px 8px;
+  border-bottom: 1px solid var(--card-line);
+  margin-bottom: 4px;
+}
+.site-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  gap: 5px;
+}
+.site-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: .2s;
+}
+@media (max-width: 768px) {
+  .site-nav-links {
+    display: none;
+    position: absolute;
+    top: 66px;
+    left: 0; right: 0;
+    background: var(--navy-800);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px 20px;
+    gap: 14px;
+    border-bottom: 1px solid var(--card-line);
+    z-index: 200;
+  }
+  .site-nav-links.site-open { display: flex; }
+  .site-burger { display: flex; }
+  .site-dd-menu {
+    position: static;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 0 12px;
+  }
+  .site-dd-menu.site-open { display: block; }
+}
+
+
+/* ════ ACCESS CODE SYSTEM ════ */
+.pw-code-wrap {
+  background: white;
+  border: 2px solid var(--border, #E2E8F0);
+  border-radius: 14px;
+  padding: 32px 28px;
+  max-width: 420px;
+  margin: 0 auto 24px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(15,31,61,.08);
+}
+.pw-code-icon { font-size: 36px; margin-bottom: 12px; }
+.pw-code-title {
+  font-family: 'Sora', var(--disp, sans-serif);
+  font-size: 17px; font-weight: 800;
+  color: var(--navy, #0F1F3D);
+  margin-bottom: 7px;
+}
+.pw-code-sub {
+  font-size: 13px; color: var(--mid, #6B7A8D);
+  line-height: 1.55; margin-bottom: 20px;
+}
+.pw-code-input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.pw-code-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--border, #E2E8F0);
+  border-radius: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--navy, #0F1F3D);
+  outline: none;
+  transition: border-color .15s;
+  text-align: center;
+}
+.pw-code-input:focus { border-color: var(--navy, #0F1F3D); }
+.pw-code-input.error { border-color: #C8392B; animation: shake .3s; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
+.pw-code-btn {
+  padding: 12px 20px;
+  background: var(--navy, #0F1F3D);
+  color: white; border: none;
+  border-radius: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background .15s;
+  white-space: nowrap;
+}
+.pw-code-btn:hover { background: #1a3058; }
+.pw-code-error {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #C8392B; display: none; margin-bottom: 8px;
+}
+.pw-code-error.show { display: block; }
+.pw-code-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 14px 0; color: var(--mid, #6B7A8D);
+  font-size: 12px;
+}
+.pw-code-divider::before, .pw-code-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--border, #E2E8F0);
+}
+.pw-enroll-link {
+  display: inline-block;
+  font-size: 13px; color: var(--mid, #6B7A8D);
+  text-decoration: none;
+}
+.pw-enroll-link b { color: var(--navy, #0F1F3D); }
+.pw-enroll-link:hover b { text-decoration: underline; }
+
+/* Unlocked state */
+.pw-unlocked-banner {
+  display: none;
+  background: rgba(26,107,58,.08);
+  border: 1.5px solid rgba(26,107,58,.25);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #1A6B3A;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.pw-unlocked-banner.show { display: block; }
+
+/* When unlocked - show all locked content */
+body.pw-unlocked 
+body.pw-unlocked .topic-card
+body.pw-unlocked 
+body.pw-unlocked .pw-card-lock {
+  display: none !important;
+}
+body.pw-unlocked .tc-preview-badge {
+  display: none;
+}
+body.pw-unlocked #pw-gate .pw-gate-eyebrow,
+body.pw-unlocked #pw-gate h2,
+body.pw-unlocked #pw-gate .pw-gate-lead,
+body.pw-unlocked #pw-gate .pw-includes-box,
+body.pw-unlocked #pw-gate .pw-chips,
+body.pw-unlocked #pw-gate .pw-cta-row,
+body.pw-unlocked #pw-gate .pw-proof,
+body.pw-unlocked #pw-gate /* pw-code-wrap display handled by JS */
+body.pw-unlocked #pw-gate {
+  padding: 12px 20px;
+  margin: 8px 0 16px;
+  border-color: rgba(26,107,58,.25);
+}
+body.pw-unlocked #pw-gate .pw-unlocked-banner {
+  display: block !important;
+}
+
+/* ════ SECTION JUMP NAV ════ */
+.jump-nav {
+  position: sticky;
+  top: 66px; /* sits directly below the 66px site nav */
+  z-index: 150;
+  background: rgba(255,255,255,.97);
+  backdrop-
+  border-bottom: 2px solid var(--border, #E2E8F0);
+  box-shadow: 0 2px 12px rgba(15,31,61,.06);
+}
+.jump-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.jump-nav-inner::-webkit-scrollbar { display: none; }
+
+.jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 14px;
+  height: 42px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--slate, #5b6b86);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.jump-link:hover {
+  color: var(--ink, #0F1F3D);
+  border-bottom-color: var(--ink, #0F1F3D);
+}
+.jump-link.active {
+  color: var(--blue, #3b82f6);
+  border-bottom-color: var(--blue, #3b82f6);
+}
+
+/* Scroll arrow hints */
+.jump-nav-arrow {
+  display: none;
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
+  z-index: 2;
+}
+.jump-nav-arrow.right { right: 0; }
+.jump-nav-arrow.left  { left: 0; background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.95)); }
+
+@media (max-width: 768px) {
+  .jump-link { font-size: 8.5px; padding: 0 10px; }
+}
+
+/* ── LOCK: hide tc-body when card is locked ── */
+
+.pw-locked 
+
+.pw-locked 
+
+/* ══ PAYWALL LOCK ══════════════════════════════════════════ */
+.pw-locked .tc-body,
+.pw-locked .tc-inner-content {
+  display: none;
+}
+body.pw-unlocked .pw-locked .tc-body,
+body.pw-unlocked .pw-locked .tc-inner-content {
+  display: block;
+}
+.tc-lock-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 28px 36px;
+  background: #f8fafc;
+  border-top: 1px solid #E2E8F0;
+  text-align: center;
+}
+body.pw-unlocked .tc-lock-prompt {
+  display: none;
+}
+.tc-lock-icon { font-size: 28px; }
+.tc-lock-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+}
+.tc-lock-sub {
+  font-size: 13px;
+  color: #64748B;
+  max-width: 400px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.tc-lock-cta {
+  padding: 9px 22px;
+  background: #2563EB;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.tc-lock-cta:hover { background: #1d4ed8; }
+/* ══════════════════════════════════════════════════════════ */
+
+
+/* ══ STRATEGY LOCK — hide locked modules by default ══ */
+.pw-lockable {
+  display: none !important;
+}
+body.pw-unlocked .pw-lockable {
+  display: block !important;
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="index.html">
+      <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="8" stroke="#79a0f3" stroke-width="2.4"/><path d="M14 20h12M20 14v12" stroke="#79a0f3" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="site-t">PA <b>Clinical</b> Bootcamp</span>
+    </a>
+    <button class="site-burger" aria-label="Menu" aria-expanded="false" onclick="siteNavToggle(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="site-nav-links" id="site-nav-links">
+      <a href="index.html#bootcamp">The Bootcamp</a>
+      <a href="pa-board-questions.html">Question Banks</a>
+      <div class="site-dd" id="site-dd">
+        <button class="site-dd-btn" onclick="siteDdToggle(event)">
+          Curriculum <span class="site-dd-caret">▾</span>
+        </button>
+        <div class="site-dd-menu" id="site-dd-menu">
+          <div class="site-dd-eyebrow">Board syllabi</div>
+        <a href="cardiology_bootcamp_syllabus_v3.html" class="">Cardiology</a>
+        <a href="pulm_bootcamp_syllabus_v2.html" class="">Pulmonary</a>
+        <a href="gi_bootcamp_syllabus_v2.html" class="">GI &amp; Hepatology</a>
+        <a href="id_bootcamp_syllabus_v2.html" class="site-active">Infectious Disease</a>
+        <a href="pa-neuro-bootcamp-syllabus.html" class="">Neurology</a>
+        <a href="pance_strategy_syllabus.html" class="">Board Strategy</a>
+        </div>
+      </div>
+      <a href="pa-bootcamp-ecg.html">ECG</a>
+      <a class="site-btn" href="index.html#contact">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<div class="instrbar">INSTRUCTOR MODE ON — press "I" to hide notes</div>
+<header class="hero">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">&larr; PA Clinical Bootcamp</a></nav>
+    <div class="eyebrow">PA Clinical Bootcamp &middot; Strategy Series</div>
+    <h1>PANCE Board-Taking Strategies</h1>
+    <p class="sub">Pattern Recognition, Clinical Reasoning, Question Deconstruction, and Test-Taking Technique &mdash; learn to think through board questions the way an experienced clinician and test writer would.</p>
+  </div>
+</header>
+<main class="wrap">
+
+<h2>Course Overview</h2>
+<table class="btable">
+  <tr><th style="width:220px">Title</th><td>PANCE Board-Taking Strategies</td></tr>
+  <tr><th>Subtitle</th><td>Pattern Recognition, Clinical Reasoning, Question Deconstruction, and Test-Taking Techniques</td></tr>
+  <tr><th>Audience</th><td>PA students preparing for the PANCE, PACKRAT, and end-of-rotation exams; PAs preparing for the PANRE</td></tr>
+  <tr><th>Duration</th><td>Full-day bootcamp (8 hours) &middot; also deliverable as 60-min lecture, 2-hr workshop, or half-day course</td></tr>
+  <tr><th>Format</th><td>Interactive lecture with live question dissection, timed drills, and small-group exercises</td></tr>
+  <tr><th>Prerequisites</th><td>Completion of didactic year; system-based review recommended but not required</td></tr>
+  <tr><th>Lead Instructor</th><td>Rajiv Choudhary, MD, MPH &mdash; board-certified internal medicine hospitalist</td></tr>
+</table>
+
+<div class="box">
+<strong>Course philosophy.</strong> Most students who fail board questions do not fail from lack of knowledge — they fail from misreading the task, anchoring on a single clue, chasing a rare diagnosis, or answering at the wrong level (treating when the question wanted a test, confirming when the question wanted stabilization). This course does not re-teach medicine. It teaches you to <strong>identify exactly what the question is asking before you try to solve it</strong>, to recognize patterns the way experienced clinicians do, and to see the distractors the way the test writer built them.</div>
+
+<div class="pnote"><span class="tag">Core Principle</span>Do not begin by solving the medicine. Begin by identifying exactly what the question is asking you to solve.</div>
+
+<h3>How this differs from a system-based review</h3>
+<p>A traditional review course organizes content by organ system and asks "do you know this disease?" This course organizes content by <em>question mechanics</em> and asks "can you extract the task, find the discriminating clues, and answer at the requested level under time pressure?" It is the layer that converts knowledge into points.</p>
+
+<div class="toc">
+<h3>Curriculum Map — 22 Modules</h3>
+<ol>
+<li>Anatomy of a PANCE Question</li>
+<li>Deconstructing the Clinical Vignette</li>
+<li>Pattern Recognition &amp; Illness Scripts</li>
+<li>Common Things Are Common</li>
+<li>When to Consider a Zebra</li>
+<li>The Most Likely Diagnosis</li>
+<li>Stable vs. Unstable</li>
+<li>Initial Test vs. Gold Standard</li>
+<li>Next-Best-Step Questions</li>
+<li>Red Flags &amp; Cannot-Miss Diagnoses</li>
+<li>Distractor Elimination</li>
+<li>Important Negative Findings</li>
+<li>Buzzwords Without Buzzword Dependence</li>
+<li>Question-Writer Language</li>
+<li>Time Management</li>
+<li>Strategic Guessing</li>
+<li>Cognitive Biases</li>
+<li>System-Based Pattern Recognition</li>
+<li>Laboratory Pattern Recognition</li>
+<li>ECG &amp; Imaging Recognition</li>
+<li>Pharmacology Question Strategies</li>
+<li>The Integrated READ Algorithm</li>
+</ol>
+</div>
+
+<h2>Learning Objectives</h2>
+<p>By the end of this course, the student will be able to:</p>
+<ol>
+<li>Label the stem, lead-in, distractors, and key in any board-style question.</li>
+<li>Identify the precise task being tested <em>before</em> analyzing the vignette.</li>
+<li>Translate common lead-in phrases into the type of answer required.</li>
+<li>Distinguish diagnosis, testing, treatment, prevention, mechanism, and complication questions.</li>
+<li>Explain how <em>initial</em>, <em>next</em>, <em>definitive</em>, <em>most likely</em>, and <em>most appropriate</em> alter the correct response.</li>
+<li>Extract the highest-value demographic, historical, vital-sign, exam, and diagnostic clues.</li>
+<li>Construct a one-line problem representation from any clinical vignette.</li>
+<li>Build and apply illness scripts rather than isolated buzzword matching.</li>
+<li>Apply pretest probability and prioritize common diagnoses without missing dangerous alternatives.</li>
+<li>State the specific stem clues that justify selecting a rare diagnosis.</li>
+<li>Determine patient stability and recognize when stabilization precedes diagnosis.</li>
+<li>Differentiate the best initial test from the confirmatory or gold-standard test for 25+ core conditions.</li>
+<li>Apply a stepwise hierarchy to next-best-step management questions.</li>
+<li>Identify and eliminate the major distractor archetypes.</li>
+<li>Interpret deliberate negative findings as diagnostic information.</li>
+<li>Recognize and correct for anchoring, availability bias, base-rate neglect, and premature closure.</li>
+<li>Allocate time across gimmes, workers, and unknowns; answer every question on the first pass.</li>
+<li>Change answers only when reasoning changes — not when confidence fluctuates.</li>
+</ol>
+
+<!-- ===================== MODULE 1 ===================== -->
+<div class="modhead"><span class="modnum">Module 1</span><h2>Anatomy of a PANCE Question</h2></div>
+<p class="meta">Purpose: change how students read a question before they try to answer it &middot; ~60 min &middot; 22–30 slides</p>
+
+<div class="inote">This is the foundation module — everything downstream depends on it. Teach the habit first (read the lead-in first), then the memorizable content (the lexicon in 1.3). If you're short on time, protect 1.2, 1.3, and the 1.6 drill; those three carry the module.</div>
+
+<h3>1.1 &mdash; The Four Components</h3>
+<table class="btable">
+<tr><th style="width:130px">Component</th><th>What it is</th><th>What to teach</th></tr>
+<tr><td><strong>Stem</strong></td><td>The clinical vignette — demographics, history, exam, labs.</td><td>Every detail is <em>potentially</em> purposeful, but only a few carry most of the value. A detail may be a discriminating clue, a risk factor, a severity or stability marker, an exclusionary negative, context, or a plausible distractor.</td></tr>
+<tr><td><strong>Lead-in</strong></td><td>The actual question — usually the last sentence.</td><td>The single most important sentence. It sets the <em>level</em> at which you must answer. Students can nail the disease and still miss the point.</td></tr>
+<tr><td><strong>Distractors</strong></td><td>The 3–4 wrong choices.</td><td>Engineered to be plausible: right disease/wrong stage, right drug/wrong patient, right test/wrong timing. "Distractors are attractive to the partially prepared."</td></tr>
+<tr><td><strong>Key</strong></td><td>The one best answer.</td><td>Supported by the stem, responsive to the lead-in, appropriate to stability and stage, defensible against every other option. Tests textbook medicine, not local habit.</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>"I've seen it done differently in practice" does not defeat the answer best supported by the stem and accepted references.</div>
+
+<h3>1.2 &mdash; Read the Lead-In First</h3>
+<p>The primary habit change of the whole course. The sequence:</p>
+<ol>
+<li>Read the final sentence first — identify the task.</li>
+<li>Briefly scan the answer choices to classify the question type.</li>
+<li>Read the vignette <em>with a purpose</em> — hunting specific data, not absorbing everything.</li>
+<li>Build a one-line summary.</li>
+<li>Select the answer that addresses the lead-in.</li>
+</ol>
+<p>The same stem (fever, dyspnea, hypotension, elevated lactate, infiltrate) can support seven different questions — source of infection, clinical syndrome, next step, vasopressor choice, likely organism, acid-base abnormality, likely complication. The lead-in tells you which one to solve.</p>
+<div class="trick"><span class="tag">The Trap</span>Scanning the choices helps you <em>classify</em> the task — but do not let an attractive answer choice dictate how you read the stem. Latching onto one option early creates anchoring, confirmation bias, and misreads.</div>
+<div class="inote">Live demo worth doing: put one vignette on screen. Have half the room read stem-first, half read lead-in-first, timed. Compare rereads, clues found, accuracy, and confidence. The lead-in-first group is reliably faster with fewer rereads. Frame it as the <em>default</em> for long vignettes, not an inflexible rule — a short recall item may not need it.</div>
+
+<h3>1.3 &mdash; The Lead-In Lexicon</h3>
+<p>The most heavily reinforced content in the module: one word changes the answer.</p>
+<table class="btable">
+<tr><th style="width:250px">Lead-in phrase</th><th>What it's actually asking</th></tr>
+<tr><td>Most likely diagnosis</td><td>The disease/syndrome that best explains the whole presentation</td></tr>
+<tr><td>Most likely cause</td><td>The etiology <em>in this specific patient</em></td></tr>
+<tr><td>Most common cause</td><td>Population-level prevalence in the relevant group</td></tr>
+<tr><td>Best initial test</td><td>The appropriate <em>first</em> diagnostic study (often cheap/fast/bedside)</td></tr>
+<tr><td>Most appropriate first step</td><td>What happens before anything else</td></tr>
+<tr><td>Most appropriate next step</td><td>What follows what has <em>already occurred</em> in the stem</td></tr>
+<tr><td>Most accurate / confirmatory / gold-standard test</td><td>The reference-standard study that establishes the diagnosis</td></tr>
+<tr><td>Immediate management</td><td>Address the most urgent threat right now</td></tr>
+<tr><td>Initial management</td><td>The first treatment step</td></tr>
+<tr><td>Definitive treatment</td><td>The intervention that resolves the underlying condition</td></tr>
+<tr><td>Most appropriate treatment</td><td>Best for <em>this</em> patient given safety, timing, contraindications</td></tr>
+<tr><td>Most effective treatment</td><td>Greatest efficacy — even if not the first practical step</td></tr>
+<tr><td>Most likely mechanism</td><td>The underlying physiologic/pathologic process</td></tr>
+<tr><td>Most likely complication</td><td>The expected adverse consequence</td></tr>
+<tr><td>Which medication should be discontinued?</td><td>The drug causing harm, interacting, or now contraindicated</td></tr>
+</table>
+
+<h4>Same stem, five lead-ins</h4>
+<p><em>A 62-year-old man with hypertension and tobacco use has substernal pressure radiating to the left arm for 30 minutes.</em></p>
+<table class="btable">
+<tr><th>Lead-in</th><th>Answer level</th></tr>
+<tr><td>Most likely diagnosis?</td><td>Acute coronary syndrome</td></tr>
+<tr><td>Most appropriate initial test?</td><td>12-lead ECG</td></tr>
+<tr><td>Most appropriate initial medication?</td><td>Aspirin (if no contraindication)</td></tr>
+<tr><td>ECG shows ST elevations in contiguous leads — next step?</td><td>Immediate reperfusion strategy</td></tr>
+<tr><td>Definitive method to identify coronary obstruction?</td><td>Coronary angiography</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>Identifying the disease is not enough. "Initial" ≠ "next" ≠ "definitive." "Most common" ≠ "most likely in this patient." "Most appropriate" (safety + timing + practicality) ≠ "most effective" (efficacy only).</div>
+
+<h3>1.4 &mdash; Vignette Architecture: Where the Answer Hides</h3>
+<p>Most vignettes follow a predictable order: age/sex/setting → chief complaint + duration → HPI → PMH → meds → social/exposure → vitals → exam → labs → imaging → lead-in.</p>
+<div class="box"><strong>The first-sentence rule.</strong> Age + sex + one supplied risk factor often narrows the differential to 2–3 before you read further. <em>A 74-year-old man with a 50-pack-year history has painless gross hematuria</em> → bladder/urinary malignancy jumps to the top before the next sentence. After sentence one, ask: what's common in this demographic? what risk factor was deliberately supplied? acute or chronic? what cannot-miss diagnosis stays on the list?</div>
+<h4>Discriminating vs. descriptive data</h4>
+<table class="btable">
+<tr><th style="width:50%">Descriptive (shared by many conditions)</th><th>Discriminating (separates competitors)</th></tr>
+<tr><td>Fatigue, nausea, mild leukocytosis, generalized pain</td><td>Thunderclap onset; pain out of proportion; episodic headache with diaphoresis + palpitations; pain relieved by leaning forward; absent cremasteric reflex</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>Vitals may not give you the diagnosis, but they often tell you what must happen <em>next</em>. And ask: which 2–3 facts would be hardest to explain if my chosen answer were wrong?</div>
+
+<h3>1.5 &mdash; Time Math &amp; Triage</h3>
+<p>300 questions, 5 blocks of 60, 60 minutes per block ≈ <strong>60 seconds average</strong> — an average, not a per-item requirement.</p>
+<table class="btable">
+<tr><th>Category</th><th>Time</th><th>Strategy</th></tr>
+<tr><td><strong>Gimmes</strong></td><td>&lt;30 sec</td><td>Answer, don't overanalyze, bank the time.</td></tr>
+<tr><td><strong>Workers</strong></td><td>60–90 sec</td><td>Run the algorithm, find discriminators, eliminate, commit, move.</td></tr>
+<tr><td><strong>Unknowns</strong></td><td>capped</td><td>Identify the task, eliminate the impossible, best-supported guess, flag, move.</td></tr>
+</table>
+<div class="trick"><span class="tag">The Trap</span>Do not donate three minutes to a question unlikely to improve with another two minutes of staring. <strong>Every question gets an answer on the first pass — a flagged question is not a blank one.</strong></div>
+<div class="inote">Offer the checkpoint heuristic as a pacing tool, not a rule: ~15 done at 45 min left, ~30 at 30 min, ~45 at 15 min. During review, only change an answer when the <em>reasoning</em> changed — not because of anxiety, a "too easy" feeling, or a rare diagnosis that just surfaced.</div>
+
+<h3>1.6 &mdash; Mini-Drill: Dissect Before You Diagnose</h3>
+<div class="box green">Give students 5 questions and <strong>prohibit answering them.</strong> For each: box the lead-in, label the question type, underline the 3 highest-value clues, circle the stability/urgency data, cross out contextual/decoy detail, write a one-line summary, predict the answer category, eliminate one choice without solving. Grade the <em>dissection</em>, not the diagnosis.</div>
+<div class="inote">Debrief by revealing which details were essential vs. supportive-but-nonspecific, naming the deliberately attractive distractor, and showing how a different lead-in would have flipped the answer. This sets up Module 2, where each decoy detail gets exposed as engineered.</div>
+
+<div class="q">
+<span class="qnum">Q1 · Anchoring / Lead-in discipline · Moderate</span>
+<p>A 24-year-old woman has 2 days of burning with urination and increased frequency. She is afebrile, has no flank pain, no vaginal discharge, and is not pregnant. Vitals are normal. <strong>Which of the following is the most appropriate next step?</strong></p>
+<ol class="choices">
+<li>CT abdomen/pelvis</li>
+<li>Renal ultrasound</li>
+<li>Empiric nitrofurantoin after urinalysis</li>
+<li>Blood cultures</li>
+<li>Cystoscopy</li>
+</ol>
+<details><summary>Answer &amp; rationale</summary>
+<p><strong>C.</strong> Classic uncomplicated cystitis in a young, afebrile, non-pregnant woman — the discriminating negatives (no fever, no flank pain, not pregnant) rule out the dangerous alternatives the distractors are baiting.</p>
+<p><span class="traptag">Trap A/B/E</span>Imaging/cystoscopy answer a complicated or recurrent picture the stem deliberately excluded. <span class="traptag">Trap D</span>Blood cultures belong to a septic patient — the normal vitals say otherwise. <strong>Key clue:</strong> the stack of negatives is the answer.</p>
+</details>
+</div>
+
+<!-- ===================== MODULE 2 ===================== -->
+<div class="modhead"><span class="modnum">Module 2</span><h2>Deconstructing the Clinical Vignette</h2></div>
+<p class="meta">Purpose: give students one repeatable framework for taking any vignette apart &middot; ~40 min</p>
+
+<h3>The 10-step deconstruction</h3>
+<ol>
+<li>Age, sex, setting</li>
+<li>Chief complaint</li>
+<li>Onset &amp; time course</li>
+<li>Risk factors &amp; exposures</li>
+<li>Key positive findings</li>
+<li>Important negative findings</li>
+<li>Stable vs. unstable</li>
+<li>Identify the exact question</li>
+<li>Write a one-line problem representation</li>
+<li>Select the answer that explains the <em>entire</em> presentation</li>
+</ol>
+<div class="box"><strong>One-line problem representation.</strong> A single sentence fusing the semantic qualifiers: <em>"An elderly smoker with subacute painless hematuria"</em> or <em>"A young woman with acute pleuritic chest pain on OCPs after a long flight."</em> The one-liner is where diagnosis becomes obvious — if you can write it, you've usually already narrowed to 1–2 answers.</div>
+<div class="pnote"><span class="tag">Pearl</span>The right answer explains the <em>whole</em> vignette. A choice that explains only one finding — however striking — is usually a distractor.</div>
+
+<div class="q">
+<span class="qnum">Q2 · One-liner discipline · Moderate</span>
+<p>A 28-year-old woman has sudden pleuritic chest pain and dyspnea. She takes combined oral contraceptives and returned yesterday from an 11-hour flight. HR 112, RR 22, SpO₂ 92%. Lungs are clear. <strong>Most likely diagnosis?</strong></p>
+<ol class="choices">
+<li>Costochondritis</li>
+<li>Pulmonary embolism</li>
+<li>Community-acquired pneumonia</li>
+<li>Anxiety disorder</li>
+<li>Pericarditis</li>
+</ol>
+<details><summary>Answer &amp; rationale</summary>
+<p><strong>B.</strong> One-liner: <em>young woman, acute pleuritic chest pain + dyspnea, OCP + immobilization, tachycardic and hypoxic with clear lungs.</em> Every qualifier points to PE.</p>
+<p><span class="traptag">Trap A/D</span>Explain the pain but ignore hypoxia and tachycardia. <span class="traptag">Trap C</span>Clear lungs and no fever argue against it. <strong>Key clue:</strong> hypoxia + clear lungs + provoking risk factors.</p>
+</details>
+</div>
+
+
+<!-- ══ ACCESS CODE GATE ══ -->
+<div class="wrap" style="margin-top:20px;margin-bottom:20px;">
+  <div class="pw-unlocked-banner" id="pw-unlocked-banner-Strategy">
+    ✅ Full Access Unlocked — Strategy Bootcamp
+  </div>
+  <div class="pw-code-wrap" id="pw-code-wrap-Strategy">
+    <div class="pw-code-icon">🔑</div>
+    <div class="pw-code-title">Have an access code?</div>
+    <div class="pw-code-sub">Enter your bootcamp access code to unlock the full syllabus.</div>
+    <div class="pw-code-error" id="pw-code-error-Strategy">❌ Incorrect code — check with your instructor</div>
+    <div class="pw-code-input-row">
+      <input class="pw-code-input" id="pw-code-input-Strategy"
+        type="text" placeholder="ENTER CODE"
+        maxlength="30"
+        onkeydown="if(event.key==='Enter') pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">
+      <button class="pw-code-btn" onclick="pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">Unlock →</button>
+    </div>
+    <div class="pw-code-divider">or</div>
+    <a class="pw-enroll-link" href="https://paclinicalbootcamp.com/#contact">
+      Don't have a code? <b>Enroll in the bootcamp →</b>
+    </a>
+  </div>
+</div>
+<!-- ══ LOCKED CONTENT BEGINS ══ -->
+<div class="pw-lockable">
+
+<!-- ===================== MODULE 3 ===================== -->
+<div class="modhead"><span class="modnum">Module 3</span><h2>Pattern Recognition &amp; Illness Scripts</h2></div>
+<p class="meta">Purpose: replace buzzword-matching with structured illness scripts &middot; ~40 min</p>
+
+<p>An <strong>illness script</strong> is how experts store disease. Teach students to build one for every high-yield condition using a fixed template:</p>
+<table class="btable">
+<tr><th style="width:200px">Script slot</th><th>Example — Acute pericarditis</th></tr>
+<tr><td>Epidemiology / who</td><td>Often younger adult, post-viral</td></tr>
+<tr><td>Predisposing factors</td><td>Recent viral illness, uremia, post-MI, autoimmune</td></tr>
+<tr><td>Time course</td><td>Acute, over days</td></tr>
+<tr><td>Presentation</td><td>Sharp pleuritic chest pain, better leaning forward</td></tr>
+<tr><td>Key exam / finding</td><td>Friction rub; diffuse ST elevation + PR depression</td></tr>
+<tr><td>Management pattern</td><td>NSAID + colchicine</td></tr>
+<tr><td>Complications</td><td>Effusion → tamponade</td></tr>
+</table>
+<div class="trick"><span class="tag">The Trap</span>Superficial buzzword matching ("rub = pericarditis") fails when the writer omits the buzzword or plants it in the wrong disease. A full script survives missing or misleading clues because it matches on the <em>pattern</em>, not one word.</div>
+
+<!-- ===================== MODULE 4 ===================== -->
+<div class="modhead"><span class="modnum">Module 4</span><h2>Common Things Are Common</h2></div>
+<p class="meta">Purpose: stop students chasing zebras &middot; ~45 min</p>
+<div class="pnote"><span class="tag">Rule</span>When you hear hoofbeats, think horses before zebras. <strong>Do not choose the zebra unless the stem paints stripes.</strong></div>
+
+<h3>Why students pick the rare answer</h3>
+<ul>
+<li><strong>Base-rate neglect</strong> — ignoring how common the diagnosis actually is.</li>
+<li><strong>Availability bias</strong> — the rare disease was just studied, so it feels likely.</li>
+<li><strong>Difficulty bias</strong> — assuming the "smart" or complicated answer must be right.</li>
+<li><strong>Single-clue seduction</strong> — letting one unusual symptom outweigh the whole presentation.</li>
+</ul>
+
+<h3>The "Horse First" framework</h3>
+<ol>
+<li>What is the most common diagnosis that fits?</li>
+<li>Does it explain the major findings?</li>
+<li>Is there a red flag or highly specific clue that makes the common diagnosis unlikely?</li>
+<li>Does the rare diagnosis require assumptions <em>not</em> in the stem?</li>
+<li>Has the writer supplied enough evidence to <em>earn</em> the zebra?</li>
+</ol>
+
+<h3>Eight horse-vs-zebra pairs</h3>
+<table class="btable">
+<tr><th>Stem cue</th><th>Tempting zebra</th><th>The horse</th><th>What would earn the zebra</th></tr>
+<tr><td>Young adult, reproducible chest wall tenderness</td><td>Aortic dissection</td><td>Costochondritis</td><td>Tearing pain to back, pulse/BP differential, widened mediastinum</td></tr>
+<tr><td>Recurrent unilateral throbbing headache with aura, normal exam</td><td>Brain tumor</td><td>Migraine</td><td>Progressive morning headache, focal deficit, papilledema</td></tr>
+<tr><td>Fever, productive cough, lobar infiltrate</td><td>Sarcoidosis</td><td>Community-acquired pneumonia</td><td>Bilateral hilar adenopathy, chronic course, hypercalcemia</td></tr>
+<tr><td>RLQ pain, anorexia, migration from periumbilical</td><td>Mesenteric ischemia</td><td>Appendicitis</td><td>Elderly, AF, pain out of proportion, lactate</td></tr>
+<tr><td>Child, rhinorrhea, mild sore throat, no distress</td><td>Epiglottitis</td><td>Viral URI</td><td>Drooling, tripoding, stridor, toxic + unvaccinated</td></tr>
+<tr><td>Middle-aged adult, elevated BP, no symptoms</td><td>Pheochromocytoma</td><td>Essential hypertension</td><td>Episodic headache + palpitations + diaphoresis, paroxysms</td></tr>
+<tr><td>Menstruating woman, fatigue, microcytic anemia</td><td>Bone marrow failure</td><td>Iron-deficiency anemia</td><td>Pancytopenia, blasts, no bleeding source</td></tr>
+<tr><td>Adult, axial low back pain after lifting</td><td>Spinal epidural abscess</td><td>Mechanical low back pain</td><td>Fever, IVDU, point tenderness, neuro deficit, immunosuppression</td></tr>
+</table>
+
+<div class="q">
+<span class="qnum">Q3 · Horse-vs-zebra · Moderate</span>
+<p>A 30-year-old man has 3 days of localized anterior chest pain, worse with movement and reproducible on palpation. No dyspnea. Vitals normal, ECG normal. <strong>Most likely diagnosis?</strong></p>
+<ol class="choices">
+<li>Aortic dissection</li>
+<li>Acute coronary syndrome</li>
+<li>Costochondritis</li>
+<li>Pulmonary embolism</li>
+<li>Pericarditis</li>
+</ol>
+<details><summary>Answer &amp; rationale</summary>
+<p><strong>C.</strong> Reproducible-on-palpation, positional pain in a young low-risk patient with a normal ECG is textbook costochondritis. The stem painted no stripes.</p>
+<p><span class="traptag">Trap A</span>The classic zebra — but there's no tearing pain, no pulse differential, no mediastinal clue. Choosing it requires assumptions the stem never supplied.</p>
+</details>
+</div>
+
+<!-- ===================== MODULE 5 ===================== -->
+<div class="modhead"><span class="modnum">Module 5</span><h2>When to Consider a Zebra</h2></div>
+<p class="meta">Purpose: the flip side — rare diagnoses when the stem genuinely earns them &middot; ~30 min</p>
+<p>Rare diagnoses are correct when the writer plants specific supporting clues. The "stripe-painting" signals:</p>
+<ul>
+<li>Strong family history &middot; specific drug or occupational exposure &middot; travel history</li>
+<li>Immunocompromised state &middot; unusual age/demographic for the common disease</li>
+<li>Characteristic rash &middot; multisystem findings &middot; failure of standard therapy</li>
+<li>Recurrent unexplained episodes &middot; unusual lab combinations &middot; a highly specific exam finding</li>
+</ul>
+<div class="pnote"><span class="tag">Pearl</span>Rare diagnoses require specific supporting clues, not imagination. Pheochromocytoma, Wilson disease, hemochromatosis, TTP, Addison disease, myasthenia gravis, and spinal epidural abscess are all "right answers" — but only when the stem hands you the stripes.</div>
+
+<!-- ===================== MODULE 6 ===================== -->
+<div class="modhead"><span class="modnum">Module 6</span><h2>The Most Likely Diagnosis</h2></div>
+<p class="meta">Purpose: answer at the requested level — source vs. syndrome vs. complication &middot; ~30 min</p>
+<p>Select the diagnosis that explains the entire presentation, fits epidemiology + time course + exam + data, and requires the fewest unsupported assumptions. Then distinguish which <em>level</em> the lead-in wants:</p>
+<div class="box"><strong>Worked example.</strong> Fever, productive cough, hypotension, elevated lactate, pulmonary infiltrate:
+<ul>
+<li><strong>Source</strong> = pneumonia</li>
+<li><strong>Syndrome</strong> = sepsis</li>
+<li><strong>Septic shock</strong> = persistent hypotension needing vasopressors despite fluids</li>
+</ul>
+The same vignette yields three different "correct" answers depending on whether the lead-in asks for the source, the syndrome, or the severity classification.</div>
+
+<!-- ===================== MODULE 7 ===================== -->
+<div class="modhead"><span class="modnum">Module 7</span><h2>Stable vs. Unstable</h2></div>
+<p class="meta">Purpose: recognize when stabilization precedes diagnosis &middot; ~35 min</p>
+<div class="pnote"><span class="tag">Rule</span>In an unstable patient, stabilization comes before definitive diagnosis. ABCs beat imaging.</div>
+<p>Instability flags: airway compromise, severe hypoxemia, hypotension, active hemorrhage, altered mental status, unstable arrhythmia, peritonitis, acute neuro deficit, obstetric emergency.</p>
+<table class="btable">
+<tr><th>Scenario</th><th>The "diagnose-first" trap</th><th>Correct move first</th></tr>
+<tr><td>Unstable tachyarrhythmia</td><td>Order adenosine / 12-lead workup</td><td>Synchronized cardioversion</td></tr>
+<tr><td>Tension pneumothorax</td><td>Chest X-ray</td><td>Needle decompression — it's a clinical diagnosis</td></tr>
+<tr><td>Massive upper GI bleed, hypotensive</td><td>Endoscopy</td><td>Two large-bore IVs, fluids/blood, stabilize</td></tr>
+<tr><td>Ruptured ectopic, hypotensive</td><td>Confirmatory ultrasound</td><td>Resuscitate and to OR</td></tr>
+<tr><td>Anaphylaxis</td><td>Antihistamine + labs</td><td>IM epinephrine</td></tr>
+<tr><td>Hyperkalemia with ECG changes</td><td>Repeat/confirm the potassium</td><td>IV calcium to stabilize the membrane</td></tr>
+</table>
+
+<div class="q">
+<span class="qnum">Q4 · Stability override · Moderate</span>
+<p>A 68-year-old man has palpitations and lightheadedness. HR 190, BP 78/44, cool and diaphoretic. Monitor shows a wide-complex tachycardia. <strong>Most appropriate next step?</strong></p>
+<ol class="choices">
+<li>IV amiodarone infusion</li>
+<li>12-lead ECG and cardiology consult</li>
+<li>IV adenosine</li>
+<li>Synchronized cardioversion</li>
+<li>Carotid sinus massage</li>
+</ol>
+<details><summary>Answer &amp; rationale</summary>
+<p><strong>D.</strong> Hypotension + poor perfusion = unstable. Unstable tachyarrhythmia gets immediate synchronized cardioversion, not a pharmacologic or diagnostic detour.</p>
+<p><span class="traptag">Trap A/C</span>Reasonable drugs for a <em>stable</em> patient — wrong timing here. <span class="traptag">Trap B</span>Donates time the patient doesn't have. <strong>Key clue:</strong> BP 78/44 with end-organ signs.</p>
+</details>
+</div>
+
+<!-- ===================== MODULE 8 ===================== -->
+<div class="modhead"><span class="modnum">Module 8</span><h2>Initial Test vs. Gold Standard</h2></div>
+<p class="meta">Purpose: separate the first test from the confirmatory test &middot; ~45 min</p>
+<div class="trick"><span class="tag">The Trap</span>The single most common "right disease, wrong answer" error. The initial test is usually cheap, fast, safe, and bedside; the gold standard is definitive but often slower, costlier, or invasive. The lead-in decides which one scores.</div>
+<table class="btable">
+<tr><th>Condition</th><th>Best initial test</th><th>Confirmatory / most accurate</th><th>Board caveat</th></tr>
+<tr><td>Pulmonary embolism (stable)</td><td>CT pulmonary angiography</td><td>CTPA is both — but Wells/D-dimer gate it</td><td>Low pretest + negative D-dimer excludes without imaging</td></tr>
+<tr><td>Acute cholecystitis</td><td>RUQ ultrasound</td><td>HIDA scan</td><td>HIDA when US equivocal</td></tr>
+<tr><td>Appendicitis (adult)</td><td>CT abdomen/pelvis</td><td>Histology post-op</td><td>US first in children/pregnancy</td></tr>
+<tr><td>Aortic dissection (stable)</td><td>CT angiography</td><td>CTA / TEE</td><td>TEE if too unstable to travel</td></tr>
+<tr><td>Subarachnoid hemorrhage</td><td>Non-contrast head CT</td><td>Lumbar puncture (xanthochromia)</td><td>LP if CT negative but suspicion high</td></tr>
+<tr><td>Bacterial meningitis</td><td>Blood cultures → LP</td><td>CSF analysis/culture</td><td>Don't delay antibiotics for LP</td></tr>
+<tr><td>DVT</td><td>Compression ultrasound</td><td>Compression ultrasound</td><td>D-dimer to exclude in low-risk</td></tr>
+<tr><td>Giant cell arteritis</td><td>ESR/CRP</td><td>Temporal artery biopsy</td><td>Start steroids before biopsy — don't wait</td></tr>
+<tr><td>Pheochromocytoma</td><td>Plasma free metanephrines</td><td>CT/MRI adrenal after biochemical confirmation</td><td>Image only after labs confirm</td></tr>
+<tr><td>Primary hyperaldosteronism</td><td>Aldosterone : renin ratio</td><td>Confirmatory salt-loading + adrenal vein sampling</td><td>Screen before imaging</td></tr>
+<tr><td>H. pylori</td><td>Urea breath / stool antigen</td><td>Endoscopic biopsy</td><td>Hold PPI before testing</td></tr>
+<tr><td>Cushing syndrome</td><td>Overnight dexamethasone suppression / late-night salivary cortisol</td><td>Confirm, then ACTH + imaging</td><td>Establish hypercortisolism before localizing</td></tr>
+</table>
+
+<!-- ===================== MODULE 9 ===================== -->
+<div class="modhead"><span class="modnum">Module 9</span><h2>Next-Best-Step Questions</h2></div>
+<p class="meta">Purpose: a hierarchy for management questions &middot; ~40 min</p>
+<div class="box"><strong>The ordering:</strong> stabilize → address life threats → is the diagnosis already established? → is more testing needed? → least invasive appropriate step → evidence-based first-line treatment → escalate if first-line fails → refer/procedure when indicated.</div>
+<h4>Classic next-step mistakes</h4>
+<ul>
+<li>Ordering a confirmatory test when treatment should begin immediately (meningitis, GCA).</li>
+<li>Treating before obtaining a critical specimen (cultures before antibiotics when the patient is stable).</li>
+<li>Choosing surgery or an invasive test before stabilization.</li>
+<li>Imaging when the diagnosis is clinical (tension pneumothorax, anaphylaxis).</li>
+<li>Choosing long-term management during an acute emergency.</li>
+</ul>
+
+<div class="q">
+<span class="qnum">Q5 · Next best step · Hard</span>
+<p>A 22-year-old presents with fever, headache, neck stiffness, and photophobia for 6 hours. He is alert, BP 118/70, no papilledema, no focal deficit. <strong>Most appropriate next step?</strong></p>
+<ol class="choices">
+<li>Head CT before any other action</li>
+<li>Lumbar puncture, then antibiotics</li>
+<li>Blood cultures and empiric IV antibiotics, then lumbar puncture</li>
+<li>MRI brain with contrast</li>
+<li>Observation and repeat exam in 4 hours</li>
+</ol>
+<details><summary>Answer &amp; rationale</summary>
+<p><strong>C.</strong> Suspected bacterial meningitis: blood cultures + empiric antibiotics must not wait. With no indication for CT-before-LP (alert, no deficit, no papilledema), you can proceed to LP — but antibiotics come first and don't get delayed for it.</p>
+<p><span class="traptag">Trap B</span>Right pieces, wrong order — never delay antibiotics for the LP. <span class="traptag">Trap A</span>CT isn't mandatory here and shouldn't delay treatment. <strong>Key clue:</strong> "6 hours" — time-critical.</p>
+</details>
+</div>
+
+<!-- ===================== MODULE 10 ===================== -->
+<div class="modhead"><span class="modnum">Module 10</span><h2>Red Flags &amp; Cannot-Miss Diagnoses</h2></div>
+<p class="meta">Purpose: symptom-based danger scan &middot; ~45 min</p>
+<table class="btable">
+<tr><th>Symptom</th><th>Common benign cause</th><th>Cannot-miss alternative</th><th>Discriminating clue</th></tr>
+<tr><td>Chest pain</td><td>Costochondritis, GERD</td><td>ACS, dissection, PE, tamponade</td><td>Exertional, tearing-to-back, hypoxia, pulsus paradoxus</td></tr>
+<tr><td>Headache</td><td>Migraine, tension</td><td>SAH, meningitis, GCA</td><td>Thunderclap, neck stiffness, jaw claudication + age &gt;50</td></tr>
+<tr><td>Back pain</td><td>Mechanical strain</td><td>Cauda equina, epidural abscess, dissection</td><td>Saddle anesthesia, retention, fever + IVDU</td></tr>
+<tr><td>Abdominal pain</td><td>Gastroenteritis</td><td>Mesenteric ischemia, AAA, perforation</td><td>Pain out of proportion, pulsatile mass, rigidity</td></tr>
+<tr><td>Testicular pain</td><td>Epididymitis</td><td>Testicular torsion</td><td>Sudden onset, high-riding, absent cremasteric reflex</td></tr>
+<tr><td>Vision loss</td><td>Refractive, dry eye</td><td>GCA, retinal detachment, angle-closure glaucoma</td><td>Painful red eye + halos, curtain, jaw claudication</td></tr>
+<tr><td>Vaginal bleeding in pregnancy</td><td>Implantation bleeding</td><td>Ectopic pregnancy</td><td>Positive β-hCG + adnexal pain + hypotension</td></tr>
+</table>
+
+<!-- ===================== MODULE 11 ===================== -->
+<div class="modhead"><span class="modnum">Module 11</span><h2>Distractor Elimination</h2></div>
+<p class="meta">Purpose: name the archetypes so students can spot them &middot; ~40 min</p>
+<table class="btable">
+<tr><th>Archetype</th><th>How it baits you</th></tr>
+<tr><td>True statement, wrong question</td><td>Factually correct but doesn't answer the lead-in</td></tr>
+<tr><td>Right diagnosis, wrong stage</td><td>Correct disease at the wrong point in its course</td></tr>
+<tr><td>Right drug, wrong patient</td><td>Ignores a contraindication or comorbidity</td></tr>
+<tr><td>Right treatment, wrong timing</td><td>Definitive step offered during an emergency</td></tr>
+<tr><td>Right test, not the initial one</td><td>Gold standard when the lead-in wanted "initial"</td></tr>
+<tr><td>Zebra on one isolated clue</td><td>Rare diagnosis pulled from a single symptom</td></tr>
+<tr><td>Incidental abnormality</td><td>A finding unrelated to the actual problem</td></tr>
+<tr><td>Explains only one finding</td><td>Fails to account for the whole presentation</td></tr>
+<tr><td>Too aggressive / not aggressive enough</td><td>Ignores the patient's actual stability</td></tr>
+</table>
+<div class="box green"><strong>Elimination checklist:</strong> Does it answer <em>this</em> lead-in? Fit the stability? Fit the epidemiology? Require assumptions the stem didn't supply? Explain the whole picture? Any "no" eliminates it.</div>
+
+<!-- ===================== MODULE 12 ===================== -->
+<div class="modhead"><span class="modnum">Module 12</span><h2>Important Negative Findings</h2></div>
+<p class="meta">Purpose: read deliberate negatives as information &middot; ~25 min</p>
+<p>Writers include negatives on purpose — no fever, no trauma, no pregnancy, no anticoagulant use, no immunosuppression, no hypoxia, no hemodynamic instability. A stated negative usually lowers the probability of a specific dangerous alternative or distinguishes two close conditions.</p>
+<div class="trick"><span class="tag">The Trap</span>Absence of a classic finding does not always exclude disease — a painless MI in a diabetic, meningitis without the full triad. Use negatives to reweight probability, not as absolute rule-outs.</div>
+
+<!-- ===================== MODULE 13 ===================== -->
+<div class="modhead"><span class="modnum">Module 13</span><h2>Buzzwords Without Buzzword Dependence</h2></div>
+<p class="meta">Purpose: use buzzwords as clues, not crutches &middot; ~30 min</p>
+<table class="btable">
+<tr><th>Buzzword</th><th>Classic association</th><th>Modern trap</th></tr>
+<tr><td>Currant jelly stool</td><td>Intussusception (also invasive infection)</td><td>Late/uncommon finding — vignette often omits it</td></tr>
+<tr><td>Target lesions</td><td>Erythema multiforme</td><td>Confused with urticaria / early SJS</td></tr>
+<tr><td>Fixed split S2</td><td>ASD</td><td>Mixed up with wide/paradoxical splits</td></tr>
+<tr><td>Machine-like murmur</td><td>PDA</td><td>Confused with venous hum</td></tr>
+<tr><td>Steeple sign</td><td>Croup</td><td>Vs. thumbprint (epiglottitis)</td></tr>
+<tr><td>Cherry-red spot</td><td>CRAO / Tay-Sachs</td><td>Wrong context</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>A buzzword confirms a pattern you already built — it should not <em>replace</em> the pattern. When the writer omits it, the illness script still gets you there.</div>
+
+<!-- ===================== MODULE 14 ===================== -->
+<div class="modhead"><span class="modnum">Module 14</span><h2>Question-Writer Language</h2></div>
+<p class="meta">Purpose: a glossary of phrasing → what it's really asking &middot; ~25 min</p>
+<p>This module consolidates the Module 1.3 lexicon into a quick-reference glossary students keep as a one-pager (see Student Resources). The discipline: circle the operative phrase in every lead-in before scanning choices. One word — <em>initial, next, definitive, most common, most appropriate, most effective</em> — is doing the work.</p>
+
+<!-- ===================== MODULE 15 ===================== -->
+<div class="modhead"><span class="modnum">Module 15</span><h2>Time Management</h2></div>
+<p class="meta">Purpose: keep the clock from beating knowledge &middot; ~25 min</p>
+<ul>
+<li>First-pass rule: every question answered before you leave it; flagged ≠ blank.</li>
+<li>Flag and move when two choices stay plausible after a genuine attempt.</li>
+<li>Don't over-reread long stems — the lead-in-first habit prevents most rereads.</li>
+<li>Use scheduled breaks; don't let one hard question bleed into the next five.</li>
+<li>Review flagged items only where you can name a concrete reason to change.</li>
+</ul>
+<div class="inote">Present all timing numbers as adjustable heuristics, not rules. Some students do better ignoring the clock until a fixed checkpoint; let them find their own rhythm on practice blocks.</div>
+
+<!-- ===================== MODULE 16 ===================== -->
+<div class="modhead"><span class="modnum">Module 16</span><h2>Strategic Guessing</h2></div>
+<p class="meta">Purpose: a disciplined process for the unknowns &middot; ~25 min</p>
+<ol>
+<li>Identify the task.</li>
+<li>Eliminate clearly wrong answers.</li>
+<li>Remove options that contradict stability/urgency.</li>
+<li>Remove options that don't fit epidemiology.</li>
+<li>Remove options requiring unsupported assumptions.</li>
+<li>Compare the survivors; pick the safest, most guideline-consistent one.</li>
+<li>Commit and move.</li>
+</ol>
+<div class="trick"><span class="tag">The Trap</span>Longer or more complicated answers are not automatically correct. And change an answer only when your <em>reasoning</em> changed — recognition, not anxiety. Distinguish "I just recalled a real discriminating fact" from "this feels too easy."</div>
+
+<!-- ===================== MODULE 17 ===================== -->
+<div class="modhead"><span class="modnum">Module 17</span><h2>Cognitive Biases</h2></div>
+<p class="meta">Purpose: name the reasoning errors behind wrong answers &middot; ~30 min</p>
+<table class="btable">
+<tr><th>Bias</th><th>PANCE example</th><th>Corrective</th></tr>
+<tr><td>Anchoring</td><td>Fixing on the first diagnosis in the stem</td><td>Re-derive from the one-liner after reading fully</td></tr>
+<tr><td>Premature closure</td><td>Stopping at the first fit</td><td>Ask what the answer fails to explain</td></tr>
+<tr><td>Availability bias</td><td>Picking the disease you just studied</td><td>Return to base rates</td></tr>
+<tr><td>Base-rate neglect</td><td>Choosing the zebra</td><td>"Common things are common"</td></tr>
+<tr><td>Confirmation bias</td><td>Reading the stem to fit your guess</td><td>Actively seek disconfirming clues</td></tr>
+<tr><td>Search satisfaction</td><td>Stopping after one abnormality</td><td>Scan for a second, more dangerous problem</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>Chasing zebras is usually availability bias + base-rate neglect wearing a lab coat.</div>
+
+<!-- ===================== MODULE 18 ===================== -->
+<div class="modhead"><span class="modnum">Module 18</span><h2>System-Based Pattern Recognition</h2></div>
+<p class="meta">Purpose: recognition patterns and traps by system &middot; ~45 min</p>
+<table class="btable">
+<tr><th>System</th><th>Cannot-miss</th><th>Common distractor / trap</th></tr>
+<tr><td>Cardiology</td><td>ACS, dissection, tamponade</td><td>Treating stable angina as unstable, or vice versa</td></tr>
+<tr><td>Pulmonology</td><td>PE, tension pneumothorax</td><td>Imaging a tension pneumo instead of decompressing</td></tr>
+<tr><td>GI</td><td>Mesenteric ischemia, perforation</td><td>Calling ischemia gastroenteritis in an AF elder</td></tr>
+<tr><td>Neurology</td><td>SAH, stroke, cauda equina</td><td>MRI when non-contrast CT is the initial test</td></tr>
+<tr><td>ID</td><td>Meningitis, necrotizing fasciitis</td><td>Delaying antibiotics for the LP</td></tr>
+<tr><td>OB/GYN</td><td>Ectopic, ovarian torsion</td><td>Confirmatory imaging in an unstable ectopic</td></tr>
+</table>
+<div class="inote">This is your natural bridge to the system syllabi (Cardiology, Pulm, GI, ID, Neuro). Point students to those decks for the underlying content; here you're only drilling the recognition-and-trap layer.</div>
+
+<!-- ===================== MODULE 19 ===================== -->
+<div class="modhead"><span class="modnum">Module 19</span><h2>Laboratory Pattern Recognition</h2></div>
+<p class="meta">Purpose: read lab constellations as patterns &middot; ~40 min</p>
+<table class="btable">
+<tr><th>Pattern</th><th>Key labs</th><th>Differentiator / trap</th></tr>
+<tr><td>Microcytic anemia</td><td>Low MCV, low ferritin</td><td>Iron deficiency vs. thalassemia (normal/high RDW clue)</td></tr>
+<tr><td>Hepatocellular vs. cholestatic</td><td>AST/ALT vs. ALP/bilirubin</td><td>Ratio tells the pattern; AST:ALT &gt;2 → alcohol</td></tr>
+<tr><td>AKI localization</td><td>BUN:Cr, FeNa, urine sediment</td><td>Prerenal vs. intrinsic vs. postrenal</td></tr>
+<tr><td>Anion-gap acidosis</td><td>Elevated AG, low bicarb</td><td>MUDPILES; check osmolar gap</td></tr>
+<tr><td>Nephrotic vs. nephritic</td><td>Proteinuria vs. hematuria + HTN</td><td>&gt;3.5 g/day vs. active sediment</td></tr>
+<tr><td>DIC vs. TTP vs. HUS</td><td>Platelets, schistocytes, coags</td><td>Normal coags in TTP/HUS; abnormal in DIC</td></tr>
+<tr><td>DKA vs. HHS</td><td>Glucose, ketones, pH, osm</td><td>Acidosis + ketones (DKA) vs. hyperosmolar (HHS)</td></tr>
+</table>
+
+<!-- ===================== MODULE 20 ===================== -->
+<div class="modhead"><span class="modnum">Module 20</span><h2>ECG &amp; Imaging Recognition</h2></div>
+<p class="meta">Purpose: recognize the pattern, then name the action &middot; ~40 min</p>
+<p>Tie every visual to a next step — recognition without action scores nothing.</p>
+<table class="btable">
+<tr><th>Finding</th><th>Recognize</th><th>Action</th></tr>
+<tr><td>STEMI</td><td>ST elevation in contiguous leads</td><td>Reperfusion (PCI/lytics)</td></tr>
+<tr><td>Hyperkalemia</td><td>Peaked T waves → wide QRS</td><td>IV calcium first</td></tr>
+<tr><td>Torsades</td><td>Polymorphic VT, long QT</td><td>IV magnesium</td></tr>
+<tr><td>Third-degree block</td><td>AV dissociation</td><td>Pacing</td></tr>
+<tr><td>Tension pneumothorax</td><td>(clinical) tracheal deviation, absent sounds</td><td>Needle decompression — don't wait for film</td></tr>
+<tr><td>Epidural vs. subdural</td><td>Lens-shaped vs. crescent</td><td>Neurosurgical evaluation</td></tr>
+<tr><td>Free air under diaphragm</td><td>Perforation</td><td>Surgery</td></tr>
+</table>
+
+<!-- ===================== MODULE 21 ===================== -->
+<div class="modhead"><span class="modnum">Module 21</span><h2>Pharmacology Question Strategies</h2></div>
+<p class="meta">Purpose: first-line, contraindication, and adverse-effect logic &middot; ~35 min</p>
+<table class="btable">
+<tr><th>Drug/class</th><th>Classic trap</th></tr>
+<tr><td>ACE inhibitors</td><td>Cough/angioedema; contraindicated in pregnancy, hyperkalemia, bilateral RAS</td></tr>
+<tr><td>Beta blockers</td><td>Mask hypoglycemia; caution in decompensated HF, avoid in cocaine chest pain</td></tr>
+<tr><td>Metformin</td><td>Hold with contrast/AKI (lactic acidosis risk)</td></tr>
+<tr><td>Fluoroquinolones</td><td>Tendon rupture, QT prolongation</td></tr>
+<tr><td>Corticosteroids</td><td>Hyperglycemia, adrenal suppression, infection masking</td></tr>
+<tr><td>NSAIDs</td><td>Wrong in AKI, GI bleed, heart failure</td></tr>
+</table>
+<div class="pnote"><span class="tag">Pearl</span>Pharm distractors are usually "right drug, wrong patient." Screen every drug answer against the comorbidities and meds the stem deliberately listed.</div>
+
+<!-- ===================== MODULE 22 ===================== -->
+<div class="modhead"><span class="modnum">Module 22</span><h2>The Integrated READ Algorithm</h2></div>
+<p class="meta">Purpose: one memorable framework for almost every question &middot; ~30 min</p>
+<div class="algo">
+<h3>READ</h3>
+<p><span class="letter">R</span><strong>Read the lead-in first.</strong> What exactly is being asked — and at what level?</p>
+<p><span class="letter">E</span><strong>Examine the answer category.</strong> Diagnoses, tests, treatments, mechanisms, or complications?</p>
+<p><span class="letter">A</span><strong>Analyze the discriminating clues.</strong> Age, risk factors, time course, vitals, key exam and data. Check stability.</p>
+<p><span class="letter">D</span><strong>Decide and move.</strong> Common first, screen for cannot-miss, eliminate the unsupported, answer at the requested level, flag if needed, continue.</p>
+</div>
+<div class="box green"><strong>30-second version:</strong> Read the task → classify the choices → find the discriminators → check stability → common-first, cannot-miss-screened → answer at the requested level.<br><br><strong>One line:</strong> Read the task, classify the choices, find the discriminating clues, answer at the level requested.</div>
+
+<!-- ===================== RESOURCES ===================== -->
+<h2>Student Resources</h2>
+<p>Printable one-pagers to distribute (each maps to a module):</p>
+<ul>
+<li><strong>One-line problem representation</strong> template — semantic qualifiers → one sentence.</li>
+<li><strong>Illness script</strong> template — the 7-slot table from Module 3.</li>
+<li><strong>Zebra checklist</strong> — the 5 Horse-First questions.</li>
+<li><strong>Stable-vs-unstable checklist</strong> — the instability flags from Module 7.</li>
+<li><strong>Initial-test-vs-gold-standard table</strong> — Module 8 reference.</li>
+<li><strong>Lead-in glossary</strong> — the Module 1.3 / 14 lexicon.</li>
+<li><strong>Question error log</strong> — for each miss: was it the lead-in, a missed clue, a bias, or knowledge?</li>
+<li><strong>Cognitive-bias checklist</strong> — the six from Module 17.</li>
+</ul>
+
+<h2>Instructor Resources</h2>
+<div class="inote">Turn instructor mode on (press "I" or add <code>?instructor=1</code> to the URL) to reveal your private teaching notes inline throughout the deck — students viewing normally never see them. Notes cover pacing, live-demo scripts, common misconceptions, and audience-polling cases.</div>
+<ul>
+<li><strong>Weaker cohorts:</strong> spend more time on Modules 1, 4, 7, 8 — task ID and stability carry the most points. Skim 19–21.</li>
+<li><strong>Stronger cohorts:</strong> compress 1–3, spend the time on distractor archetypes (11) and the timed error-analysis workshop.</li>
+<li><strong>Integration:</strong> drop the Module 8 table and Module 18 traps into your existing Cardiology/Pulm/GI/ID/Neuro decks as the "how they'll test this" slide.</li>
+</ul>
+
+<h2>Recommended Formats</h2>
+<table class="btable">
+<tr><th>Format</th><th>Modules</th><th>Questions</th><th>Best for</th></tr>
+<tr><td>60-min lecture</td><td>1, 4, 8, 22</td><td>4–5</td><td>Intro / single guest slot</td></tr>
+<tr><td>2-hr workshop</td><td>1–4, 7, 8, 22</td><td>10–12</td><td>Focused strategy session</td></tr>
+<tr><td>Half-day (4 hr)</td><td>1–11, 22</td><td>20–25</td><td>Pre-exam intensive</td></tr>
+<tr><td>Full day (8 hr)</td><td>All 22</td><td>40+</td><td>Complete bootcamp</td></tr>
+<tr><td>4-week longitudinal</td><td>All 22, spaced</td><td>Weekly sets</td><td>Integrated into didactic year</td></tr>
+</table>
+
+<h3>Suggested 2-Day Agenda (Aug 12–13, 9–5)</h3>
+<table class="btable">
+<tr><th>Day 1 (9–5)</th><th>Day 2 (9–5)</th></tr>
+<tr><td>Modules 1–3: question anatomy, deconstruction, illness scripts</td><td>Modules 12–17: negatives, buzzwords, writer language, timing, guessing, biases</td></tr>
+<tr><td>Modules 4–6: horses vs. zebras, when to consider a zebra, most likely diagnosis</td><td>Modules 18–21: system, lab, ECG/imaging, pharm pattern drills</td></tr>
+<tr><td>Modules 7–11: stability, test selection, next step, red flags, distractors</td><td>Module 22 + timed integrated question block + error-analysis workshop</td></tr>
+</table>
+
+<div class="pnote"><span class="tag">Take-Home</span>Knowledge gets you to the question. Strategy gets you the point. Read the task, classify the choices, find the discriminating clues, and answer at the level requested — every time.</div>
+
+</main>
+
+<script>
+(function(){
+  var p = new URLSearchParams(location.search);
+  if(p.get('instructor')==='1'){ document.body.classList.add('instructor'); }
+  document.addEventListener('keydown', function(e){
+    if((e.key==='i'||e.key==='I') && !/input|textarea/i.test(e.target.tagName)){
+      document.body.classList.toggle('instructor');
+    }
+  });
+})();
+</script>
+</div>
+<!-- ══ LOCKED CONTENT ENDS ══ -->
+<script>
+(function() {
+  var CODE = 'BOOTCAMP2026';
+  var LS_KEY = 'pcb_access_v1';
+  var SYS = 'Strategy';
+
+  function pwUnlock() {
+    document.body.classList.add('pw-unlocked');
+    var banner = document.getElementById('pw-unlocked-banner-' + SYS);
+    if (banner) banner.classList.add('show');
+    var wrap = document.getElementById('pw-code-wrap-' + SYS);
+    if (wrap) wrap.style.display = 'none';
+    document.querySelectorAll('[data-was-locked]').forEach(function(el) {
+      el.style.removeProperty('display');
+      delete el.dataset.wasLocked;
+    });
+  }
+
+  function pwSubmitCode(sys, code, key) {
+    var inp = document.getElementById('pw-code-input-' + sys);
+    var err = document.getElementById('pw-code-error-' + sys);
+    if (!inp) return;
+    var val = inp.value.trim().toUpperCase();
+    if (val === code.toUpperCase()) {
+      try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
+      inp.classList.remove('error');
+      if (err) err.classList.remove('show');
+      pwUnlock();
+    } else {
+      inp.classList.add('error');
+      if (err) err.classList.add('show');
+      inp.value = '';
+      inp.focus();
+      setTimeout(function() { inp.classList.remove('error'); }, 600);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var unlocked = false;
+    try { if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') unlocked = true; } catch(e) {}
+    if (unlocked) { pwUnlock(); }
+    // If not unlocked, CSS already hides .pw-lockable by default — nothing to do
+  });
+
+  window.pwSubmitCode = pwSubmitCode;
+  window.pwUnlock = pwUnlock;
+})();
+</script>
+<script>
+function siteNavToggle(btn) {
+  var links = document.getElementById('site-nav-links');
+  var open = links.classList.toggle('site-open');
+  btn.setAttribute('aria-expanded', open);
+}
+function siteDdToggle(e) {
+  e.stopPropagation();
+  var menu = document.getElementById('site-dd-menu');
+  var btn  = e.currentTarget;
+  var open = menu.classList.toggle('site-open');
+  btn.querySelector('.site-dd-caret').style.transform = open ? 'rotate(180deg)' : '';
+}
+document.addEventListener('click', function() {
+  var menu = document.getElementById('site-dd-menu');
+  if (menu) {
+    menu.classList.remove('site-open');
+    var caret = document.querySelector('.site-dd-caret');
+    if (caret) caret.style.transform = '';
+  }
+});
+</script>
+</body>
+</html>

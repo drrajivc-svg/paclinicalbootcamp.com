@@ -1126,20 +1126,15 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
   .tier-count { display: none; }
 }
 
-/* ── LOCK: hide tc-body when card is locked ── */
-
-.pw-locked 
-
-.pw-locked 
-
+/* ── LOCK ── */
 /* ══ PAYWALL LOCK ══════════════════════════════════════════ */
 .pw-locked .tc-body,
 .pw-locked .tc-inner-content {
-  display: none;
+  display: none !important;
 }
 body.pw-unlocked .pw-locked .tc-body,
 body.pw-unlocked .pw-locked .tc-inner-content {
-  display: block;
+  display: block !important;
 }
 .tc-lock-prompt {
   display: flex;
@@ -1207,6 +1202,7 @@ body.pw-unlocked .tc-lock-prompt {
         <a href="gi_bootcamp_syllabus_v2.html" class="">GI &amp; Hepatology</a>
         <a href="id_bootcamp_syllabus_v2.html" class="">Infectious Disease</a>
         <a href="pa-neuro-bootcamp-syllabus.html" class="">Neurology</a>
+        <a href="pance_strategy_syllabus.html" class="">Board Strategy</a>
         </div>
       </div>
       <a href="pa-bootcamp-ecg.html">ECG</a>
@@ -5267,6 +5263,78 @@ document.addEventListener('click', function() {
     if (caret) caret.style.transform = '';
   }
 });
+</script>
+<script>
+(function() {
+  var CODE = 'BOOTCAMP2026';
+  var LS_KEY = 'pcb_access_v1';
+  var SYS = 'Cardiology';
+
+  function pwUnlock() {
+    document.body.classList.add('pw-unlocked');
+    var banner = document.getElementById('pw-unlocked-banner-' + SYS);
+    if (banner) banner.classList.add('show');
+    var wrap = document.getElementById('pw-code-wrap-' + SYS);
+    if (wrap) wrap.style.display = 'none';
+    // Remove inline display:none from any locked content
+    document.querySelectorAll('[data-was-locked]').forEach(function(el) {
+      el.style.removeProperty('display');
+      delete el.dataset.wasLocked;
+    });
+  }
+
+  function pwSubmitCode(sys, code, key) {
+    var inp = document.getElementById('pw-code-input-' + sys);
+    var err = document.getElementById('pw-code-error-' + sys);
+    if (!inp) return;
+    var val = inp.value.trim().toUpperCase();
+    if (val === code.toUpperCase()) {
+      try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
+      inp.classList.remove('error');
+      if (err) err.classList.remove('show');
+      pwUnlock();
+    } else {
+      inp.classList.add('error');
+      if (err) err.classList.add('show');
+      inp.value = '';
+      inp.focus();
+      setTimeout(function() { inp.classList.remove('error'); }, 600);
+    }
+  }
+
+  // Hide locked content on load
+  function applyLock() {
+    document.querySelectorAll('.topic-card.pw-locked').forEach(function(card) {
+      Array.from(card.children).forEach(function(el) {
+        var c = el.className || '';
+        if (c.indexOf('tc-header') < 0 && c.indexOf('tc-lock-prompt') < 0) {
+          el.style.setProperty('display','none','important');
+          el.dataset.wasLocked = '1';
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if already unlocked
+    var alreadyUnlocked = false;
+    try {
+      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') {
+        alreadyUnlocked = true;
+      }
+    } catch(e) {}
+
+    if (alreadyUnlocked) {
+      pwUnlock();
+    } else {
+      applyLock();
+    }
+  });
+
+  // Expose globally
+  window.pwSubmitCode = pwSubmitCode;
+  window.pwUnlock = pwUnlock;
+})();
 </script>
 </body>
 </html>
