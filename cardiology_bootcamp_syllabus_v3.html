@@ -3682,41 +3682,281 @@ SAH: "Worst headache → CT first, treat second"</div></div>
 </div>
 
 <!-- TOPIC: LIPID DISORDERS -->
-<div class="topic-card pw-locked" id="lipids">
+<div class="topic-card pw-locked tier-1" id="lipids">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic GAP-1 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Lipid Disorders &amp; Dyslipidemia</div>
-      <div class="tc-subtitle">ACC/AHA Risk Calculator · Statin Tiers · LDL Targets · Ezetimibe · PCSK9 Inhibitors · Hypertriglyceridemia</div>
+      <div class="tc-subtitle">2026 ACC/AHA Guideline · Statin Intensity Tiers · LDL Targets · Ezetimibe · PCSK9 Inhibitors · Hypertriglyceridemia</div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-red">Why It Matters</div>
+    <p>Dyslipidemia questions on the PANCE test statin benefit groups, intensity classification, and add-on therapy sequencing. The 2026 ACC/AHA guideline expanded risk estimation to ages 30–79 and added CKD stage ≥3 and HIV as Class I statin indications — expect these updates to be tested.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Lipid Panel Basics</div>
+    <ul class="bl">
+      <li><b>LDL-C ("bad cholesterol"):</b> Primary target of therapy; directly atherogenic</li>
+      <li><b>HDL-C ("good cholesterol"):</b> Inversely associated with ASCVD risk</li>
+      <li><b>Triglycerides:</b> Levels &gt;500 mg/dL → pancreatitis risk</li>
+      <li><b>Friedewald equation:</b> Total cholesterol = LDL + HDL + (TG/5) — inaccurate if TG &gt;400 mg/dL</li>
+      <li><b>Non-HDL-C</b> = Total cholesterol − HDL-C (secondary target; captures all atherogenic particles)</li>
+      <li><b>Fasting vs. non-fasting:</b> Non-fasting panels acceptable for screening; fasting required if TG assessment needed</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Classification</div>
+    <ul class="bl">
+      <li><b>Primary (genetic):</b> Familial hypercholesterolemia (LDL-C ≥190 mg/dL; autosomal dominant; LDL receptor mutations), familial hypertriglyceridemia, familial combined hyperlipidemia</li>
+      <li><b>Secondary causes:</b> Hypothyroidism, diabetes, nephrotic syndrome, CKD, obstructive liver disease, medications (thiazides, beta-blockers, corticosteroids, protease inhibitors, oral estrogens, retinoids)</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-amber">ASCVD Risk Assessment — 2026 ACC/AHA Update</div>
+    <ul class="bl">
+      <li><b>Pooled Cohort Equations (PCE)</b> estimate 10-year ASCVD risk; target population expanded to <b>ages 30–79</b> (previously 40–75)</li>
+      <li><b>Risk categories:</b> Low &lt;3.0% · Borderline 3.0 to &lt;5.0% · Intermediate 5.0 to &lt;10% · High ≥10%</li>
+      <li><b>Risk-enhancing factors:</b> Family history of premature ASCVD, LDL-C ≥160, metabolic syndrome, CKD, chronic inflammatory conditions (RA, psoriasis, HIV), South Asian ancestry, preeclampsia/early menopause, elevated Lp(a), elevated hsCRP, ABI &lt;0.9</li>
+      <li><b>Coronary artery calcium (CAC) score:</b> Useful when the decision is uncertain (intermediate risk); CAC = 0 favors deferring statin therapy</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Statin Intensity Classification — Know Cold</div>
+    <table class="btable">
+      <thead><tr><th>Intensity</th><th>Expected LDL-C Reduction</th><th>Medications</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">High</td><td class="td-green">≥50%</td><td>Atorvastatin 40–80 mg · Rosuvastatin 20–40 mg</td></tr>
+        <tr><td class="td-bold">Moderate</td><td>30–49%</td><td>Atorvastatin 10–20 mg · Rosuvastatin 5–10 mg · Simvastatin 20–40 mg · Pravastatin 40–80 mg</td></tr>
+        <tr><td class="td-bold">Low</td><td>&lt;30%</td><td>Simvastatin 10 mg · Pravastatin 10–20 mg · Lovastatin 20 mg · Fluvastatin 20–40 mg</td></tr>
+      </tbody>
+    </table>
+    <ul class="bl">
+      <li><b>Mechanism:</b> Inhibit HMG-CoA reductase → ↓ hepatic cholesterol synthesis → upregulate LDL receptors → ↓ circulating LDL-C</li>
+      <li><b>Side effects:</b> Statin-associated muscle symptoms (most common; myalgias 5–10% in practice, myositis/rhabdomyolysis rare), transaminase elevation (baseline LFTs; routine monitoring not required unless symptomatic), modest new-onset diabetes risk (benefits outweigh risks)</li>
+      <li><b>Contraindications:</b> Active liver disease, pregnancy (teratogenic)</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-purple">Non-Statin Therapies</div>
+    <table class="btable">
+      <thead><tr><th>Agent</th><th>Mechanism / LDL Effect</th><th>Board Pearl</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Ezetimibe</td><td>Inhibits intestinal cholesterol absorption; ↓LDL ~18%</td><td>First add-on to statin when goals not met</td></tr>
+        <tr><td class="td-bold">PCSK9 inhibitors (evolocumab, alirocumab)</td><td>Monoclonal antibodies; ↓LDL 50–60%; injectable</td><td>For FH or ASCVD not at goal on max statin + ezetimibe</td></tr>
+        <tr><td class="td-bold">Bempedoic acid</td><td>ACL inhibitor (upstream of HMG-CoA reductase); ↓LDL ~18%</td><td class="td-green">Does NOT cause myalgias (not active in skeletal muscle) — for statin-intolerant patients</td></tr>
+        <tr><td class="td-bold">Bile acid sequestrants</td><td>↓LDL 15–30%</td><td>Poorly tolerated (GI); may raise TG</td></tr>
+        <tr><td class="td-bold">Fibrates (fenofibrate, gemfibrozil)</td><td>Primarily lower TG</td><td class="td-red">TG ≥500 mg/dL → fibrates to prevent pancreatitis</td></tr>
+        <tr><td class="td-bold">Icosapent ethyl (Vascepa)</td><td>Purified EPA</td><td>↓ASCVD events with TG 135–499 on statin (REDUCE-IT)</td></tr>
+        <tr><td class="td-bold">Niacin</td><td>↑HDL, ↓TG and LDL</td><td>Limited use — flushing, hepatotoxicity, hyperglycemia</td></tr>
+        <tr><td class="td-bold">Inclisiran</td><td>siRNA targeting PCSK9</td><td>Given twice yearly by injection</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-green">Statin Benefit Groups — Class I Indications (2026 ACC/AHA)</div>
+    <ul class="bl">
+      <li><b>Clinical ASCVD (secondary prevention)</b> → high-intensity statin</li>
+      <li><b>LDL-C ≥190 mg/dL</b> (primary hypercholesterolemia/FH) → high-intensity statin</li>
+      <li><b>Diabetes mellitus, age 40–75</b> → moderate-to-high intensity based on risk</li>
+      <li><b>CKD stage 3 or higher</b> → statin therapy <span class="gap-tag">NEW in 2026</span></li>
+      <li><b>HIV infection</b> → statin therapy <span class="gap-tag">NEW in 2026</span></li>
+      <li><b>10-year ASCVD risk ≥10%</b> (ages 30–79) → moderate-to-high intensity statin</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Secondary Prevention Sequencing</div>
+    <ul class="bl">
+      <li>All clinical ASCVD → maximally tolerated <b>high-intensity statin</b></li>
+      <li>LDL-C still ≥70 mg/dL → <b>add ezetimibe</b></li>
+      <li>Still not at goal → <b>add PCSK9 inhibitor</b></li>
+      <li><b>Very high-risk ASCVD:</b> Target LDL-C &lt;55 mg/dL</li>
+      <li><b>Lifestyle for all:</b> Mediterranean/DASH diet, saturated fat &lt;6% of calories, no trans fats, ≥150 min/week moderate aerobic exercise, weight management, smoking cessation, limit alcohol</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Dyslipidemia</div>
+      <ul class="box-items">
+        <li><b>Statins are CONTRAINDICATED in pregnancy and active liver disease</b></li>
+        <li><b>Simvastatin 80 mg is NOT recommended</b> — increased myopathy risk</li>
+        <li><b>TG ≥500 mg/dL changes the priority</b> — fibrates first to prevent pancreatitis, not LDL lowering</li>
+        <li><b>Bempedoic acid does NOT cause myalgias</b> — the answer for statin-intolerant patients</li>
+        <li><b>2026 update:</b> CKD stage ≥3 and HIV are now Class I statin indications; risk estimation now ages 30–79</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">High-intensity statins: "40 to Rock" — Atorvastatin starts at 40, Rosuvastatin starts at 20. Treatment ladder for ASCVD: "Statin → Zetia → PCSK9" (S-Z-P: Sequence Zaps Plaque).</div></div>
   </div>
 </div>
 
 <!-- TOPIC: CONGENITAL HEART DISEASE -->
-<div class="topic-card pw-locked" id="chd">
+<div class="topic-card pw-locked tier-1" id="chd">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic GAP-2 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Congenital Heart Disease</div>
-      <div class="tc-subtitle">ASD · VSD · PDA · TOF · Coarctation · Acyanotic vs Cyanotic · Eisenmenger Syndrome</div>
+      <div class="tc-subtitle">ASD · VSD · PDA · TOF · TGA · Coarctation · Acyanotic vs Cyanotic · Eisenmenger Syndrome</div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-red">Why It Matters</div>
+    <p>CHD affects ~0.86–1.0% of all live births; cyanotic lesions occur in ~0.2%. The PANCE tests murmur recognition, the acyanotic-vs-cyanotic split, and the two prostaglandin facts (PGE1 opens the duct, indomethacin closes it).</p></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Classification</div>
+    <ul class="bl">
+      <li><b>Acyanotic (left-to-right shunts):</b> VSD, ASD, PDA, AVSD, coarctation of the aorta, aortic stenosis, pulmonic stenosis</li>
+      <li><b>Cyanotic (right-to-left shunts):</b> Tetralogy of Fallot, transposition of the great arteries, truncus arteriosus, tricuspid atresia, total anomalous pulmonary venous return</li>
+      <li><b>The "5 T's" of cyanotic CHD:</b> Tetralogy of Fallot, Transposition, Truncus arteriosus, Tricuspid atresia, TAPVR</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Acyanotic Lesions (Left-to-Right Shunts)</div>
+    <table class="btable">
+      <thead><tr><th>Lesion</th><th>Murmur / Key Finding</th><th>Pearls</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">VSD</td><td>Harsh holosystolic murmur at LLSB; smaller defect = louder murmur; may have thrill</td><td class="td-red">Most common CHD overall. Small VSDs often close spontaneously. Complication: Eisenmenger syndrome.</td></tr>
+        <tr><td class="td-bold">ASD</td><td class="td-amber">Fixed, widely split S2; systolic ejection murmur at LUSB</td><td>Ostium secundum most common (~70%). ECG: RAD, RVH, incomplete RBBB. Close when Qp:Qs ≥1.5:1.</td></tr>
+        <tr><td class="td-bold">PDA</td><td>Continuous "machinery" murmur at left infraclavicular area; widened pulse pressure, bounding pulses</td><td>Risk factors: prematurity, maternal rubella. Close with indomethacin/ibuprofen.</td></tr>
+        <tr><td class="td-bold">Coarctation</td><td>Upper-extremity HTN + diminished/delayed femoral pulses; arm-leg BP gradient &gt;20 mmHg; murmur over left interscapular area</td><td class="td-red">Associated with bicuspid aortic valve (~50%) and Turner syndrome. Rib notching on CXR. Cardiac MRI preferred advanced imaging.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-purple">Cyanotic Lesions (Right-to-Left Shunts)</div>
+    <ul class="bl">
+      <li><b>Tetralogy of Fallot (most common cyanotic CHD)</b> — "PROVe": Pulmonary stenosis, RVH, Overriding aorta, VSD. Boot-shaped heart ("coeur en sabot") on CXR. <b>Tet spells</b> treated with knee-to-chest positioning, oxygen, IV fluids, morphine, phenylephrine. Older children squat to ↑SVR → ↓ right-to-left shunt. Definitive: complete surgical repair (&gt;90% survive &gt;30 years).</li>
+      <li><b>Transposition of the great arteries (D-TGA)</b> — aorta off RV, PA off LV → parallel circulations. Severe cyanosis within hours of birth; "egg-on-a-string" CXR. PGE1 to maintain PDA → balloon atrial septostomy (Rashkind) → arterial switch (Jatene) definitive.</li>
+      <li><b>Truncus arteriosus:</b> single great vessel overrides both ventricles</li>
+      <li><b>Tricuspid atresia:</b> absent tricuspid valve → obligate right-to-left atrial shunt</li>
+      <li><b>TAPVR:</b> all pulmonary veins drain to RA/systemic veins → requires ASD for survival</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — CHD</div>
+      <ul class="box-items">
+        <li><b>PGE1 (alprostadil) keeps the ductus OPEN</b> — for duct-dependent lesions (critical PS, critical CoA, TGA, HLHS). <b>Indomethacin/ibuprofen CLOSE the PDA.</b> Don't mix these up.</li>
+        <li><b>Fixed split S2 = ASD</b> — this is the single highest-yield auscultation finding</li>
+        <li><b>Eisenmenger syndrome</b> = irreversible pulmonary HTN with shunt reversal → cyanosis; contraindication to surgical repair</li>
+        <li><b>Coarctation → think Turner syndrome and bicuspid aortic valve</b></li>
+        <li>Pulse oximetry screening at 24–48 hours detects cyanotic CHD</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Prostaglandins: "E keeps it opEn." PGE1 → ductus stays open. Indomethacin (an NSAID → prostaglandin inhibitor) → ductus closes. VSD = the loudest small murmur; ASD = the fixed split.</div></div>
   </div>
 </div>
 
 <!-- TOPIC: RESTRICTIVE CMP + TAKOTSUBO -->
-<div class="topic-card pw-locked" id="restrictive-cmp">
+<div class="topic-card pw-locked tier-2" id="restrictive-cmp">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic GAP-3 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Restrictive Cardiomyopathy &amp; Stress Cardiomyopathy</div>
-      <div class="tc-subtitle">Cardiac Amyloidosis · Hemochromatosis · Sarcoid CMP · Takotsubo · Loeffler · Diastolic Dysfunction</div>
+      <div class="tc-subtitle">Cardiac Amyloidosis · Hemochromatosis · Sarcoid CMP · Takotsubo · Löffler · Diastolic Dysfunction</div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-red">Why It Matters</div>
+    <p>RCM is the least common cardiomyopathy but a favorite board topic because of the distinction from constrictive pericarditis. The exam tests the defining echo picture (non-dilated ventricles + biatrial enlargement + preserved EF + diastolic dysfunction) and the amyloidosis pearls.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Definition &amp; Pathophysiology</div>
+    <ul class="bl">
+      <li>Increased myocardial stiffness → rapid rise in ventricular pressure with small increases in filling volume</li>
+      <li><b>Defining features:</b> restrictive filling pattern, diastolic dysfunction, <b>non-dilated ventricles, biatrial enlargement, preserved (or near-normal) EF</b></li>
+      <li>Least common type of cardiomyopathy</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Etiology — Four Mechanisms</div>
+    <ul class="bl">
+      <li><b>Infiltrative:</b> Amyloidosis (most common secondary cause overall), sarcoidosis</li>
+      <li><b>Storage:</b> Hemochromatosis (iron), Fabry disease (glycosphingolipid), glycogen storage diseases</li>
+      <li><b>Endomyocardial:</b> Endomyocardial fibrosis (tropical), Löffler endocarditis (eosinophilic), carcinoid, radiation-induced, chemotherapy-induced (anthracyclines)</li>
+      <li><b>Idiopathic/genetic:</b> may be familial (desmin, troponin I mutations)</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-amber">Clinical Presentation</div>
+    <ul class="bl">
+      <li><b>Right-sided heart failure predominates:</b> peripheral edema, ascites, hepatomegaly, JVD</li>
+      <li>Exercise intolerance, dyspnea on exertion, fatigue; Kussmaul sign may be present</li>
+      <li>Atrial fibrillation common (biatrial enlargement); thromboembolic events from atrial stasis</li>
+      <li>S3 or S4 gallop may be heard (S4 is never normal)</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Diagnosis</div>
+    <ul class="bl">
+      <li><b>Echocardiography (initial test of choice):</b> non-dilated ventricles, marked biatrial enlargement, preserved EF, restrictive filling (↑E/A ratio, short deceleration time). Tissue Doppler: <b>reduced e′ (&lt;8 cm/s)</b> — key distinguishing feature.</li>
+      <li><b>Cardiac catheterization:</b> "square root sign" (dip-and-plateau), elevated biventricular filling pressures, prominent "y" descent, blunted "x" descent</li>
+      <li><b>Cardiac MRI:</b> amyloid → diffuse subendocardial/transmural LGE with difficulty nulling myocardium; sarcoid → patchy mid-wall/epicardial LGE; hemochromatosis → low T2 signal</li>
+      <li><b>Nuclear:</b> technetium pyrophosphate scan for ATTR amyloid; FDG-PET for cardiac sarcoid</li>
+      <li><b>Endomyocardial biopsy:</b> gold standard when etiology unclear</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-purple">RCM vs. Constrictive Pericarditis — HIGH-YIELD</div>
+    <table class="btable">
+      <thead><tr><th>Feature</th><th>Restrictive CMP</th><th>Constrictive Pericarditis</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Pathology</td><td>Intrinsic myocardial disease</td><td>External pericardial constraint</td></tr>
+        <tr><td class="td-bold">Pericardium</td><td>Normal</td><td>Thickened/calcified</td></tr>
+        <tr><td class="td-bold">Tissue Doppler e′</td><td class="td-red">Reduced (&lt;8 cm/s)</td><td class="td-green">Normal/increased (&gt;8) — "annulus paradoxus"</td></tr>
+        <tr><td class="td-bold">Septal bounce</td><td>Absent</td><td>Present (respirophasic shift)</td></tr>
+        <tr><td class="td-bold">Respiratory mitral inflow variation</td><td>Absent</td><td>Present (&gt;25%)</td></tr>
+        <tr><td class="td-bold">Ventricular interdependence</td><td>Absent</td><td>Exaggerated</td></tr>
+        <tr><td class="td-bold">Treatment</td><td>Etiology-specific; transplant</td><td class="td-green">Pericardiectomy (potentially curative)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-green">Management</div>
+    <ul class="bl">
+      <li><b>General:</b> cautious diuretics for volume overload (preload dependent); rate control + anticoagulation for AF or intracardiac thrombus</li>
+      <li><b>AL amyloidosis:</b> bortezomib-based chemotherapy, autologous stem cell transplant</li>
+      <li><b>ATTR amyloidosis:</b> tafamidis (TTR stabilizer — reduces mortality and hospitalization)</li>
+      <li><b>Sarcoidosis:</b> corticosteroids, immunosuppressants; <b>Hemochromatosis:</b> phlebotomy, iron chelation (deferoxamine); <b>Carcinoid:</b> octreotide, valve surgery</li>
+      <li><b>Cardiac transplantation:</b> definitive for refractory disease; often the only option for idiopathic RCM</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — RCM</div>
+      <ul class="box-items">
+        <li><b>Avoid digoxin in amyloidosis</b> — increased sensitivity/toxicity</li>
+        <li><b>Tissue Doppler e′ &lt;8 cm/s = RCM; e′ &gt;8 cm/s = constrictive pericarditis</b> — the single test that separates them</li>
+        <li><b>Amyloidosis is the most common infiltrative cause;</b> tafamidis is the ATTR answer</li>
+        <li><b>CCBs and beta-blockers can worsen RCM</b> — reduce HR → less filling time in an already stiff ventricle</li>
+        <li>Pediatric RCM carries a poor prognosis (&gt;50% die or need transplant within 2 years)</li>
+      </ul>
+    </div>
+
+    <div class="box box-navy">
+      <div class="box-label">↔ Stress (Takotsubo) Cardiomyopathy — cross-reference</div>
+      <ul class="box-items">
+        <li>Takotsubo (apical ballooning / stress CMP) is covered in full under <b>Topic CM-2: Dilated &amp; Other Cardiomyopathies</b>. Key points: post-stress catecholamine surge, usually postmenopausal women, STEMI-like presentation with clean coronaries (MINOCA), typically reversible in 4–8 weeks, treat supportively.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">RCM echo signature: "Big atria, small ventricles, normal squeeze, stiff fill." The e′ velocity is the tiebreaker — <b>Low e′ = restrictive</b> (the muscle itself is sick); high e′ = constrictive (the muscle is fine, the pericardium is the problem).</div></div>
   </div>
 </div>
 
