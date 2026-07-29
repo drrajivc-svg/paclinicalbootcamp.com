@@ -18,7 +18,7 @@
   --red:#C8392B;--red-dk:#9B2B20;--red-lt:#FFF5F4;--red-bd:#F5C6C2;
   --amber:#B87333;--amber-lt:#FFF8EF;--amber-bd:#E8C99A;
   --teal:#0D6E6E;--teal-lt:#EEF8F8;--teal-bd:#B8DEDE;
-  --navy:#0F1F3D;--navy-md:#1C3160;--navy-lt:#EEF2FA;
+  --navy:#0F1F3D; --navy-bd: #C5D2EB;--navy-md:#1C3160;--navy-lt:#EEF2FA;
   --slate:#3D4A5C;--mid:#6B7A8D;
   --light:#F4F6F9;--border:#E2E8F0;
   --gold:#B8860B;--gold-lt:#FFFBEF;
@@ -31,11 +31,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font-size:14.5px;line-height:1.7;}
 
-.top-bar::-webkit-scrollbar{display:none;}
 
-.tb-brand span{color:#A78BFA;}
-
-.tb-link:hover{color:white;background:rgba(255,255,255,.08);}
 .hero{background:var(--navy);padding:56px 64px 48px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;right:-60px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.2) 0%,transparent 70%);}
 .hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
@@ -64,7 +60,6 @@ body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font
 .tc-tier{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:white;padding:16px 0;}
 .tier-1 .tc-tier{background:var(--red);}
 .tier-2 .tc-tier{background:var(--amber);}
-.tier-3 .tc-tier{background:var(--mid);}
 .tc-main{padding:16px 20px;}
 .tc-num{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-bottom:3px;}
 .tc-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:3px;}
@@ -73,7 +68,6 @@ body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font
 .badge{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;white-space:nowrap;}
 .badge-pance{background:var(--red-lt);color:var(--red);}
 .badge-trap{background:var(--amber-lt);color:var(--amber);}
-.badge-gap{background:var(--purple-lt);color:var(--purple);}
 .badge-new{background:var(--green-lt);color:var(--green);}
 .tc-body{padding:0 24px 20px;}
 .sub{margin-top:16px;}
@@ -99,13 +93,10 @@ strong,b{color:var(--black);}
 .box-items li b{color:var(--black);}
 .box-red{background:var(--red-lt);border-color:var(--red);}
 .box-red .box-label{color:var(--red);}.box-red .box-items li::before{color:var(--red);}
-.box-teal{background:var(--teal-lt);border-color:var(--teal);}
 .box-teal .box-label{color:var(--teal);}.box-teal .box-items li::before{color:var(--teal);}
-.box-navy{background:var(--navy-lt);border-color:var(--navy);}
 .box-navy .box-label{color:var(--navy);}.box-navy .box-items li::before{color:var(--navy);}
 .box-amber{background:var(--amber-lt);border-color:var(--amber);}
 .box-amber .box-label{color:var(--amber);}.box-amber .box-items li::before{color:var(--amber);}
-.box-green{background:var(--green-lt);border-color:var(--green);}
 .box-green .box-label{color:var(--green);}.box-green .box-items li::before{color:var(--green);}
 .box-id{background:var(--id-lt);border-color:var(--id);}
 .box-id .box-label{color:var(--id);}.box-id .box-items li::before{color:var(--id);}
@@ -119,11 +110,8 @@ strong,b{color:var(--black);}
 .td-green{color:var(--green)!important;font-weight:600!important;}
 .td-amber{color:var(--amber)!important;font-weight:600!important;}
 .td-bold{font-weight:700!important;color:var(--black)!important;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
 @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
 .pearl{background:var(--light);border-left:4px solid var(--navy);border-radius:5px;padding:13px 16px;margin:12px 0;}
-.pearl-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:7px;}
-.pearl-text{font-family:'Syne',sans-serif;font-size:13.5px;font-style:italic;color:var(--navy-md);line-height:1.65;}
 .trick{background:var(--gold-lt);border-left:4px solid var(--gold);border-radius:5px;padding:12px 15px;margin:12px 0;}
 .trick-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
 .trick-text{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:#5A4000;line-height:1.65;white-space:pre-line;}
@@ -131,20 +119,6 @@ strong,b{color:var(--black);}
 .vig-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A78BFA;margin-bottom:7px;}
 .vig-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;}
 .vig-ans{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:7px;font-style:italic;}
-.toggle-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);background:var(--light);border:1px solid var(--border);border-radius:4px;padding:5px 11px;cursor:pointer;margin:7px 0 4px;transition:all .12s;}
-.toggle-btn:hover{background:var(--navy);color:white;}
-.q-answer{display:none;margin-top:6px;}
-.q-answer.show{display:block;}
-.qblock{border:1.5px solid var(--border);border-radius:7px;overflow:hidden;margin-bottom:14px;}
-.qblock-stem{padding:14px 16px;background:white;}
-.q-num{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;}
-.q-text{font-size:14px;font-weight:600;color:var(--black);line-height:1.6;margin-bottom:11px;}
-.q-choices{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;}
-.q-choices li{font-size:13px;color:var(--slate);padding:4px 9px;border-radius:4px;border:1px solid transparent;}
-.q-choices li .ltr{font-family:'DM Mono',monospace;font-weight:700;color:var(--navy);margin-right:5px;}
-.q-ans-block{background:var(--green-lt);border-top:1.5px solid var(--green-bd);padding:11px 16px;}
-.q-ans-lbl{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
-.q-ans-text{font-size:13px;color:var(--slate);line-height:1.6;}
 .rf-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
 .rf-item{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--id);}
 .rf-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--id);line-height:1;flex-shrink:0;width:28px;}
@@ -169,14 +143,13 @@ strong,b{color:var(--black);}
 .page-footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:28px 24px;font-size:12.5px;margin-top:60px;}
 .page-footer strong{color:rgba(255,255,255,.8);}
 .page-footer a{color:#A78BFA;text-decoration:none;}
-@media print{.top-bar,.toggle-btn{display:none!important;}.q-answer{display:block!important;}body{background:white;}}
+@media print{body{background:white;}}
 
 /* ════ POPUP SYSTEM ════ */
 .img-popup-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy-lt);color:var(--navy);border:1.5px solid var(--navy);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
 .img-popup-btn:hover{background:var(--navy);color:white;}
 .ecg-popup-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:#0a1628;color:#00ff88;border:1.5px solid rgba(0,255,136,.4);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
 .ecg-popup-btn:hover{background:#0d2040;border-color:#00ff88;}
-.audio-mnemonic-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(13,110,110,.1);color:var(--teal,#0D6E6E);border:1.5px solid rgba(13,110,110,.3);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
 .popup-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,15,26,.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px;}
 .popup-overlay.active{display:flex;}
 .popup-modal{background:white;border-radius:14px;max-width:880px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .22s cubic-bezier(.34,1.56,.64,1) both;position:relative;}
@@ -252,25 +225,6 @@ strong,b{color:var(--black);}
 /* Fade-out gradient over blurred content */
 
 /* Small lock callout at bottom of each locked card */
-.pw-card-lock {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 3;
-  display: flex; align-items: center; justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: rgba(247,249,252,.98);
-  border-top: 1px dashed var(--border);
-  font-size: 12.5px; color: var(--mid, #6B7A8D);
-  text-align: center;
-}
-.pw-card-lock a {
-  color: var(--navy, #0F1F3D);
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.pw-card-lock a:hover { text-decoration: underline; }
 
 /* ── THE GATE ── */
 .pw-gate {
@@ -761,18 +715,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
 }
 
 /* Scroll arrow hints */
-.jump-nav-arrow {
-  display: none;
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 32px;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  z-index: 2;
-}
-.jump-nav-arrow.right { right: 0; }
-.jump-nav-arrow.left  { left: 0; background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.95)); }
 
 @media (max-width: 768px) {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
@@ -828,6 +770,96 @@ body.pw-unlocked .tc-lock-prompt {
 }
 .tc-lock-cta:hover { background: #1d4ed8; }
 /* ══════════════════════════════════════════════════════════ */
+
+/* ══ INTERACTIVE QUESTIONS (ported from ECG syllabus) ══ */
+.ix{margin:0 0 22px;border:1px solid var(--border);border-radius:14px;background:var(--light);overflow:hidden;}
+.ix-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
+.ix-kick{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--red);padding:4px 10px;border-radius:20px;white-space:nowrap;}
+.ix-ttl{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;}
+.ix-count{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-left:auto;}
+.ix-intro{padding:13px 18px 0;font-size:12.5px;line-height:1.6;color:var(--slate);}
+.ix-intro b{color:var(--navy);}
+.ix-body{padding:13px 18px 18px;}
+.ix-item{background:#fff;border:1px solid var(--border);border-radius:11px;padding:15px 17px;}
+.ix-n{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:8px;}
+.ix-q{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:11px;}
+.ix-opts{margin-bottom:10px;}
+.ix-opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;margin-bottom:7px;cursor:pointer;font-size:12.5px;line-height:1.5;color:var(--slate);transition:border-color .12s,background .12s;}
+.ix-opt:hover{border-color:var(--navy-bd);background:var(--navy-lt);}
+.ix-opt input{margin:3px 0 0;accent-color:var(--red);flex:none;}
+.ix-opt .ix-let{font-family:'DM Mono',monospace;font-weight:600;color:var(--mid);flex:none;}
+.ix-opt.ix-ok{border-color:var(--green);background:var(--green-lt);}
+.ix-opt.ix-ok .ix-let{color:var(--green);}
+.ix-opt.ix-no{border-color:var(--red);background:var(--red-lt);}
+.ix-opt.ix-no .ix-let{color:var(--red);}
+.ix-done .ix-opt{cursor:default;}
+.ix-done .ix-opt:hover{border-color:var(--border);background:#fff;}
+.ix-done .ix-opt.ix-ok:hover{border-color:var(--green);background:var(--green-lt);}
+.ix-done .ix-opt.ix-no:hover{border-color:var(--red);background:var(--red-lt);}
+.ix-sub-btn{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--navy);color:#fff;border:none;border-radius:9px;padding:10px 20px;cursor:pointer;}
+.ix-sub-btn:hover{background:var(--red);}
+.ix-sub-btn:disabled{opacity:.45;cursor:default;}
+.ix-fb{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-top:10px;line-height:1.5;}
+.ix-fb.ok{color:var(--green);}
+.ix-fb.no{color:var(--navy);}
+.ix-fb.warn{color:var(--amber);}
+details.ix-rev{display:none;margin-top:12px;border-top:1px solid var(--border);}
+.ix-done details.ix-rev{display:block;}
+details.ix-rev>summary{cursor:pointer;list-style:none;padding:11px 0 0;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--red);display:flex;align-items:center;gap:8px;}
+details.ix-rev>summary::-webkit-details-marker{display:none;}
+details.ix-rev>summary::before{content:'\25B8';font-size:11px;transition:transform .15s;}
+details.ix-rev[open]>summary::before{transform:rotate(90deg);}
+.ix-rev-body{padding:11px 0 2px;font-size:12.5px;line-height:1.64;color:var(--slate);}
+.ix-ans{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.ix-lbl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin:12px 0 5px;}
+.ix-why{margin:0;padding-left:19px;}
+.ix-why li{margin-bottom:5px;}
+.ix-bp{margin-top:13px;background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 9px 9px 0;padding:11px 14px;font-size:12.5px;line-height:1.6;}
+.ix-bp b{color:var(--amber);font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:5px;}
+.ix-where{margin-top:11px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);border-top:1px dashed var(--border);padding-top:9px;}
+.ix-where span{color:var(--navy);}
+.ix-ecg{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:13px;}
+.ix-ecg-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ix-ecg img{display:block;width:100%;min-width:660px;height:auto;}
+.ix-ecg-cap{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);padding:9px 13px 0;}
+@media(max-width:640px){.ix-body{padding:11px 12px 13px;}.ix-intro{padding:11px 12px 0;}.ix-item{padding:13px;}.ix-count{display:none;}}
+
+.grp{margin:26px 0 12px;padding:0 0 0 13px;border-left:3px solid var(--red);}
+.grp:first-of-type{margin-top:4px;}
+.grp-n{display:block;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+.grp{font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);line-height:1.5;}
+
+/* ── live-poll handoff button (Poll Everywhere) ── */
+.pe-row{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:0 0 12px;padding:11px 13px;background:var(--red-lt);border:1px solid var(--red-bd);border-radius:10px;}
+.pe-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--red);color:#fff;border:none;border-radius:9px;padding:10px 18px;cursor:pointer;text-decoration:none;white-space:nowrap;}
+.pe-btn:hover{background:var(--navy);}
+.pe-btn::before{content:'\25CF';font-size:9px;}
+.pe-note{font-family:'DM Sans',sans-serif;font-size:11.5px;line-height:1.5;color:var(--slate);}
+.pe-note b{color:var(--red);}
+@media(max-width:640px){.pe-row{flex-direction:column;align-items:stretch;}.pe-btn{justify-content:center;}}
+
+/* ══ LIVE CLASS RESULTS ══ */
+.ix-res{margin-top:13px;padding-top:12px;border-top:1px solid var(--border);}
+.ix-res-hd{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);display:flex;align-items:baseline;gap:8px;margin-bottom:9px;}
+.ix-res-n{color:var(--navy);font-weight:600;}
+.ix-res-live{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--green);}
+.ix-res-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:ixpulse 1.6s ease-in-out infinite;}
+@keyframes ixpulse{0%,100%{opacity:1}50%{opacity:.25}}
+.ix-res-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
+.ix-res-let{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:600;color:var(--mid);width:11px;flex:none;}
+.ix-res-track{flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.ix-res-fill{height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}
+.ix-res-pct{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--slate);width:42px;text-align:right;flex:none;}
+.ix-res-row.ok .ix-res-let{color:var(--green);}
+.ix-res-row.ok .ix-res-fill{background:var(--green);}
+.ix-res-row.mine .ix-res-let::after{content:'\2190';margin-left:3px;color:var(--red);}
+.ix-res-empty{font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--mid);font-style:italic;}
+
+/* ══ PRE-DOMAIN QUESTIONS — paywall parity with topic cards ══ */
+.ix-lock{display:none;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);font-style:italic;padding:13px 18px 16px;}
+body:not(.pw-unlocked) .ix-gated .ix-intro,
+body:not(.pw-unlocked) .ix-gated .ix-body{display:none!important;}
+body:not(.pw-unlocked) .ix-gated .ix-lock{display:block;}
 </style>
 </head>
 <body>
@@ -910,6 +942,96 @@ body.pw-unlocked .tc-lock-prompt {
 </div>
 
 <!-- SEPSIS -->
+<div class="ix">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Sepsis, CAP, UTI & Meningitis</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="i-hour1" data-answer="4">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Septic Shock — Surviving Sepsis Hour-1 Bundle</span>
+        <div class="ix-q">A 68-year-old nursing home patient arrives obtunded with BP 74/44, HR 128, T 39.4°C, RR 28, and lactate 5.2 mmol/L, meeting criteria for septic shock. A colleague suggests obtaining a CT scan before starting antibiotics to identify the infection source first. What is the correct sequence according to the 2021 Surviving Sepsis Campaign Hour-1 Bundle?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>30 mL/kg of crystalloid fluid must be given as a strict, mandatory requirement before any other intervention</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>CT imaging should be obtained first to identify and potentially drain the infection source before starting antibiotics</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Vasopressors should be started immediately, before any fluid resuscitation is attempted</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Blood cultures are no longer necessary before starting antibiotics per the 2021 update</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Antibiotics should be given within 1 hour of septic shock recognition, with imaging (CT) performed AFTER antibiotics are started, not before</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Antibiotics should be given within 1 hour of septic shock recognition, with imaging (CT) performed AFTER antibiotics are started, not before</div>
+            <div>The Surviving Sepsis Campaign Hour-1 Bundle mandates that broad-spectrum antibiotics be administered within 1 hour of septic shock recognition — this should not be delayed for imaging studies to identify the source. The correct sequence is: obtain lactate, draw blood cultures x2, administer broad-spectrum antibiotics, give fluid resuscitation (30 mL/kg crystalloid for hypotension or lactate ≥4, though this fluid volume recommendation was downgraded from mandatory to suggested in 2021), and start vasopressors if needed to maintain MAP ≥65 if fluids are inadequate. Source-identifying imaging like CT should be obtained after these immediate life-saving interventions, not before.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>30 mL/kg of crystalloid fluid must be given as a strict, mandatory requirement before any other intervention</b> &mdash; Incorrect. While fluid resuscitation remains important, the 2021 SSC update specifically DOWNGRADED the 30 mL/kg fluid recommendation from a strict mandate to a suggestion, recognizing that fluid overload can also harm septic patients — this fluid volume should be individualized, not treated as an absolute mandatory first step before other bundle elements.</li>
+              <li><b>CT imaging should be obtained first to identify and potentially drain the infection source before starting antibiotics</b> &mdash; Incorrect &mdash; and dangerous. This significantly delays antibiotic administration, which is time-critical in septic shock — each hour of delayed appropriate antibiotics is associated with increased mortality. Antibiotics should never be delayed for source-identifying imaging in septic shock.</li>
+              <li><b>Vasopressors should be started immediately, before any fluid resuscitation is attempted</b> &mdash; Incorrect. The standard approach still generally involves initial fluid resuscitation, with vasopressors added if the patient remains hypotensive despite fluids (to maintain MAP ≥65) — though both fluids and vasopressors should be considered together rather than treating vasopressors as the absolute first step before any fluid administration.</li>
+              <li><b>Blood cultures are no longer necessary before starting antibiotics per the 2021 update</b> &mdash; Incorrect. Blood cultures (x2, from different sites) remain a core component of the Hour-1 Bundle and should be obtained promptly — ideally before antibiotics when this doesn't meaningfully delay administration, since cultures guide subsequent antimicrobial de-escalation.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Nothing delays the antibiotic &mdash; not a CT, not the lumbar puncture, not a specialist call. The Hour-1 bundle order is <b>lactate, two blood cultures, broad-spectrum antibiotics, then 30 mL/kg crystalloid</b> for hypotension or lactate at or above 4, with vasopressors added if the MAP stays under 65. Cultures go before antibiotics only because they take seconds; if drawing them would delay therapy, give the antibiotic. Remember Sepsis-3: <b>sepsis is infection plus organ dysfunction</b>, and septic shock adds a pressor requirement with lactate above 2.</div>
+            <div class="ix-where">Covered below under <span>Topic 1 &mdash; Sepsis &amp; Septic Shock</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-dexa" data-answer="0">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Bacterial Meningitis — Dexamethasone Timing</span>
+        <div class="ix-q">A 19-year-old college student has fever, severe headache, neck stiffness, photophobia, confusion, and non-blanching petechiae, consistent with bacterial meningitis. Before a CT scanner is available, in what sequence should interventions occur, and why does dexamethasone timing relative to antibiotics matter?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Blood cultures first, then dexamethasone, then antibiotics — all within 30 minutes — because dexamethasone must be given before or with the first antibiotic dose to blunt the inflammatory cytokine response triggered by bacterial lysis</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Antibiotics should be given first, followed by dexamethasone once the diagnosis is confirmed by lumbar puncture</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>CT head must be obtained before any treatment to rule out increased intracranial pressure, even if this delays antibiotics by an hour</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Dexamethasone is not beneficial in adult bacterial meningitis and should be omitted entirely</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Lumbar puncture must be performed and CSF analyzed before starting any antibiotics</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Blood cultures first, then dexamethasone, then antibiotics — all within 30 minutes — because dexamethasone must be given before or with the first antibiotic dose to blunt the inflammatory cytokine response triggered by bacterial lysis</div>
+            <div>The correct sequence for suspected bacterial meningitis with this presentation is: (1) blood cultures x2 immediately, (2) dexamethasone 0.15 mg/kg IV, (3) ceftriaxone plus vancomycin — all completed within 30 minutes. The critical timing concept is that dexamethasone must be given BEFORE or WITH (never after) the first antibiotic dose. The mechanism: antibiotics cause bacterial cell wall lysis, which releases inflammatory mediators and cytokines that drive much of the morbidity in bacterial meningitis (including hearing loss and neurologic sequelae). Dexamethasone given before/with antibiotics blunts this inflammatory cascade; given afterward, it provides little to no benefit since the inflammatory response has already been triggered.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Antibiotics should be given first, followed by dexamethasone once the diagnosis is confirmed by lumbar puncture</b> &mdash; Incorrect. This sequence eliminates the benefit of dexamethasone, since its protective effect against the inflammatory cytokine cascade depends on administration before or simultaneous with the first antibiotic dose — giving it after antibiotics (and after bacterial lysis has already triggered the inflammatory response) provides minimal benefit.</li>
+              <li><b>CT head must be obtained before any treatment to rule out increased intracranial pressure, even if this delays antibiotics by an hour</b> &mdash; Incorrect &mdash; and potentially fatal. Treatment (antibiotics, dexamethasone) should never be delayed for CT imaging in suspected bacterial meningitis with this presentation — CT is only needed before lumbar puncture if there are specific signs of mass effect (papilledema, focal neurologic deficits, severely altered mental status), and even then, antibiotics should be started before the CT, not after.</li>
+              <li><b>Dexamethasone is not beneficial in adult bacterial meningitis and should be omitted entirely</b> &mdash; Incorrect. Dexamethasone has demonstrated benefit in adult bacterial meningitis, particularly for pneumococcal meningitis, in reducing neurologic complications including hearing loss — it should be included in the treatment protocol, given before or with the first antibiotic dose.</li>
+              <li><b>Lumbar puncture must be performed and CSF analyzed before starting any antibiotics</b> &mdash; Incorrect &mdash; and dangerous. While LP provides valuable diagnostic information, antibiotics (along with dexamethasone) should never be delayed for LP in suspected bacterial meningitis with this severity of presentation — if LP cannot be performed immediately (e.g., due to need for CT first), antibiotics and dexamethasone should still be given promptly without waiting.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Dexamethasone must precede or accompany the first antibiotic dose &mdash; never follow it.</b> Antibiotics lyse the organism and release inflammatory cell-wall products; steroids given afterwards have missed the surge they exist to blunt. The benefit is clearest in pneumococcal meningitis, reducing hearing loss and mortality. CT before LP is required only for focal deficit, papilloedema, seizure, immunocompromise, or altered consciousness &mdash; and even then the antibiotic goes in first.</div>
+            <div class="ix-where">Covered below under <span>Topic 4 &mdash; Bacterial Meningitis</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-cystitis" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; Medium &middot; Uncomplicated Cystitis Treatment</span>
+        <div class="ix-q">A 24-year-old healthy, afebrile woman has 2 days of dysuria, frequency, and urgency. Urinalysis shows positive leukocyte esterase, positive nitrites, and 30-50 WBC/hpf. Her first-line treatment is nitrofurantoin. In which clinical scenario would nitrofurantoin be an inappropriate choice, requiring a different antibiotic?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>If she had signs/symptoms of pyelonephritis (fever, flank pain) rather than simple cystitis, since nitrofurantoin does not achieve adequate renal tissue concentrations</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>If her creatinine clearance was normal (CrCl >60 mL/min)</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>If she had no known drug allergies</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>If she was not pregnant</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>If local resistance rates to nitrofurantoin were below 20%</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; If she had signs/symptoms of pyelonephritis (fever, flank pain) rather than simple cystitis, since nitrofurantoin does not achieve adequate renal tissue concentrations</div>
+            <div>This patient has uncomplicated cystitis (afebrile, no flank pain, classic lower UTI symptoms), for which nitrofurantoin x5 days or TMP-SMX x3 days are first-line options. However, nitrofurantoin is specifically inappropriate for pyelonephritis (upper UTI) because it does not achieve adequate tissue concentrations in the renal parenchyma — it only concentrates effectively in the bladder/urine, making it ineffective for treating kidney parenchymal infection. A fluoroquinolone or other agent with adequate tissue penetration is needed for pyelonephritis.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>If her creatinine clearance was normal (CrCl >60 mL/min)</b> &mdash; Incorrect. — this describes a scenario where nitrofurantoin IS appropriate, not where it should be avoided. Nitrofurantoin should be avoided in significant renal impairment (CrCl <30), not in patients with normal renal function.</li>
+              <li><b>If she had no known drug allergies</b> &mdash; Incorrect. Absence of drug allergies is not a reason to avoid nitrofurantoin — this describes a scenario favoring its use, not contraindicating it.</li>
+              <li><b>If she was not pregnant</b> &mdash; Incorrect. Nitrofurantoin is actually considered safe in most stages of pregnancy (with caution near term due to theoretical risk of hemolytic anemia in the newborn) — non-pregnancy status does not contraindicate its use; if anything, pregnancy requires more caution, not less.</li>
+              <li><b>If local resistance rates to nitrofurantoin were below 20%</b> &mdash; Incorrect. — this describes conditions favorable to nitrofurantoin use (low local resistance supports empiric use), not a contraindication. The 20% resistance threshold concept actually applies to TMP-SMX selection guidance, not as a reason to avoid nitrofurantoin specifically.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Nitrofurantoin concentrates in urine, not renal tissue</b>, so it treats cystitis and fails pyelonephritis &mdash; the single most testable UTI distinction. First-line for uncomplicated cystitis is nitrofurantoin for 5 days, TMP-SMX for 3 days where resistance is under 20%, or fosfomycin as a single dose; fluoroquinolones are held back for pyelonephritis and complicated disease. Fever or flank pain moves the patient out of the cystitis pathway entirely.</div>
+            <div class="ix-where">Covered below under <span>Topic 3 &mdash; UTI, Cystitis &amp; Pyelonephritis</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card tier-1" id="sepsis">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1365,6 +1487,97 @@ CSF: "Bacterial = Bugs (neutrophils) + Bad glucose + Big protein"</div></div>
 </div>
 
 <!-- IE -->
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Endocarditis, STIs & C. difficile</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="i-sbovis" data-answer="2">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Endocarditis · S. bovis Colonoscopy</span>
+        <div class="ix-q">A 68-year-old is hospitalized for S. gallolyticus (S. bovis) native valve endocarditis. Blood cultures are clearing on antibiotics. What additional workup is MANDATORY?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>No additional workup needed</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Upper endoscopy to rule out gastric ulcer</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Colonoscopy to rule out colorectal neoplasia</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Chest CT to rule out pulmonary emboli</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>HIV testing</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Colonoscopy to rule out colorectal neoplasia</div>
+            <div>S. bovis (gallolyticus) bacteremia or endocarditis has a ~60% association with colorectal neoplasia (adenoma or carcinoma). Colonoscopy is mandatory — the GI tract is the source of bacteremia and often harbors cancer driving the organism into the bloodstream. This is a fixed board fact that appears repeatedly.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>No additional workup needed</b> &mdash; Incorrect. This organism carries a specific and clinically important association. Roughly 60% of patients with S. gallolyticus bacteremia have colorectal neoplasia, so failing to investigate risks missing a cancer.</li>
+              <li><b>Upper endoscopy to rule out gastric ulcer</b> &mdash; Incorrect. The right instinct — GI evaluation — but the wrong segment. The association is with COLORECTAL adenomas and carcinoma, so colonoscopy is the required study.</li>
+              <li><b>Chest CT to rule out pulmonary emboli</b> &mdash; Incorrect. Septic pulmonary emboli occur with RIGHT-sided endocarditis, most often in people who inject drugs. This is native left-sided disease with a colonic association.</li>
+              <li><b>HIV testing</b> &mdash; Incorrect. HIV testing is reasonable general practice but has no specific link to this organism, and it does not address the colorectal neoplasia risk that makes this presentation distinctive.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Let the organism tell you where to look next. <b><i>Streptococcus gallolyticus</i> (formerly <i>S. bovis</i>) means colonoscopy</b> &mdash; the association with colorectal neoplasia runs around 60%, and the gut lesion is the source. Extend the same reflex to the rest of the pairings: <i>S. aureus</i> and injection drug use point to the tricuspid valve, viridans streptococci to dental procedures and damaged native valves, <i>Enterococcus</i> to genitourinary instrumentation, and coagulase-negative staphylococci to prosthetic material.</div>
+            <div class="ix-where">Covered below under <span>Topic 5 &mdash; Infective Endocarditis</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-pid" data-answer="2">
+        <span class="ix-n">Question 2 of 3 &middot; Medium &middot; Pelvic Inflammatory Disease — CDC 2021 Regimen</span>
+        <div class="ix-q">A 22-year-old sexually active woman has vaginal discharge, dyspareunia, lower abdominal pain, and cervical motion tenderness, consistent with pelvic inflammatory disease. What is the current CDC 2021 recommended treatment regimen, including the key change from prior guidelines?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Ceftriaxone 500mg IM as a single dose is the complete regimen, with no additional oral antibiotics needed</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Azithromycin 1g single dose plus ceftriaxone 250mg IM as the complete regimen</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Ceftriaxone 500mg IM x1 plus doxycycline 100mg BID x14 days plus metronidazole 500mg BID x14 days — note the increased ceftriaxone dose from the prior 250mg recommendation</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>The treatment duration remains 7 days, unchanged from the previous guideline</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Doxycycline monotherapy for 14 days is now sufficient given improving antibiotic resistance patterns</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Ceftriaxone 500mg IM x1 plus doxycycline 100mg BID x14 days plus metronidazole 500mg BID x14 days — note the increased ceftriaxone dose from the prior 250mg recommendation</div>
+            <div>The CDC 2021 STI treatment guidelines updated the PID regimen to ceftriaxone 500mg IM (a single dose) plus doxycycline 100mg twice daily for 14 days plus metronidazole 500mg twice daily for 14 days. The key change from prior guidelines is the INCREASED ceftriaxone dose — from 250mg to 500mg — reflecting concerns about evolving gonococcal resistance patterns and the need for more robust gonococcal coverage. Metronidazole is now routinely included to cover anaerobic organisms, even in the absence of confirmed trichomoniasis or bacterial vaginosis.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Ceftriaxone 500mg IM as a single dose is the complete regimen, with no additional oral antibiotics needed</b> &mdash; Incorrect. While ceftriaxone 500mg IM is part of the regimen (addressing gonococcal coverage), it must be combined with oral doxycycline (for chlamydia coverage) and metronidazole (for anaerobic coverage) to adequately treat the typically polymicrobial nature of PID.</li>
+              <li><b>Azithromycin 1g single dose plus ceftriaxone 250mg IM as the complete regimen</b> &mdash; Incorrect. This reflects outdated guidance — azithromycin has been removed from the first-line PID/gonorrhea treatment regimen due to rising resistance concerns, and the ceftriaxone dose has been increased to 500mg, not maintained at 250mg.</li>
+              <li><b>The treatment duration remains 7 days, unchanged from the previous guideline</b> &mdash; Incorrect. The treatment duration for the oral components (doxycycline and metronidazole) is 14 days, not 7 days — this duration has been consistent across recent guideline iterations, with the primary 2021 change being the increased ceftriaxone dose.</li>
+              <li><b>Doxycycline monotherapy for 14 days is now sufficient given improving antibiotic resistance patterns</b> &mdash; Incorrect. Doxycycline monotherapy is inadequate for PID — combination therapy covering gonorrhea (ceftriaxone), chlamydia (doxycycline), and anaerobes (metronidazole) remains the standard approach, reflecting the typically polymicrobial nature of PID.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The CDC 2021 change to remember is the <b>ceftriaxone dose rising from 250 mg to 500 mg</b>, reflecting gonococcal resistance &mdash; and outpatient PID is ceftriaxone once plus <b>doxycycline and metronidazole for 14 days</b>. Metronidazole is now included routinely rather than optionally, for anaerobic and bacterial-vaginosis coverage. Diagnosis is deliberately permissive: cervical motion, uterine, or adnexal tenderness in an at-risk woman is enough to treat, because the cost of missing PID is infertility.</div>
+            <div class="ix-where">Covered below under <span>Topic 6 &mdash; Sexually Transmitted Infections (STIs)</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-cdiff" data-answer="3">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; C. diff Treatment — Metronidazole Demotion</span>
+        <div class="ix-q">A 72-year-old hospitalized patient develops 8 watery stools per day for 4 days following a 10-day course of clindamycin. C. diff toxin PCR is positive. WBC is elevated. What is the first-line treatment according to current IDSA guidelines, including the major paradigm shift in this area?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Oral metronidazole 500mg TID x10-14 days remains first-line for this presentation</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Fecal microbiota transplant should be the first-line treatment for this initial episode</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>No specific anti-C. diff therapy is needed; simply discontinuing clindamycin is sufficient treatment</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Oral vancomycin 125mg QID x10 days OR fidaxomicin 200mg BID x10 days — metronidazole is no longer first-line therapy for C. diff infection</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>IV metronidazole alone is the preferred route and regimen for this severity of disease</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Oral vancomycin 125mg QID x10 days OR fidaxomicin 200mg BID x10 days — metronidazole is no longer first-line therapy for C. diff infection</div>
+            <div>The single most important recent update in C. diff management is the demotion of metronidazole — it is NO LONGER recommended as first-line therapy for C. diff infection of any severity (including non-severe disease), having been replaced by oral vancomycin or fidaxomicin as first-line options. This was a major guideline change that has been heavily tested since its implementation. Metronidazole is now reserved only for situations where vancomycin/fidaxomicin are unavailable, often in combination with IV metronidazole for severe/fulminant disease.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Oral metronidazole 500mg TID x10-14 days remains first-line for this presentation</b> &mdash; Incorrect. This reflects outdated guidance — metronidazole has been demoted from first-line status in current IDSA guidelines, replaced by oral vancomycin or fidaxomicin, which are now the preferred initial treatments for C. diff infection of any severity.</li>
+              <li><b>Fecal microbiota transplant should be the first-line treatment for this initial episode</b> &mdash; Incorrect. Fecal microbiota transplant is reserved for recurrent C. diff infection (typically after 2 or more recurrences), not as first-line treatment for an initial episode — oral vancomycin or fidaxomicin are appropriate first-line choices here.</li>
+              <li><b>No specific anti-C. diff therapy is needed; simply discontinuing clindamycin is sufficient treatment</b> &mdash; Incorrect. While discontinuing the inciting antibiotic (clindamycin) is appropriate, this patient has active, symptomatic C. diff infection (8 stools/day, positive toxin PCR, elevated WBC) requiring specific treatment with oral vancomycin or fidaxomicin — discontinuing clindamycin alone is inadequate.</li>
+              <li><b>IV metronidazole alone is the preferred route and regimen for this severity of disease</b> &mdash; Incorrect. IV metronidazole is reserved as an ADJUNCT for severe/fulminant C. diff (often combined with oral vancomycin), not as monotherapy for this presentation — oral vancomycin or fidaxomicin remain the first-line choices for standard severity C. diff.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Metronidazole is no longer first-line for <i>C. difficile</i> at any severity</b> &mdash; the shift to <b>oral vancomycin or fidaxomicin</b> is one of the most heavily tested recent updates. Metronidazole survives only where those are unavailable. For a first recurrence use a tapered vancomycin course or fidaxomicin; for multiple recurrences consider faecal microbiota transplant. Two further traps: treat only symptomatic patients, since colonisation is common and test-of-cure is never indicated, and <b>alcohol gel does not kill spores</b> &mdash; soap and water.</div>
+            <div class="ix-where">Covered below under <span>Topic 7 &mdash; Clostridioides difficile Infection</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="ie">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1589,6 +1802,97 @@ FMT: "85% cure for recurrent C. diff — the gold standard"
   <div class="sh-title">HIV/AIDS — CD4-Based Clinical Framework</div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">HIV/AIDS & Opportunistic Infections</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="i-pcpsteroid" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; HIV · PCP Corticosteroids</span>
+        <div class="ix-q">A 44-year-old with HIV (CD4 58) has PCP confirmed on BAL. PaO₂ is 55 mmHg on room air. Which is MOST appropriate in addition to TMP-SMX?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Intubate immediately</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>No adjunctive therapy — TMP-SMX is sufficient</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Add rifampin for mycobacterial coverage</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Add prednisone — steroid adjunct for PaO₂ &lt;70 reduces mortality ~50%</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Add fluconazole for empiric fungal coverage</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Add prednisone — steroid adjunct for PaO₂ &lt;70 reduces mortality ~50%</div>
+            <div>Adjunctive corticosteroids are standard of care for moderate-to-severe PCP when PaO₂ &lt;70 mmHg or A-a gradient &gt;35. Reduces mortality ~50%. Regimen: prednisone 40mg BID × 5d → 40mg daily × 5d → 20mg daily × 11d. Start within 72 hours of TMP-SMX.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Intubate immediately</b> &mdash; Incorrect. A PaO₂ of 55 is significant hypoxemia but does not itself mandate intubation in a patient who can be supported with oxygen and steroids. Premature intubation adds ventilator-associated risk.</li>
+              <li><b>No adjunctive therapy — TMP-SMX is sufficient</b> &mdash; Incorrect. Antimicrobial therapy alone misses a major mortality benefit. TMP-SMX causes organism lysis with a resulting inflammatory surge that can transiently worsen oxygenation — steroids blunt this.</li>
+              <li><b>Add rifampin for mycobacterial coverage</b> &mdash; Incorrect. There is nothing to suggest mycobacterial disease, and PCP has been confirmed on bronchoalveolar lavage. Rifampin also induces CYP enzymes and interacts extensively with antiretrovirals.</li>
+              <li><b>Add fluconazole for empiric fungal coverage</b> &mdash; Incorrect. Although Pneumocystis is taxonomically a fungus, it lacks ergosterol in its membrane and is not susceptible to azoles. Fluconazole has no activity against it.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Add prednisone to TMP-SMX when <b>PaO&#8322; is under 70 mmHg or the A-a gradient exceeds 35</b> &mdash; it roughly halves mortality in moderate-to-severe PCP, and it should start within 72 hours rather than being held in reserve. The mechanism is the same one behind dexamethasone in meningitis: killing the organism releases inflammation that itself injures the lung. Anchor the CD4 thresholds too &mdash; PCP prophylaxis below 200, toxoplasmosis below 100, MAC below 50.</div>
+            <div class="ix-where">Covered below under <span>Topic 8 &mdash; HIV/AIDS &amp; Opportunistic Infections &middot; PCP</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-cryptolp" data-answer="2">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Cryptococcal Meningitis — Therapeutic LP</span>
+        <div class="ix-q">A 32-year-old man newly diagnosed with HIV (CD4 68, HIV RNA 240,000) has a 2-week history of headache, fever, and neck stiffness. Cryptococcal meningitis is diagnosed. What urgent procedure must be performed immediately, regardless of antifungal treatment, and why?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>No urgent procedure is needed; antifungal therapy alone (liposomal amphotericin plus flucytosine) is sufficient management</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Urgent neurosurgical shunt placement is required before any antifungal therapy can begin</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Urgent therapeutic lumbar puncture to manage elevated intracranial pressure, since high ICP is the primary cause of death in cryptococcal meningitis</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>CT-guided brain biopsy is required to confirm the diagnosis before any treatment can begin</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Urgent dexamethasone administration is the priority intervention, similar to bacterial meningitis management</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Urgent therapeutic lumbar puncture to manage elevated intracranial pressure, since high ICP is the primary cause of death in cryptococcal meningitis</div>
+            <div>In cryptococcal meningitis, elevated intracranial pressure is the primary cause of morbidity and mortality, often more so than the infection itself — many cryptococcal meningitis deaths result from uncontrolled ICP rather than the fungal infection per se. Therapeutic lumbar puncture, performed to lower opening pressure to a target of less than 20 cmH2O, is an urgent and essential intervention that must be performed in addition to (not instead of) antifungal therapy. Treatment includes liposomal amphotericin B plus flucytosine for induction therapy, but ICP management via repeated therapeutic LPs (or other CSF diversion procedures if LPs are insufficient) is equally critical.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>No urgent procedure is needed; antifungal therapy alone (liposomal amphotericin plus flucytosine) is sufficient management</b> &mdash; Incorrect. This misses the critical and frequently overlooked concept that ICP management via therapeutic LP is an essential PARALLEL intervention, not something that can be omitted if antifungals are started — failure to address elevated ICP is a leading cause of death even when antifungal therapy is appropriately administered.</li>
+              <li><b>Urgent neurosurgical shunt placement is required before any antifungal therapy can begin</b> &mdash; Incorrect. While shunt placement may eventually be needed in refractory cases of elevated ICP not controlled by repeated therapeutic LPs, it is not the immediate first step — therapeutic LP is the initial urgent intervention, performed alongside (not instead of) starting antifungal therapy.</li>
+              <li><b>CT-guided brain biopsy is required to confirm the diagnosis before any treatment can begin</b> &mdash; Incorrect. Cryptococcal meningitis diagnosis relies on CSF analysis (cryptococcal antigen testing, India ink staining, fungal culture), not brain biopsy — biopsy is not a standard or necessary diagnostic step and would unnecessarily delay urgent treatment.</li>
+              <li><b>Urgent dexamethasone administration is the priority intervention, similar to bacterial meningitis management</b> &mdash; Incorrect. Unlike bacterial meningitis, corticosteroids are NOT routinely recommended in cryptococcal meningitis and may even be harmful in some contexts — the priority intervention for elevated ICP in cryptococcal meningitis is therapeutic LP, not steroids.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>In cryptococcal meningitis the <b>pressure kills before the fungus does</b>, so a therapeutic lumbar puncture to bring the opening pressure below 20 cmH&#8322;O is urgent, and repeated taps are often needed. Induction is amphotericin B plus flucytosine, then fluconazole consolidation. The counterintuitive part: <b>delay antiretroviral therapy by roughly 4 to 6 weeks</b>, because starting it early risks immune reconstitution inflammatory syndrome in a closed cranial space. Diagnose with CSF cryptococcal antigen, which outperforms India ink.</div>
+            <div class="ix-where">Covered below under <span>Topic 8 &mdash; HIV/AIDS &amp; Opportunistic Infections &middot; CNS infection</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-cocci" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Disseminated Coccidioidomycosis</span>
+        <div class="ix-q">A 26-year-old HIV-positive man (CD4 44, not on ART) from Arizona has fever, weight loss, and a persistent cough for 3 weeks, with imaging suggesting disseminated coccidioidomycosis. How does management differ between this immunocompromised patient and an immunocompetent person with the same infection?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Immunocompetent patients with mild disease often require only observation or short-course fluconazole, while this immunocompromised patient with dissemination requires more aggressive, prolonged antifungal therapy (often amphotericin B initially, followed by extended fluconazole) plus ART initiation</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Management is identical regardless of immune status; all patients with coccidioidomycosis require the same antifungal regimen</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>This patient does not need antifungal therapy since coccidioidomycosis is typically self-limited</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Voriconazole is the antifungal of choice for disseminated coccidioidomycosis in HIV patients</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>ART initiation should be delayed until the fungal infection is fully resolved to avoid immune reconstitution syndrome</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Immunocompetent patients with mild disease often require only observation or short-course fluconazole, while this immunocompromised patient with dissemination requires more aggressive, prolonged antifungal therapy (often amphotericin B initially, followed by extended fluconazole) plus ART initiation</div>
+            <div>Coccidioidomycosis ('Valley Fever,' endemic to the Southwest US including Arizona) often resolves spontaneously or with brief observation in immunocompetent hosts with mild, localized pulmonary disease, or can be treated with fluconazole for 3-6 months in more symptomatic cases. In contrast, this HIV-positive patient with a low CD4 count (44) and evidence of DISSEMINATED disease requires a fundamentally more aggressive approach: typically amphotericin B for initial severe/disseminated disease, followed by extended (often lifelong, or until significant immune reconstitution) fluconazole maintenance therapy, combined with initiation of antiretroviral therapy to address the underlying immunosuppression driving the dissemination risk.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Management is identical regardless of immune status; all patients with coccidioidomycosis require the same antifungal regimen</b> &mdash; Incorrect. Immune status dramatically changes both the clinical course (localized vs disseminated disease) and the required treatment intensity and duration — immunocompromised patients with dissemination require substantially more aggressive and prolonged therapy than immunocompetent patients with mild localized disease.</li>
+              <li><b>This patient does not need antifungal therapy since coccidioidomycosis is typically self-limited</b> &mdash; Incorrect &mdash; and dangerous. While self-limited resolution can occur in immunocompetent hosts with mild disease, DISSEMINATED coccidioidomycosis in a significantly immunocompromised host (CD4 44) requires aggressive antifungal treatment — this is not a self-limited presentation in this clinical context.</li>
+              <li><b>Voriconazole is the antifungal of choice for disseminated coccidioidomycosis in HIV patients</b> &mdash; Incorrect. Amphotericin B (for initial severe/disseminated disease) followed by fluconazole maintenance is the standard approach for coccidioidomycosis — voriconazole is not the first-line choice for this particular fungal infection.</li>
+              <li><b>ART initiation should be delayed until the fungal infection is fully resolved to avoid immune reconstitution syndrome</b> &mdash; Incorrect. While immune reconstitution inflammatory syndrome (IRIS) is a real consideration, current practice generally favors earlier ART initiation in most opportunistic infections (with some specific exceptions like cryptococcal meningitis, where slightly delayed ART may reduce IRIS risk) — ART should not be broadly delayed until complete fungal infection resolution, since untreated HIV perpetuates the underlying immunosuppression.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Immune status changes the whole plan for the endemic fungi. <b>Mild localised coccidioidomycosis in an immunocompetent host may need only observation</b>, whereas <b>disseminated disease in advanced HIV needs amphotericin B induction followed by lifelong fluconazole</b> plus antiretroviral therapy. Match the geography on the exam: <i>Coccidioides</i> to the desert Southwest, <i>Histoplasma</i> to the Ohio and Mississippi valleys and bird or bat droppings, <i>Blastomyces</i> to the Great Lakes and southeast. Any dissemination to bone, skin, or meninges upgrades the urgency regardless of host.</div>
+            <div class="ix-where">Covered below under <span>Topic 13 &mdash; Fungal Infections &middot; see also Topic 8</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="hiv">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1670,6 +1974,97 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
 </div>
 
 <!-- SSTI -->
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">SSTI & Lyme Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="i-cellulitis" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; SSTI · Nonpurulent Cellulitis</span>
+        <div class="ix-q">A 48-year-old man has a warm, erythematous, tender area on the right lower leg without drainage or fluctuance. No fever. MRSA swab negative. Which is MOST appropriate?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>No antibiotics needed</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>TMP-SMX — covers CA-MRSA in cellulitis</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Vancomycin IV — MRSA coverage required for all cellulitis</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Oral cephalexin or dicloxacillin × 5 days</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Piperacillin-tazobactam IV</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Oral cephalexin or dicloxacillin × 5 days</div>
+            <div>Uncomplicated nonpurulent cellulitis = β-hemolytic streptococci, NOT MRSA. Routine MRSA coverage not indicated. Oral cephalexin or dicloxacillin × 5 days is first-line (IDSA 2014). Vancomycin reserved for severe cellulitis, sepsis, or documented MRSA. TMP-SMX covers MRSA but not β-hemolytic strep as well.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>No antibiotics needed</b> &mdash; Incorrect. Cellulitis is a bacterial infection that requires antibiotics; untreated it can progress to abscess, bacteremia, or necrotising infection. Absence of fever does not mean absence of infection.</li>
+              <li><b>TMP-SMX — covers CA-MRSA in cellulitis</b> &mdash; Incorrect. TMP-SMX covers MRSA well but has relatively poor streptococcal activity, and nonpurulent cellulitis is predominantly streptococcal. This makes it a mismatch for the likely organism.</li>
+              <li><b>Vancomycin IV — MRSA coverage required for all cellulitis</b> &mdash; Incorrect. The word 'all' is the tell. MRSA coverage is indicated for PURULENT infections, abscesses, penetrating trauma, injection drug use, or systemic toxicity — not for routine nonpurulent cellulitis, and IV therapy is unnecessary in an outpatient without systemic signs.</li>
+              <li><b>Piperacillin-tazobactam IV</b> &mdash; Incorrect. This is dramatically excessive for uncomplicated cellulitis in a well patient. Broad Gram-negative and anaerobic coverage is unnecessary and promotes resistance and C. difficile.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Purulence decides the organism. <b>Nonpurulent cellulitis is streptococcal</b> &mdash; treat with cephalexin or dicloxacillin and do not add MRSA coverage. <b>Purulent infection, an abscess, or a furuncle is staphylococcal and often MRSA</b> &mdash; incise and drain first, then cover with TMP-SMX, doxycycline, or clindamycin. Reserve vancomycin for severe or septic presentations. And watch for the escalation you must not miss: pain out of proportion to findings, rapid progression, crepitus, or bullae mean <b>necrotising fasciitis and surgical exploration</b>, not stronger antibiotics.</div>
+            <div class="ix-where">Covered below under <span>Topic 9 &mdash; Skin &amp; Soft Tissue Infections</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-ptlds" data-answer="3">
+        <span class="ix-n">Question 2 of 3 &middot; Medium &middot; Lyme · Post-Treatment Serology</span>
+        <div class="ix-q">A 45-year-old woman with Lyme arthritis treated with doxycycline × 28 days 3 years ago has persistent fatigue and arthralgia. Repeat Lyme ELISA is positive. What is MOST accurate?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Treatment failure — check resistance patterns</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Switch to IV ceftriaxone for refractory disease</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>New Lyme infection — re-treat</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Post-treatment Lyme disease syndrome — positive serology expected after treatment; extended antibiotics NOT beneficial</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Active Lyme — re-treat with another 28-day doxycycline course</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Post-treatment Lyme disease syndrome — positive serology expected after treatment; extended antibiotics NOT beneficial</div>
+            <div>After successful Lyme treatment, antibodies can remain positive for years to decades — positive serology does NOT mean active infection. Post-treatment Lyme disease syndrome (PTLDS) describes persistent symptoms after adequate treatment. Extended antibiotic courses are NOT beneficial and potentially harmful per RCTs. Symptomatic management.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Treatment failure — check resistance patterns</b> &mdash; Incorrect. Documented antibiotic resistance in Borrelia burgdorferi has not been demonstrated, and resistance testing is not clinically available or meaningful. Persistent symptoms after adequate therapy are not evidence of resistant organisms.</li>
+              <li><b>Switch to IV ceftriaxone for refractory disease</b> &mdash; Incorrect. IV ceftriaxone is used for neuroborreliosis, carditis, or refractory Lyme arthritis with objective ongoing joint inflammation. Randomised trials show no benefit from prolonged IV therapy for persistent subjective symptoms, and it carries line infection and biliary risk.</li>
+              <li><b>New Lyme infection — re-treat</b> &mdash; Incorrect. Reinfection is possible but would present with new objective findings such as a fresh erythema migrans rash. Positive serology alone cannot distinguish reinfection from persisting antibodies.</li>
+              <li><b>Active Lyme — re-treat with another 28-day doxycycline course</b> &mdash; Incorrect. This is the most common error because the positive ELISA looks like active infection. Antibodies persist for years to decades after cure, so serology cannot be used as a test of cure — and repeat antibiotic courses have been shown not to help.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Lyme serology stays positive for years after cure, so it cannot be used as a test of cure or to diagnose relapse.</b> Persistent fatigue and arthralgia after adequate treatment is post-treatment Lyme disease syndrome, and randomised trials show extended or repeated antibiotics do not help and carry real harm &mdash; management is symptomatic. Remember the testing architecture as well: two-tier serology, ELISA followed by Western blot, and it is <i>insensitive early</i>, so erythema migrans in an endemic area is treated clinically without waiting for serology.</div>
+            <div class="ix-where">Covered below under <span>Topic 10 &mdash; Lyme Disease &middot; serology and PTLDS</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-lymepalsy" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Lyme · Bilateral Bell Palsy</span>
+        <div class="ix-q">A 26-year-old from Connecticut presents with bilateral facial weakness developing over 3 days. He recently hiked in wooded areas. Which is MOST likely?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Lyme disease (Stage 2 — early disseminated)</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Sarcoidosis</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Bilateral Bell palsy from idiopathic cause</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Guillain-Barré syndrome</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Multiple sclerosis</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Lyme disease (Stage 2 — early disseminated)</div>
+            <div>Bilateral facial nerve palsy = Lyme disease until proven otherwise. Unilateral Bell palsy has many causes; bilateral = Lyme Stage 2. Endemic area (Connecticut) + hiking strongly supports diagnosis. Test with Lyme serology (ELISA → Western blot). Treat with oral doxycycline × 14–21 days for isolated facial palsy.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Sarcoidosis</b> &mdash; Incorrect. Sarcoidosis genuinely can cause bilateral facial palsy, particularly in Heerfordt syndrome with uveitis and parotitis, making it the best distractor. It usually develops more insidiously with systemic features and hilar adenopathy, and lacks the tick exposure and endemic geography here.</li>
+              <li><b>Bilateral Bell palsy from idiopathic cause</b> &mdash; Incorrect. Idiopathic Bell palsy is overwhelmingly unilateral. Simultaneous bilateral facial weakness is rare enough that it demands a search for a systemic cause rather than an idiopathic label.</li>
+              <li><b>Guillain-Barré syndrome</b> &mdash; Incorrect. GBS can involve the facial nerves, but the hallmark is ascending limb weakness with areflexia. Isolated bilateral facial palsy without limb involvement does not fit, and there is no antecedent illness described.</li>
+              <li><b>Multiple sclerosis</b> &mdash; Incorrect. MS causes central rather than peripheral facial weakness, typically sparing the forehead, and produces lesions disseminated in time and space. Simultaneous bilateral peripheral facial palsy is not a typical MS presentation.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Bilateral facial nerve palsy is Lyme disease until proven otherwise</b> &mdash; unilateral Bell palsy has many causes, but bilateral is rare and points hard at early disseminated infection. The other stage 2 features are multiple erythema migrans lesions, carditis with AV block, and meningitis. Treat isolated facial palsy with oral doxycycline for 14 to 21 days; reserve IV ceftriaxone for meningitis, encephalitis, or high-grade heart block. Also note the age rule: <b>doxycycline is now considered acceptable in children for short Lyme courses</b>.</div>
+            <div class="ix-where">Covered below under <span>Topic 10 &mdash; Lyme Disease &middot; early disseminated</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="ssti">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1812,6 +2207,97 @@ Coinfections: "Same tick, same time: Babesia + Anaplasma + Ehrlichia"</div></div
 </div>
 
 <!-- INFLUENZA -->
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Influenza, COVID-19 & Fungal Infections</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="i-oseltamivir" data-answer="2">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; Oseltamivir — Exceptions to the 48-Hour Rule</span>
+        <div class="ix-q">A 68-year-old woman with COPD has day 2 of influenza-like illness with a positive rapid influenza test. The standard teaching is that oseltamivir is most effective within 48 hours of symptom onset. Does this 48-hour window apply strictly here, and are there exceptions?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>The 48-hour rule is absolute and exceptionless; oseltamivir provides no benefit beyond this window for any patient</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Zanamivir should be used instead of oseltamivir in COPD patients, since oseltamivir is contraindicated in lung disease</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Start oseltamivir regardless of exact timing, since high-risk patients (including those with COPD) should be treated even if presenting after 48 hours, not just within the window</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Oseltamivir should NOT be given since the question implies uncertainty about whether she still qualifies within the window</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Only patients without any comorbidities benefit from oseltamivir treatment</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Start oseltamivir regardless of exact timing, since high-risk patients (including those with COPD) should be treated even if presenting after 48 hours, not just within the window</div>
+            <div>While the 48-hour window for maximal benefit is the general teaching point for influenza treatment, there is a critical exception: high-risk patients should receive oseltamivir regardless of how long they've had symptoms, even beyond 48 hours. High-risk features warranting treatment regardless of timing include age ≥65, chronic pulmonary disease (like COPD), pregnancy, immunosuppression, and several other comorbidities. This patient, presenting on day 2 (within the window) AND having COPD (a high-risk feature), should clearly receive oseltamivir.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>The 48-hour rule is absolute and exceptionless; oseltamivir provides no benefit beyond this window for any patient</b> &mdash; Incorrect. This is precisely the misconception this vignette is designed to correct — the 48-hour window represents the time of MAXIMAL benefit in low-risk, otherwise healthy patients, but high-risk patients (elderly, chronic lung disease, immunosuppressed, pregnant) should still receive treatment even beyond 48 hours, since they remain at risk for severe complications.</li>
+              <li><b>Zanamivir should be used instead of oseltamivir in COPD patients, since oseltamivir is contraindicated in lung disease</b> &mdash; Incorrect. Oseltamivir is not contraindicated in COPD — in fact, zanamivir (an inhaled formulation) is generally AVOIDED in patients with underlying airway disease like COPD or asthma due to risk of bronchospasm, making oseltamivir the more appropriate choice in this patient, not the contraindicated one.</li>
+              <li><b>Oseltamivir should NOT be given since the question implies uncertainty about whether she still qualifies within the window</b> &mdash; Incorrect. This patient is presenting on day 2 of illness, which is within the 48-hour window — but more importantly, even if she presented later, her COPD as a high-risk comorbidity would still warrant treatment regardless of exact timing.</li>
+              <li><b>Only patients without any comorbidities benefit from oseltamivir treatment</b> &mdash; Incorrect. — this reverses the correct clinical reasoning. Patients WITH high-risk comorbidities (like this patient's COPD) are specifically the group for whom treatment is recommended regardless of symptom timing, precisely because they face higher risk of severe complications.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The 48-hour window describes where benefit is <i>greatest</i>, not where treatment is <i>permitted</i>. <b>Treat regardless of timing in high-risk patients</b> &mdash; age 65 or older, chronic pulmonary or cardiac disease, pregnancy or up to 2 weeks postpartum, immunosuppression, morbid obesity, and residents of long-term care &mdash; and in anyone hospitalised or deteriorating. A negative rapid antigen test does not exclude influenza during a local outbreak, so treat on clinical suspicion; PCR is the more sensitive confirmation.</div>
+            <div class="ix-where">Covered below under <span>Topic 11 &mdash; Influenza</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-paxlovid" data-answer="3">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; COVID-19 · Paxlovid CYP3A4</span>
+        <div class="ix-q">A 65-year-old with AF on rivaroxaban develops mild-moderate COVID-19 (day 2). You plan to prescribe nirmatrelvir/ritonavir (Paxlovid). What is the MOST important concern?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Lisinopril — contraindicated with ritonavir</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Aspirin — potentiates anticoagulation</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Amlodipine — no interaction</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Rivaroxaban — ritonavir significantly increases rivaroxaban levels, increasing bleeding risk</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Metformin — significant interaction</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Rivaroxaban — ritonavir significantly increases rivaroxaban levels, increasing bleeding risk</div>
+            <div>Ritonavir is a potent CYP3A4 inhibitor — significantly increases rivaroxaban exposure → increased bleeding risk. Options: (1) hold rivaroxaban during Paxlovid course + 3 days after; (2) switch to alternative anticoagulant; (3) use remdesivir instead. Always check full medication list before prescribing Paxlovid.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Lisinopril — contraindicated with ritonavir</b> &mdash; Incorrect. ACE inhibitors are not metabolised via CYP3A4 to any clinically significant extent and have no meaningful interaction with ritonavir.</li>
+              <li><b>Aspirin — potentiates anticoagulation</b> &mdash; Incorrect. Aspirin does add bleeding risk when combined with an anticoagulant, so the concern is not baseless — but this is a pharmacodynamic issue independent of Paxlovid, and it is not the drug-interaction the question targets.</li>
+              <li><b>Amlodipine — no interaction</b> &mdash; Incorrect. The premise is wrong: amlodipine IS a CYP3A4 substrate and its levels rise with ritonavir, potentially causing hypotension and edema. It is a real interaction, just not the most dangerous one here.</li>
+              <li><b>Metformin — significant interaction</b> &mdash; Incorrect. Metformin is cleared renally without CYP metabolism and has no significant interaction with ritonavir.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Ritonavir is a <b>potent CYP3A4 inhibitor</b>, so prescribing Paxlovid is really a drug-interaction exercise: review the full medication list first. The high-risk partners are <b>rivaroxaban and apixaban</b> (bleeding), <b>simvastatin and lovastatin</b> (rhabdomyolysis, hold them), amiodarone, calcineurin inhibitors, and several antiarrhythmics and anticonvulsants. Options are to hold the interacting drug through the course plus three days, substitute, or use <b>remdesivir</b> instead. Treatment must start within 5 days of symptom onset.</div>
+            <div class="ix-where">Covered below under <span>Topic 12 &mdash; COVID-19 (SARS-CoV-2)</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="i-candidemia" data-answer="1">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Fungal · Invasive Candidiasis</span>
+        <div class="ix-q">A 56-year-old ICU patient on broad-spectrum antibiotics and TPN for 2 weeks develops persistent fever. Blood cultures grow Candida albicans. Which is MOST appropriate initial antifungal?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Fluconazole 400mg IV daily — first-line for all invasive candidiasis</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Caspofungin (echinocandin) — first-line for invasive candidiasis in ICU</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Amphotericin B — broadest coverage, first-line</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Voriconazole — covers Candida and Aspergillus</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Nystatin PO — adequate for systemic candidiasis</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: B &mdash; Caspofungin (echinocandin) — first-line for invasive candidiasis in ICU</div>
+            <div>IDSA: echinocandin (caspofungin, micafungin, anidulafungin) is first-line for invasive candidiasis in critically ill patients — covers fluconazole-resistant Candida species, low toxicity, once-daily dosing. Mandatory: remove CVC + perform fundoscopic exam (endophthalmitis risk).</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Fluconazole 400mg IV daily — first-line for all invasive candidiasis</b> &mdash; Incorrect. Fluconazole is appropriate for stable, non-neutropenic patients with fluconazole-susceptible isolates, and for step-down therapy. In a critically ill ICU patient with prior broad-spectrum exposure, echinocandins are preferred because resistant species are common.</li>
+              <li><b>Amphotericin B — broadest coverage, first-line</b> &mdash; Incorrect. Amphotericin has broad activity and is an alternative, particularly for CNS disease, but its nephrotoxicity and infusion reactions make it second-line when an echinocandin is available.</li>
+              <li><b>Voriconazole — covers Candida and Aspergillus</b> &mdash; Incorrect. Voriconazole covers both organisms but offers no advantage over an echinocandin for candidemia, and it carries significant drug interactions, visual disturbance, and hepatotoxicity.</li>
+              <li><b>Nystatin PO — adequate for systemic candidiasis</b> &mdash; Incorrect. Nystatin is not absorbed from the gut and works only topically in the oropharynx and GI lumen. It has no systemic activity and would leave candidemia entirely untreated.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>An echinocandin &mdash; caspofungin, micafungin, or anidulafungin &mdash; is first-line for invasive candidiasis in the critically ill</b>, because it covers fluconazole-resistant species such as <i>C. glabrata</i> and <i>C. auris</i>. Two steps are mandatory alongside the drug and are commonly the tested point: <b>remove the central venous catheter</b> and <b>obtain a dilated fundoscopic examination</b> for endophthalmitis. Step down to fluconazole only once the isolate is susceptible and the patient is stable. The classic setup is an ICU patient on broad-spectrum antibiotics with a central line and parenteral nutrition.</div>
+            <div class="ix-where">Covered below under <span>Topic 13 &mdash; Fungal Infections &middot; invasive candidiasis</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="influenza">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -2104,9 +2590,6 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
   The following differentials represent the highest-frequency diagnostic challenges in infectious disease on the PANCE/PANRE. Each framework targets the single pivotal feature that separates one diagnosis from another — the exact decision point boards test.
 </div>
 
-</div>
-</div>
-
 <!-- DIFF 1: FEVER + RASH -->
 <div class="topic-card tier-1" id="diff-fever-rash">
   <div class="tc-header">
@@ -2147,6 +2630,7 @@ Meningococcemia: "Non-blanching petechiae + sick-looking patient = blood culture
 Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR."
 "Fever + Rash + Sick = Doxy first, ask questions later"</div></div>
   </div>
+</div>
 
 
 <!-- DIFF 2: MENINGITIS CSF PATTERNS -->
@@ -2630,6 +3114,8 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 
+</div>
+<!-- end wrap -->
 
 <div class="page-footer">
   <strong>PA Infectious Disease Bootcamp Syllabus</strong><br>
@@ -2637,8 +3123,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <script>
-function toggleAnswer(btn){const stem=btn.closest('.qblock-stem');const ans=stem.parentElement.querySelector('.q-answer');if(ans.classList.contains('show')){ans.classList.remove('show');btn.textContent='▶ Show Answer';}else{ans.classList.add('show');btn.textContent='▼ Hide Answer';}}
-const sections=document.querySelectorAll('[id]');const links=document.querySelectorAll('.tb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});links.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+cur?'white':'rgba(255,255,255,.5)';});},{passive:true});
+const sections=document.querySelectorAll('[id]');
 </script>
 
 <!-- ═══ ID POPUP SYSTEM ═══ -->
@@ -3484,7 +3969,6 @@ function stopIdAudio() {
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closeIdPopup(); closeIdECG(); } });
 </script>
 
-<script>function navToggle(btn){var n=btn.closest(".nav,.site-nav,.xsite");if(!n)return;var o=n.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");}</script>
 
 <script>
 (function() {
@@ -3622,6 +4106,670 @@ document.addEventListener('click', function() {
   window.pwSubmitCode = pwSubmitCode;
   window.pwUnlock = pwUnlock;
 })();
+</script>
+
+<script>
+/* ══ QUESTION POLL ENGINE — pure JS, no external service, works offline ══
+   Contract:  .ix-poll[data-answer="<index>"]
+                .ix-opt > input[type=radio]   (names assigned automatically)
+                .ix-sub-btn   .ix-fb   details.ix-rev
+   The reveal is display:none in CSS and only appears once .ix-done is set. */
+(function () {
+  function init() {
+    document.querySelectorAll('.ix-poll').forEach(function (poll, i) {
+      var name = 'ixp' + i;
+      poll.querySelectorAll('input[type=radio]').forEach(function (r) { r.name = name; });
+    });
+  }
+  function grade(poll) {
+    var opts   = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+    var radios = opts.map(function (o) { return o.querySelector('input[type=radio]'); });
+    var picked = radios.findIndex(function (r) { return r.checked; });
+    var fb     = poll.querySelector('.ix-fb');
+    var btn    = poll.querySelector('.ix-sub-btn');
+    var answer = parseInt(poll.getAttribute('data-answer'), 10);
+    if (picked < 0) { fb.textContent = 'Choose an answer first.'; fb.className = 'ix-fb warn'; return; }
+    opts[answer].classList.add('ix-ok');
+    if (picked !== answer) opts[picked].classList.add('ix-no');
+    radios.forEach(function (r) { r.disabled = true; });
+    btn.disabled = true; btn.textContent = 'Answer submitted';
+    poll.setAttribute('data-got', picked === answer ? '1' : '0');
+    poll.classList.add('ix-done');
+    fb.textContent = (picked === answer)
+      ? 'Correct — you are ahead of the module.'
+      : 'This is what the module covers. Open the explanation, then read on.';
+    fb.className = 'ix-fb ' + (picked === answer ? 'ok' : 'no');
+    /* ── optional response logging ─────────────────────────────
+       To collect answers centrally, POST them here. Without this the
+       question is a private self-check and nothing leaves the page.
+       window.IX_ENDPOINT && fetch(window.IX_ENDPOINT, {
+         method:'POST', mode:'no-cors',
+         headers:{'Content-Type':'application/json'},
+         body: JSON.stringify({ q: poll.id || 'wpw',
+                                picked: picked, correct: answer,
+                                ts: new Date().toISOString() })
+       });
+    ──────────────────────────────────────────────────────────── */
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!b) return;
+    var p = b.closest('.ix-poll'); if (p) grade(p);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIVE CLASS RESULTS — native bars, pluggable data layer
+   ───────────────────────────────────────────────────────────────────────────
+   A static HTML page has no server, so answers from different devices have to
+   meet somewhere. That "somewhere" is the only part that needs a service; the
+   bars, percentages and live updating below are entirely local code.
+
+   mode:'local'     works immediately. Tallies answers in this browser and
+                    syncs across open tabs of the same browser. Good for
+                    building, testing and demoing — NOT for a real class.
+
+   mode:'firebase'  real cross-device aggregation, updating live. Paste the
+                    module snippet below into <head>, set mode to 'firebase',
+                    and the same bars fill from the whole room.
+
+   ── to enable Firebase, add this to <head> and fill in your config ──
+   <script type="module">
+     // check firebase.google.com/docs/web/setup for the current version
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+     import { getDatabase, ref, push, onValue }
+       from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+     const app = initializeApp({
+       apiKey: "…", authDomain: "…", databaseURL: "https://…firebaseio.com", projectId: "…"
+     });
+     window.IX_FB = { db: getDatabase(app), ref: ref, push: push, onValue: onValue };
+   <\/script>
+
+   ── OR, with no new service: Google Apps Script + a Sheet ──
+   1. Create a Sheet, add a tab named "responses", copy its ID from the URL.
+   2. script.google.com → new project → paste:
+
+      const SHEET_ID = 'PASTE_SHEET_ID';
+      function sheet_(){ return SpreadsheetApp.openById(SHEET_ID).getSheetByName('responses'); }
+      function doPost(e){
+        var b = JSON.parse(e.postData.contents);
+        var lock = LockService.getScriptLock(); lock.waitLock(20000);
+        try { sheet_().appendRow([new Date(), b.session, b.q, b.c]); } finally { lock.releaseLock(); }
+        return ContentService.createTextOutput(JSON.stringify({ok:true}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+      function doGet(e){
+        var s = e.parameter.s, q = e.parameter.q, counts = {}, total = 0;
+        sheet_().getDataRange().getValues().forEach(function(r){
+          if (String(r[1]) === s && String(r[2]) === q) { counts[r[3]] = (counts[r[3]]||0)+1; total++; }
+        });
+        return ContentService.createTextOutput(JSON.stringify({counts:counts,total:total}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+
+   3. Deploy → New deployment → Web app → Execute as: me → Who has access: Anyone.
+   4. Paste the /exec URL into sheetsUrl below and set mode:'sheets'.
+
+   Database rules for an anonymous classroom poll (write-only, read-aggregate):
+     { "rules": { "polls": { ".read": true, ".write": true } } }
+   Tighten these before anything that matters — as written, anyone with the URL
+   can write. Scope by session id (below) so each class gets a clean tally.
+   ═══════════════════════════════════════════════════════════════════════════ */
+window.IX_RESULTS = {
+  enabled: true,
+  mode: 'local',              /* 'local' | 'firebase' | 'sheets' */
+  session: 'default',         /* change per class to reset the tally */
+  showBeforeAnswer: false,    /* or open the page with ?present=1 */
+  sheetsUrl: '',              /* Apps Script /exec URL, for mode:'sheets' */
+  sheetsPollMs: 3000          /* how often sheets mode re-fetches */
+};
+/* ?present=1 turns on projector mode without editing the file;
+   ?session=fall-2026 scopes the tally to one class. */
+(function () {
+  var p = new URLSearchParams(location.search);
+  if (p.get('present') === '1') window.IX_RESULTS.showBeforeAnswer = true;
+  if (p.get('session')) window.IX_RESULTS.session = p.get('session');
+})();
+
+(function () {
+  var CFG = window.IX_RESULTS, LET = 'ABCDE';
+
+  /* ── local store: this browser, synced across its own tabs ── */
+  var LocalStore = (function () {
+    var subs = {};
+    function key(q) { return 'ixres:' + CFG.session + ':' + q; }
+    function read(q) { try { return JSON.parse(localStorage.getItem(key(q))) || {}; } catch (e) { return {}; } }
+    function emit(q) { (subs[q] || []).forEach(function (cb) { cb(tally(read(q))); }); }
+    function tally(o) {
+      var counts = [], total = 0;
+      Object.keys(o).forEach(function (k) { var i = +k; counts[i] = o[k]; total += o[k]; });
+      return { counts: counts, total: total };
+    }
+    window.addEventListener('storage', function (e) {
+      if (e.key && e.key.indexOf('ixres:') === 0) {
+        var q = e.key.split(':').slice(2).join(':');
+        emit(q);
+      }
+    });
+    return {
+      submit: function (q, choice) {
+        var o = read(q); o[choice] = (o[choice] || 0) + 1;
+        try { localStorage.setItem(key(q), JSON.stringify(o)); } catch (e) {}
+        emit(q);
+      },
+      subscribe: function (q, cb) { (subs[q] = subs[q] || []).push(cb); cb(tally(read(q))); }
+    };
+  })();
+
+  /* ── firebase store: real cross-device, push-based ── */
+  var FirebaseStore = {
+    submit: function (q, choice) {
+      var F = window.IX_FB; if (!F) return;
+      F.push(F.ref(F.db, 'polls/' + CFG.session + '/' + q), { c: choice, t: Date.now() });
+    },
+    subscribe: function (q, cb) {
+      var F = window.IX_FB; if (!F) return;
+      F.onValue(F.ref(F.db, 'polls/' + CFG.session + '/' + q), function (snap) {
+        var counts = [], total = 0;
+        snap.forEach(function (child) {
+          var i = child.val().c; counts[i] = (counts[i] || 0) + 1; total++;
+        });
+        cb({ counts: counts, total: total });
+      });
+    }
+  };
+
+  /* ── google sheets store: no new service, but POLLED not pushed ──
+     Every subscribed device re-fetches on a timer. That is fine when only the
+     presenting laptop shows bars; it does NOT scale to 30 phones each polling,
+     because Apps Script will throttle. For live bars on every student device,
+     use firebase — it pushes, so there is no polling load at all. */
+  var SheetsStore = {
+    submit: function (q, choice) {
+      if (!CFG.sheetsUrl) return;
+      fetch(CFG.sheetsUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* avoids a CORS preflight */
+        body: JSON.stringify({ session: CFG.session, q: q, c: choice })
+      }).catch(function () {});
+    },
+    subscribe: function (q, cb) {
+      if (!CFG.sheetsUrl) return;
+      var url = CFG.sheetsUrl + '?s=' + encodeURIComponent(CFG.session) + '&q=' + encodeURIComponent(q);
+      var pull = function () {
+        fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+          var counts = [];
+          Object.keys(d.counts || {}).forEach(function (k) { counts[+k] = d.counts[k]; });
+          cb({ counts: counts, total: d.total || 0 });
+        }).catch(function () {});
+      };
+      pull();
+      setInterval(pull, Math.max(2000, CFG.sheetsPollMs || 3000));
+    }
+  };
+
+  function store() {
+    if (CFG.mode === 'firebase' && window.IX_FB) return FirebaseStore;
+    if (CFG.mode === 'sheets' && CFG.sheetsUrl) return SheetsStore;
+    return LocalStore;
+  }
+
+  /* ── the bars ── */
+  function build(poll) {
+    var n = poll.querySelectorAll('.ix-opt').length;
+    var correct = parseInt(poll.getAttribute('data-answer'), 10);
+    var live = CFG.mode === 'firebase' && window.IX_FB;
+    var wrap = document.createElement('div');
+    wrap.className = 'ix-res';
+    var rows = '';
+    for (var i = 0; i < n; i++) {
+      rows += '<div class="ix-res-row' + (i === correct ? ' ok' : '') + '" data-i="' + i + '">' +
+              '<span class="ix-res-let">' + LET[i] + '</span>' +
+              '<div class="ix-res-track"><div class="ix-res-fill"></div></div>' +
+              '<span class="ix-res-pct">&mdash;</span></div>';
+    }
+    wrap.innerHTML = '<div class="ix-res-hd">Class results<span class="ix-res-n"></span>' +
+                     (live ? '<span class="ix-res-live">live</span>' : '') + '</div>' + rows +
+                     '<div class="ix-res-empty">Waiting for the first response&hellip;</div>';
+    poll.querySelector('.ix-fb').insertAdjacentElement('afterend', wrap);
+    return wrap;
+  }
+
+  function paint(wrap, data, mine) {
+    var total = data.total || 0;
+    wrap.querySelector('.ix-res-n').textContent =
+      total ? '\u2014 ' + total + (total === 1 ? ' response' : ' responses') : '';
+    wrap.querySelector('.ix-res-empty').style.display = total ? 'none' : '';
+    Array.prototype.forEach.call(wrap.querySelectorAll('.ix-res-row'), function (row) {
+      var i = +row.getAttribute('data-i');
+      var c = data.counts[i] || 0;
+      var pct = total ? Math.round(c / total * 100) : 0;
+      row.querySelector('.ix-res-fill').style.width = pct + '%';
+      row.querySelector('.ix-res-pct').textContent = total ? pct + '%' : '\u2014';
+      row.classList.toggle('mine', mine === i);
+    });
+  }
+
+  function attach(poll, mine) {
+    if (poll.__ixres) return;
+    poll.__ixres = true;
+    var wrap = build(poll);
+    store().subscribe(poll.id || poll.getAttribute('data-answer'), function (data) {
+      paint(wrap, data, mine);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!CFG.enabled) return;
+    var btn = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!btn) return;
+    var poll = btn.closest('.ix-poll');
+    setTimeout(function () {                       /* run after the grader */
+      if (!poll || !poll.classList.contains('ix-done')) return;
+      var opts = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+      var mine = opts.findIndex(function (o) { return o.querySelector('input').checked; });
+      var qid = poll.id || ('q' + opts.length);
+      store().submit(qid, mine);
+      attach(poll, mine);
+    }, 0);
+  });
+
+  /* projector mode: show the bars without answering */
+  if (CFG.showBeforeAnswer) {
+    var go = function () {
+      document.querySelectorAll('.ix-poll').forEach(function (p) { attach(p, -1); });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+    else go();
+  }
+})();
+</script>
+
+<!-- ══ PENCIL ANNOTATION LAYER (presenter only; enable with ?annotate=1) ══ -->
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   PA BOOTCAMP — PENCIL ANNOTATION LAYER
+   ───────────────────────────────────────────────────────────────────────────
+   Presenter-only ink layer for live teaching. Off by default so student
+   devices never see it; enable with ?annotate=1 (combine with ?present=1).
+
+   Design decisions that matter on iPadOS Safari:
+
+   * Apple Pencil reports pointerType 'pen', so only pen events draw. Finger
+     and mouse are ignored for ink, which gives true palm rejection AND leaves
+     one-finger scrolling completely intact — you can scroll the page with your
+     hand while the Pencil stays in "draw" mode.
+   * The canvas is pointer-events:none at all times. Listeners sit on the
+     window in capture phase, so taps, links, radio buttons and the Submit
+     Answer flow keep working normally.
+   * iPadOS Scribble steals pen strokes for handwriting recognition. We
+     preventDefault on touchstart/touchmove *only* when the touch is a stylus
+     (touchType === 'stylus'), which both defeats Scribble and stops the page
+     scrolling under the pen. Finger touches are never prevented.
+   * Safari can report pen moves coarsely, producing visible straight segments.
+     Strokes are rendered as quadratic curves through midpoints to smooth that.
+   * Strokes are stored in DOCUMENT coordinates and re-rendered clipped to the
+     viewport, rather than allocating one giant canvas. These syllabus pages are
+     tens of thousands of pixels tall and would blow past Safari's canvas area
+     limit.
+   * Ink survives an accidental reload (localStorage, per page path), because
+     losing a morning of board work mid-class would be worse than the storage.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('annotate') !== '1') return;
+
+  var KEY = 'pa-ink:' + location.pathname;
+  var TOOLS = { pen: 'pen', hi: 'hi', erase: 'erase' };
+  var COLORS = ['#C8392B', '#0F1F3D', '#1A6B3A', '#B87333', '#5B2D8E'];
+
+  var state = {
+    on: true,
+    tool: TOOLS.pen,
+    color: COLORS[0],
+    width: 3,
+    strokes: [],
+    live: null,
+    visible: true
+  };
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY));
+    if (saved && saved.length) state.strokes = saved;
+  } catch (e) {}
+
+  function persist() {
+    try { localStorage.setItem(KEY, JSON.stringify(state.strokes)); } catch (e) {}
+  }
+
+  /* ── canvas: viewport-sized, fixed, never intercepts input ── */
+  var cv = document.createElement('canvas');
+  cv.id = 'pa-ink-canvas';
+  cv.style.cssText = 'position:fixed;inset:0;z-index:99990;pointer-events:none;';
+  document.body.appendChild(cv);
+  var ctx = cv.getContext('2d', { desynchronized: true }) || cv.getContext('2d');
+  if (!ctx) { cv.remove(); return; }   /* never let a missing 2d context break the page */
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(innerWidth * dpr);
+    cv.height = Math.floor(innerHeight * dpr);
+    cv.style.width = innerWidth + 'px';
+    cv.style.height = innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    render();
+  }
+
+  function strokePath(s, ox, oy) {
+    var p = s.pts;
+    if (!p.length) return;
+    ctx.beginPath();
+    if (p.length < 3) {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    } else {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      for (var i = 1; i < p.length - 1; i++) {
+        var mx = (p[i].x + p[i + 1].x) / 2, my = (p[i].y + p[i + 1].y) / 2;
+        ctx.quadraticCurveTo(p[i].x - ox, p[i].y - oy, mx - ox, my - oy);
+      }
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    }
+    ctx.stroke();
+  }
+
+  function bbox(s) {
+    var xs = s.pts.map(function (q) { return q.x; }), ys = s.pts.map(function (q) { return q.y; });
+    return { x1: Math.min.apply(null, xs), x2: Math.max.apply(null, xs),
+             y1: Math.min.apply(null, ys), y2: Math.max.apply(null, ys) };
+  }
+
+  var queued = false;
+  function render() {
+    queued = false;
+    var ox = scrollX, oy = scrollY;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    if (!state.visible) return;
+    var all = state.strokes.concat(state.live ? [state.live] : []);
+    for (var i = 0; i < all.length; i++) {
+      var s = all[i];
+      var b = bbox(s);
+      if (b.y2 < oy - 40 || b.y1 > oy + innerHeight + 40) continue;  /* off-screen */
+      ctx.save();
+      ctx.lineJoin = ctx.lineCap = 'round';
+      ctx.strokeStyle = s.color;
+      if (s.tool === TOOLS.hi) {
+        ctx.globalAlpha = 0.32;
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.lineWidth = s.width * 6;
+      } else {
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = s.width;
+      }
+      strokePath(s, ox, oy);
+      ctx.restore();
+    }
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(render); } }
+
+  /* ── stroke-level erase: removing whole strokes beats pixel-scrubbing
+        with a Pencil, and it keeps undo meaningful ── */
+  function eraseAt(x, y) {
+    var r = 14, hit = -1;
+    for (var i = state.strokes.length - 1; i >= 0; i--) {
+      var p = state.strokes[i].pts;
+      for (var j = 0; j < p.length; j++) {
+        if (Math.abs(p[j].x - x) < r && Math.abs(p[j].y - y) < r) { hit = i; break; }
+      }
+      if (hit >= 0) break;
+    }
+    if (hit >= 0) { state.strokes.splice(hit, 1); persist(); schedule(); }
+  }
+
+  /* ── pen input ── */
+  function docPt(e) { return { x: e.pageX, y: e.pageY, p: e.pressure || 0.5 }; }
+
+  function down(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch')) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e);
+    if (state.tool === TOOLS.erase) { eraseAt(pt.x, pt.y); return; }
+    state.live = { tool: state.tool, color: state.color, width: state.width, pts: [pt] };
+    schedule();
+  }
+  function move(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.tool === TOOLS.erase) {
+      if (e.buttons) { e.preventDefault(); eraseAt(e.pageX, e.pageY); }
+      return;
+    }
+    if (!state.live) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e), last = state.live.pts[state.live.pts.length - 1];
+    if (Math.abs(pt.x - last.x) + Math.abs(pt.y - last.y) < 1.2) return;
+    state.live.pts.push(pt);
+    schedule();
+  }
+  function up(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.live) {
+      if (state.live.pts.length > 1) state.strokes.push(state.live);
+      state.live = null; persist(); schedule();
+    }
+  }
+  addEventListener('pointerdown', down, { capture: true, passive: false });
+  addEventListener('pointermove', move, { capture: true, passive: false });
+  addEventListener('pointerup', up, { capture: true });
+  addEventListener('pointercancel', up, { capture: true });
+
+  /* Scribble defeat + scroll suppression, stylus touches only. Finger touches
+     fall straight through so the page still scrolls normally. */
+  function stylusTouch(e) {
+    if (!state.on) return false;
+    for (var i = 0; i < e.touches.length; i++) {
+      if (e.touches[i].touchType === 'stylus') return true;
+    }
+    return false;
+  }
+  ['touchstart', 'touchmove'].forEach(function (t) {
+    addEventListener(t, function (e) {
+      if (stylusTouch(e) && !(e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch'))) {
+        e.preventDefault();
+      }
+    }, { capture: true, passive: false });
+  });
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', resize);
+
+  /* ── scratchpad: blank movable surface for side diagrams ── */
+  var scratch = document.createElement('div');
+  scratch.id = 'pa-scratch';
+  scratch.style.display = 'none';
+  scratch.innerHTML =
+    '<div class="pa-sc-bar"><span>Scratchpad &mdash; drag to move</span>' +
+    '<button data-sc="clear">Clear</button><button data-sc="close">&times;</button></div>' +
+    '<canvas></canvas>';
+  document.body.appendChild(scratch);
+  var scv = scratch.querySelector('canvas');
+  var sctx = scv.getContext('2d', { desynchronized: true }) || scv.getContext('2d');
+  var scStrokes = [], scLive = null;
+
+  function scResize() {
+    if (!sctx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = scratch.clientWidth, h = scratch.clientHeight - 34;
+    scv.width = w * dpr; scv.height = h * dpr;
+    scv.style.width = w + 'px'; scv.style.height = h + 'px';
+    sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    scRender();
+  }
+  function scRender() {
+    if (!sctx) return;
+    sctx.clearRect(0, 0, scv.width, scv.height);
+    scStrokes.concat(scLive ? [scLive] : []).forEach(function (s) {
+      sctx.save(); sctx.lineJoin = sctx.lineCap = 'round';
+      sctx.strokeStyle = s.color; sctx.lineWidth = s.width;
+      var p = s.pts; sctx.beginPath(); sctx.moveTo(p[0].x, p[0].y);
+      for (var i = 1; i < p.length; i++) sctx.lineTo(p[i].x, p[i].y);
+      sctx.stroke(); sctx.restore();
+    });
+  }
+  scv.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive = { color: state.color, width: state.width, pts: [{ x: e.clientX - r.left, y: e.clientY - r.top }] };
+  }, true);
+  scv.addEventListener('pointermove', function (e) {
+    if (!scLive) return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive.pts.push({ x: e.clientX - r.left, y: e.clientY - r.top });
+    scRender();
+  }, true);
+  scv.addEventListener('pointerup', function () {
+    if (scLive) { scStrokes.push(scLive); scLive = null; scRender(); }
+  }, true);
+
+  /* drag the scratchpad by its bar */
+  (function () {
+    var bar = scratch.querySelector('.pa-sc-bar'), dragging = false, sx, sy, ox, oy;
+    bar.addEventListener('pointerdown', function (e) {
+      if (e.target.tagName === 'BUTTON') return;
+      dragging = true; sx = e.clientX; sy = e.clientY;
+      ox = scratch.offsetLeft; oy = scratch.offsetTop; e.preventDefault();
+    });
+    addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      scratch.style.left = (ox + e.clientX - sx) + 'px';
+      scratch.style.top = (oy + e.clientY - sy) + 'px';
+      scratch.style.right = 'auto';
+    });
+    addEventListener('pointerup', function () { dragging = false; });
+    bar.addEventListener('click', function (e) {
+      var a = e.target.getAttribute && e.target.getAttribute('data-sc');
+      if (a === 'clear') { scStrokes = []; scRender(); }
+      if (a === 'close') { scratch.style.display = 'none'; sync(); }
+    });
+  })();
+
+  /* ── toolbar ── */
+  var bar = document.createElement('div');
+  bar.id = 'pa-ink-bar';
+  bar.innerHTML =
+    '<button data-a="collapse" title="Hide toolbar">&#9700;</button>' +
+    '<div class="pa-grp">' +
+      '<button data-a="pen" class="on">&#9998; Pen</button>' +
+      '<button data-a="hi">&#9646; Highlight</button>' +
+      '<button data-a="erase">&#9003; Erase</button>' +
+    '</div>' +
+    '<div class="pa-grp pa-sw">' +
+      COLORS.map(function (c, i) {
+        return '<button data-c="' + c + '" class="pa-c' + (i ? '' : ' on') +
+               '" style="background:' + c + '"></button>';
+      }).join('') +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-w="2">thin</button><button data-w="3" class="on">med</button>' +
+      '<button data-w="6">thick</button>' +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-a="undo">Undo</button>' +
+      '<button data-a="hide">Hide ink</button>' +
+      '<button data-a="scratch">Scratchpad</button>' +
+      '<button data-a="clear" class="pa-danger">Clear page</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+
+  var pill = document.createElement('button');
+  pill.id = 'pa-ink-pill';
+  pill.textContent = '\u270E';
+  pill.title = 'Show annotation toolbar';
+  pill.style.display = 'none';
+  document.body.appendChild(pill);
+  pill.addEventListener('click', function () {
+    bar.style.display = ''; pill.style.display = 'none';
+  });
+
+  function sync() {
+    bar.querySelectorAll('[data-a]').forEach(function (b) {
+      var a = b.getAttribute('data-a');
+      if (a === 'pen' || a === 'hi' || a === 'erase') b.classList.toggle('on', state.tool === a);
+      if (a === 'hide') { b.classList.toggle('on', !state.visible); b.textContent = state.visible ? 'Hide ink' : 'Show ink'; }
+      if (a === 'scratch') b.classList.toggle('on', scratch.style.display !== 'none');
+    });
+    bar.querySelectorAll('[data-c]').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-c') === state.color);
+    });
+    bar.querySelectorAll('[data-w]').forEach(function (b) {
+      b.classList.toggle('on', +b.getAttribute('data-w') === state.width);
+    });
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var a = b.getAttribute('data-a'), c = b.getAttribute('data-c'), w = b.getAttribute('data-w');
+    if (c) state.color = c;
+    if (w) state.width = +w;
+    if (a === 'pen' || a === 'hi' || a === 'erase') state.tool = a;
+    if (a === 'undo') { state.strokes.pop(); persist(); schedule(); }
+    if (a === 'hide') { state.visible = !state.visible; schedule(); }
+    if (a === 'clear') {
+      if (confirm('Clear all ink on this page?')) { state.strokes = []; persist(); schedule(); }
+    }
+    if (a === 'scratch') {
+      var showing = scratch.style.display === 'none';
+      scratch.style.display = showing ? 'block' : 'none';
+      if (showing) scResize();
+    }
+    if (a === 'collapse') { bar.style.display = 'none'; pill.style.display = ''; }
+    sync();
+  });
+
+  var css = document.createElement('style');
+  css.textContent =
+  '#pa-ink-bar{position:fixed;right:12px;bottom:12px;z-index:99995;display:flex;flex-wrap:wrap;' +
+    'align-items:center;gap:6px;max-width:min(96vw,760px);padding:8px 10px;border-radius:14px;' +
+    "background:rgba(15,31,61,.96);box-shadow:0 6px 24px rgba(0,0,0,.3);font-family:'DM Sans',system-ui,sans-serif;}" +
+  '#pa-ink-bar .pa-grp{display:flex;align-items:center;gap:4px;padding:0 4px;' +
+    'border-left:1px solid rgba(255,255,255,.16);}' +
+  '#pa-ink-bar .pa-grp:first-of-type{border-left:none;}' +
+  '#pa-ink-bar button{min-height:38px;min-width:38px;padding:0 11px;border:none;border-radius:9px;' +
+    'background:rgba(255,255,255,.1);color:#fff;font:600 12.5px/1 inherit;cursor:pointer;' +
+    '-webkit-tap-highlight-color:transparent;touch-action:manipulation;}' +
+  '#pa-ink-bar button.on{background:#C8392B;}' +
+  '#pa-ink-bar button.pa-danger{background:rgba(200,57,43,.28);}' +
+  '#pa-ink-bar button.pa-c{width:30px;min-width:30px;height:30px;border-radius:50%;' +
+    'box-shadow:0 0 0 2px rgba(255,255,255,.25) inset;}' +
+  '#pa-ink-bar button.pa-c.on{box-shadow:0 0 0 3px #fff, 0 0 0 5px rgba(0,0,0,.25);}' +
+  '#pa-ink-pill{position:fixed;right:12px;bottom:12px;z-index:99995;width:52px;height:52px;' +
+    'border:none;border-radius:50%;background:rgba(15,31,61,.96);color:#fff;font-size:22px;' +
+    'box-shadow:0 6px 24px rgba(0,0,0,.3);cursor:pointer;touch-action:manipulation;}' +
+  '#pa-scratch{position:fixed;right:12px;bottom:86px;z-index:99993;width:min(46vw,460px);height:340px;' +
+    'background:#fff;border:1.5px solid #0F1F3D;border-radius:12px;overflow:hidden;resize:both;' +
+    'box-shadow:0 10px 30px rgba(0,0,0,.25);}' +
+  "#pa-scratch .pa-sc-bar{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;" +
+    "background:#0F1F3D;color:#fff;font:600 11.5px/1 'DM Sans',system-ui,sans-serif;cursor:move;" +
+    'touch-action:none;}' +
+  '#pa-scratch .pa-sc-bar span{flex:1;opacity:.75;}' +
+  '#pa-scratch .pa-sc-bar button{min-height:24px;padding:0 9px;border:none;border-radius:6px;' +
+    'background:rgba(255,255,255,.14);color:#fff;font:600 11px/1 inherit;cursor:pointer;}' +
+  '#pa-scratch canvas{display:block;background:#fff;touch-action:none;}' +
+  '@media print{#pa-ink-bar,#pa-ink-pill,#pa-scratch{display:none!important;}}';
+  document.head.appendChild(css);
+
+  resize();
+  sync();
+  window.PA_INK = state;   /* handy for a quick console check during setup */
+})();
+
 </script>
 </body>
 </html>

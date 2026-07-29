@@ -10,7 +10,7 @@
   --red:#C8392B;--red-dk:#9B2B20;--red-lt:#FFF5F4;--red-bd:#F5C6C2;
   --amber:#B87333;--amber-lt:#FFF8EF;--amber-bd:#E8C99A;
   --teal:#0D6E6E;--teal-lt:#EEF8F8;--teal-bd:#B8DEDE;
-  --navy:#0F1F3D;--navy-md:#1C3160;--navy-lt:#EEF2FA;
+  --navy:#0F1F3D; --navy-bd: #C5D2EB;--navy-md:#1C3160;--navy-lt:#EEF2FA;
   --slate:#3D4A5C;--mid:#6B7A8D;
   --light:#F4F6F9;--border:#E2E8F0;
   --gold:#B8860B;--gold-lt:#FFFBEF;
@@ -23,11 +23,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font-size:14.5px;line-height:1.7;}
 
-.top-bar::-webkit-scrollbar{display:none;}
 
-.tb-brand span{color:#A5B4FC;}
-
-.tb-link:hover{color:white;background:rgba(255,255,255,.08);}
 .hero{background:var(--navy);padding:56px 64px 48px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;right:-60px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.2) 0%,transparent 70%);}
 .hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
@@ -64,8 +60,6 @@ body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font
 .tc-badges{display:flex;flex-direction:column;gap:5px;padding:14px 16px;align-items:flex-end;}
 .badge{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:12px;white-space:nowrap;}
 .badge-pance{background:var(--red-lt);color:var(--red);}
-.badge-trap{background:var(--amber-lt);color:var(--amber);}
-.badge-gap{background:var(--purple-lt);color:var(--purple);}
 .badge-new{background:var(--green-lt);color:var(--green);}
 .tc-body{padding:0 24px 20px;}
 .sub{margin-top:16px;}
@@ -99,7 +93,6 @@ strong,b{color:var(--black);}
 .box-amber .box-label{color:var(--amber);}.box-amber .box-items li::before{color:var(--amber);}
 .box-green{background:var(--green-lt);border-color:var(--green);}
 .box-green .box-label{color:var(--green);}.box-green .box-items li::before{color:var(--green);}
-.box-id{background:var(--id-lt);border-color:var(--id);}
 .box-id .box-label{color:var(--id);}.box-id .box-items li::before{color:var(--id);}
 .btable{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:12.5px;border-radius:6px;overflow:hidden;border:1px solid var(--border);}
 .btable thead tr{background:var(--navy);}
@@ -111,11 +104,8 @@ strong,b{color:var(--black);}
 .td-green{color:var(--green)!important;font-weight:600!important;}
 .td-amber{color:var(--amber)!important;font-weight:600!important;}
 .td-bold{font-weight:700!important;color:var(--black)!important;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
 @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
 .pearl{background:var(--light);border-left:4px solid var(--navy);border-radius:5px;padding:13px 16px;margin:12px 0;}
-.pearl-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:7px;}
-.pearl-text{font-family:'Syne',sans-serif;font-size:13.5px;font-style:italic;color:var(--navy-md);line-height:1.65;}
 .trick{background:var(--gold-lt);border-left:4px solid var(--gold);border-radius:5px;padding:12px 15px;margin:12px 0;}
 .trick-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
 .trick-text{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:#5A4000;line-height:1.65;white-space:pre-line;}
@@ -123,32 +113,12 @@ strong,b{color:var(--black);}
 .vig-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A5B4FC;margin-bottom:7px;}
 .vig-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;}
 .vig-ans{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:7px;font-style:italic;}
-.toggle-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);background:var(--light);border:1px solid var(--border);border-radius:4px;padding:5px 11px;cursor:pointer;margin:7px 0 4px;transition:all .12s;}
-.toggle-btn:hover{background:var(--navy);color:white;}
-.q-answer{display:none;margin-top:6px;}
-.q-answer.show{display:block;}
-.qblock{border:1.5px solid var(--border);border-radius:7px;overflow:hidden;margin-bottom:14px;}
-.qblock-stem{padding:14px 16px;background:white;}
-.q-num{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;}
-.q-text{font-size:14px;font-weight:600;color:var(--black);line-height:1.6;margin-bottom:11px;}
-.q-choices{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;}
-.q-choices li{font-size:13px;color:var(--slate);padding:4px 9px;border-radius:4px;border:1px solid transparent;}
-.q-choices li .ltr{font-family:'DM Mono',monospace;font-weight:700;color:var(--navy);margin-right:5px;}
-.q-ans-block{background:var(--green-lt);border-top:1.5px solid var(--green-bd);padding:11px 16px;}
-.q-ans-lbl{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
-.q-ans-text{font-size:13px;color:var(--slate);line-height:1.6;}
-.rf-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
-.rf-item{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--id);}
-.rf-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--id);line-height:1;flex-shrink:0;width:28px;}
-.rf-text{font-size:13.5px;color:var(--slate);line-height:1.6;}
-.rf-text b{color:var(--black);}
 .emer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 @media(max-width:700px){.emer-grid{grid-template-columns:1fr;}}
 .emer-card{background:var(--red-lt);border:1.5px solid var(--red-bd);border-left:5px solid var(--red);border-radius:7px;padding:14px 16px;}
 .emer-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--red-dk);margin-bottom:5px;}
 .emer-text{font-size:12.5px;color:#5A1A14;line-height:1.55;}
 .emer-text b{color:var(--red-dk);}
-.gap-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--purple-lt);color:var(--purple);border:1px solid var(--purple);padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;}
 .trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
 @media(max-width:700px){.trap-grid{grid-template-columns:1fr;}}
 .trap-cell{display:grid;grid-template-columns:44px 1fr;border-bottom:1px solid var(--border);}
@@ -167,9 +137,6 @@ strong,b{color:var(--black);}
 .img-popup-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy-lt);color:var(--navy);border:1.5px solid var(--navy);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
 .img-popup-btn:hover{background:var(--navy);color:white;}
 .btn-icon{font-size:11px;line-height:1;}
-.ecg-popup-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:#0a1628;color:#00ff88;border:1.5px solid rgba(0,255,136,.4);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
-.ecg-popup-btn:hover{background:#0d2040;border-color:#00ff88;}
-.audio-mnemonic-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(13,110,110,.1);color:var(--teal,#0D6E6E);border:1.5px solid rgba(13,110,110,.3);border-radius:4px;padding:3px 10px;cursor:pointer;vertical-align:middle;margin-left:8px;transition:all .15s;white-space:nowrap;}
 .popup-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,15,26,.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px;}
 .popup-overlay.active{display:flex;}
 .popup-modal{background:white;border-radius:14px;max-width:880px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .22s cubic-bezier(.34,1.56,.64,1) both;position:relative;}
@@ -188,41 +155,7 @@ strong,b{color:var(--black);}
 .popup-keypoints{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
 .popup-kp{background:var(--navy-lt,#EEF2FA);border:1px solid var(--border,#E2E8F0);border-radius:5px;padding:5px 11px;font-size:11.5px;color:var(--navy,#0F1F3D);line-height:1.5;}
 /* EKG modal */
-.ecg-overlay{display:none;position:fixed;inset:0;z-index:9100;background:rgba(5,10,20,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;}
-.ecg-overlay.active{display:flex;}
-.ecg-modal{background:#0a1628;border-radius:14px;max-width:900px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 0 60px rgba(0,255,136,.15),0 24px 80px rgba(0,0,0,.6);animation:ecgPopIn .22s cubic-bezier(.34,1.56,.64,1) both;border:1px solid rgba(0,255,136,.2);}
 @keyframes ecgPopIn{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
-.ecg-modal-header{display:flex;align-items:flex-start;justify-content:space-between;padding:16px 22px 12px;border-bottom:1px solid rgba(0,255,136,.15);gap:16px;}
-.ecg-modal-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:white;margin-bottom:3px;}
-.ecg-modal-sub{font-size:11px;color:rgba(0,255,136,.6);font-family:'DM Mono',monospace;}
-.ecg-modal-close{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);border:none;cursor:pointer;font-size:16px;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;transition:all .15s;}
-.ecg-modal-close:hover{background:rgba(255,0,0,.2);color:white;}
-.ecg-modal-paper{padding:14px 18px;background:#fff9f0;}
-.ecg-paper-grid{background:#fff9f0;background-image:linear-gradient(rgba(180,220,160,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(180,220,160,.5) 1px,transparent 1px),linear-gradient(rgba(200,230,180,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(200,230,180,.3) 1px,transparent 1px);background-size:20px 20px,20px 20px,4px 4px,4px 4px;border-radius:6px;padding:10px;}
-.ecg-leads-12{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
-.ecg-lead-cell{border-right:1px solid rgba(160,200,140,.4);border-bottom:1px solid rgba(160,200,140,.4);padding:3px 5px;}
-.ecg-lead-cell:nth-child(4n){border-right:none;}
-.ecg-lead-lbl{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;color:#444;margin-bottom:1px;}
-.ecg-rhythm-row{border-top:1px solid rgba(160,200,140,.4);padding:3px 5px;}
-.ecg-modal-anim{background:#0a1628;padding:12px 18px;border-top:1px solid rgba(0,255,136,.1);display:none;}
-.ecg-modal-anim.show{display:block;}
-.ecg-anim-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;color:#00ff88;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;}
-.ecg-modal-actions{padding:10px 18px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(0,255,136,.1);}
-.ecg-modal-anim-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,255,136,.1);color:#00cc66;border:1.5px solid rgba(0,255,136,.25);border-radius:4px;padding:6px 12px;cursor:pointer;transition:all .15s;}
-.ecg-modal-audio-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.15);border-radius:4px;padding:6px 12px;cursor:pointer;transition:all .15s;}
-.ecg-modal-audio-btn.playing{background:rgba(200,57,43,.25);color:#ff6b6b;border-color:rgba(200,57,43,.4);}
-.ecg-modal-findings{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 18px;border-top:1px solid rgba(0,255,136,.1);}
-.ecg-modal-finding{background:rgba(255,255,255,.05);border-radius:5px;padding:8px 10px;border-left:2px solid rgba(0,255,136,.4);}
-.ecg-modal-finding.red{border-left-color:rgba(200,57,43,.7);}
-.ecg-modal-finding.amber{border-left-color:rgba(184,115,51,.7);}
-.ecg-mf-lbl{font-family:'DM Mono',monospace;font-size:7.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:3px;}
-.ecg-mf-val{font-size:11.5px;font-weight:600;color:white;line-height:1.35;}
-.ecg-modal-mnemonic{margin:0 18px 14px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.15);border-radius:6px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.7);line-height:1.6;}
-.ecg-modal-mnemonic strong{color:#00ff88;}
-.ecg-modal-mnemonic em{color:#ffd166;font-style:normal;}
-.ecg-modal-trap{margin:0 18px 16px;background:rgba(200,57,43,.1);border:1px solid rgba(200,57,43,.3);border-radius:6px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;}
-.ecg-modal-trap .trap-lbl{font-family:'DM Mono',monospace;font-size:7.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(200,57,43,.9);margin-bottom:4px;}
-.ecg-modal-trap b{color:#ff8875;}
 
 /* ════ MODULE D DIFFERENTIALS — NEURO ════ */
 .diff-card{background:white;border:1.5px solid var(--border);border-radius:10px;margin-bottom:18px;overflow:hidden;}
@@ -270,6 +203,7 @@ strong,b{color:var(--black);}
 .vignette-answer-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1A6B3A;margin-bottom:5px;}
 .vignette-answer-text{font-size:13px;color:#0F1F3D;line-height:1.65;font-weight:500;}
 .vignette-pearl{padding:10px 18px 14px;background:rgba(15,31,61,.03);display:none;}
+.vignette-pearl.show{display:block;}
 .vignette-pearl-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5B2D8E;margin-bottom:4px;}
 .vignette-pearl-text{font-size:12.5px;color:#3D4A5C;line-height:1.6;}
 .vignette-pearl-text b{color:#0F1F3D;}
@@ -295,25 +229,6 @@ strong,b{color:var(--black);}
 /* Fade-out gradient over blurred content */
 
 /* Small lock callout at bottom of each locked card */
-.pw-card-lock {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 3;
-  display: flex; align-items: center; justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: rgba(247,249,252,.98);
-  border-top: 1px dashed var(--border);
-  font-size: 12.5px; color: var(--mid, #6B7A8D);
-  text-align: center;
-}
-.pw-card-lock a {
-  color: var(--navy, #0F1F3D);
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.pw-card-lock a:hover { text-decoration: underline; }
 
 /* ── THE GATE ── */
 .pw-gate {
@@ -804,18 +719,6 @@ body.pw-unlocked #pw-gate .pw-unlocked-banner {
 }
 
 /* Scroll arrow hints */
-.jump-nav-arrow {
-  display: none;
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 32px;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.95));
-  z-index: 2;
-}
-.jump-nav-arrow.right { right: 0; }
-.jump-nav-arrow.left  { left: 0; background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,.95)); }
 
 @media (max-width: 768px) {
   .jump-link { font-size: 8.5px; padding: 0 10px; }
@@ -873,25 +776,16 @@ body.pw-unlocked .tc-lock-prompt {
 /* ══════════════════════════════════════════════════════════ */
 </style>
 <style id="mnav">
-.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:none;border:none;cursor:pointer;padding:9px;flex:none}
-.nav-burger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.22s}
 .nav.open .nav-burger span:nth-child(1),.site-nav.open .nav-burger span:nth-child(1),
 .nav.open .nav-burger span:nth-child(2),.site-nav.open .nav-burger span:nth-child(2),
 .nav.open .nav-burger span:nth-child(3),.site-nav.open .nav-burger span:nth-child(3),
 
 @media(max-width:760px){
-  .nav-burger{display:flex}
   .nav-links,.snav-links,
   .nav.open .nav-links,.site-nav.open .snav-links,
   .nav-links>a,.snav-links>a,
   .nav-links>a:hover,.snav-links>a:hover,
   .nav-links .btn,.snav-links .btn,
-  .nav-dd{display:block!important;width:100%}
-  .nav-dd-btn{width:100%;justify-content:space-between!important;padding:13px 24px!important;font-size:15px;color:#cdd8ee!important}
-  .nav-dd-menu{position:static!important;transform:none!important;opacity:1!important;visibility:visible!important;background:rgba(255,255,255,.03)!important;border:none!important;box-shadow:none!important;border-radius:0!important;min-width:0!important;padding:0!important;display:none!important}
-  .nav-dd.open .nav-dd-menu{display:block!important}
-  .nav-dd-menu a{padding:11px 24px 11px 42px!important;border-bottom:1px solid rgba(255,255,255,.04)}
-  .nav-dd-menu .dd-eyebrow{padding:9px 24px 4px!important}
 }
 </style>
 <!-- Google Analytics -->
@@ -957,6 +851,96 @@ body.pw-unlocked .tc-lock-prompt {
 <style>
 
 @media(max-width:760px){}
+
+/* ══ INTERACTIVE QUESTIONS (ported from ECG syllabus) ══ */
+.ix{margin:0 0 22px;border:1px solid var(--border);border-radius:14px;background:var(--light);overflow:hidden;}
+.ix-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
+.ix-kick{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--red);padding:4px 10px;border-radius:20px;white-space:nowrap;}
+.ix-ttl{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;}
+.ix-count{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-left:auto;}
+.ix-intro{padding:13px 18px 0;font-size:12.5px;line-height:1.6;color:var(--slate);}
+.ix-intro b{color:var(--navy);}
+.ix-body{padding:13px 18px 18px;}
+.ix-item{background:#fff;border:1px solid var(--border);border-radius:11px;padding:15px 17px;}
+.ix-n{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:8px;}
+.ix-q{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:11px;}
+.ix-opts{margin-bottom:10px;}
+.ix-opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;margin-bottom:7px;cursor:pointer;font-size:12.5px;line-height:1.5;color:var(--slate);transition:border-color .12s,background .12s;}
+.ix-opt:hover{border-color:var(--navy-bd);background:var(--navy-lt);}
+.ix-opt input{margin:3px 0 0;accent-color:var(--red);flex:none;}
+.ix-opt .ix-let{font-family:'DM Mono',monospace;font-weight:600;color:var(--mid);flex:none;}
+.ix-opt.ix-ok{border-color:var(--green);background:var(--green-lt);}
+.ix-opt.ix-ok .ix-let{color:var(--green);}
+.ix-opt.ix-no{border-color:var(--red);background:var(--red-lt);}
+.ix-opt.ix-no .ix-let{color:var(--red);}
+.ix-done .ix-opt{cursor:default;}
+.ix-done .ix-opt:hover{border-color:var(--border);background:#fff;}
+.ix-done .ix-opt.ix-ok:hover{border-color:var(--green);background:var(--green-lt);}
+.ix-done .ix-opt.ix-no:hover{border-color:var(--red);background:var(--red-lt);}
+.ix-sub-btn{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--navy);color:#fff;border:none;border-radius:9px;padding:10px 20px;cursor:pointer;}
+.ix-sub-btn:hover{background:var(--red);}
+.ix-sub-btn:disabled{opacity:.45;cursor:default;}
+.ix-fb{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-top:10px;line-height:1.5;}
+.ix-fb.ok{color:var(--green);}
+.ix-fb.no{color:var(--navy);}
+.ix-fb.warn{color:var(--amber);}
+details.ix-rev{display:none;margin-top:12px;border-top:1px solid var(--border);}
+.ix-done details.ix-rev{display:block;}
+details.ix-rev>summary{cursor:pointer;list-style:none;padding:11px 0 0;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--red);display:flex;align-items:center;gap:8px;}
+details.ix-rev>summary::-webkit-details-marker{display:none;}
+details.ix-rev>summary::before{content:'\25B8';font-size:11px;transition:transform .15s;}
+details.ix-rev[open]>summary::before{transform:rotate(90deg);}
+.ix-rev-body{padding:11px 0 2px;font-size:12.5px;line-height:1.64;color:var(--slate);}
+.ix-ans{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.ix-lbl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin:12px 0 5px;}
+.ix-why{margin:0;padding-left:19px;}
+.ix-why li{margin-bottom:5px;}
+.ix-bp{margin-top:13px;background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 9px 9px 0;padding:11px 14px;font-size:12.5px;line-height:1.6;}
+.ix-bp b{color:var(--amber);font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:5px;}
+.ix-where{margin-top:11px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);border-top:1px dashed var(--border);padding-top:9px;}
+.ix-where span{color:var(--navy);}
+.ix-ecg{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:13px;}
+.ix-ecg-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ix-ecg img{display:block;width:100%;min-width:660px;height:auto;}
+.ix-ecg-cap{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);padding:9px 13px 0;}
+@media(max-width:640px){.ix-body{padding:11px 12px 13px;}.ix-intro{padding:11px 12px 0;}.ix-item{padding:13px;}.ix-count{display:none;}}
+
+.grp{margin:26px 0 12px;padding:0 0 0 13px;border-left:3px solid var(--red);}
+.grp:first-of-type{margin-top:4px;}
+.grp-n{display:block;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+.grp{font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);line-height:1.5;}
+
+/* ── live-poll handoff button (Poll Everywhere) ── */
+.pe-row{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:0 0 12px;padding:11px 13px;background:var(--red-lt);border:1px solid var(--red-bd);border-radius:10px;}
+.pe-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--red);color:#fff;border:none;border-radius:9px;padding:10px 18px;cursor:pointer;text-decoration:none;white-space:nowrap;}
+.pe-btn:hover{background:var(--navy);}
+.pe-btn::before{content:'\25CF';font-size:9px;}
+.pe-note{font-family:'DM Sans',sans-serif;font-size:11.5px;line-height:1.5;color:var(--slate);}
+.pe-note b{color:var(--red);}
+@media(max-width:640px){.pe-row{flex-direction:column;align-items:stretch;}.pe-btn{justify-content:center;}}
+
+/* ══ LIVE CLASS RESULTS ══ */
+.ix-res{margin-top:13px;padding-top:12px;border-top:1px solid var(--border);}
+.ix-res-hd{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);display:flex;align-items:baseline;gap:8px;margin-bottom:9px;}
+.ix-res-n{color:var(--navy);font-weight:600;}
+.ix-res-live{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--green);}
+.ix-res-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:ixpulse 1.6s ease-in-out infinite;}
+@keyframes ixpulse{0%,100%{opacity:1}50%{opacity:.25}}
+.ix-res-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
+.ix-res-let{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:600;color:var(--mid);width:11px;flex:none;}
+.ix-res-track{flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.ix-res-fill{height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}
+.ix-res-pct{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--slate);width:42px;text-align:right;flex:none;}
+.ix-res-row.ok .ix-res-let{color:var(--green);}
+.ix-res-row.ok .ix-res-fill{background:var(--green);}
+.ix-res-row.mine .ix-res-let::after{content:'\2190';margin-left:3px;color:var(--red);}
+.ix-res-empty{font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--mid);font-style:italic;}
+
+/* ══ PRE-DOMAIN QUESTIONS — paywall parity with topic cards ══ */
+.ix-lock{display:none;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);font-style:italic;padding:13px 18px 16px;}
+body:not(.pw-unlocked) .ix-gated .ix-intro,
+body:not(.pw-unlocked) .ix-gated .ix-body{display:none!important;}
+body:not(.pw-unlocked) .ix-gated .ix-lock{display:block;}
 </style>
 
 <div class="hero">
@@ -1197,6 +1181,97 @@ body.pw-unlocked .tc-lock-prompt {
     </a>
   </div>
 </div>
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Stroke, TIA & Hemorrhage</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="n-ich" data-answer="4">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Stroke · Hemorrhagic vs Ischemic</span>
+        <div class="ix-q">A 58-year-old hypertensive man presents with sudden severe headache, left-sided weakness, and vomiting. BP 218/132. CT head shows a hyperdense lesion in the right basal ganglia with surrounding edema. What is the MOST appropriate blood pressure management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Administer aspirin 325mg and admit for monitoring</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Administer tPA to dissolve the clot</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Lower BP to below 120/80 within 1 hour</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Do not lower BP — it maintains perfusion pressure</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Lower systolic BP to <140 mmHg over 1 hour with IV nicardipine or labetalol</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Lower systolic BP to <140 mmHg over 1 hour with IV nicardipine or labetalol</div>
+            <div>Intracerebral hemorrhage (ICH): hyperdense lesion on CT = blood = hemorrhagic stroke. tPA is absolutely CONTRAINDICATED. BP management: target SBP <140 mmHg with IV nicardipine or labetalol (ATACH-2, INTERACT-2 trials). This reduces hematoma expansion. Do NOT lower to normal levels acutely — gradual reduction over 1 hour is the target.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Administer aspirin 325mg and admit for monitoring</b> &mdash; Incorrect. Antiplatelet therapy in an active intracerebral hemorrhage promotes further bleeding and hematoma expansion. Aspirin is for ischemic stroke; the hyperdense CT lesion here means blood.</li>
+              <li><b>Administer tPA to dissolve the clot</b> &mdash; Incorrect. This is the catastrophic error. Thrombolysis in intracerebral hemorrhage dramatically worsens bleeding and is absolutely contraindicated. The hyperdensity on CT is hemorrhage, not thrombus.</li>
+              <li><b>Lower BP to below 120/80 within 1 hour</b> &mdash; Incorrect. Overly aggressive reduction risks cerebral hypoperfusion around the hematoma. Trial evidence supports a systolic target near 140 rather than driving pressure to normal values acutely.</li>
+              <li><b>Do not lower BP — it maintains perfusion pressure</b> &mdash; Incorrect. Permissive hypertension is the strategy for ISCHEMIC stroke, which is what makes this tempting. In hemorrhage, sustained pressure at 218/132 drives hematoma expansion, so controlled reduction improves outcome.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>One CT decides everything: <b>hyperdense means blood</b>, and blood makes tPA an absolute contraindication. Note that the two stroke types have <i>opposite</i> pressure targets &mdash; in ICH lower to <b>SBP under 140</b> to limit haematoma expansion, but in ischaemic stroke you permit up to <b>185/110</b> for thrombolysis and 220/120 without it, because the penumbra depends on perfusion pressure. Sudden severe headache with vomiting and a very high pressure should make you think haemorrhage before infarct.</div>
+            <div class="ix-where">Covered below under <span>Module 3 &mdash; Stroke &amp; Cerebrovascular Disease</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-tpabp" data-answer="4">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Stroke · tPA Eligibility</span>
+        <div class="ix-q">A 66-year-old woman presents with sudden left-sided weakness and aphasia. Last seen normal 3.5 hours ago. CT head shows no hemorrhage. BP 192/108, INR 1.1, platelets 220K, glucose 104. Which is the MOST appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Withhold tPA — BP is too high</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Start aspirin 325mg and admit for monitoring</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Obtain MRI before making treatment decision</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Administer tPA immediately</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Lower BP with IV labetalol, then administer tPA if BP reaches ≤185/110</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Lower BP with IV labetalol, then administer tPA if BP reaches ≤185/110</div>
+            <div>BP >185/110 is a contraindication to tPA but is TREATABLE. Administer labetalol or nicardipine to achieve BP ≤185/110, then give tPA. Never withhold tPA solely because BP is elevated if it can be lowered. MRI is not required — CT showing no hemorrhage is sufficient.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Withhold tPA — BP is too high</b> &mdash; Incorrect. Elevated BP is a RELATIVE, treatable barrier — not a reason to abandon thrombolysis. Withholding tPA from an otherwise eligible patient inside the window because of a number you can lower is a serious missed opportunity.</li>
+              <li><b>Start aspirin 325mg and admit for monitoring</b> &mdash; Incorrect. Aspirin is appropriate secondary prevention but is vastly inferior to thrombolysis in an eligible patient. Aspirin is also withheld for 24 hours after tPA, so giving it now can forfeit the chance to thrombolyse.</li>
+              <li><b>Obtain MRI before making treatment decision</b> &mdash; Incorrect. The non-contrast CT has already excluded hemorrhage, which is all that is required before tPA. MRI adds delay in a time-critical window where every minute of untreated ischemia costs neurons.</li>
+              <li><b>Administer tPA immediately</b> &mdash; Incorrect. The instinct to treat fast is right, but giving tPA at 192/108 markedly increases the risk of symptomatic intracranial hemorrhage. BP must be brought to ≤185/110 first — the sequence, not the drug, is the error.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Distinguish contraindications that are <b>fixed</b> from ones that are <b>treatable</b>. A pressure above 185/110 does not disqualify a patient &mdash; it is a target to hit with labetalol or nicardipine before the needle goes in. Withholding thrombolysis purely because the pressure is high is a classic wrong answer. The window is <b>4.5 hours</b> from last known normal, a non-contrast CT excluding haemorrhage is sufficient, and thrombectomy extends the reach to 24 hours in selected large-vessel occlusions.</div>
+            <div class="ix-where">Covered below under <span>Module 3 &mdash; Stroke &amp; Cerebrovascular Disease &middot; tPA window</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-lyticcontra" data-answer="4">
+        <span class="ix-n">Question 3 of 3 &middot; Medium &middot; Thrombolytic Contraindications</span>
+        <div class="ix-q">A 61-year-old woman has crushing substernal chest pain for 90 minutes. ECG shows 4mm ST elevation in V1-V4 consistent with anterior STEMI. PCI is unavailable at your facility. She had a hemorrhagic stroke 3 weeks ago. A colleague suggests giving thrombolytics. What is the most appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Give thrombolytics now since 90 minutes of ongoing STEMI outweighs the stroke history</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Obtain a CT head to re-evaluate stroke risk before deciding on thrombolytics</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Manage medically with anticoagulation and antiplatelet therapy only, without reperfusion</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Give half-dose thrombolytics to reduce bleeding risk while still achieving reperfusion</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Do not give thrombolytics — transfer for primary PCI regardless of transfer time, since recent hemorrhagic stroke is an absolute contraindication</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Do not give thrombolytics — transfer for primary PCI regardless of transfer time, since recent hemorrhagic stroke is an absolute contraindication</div>
+            <div>A hemorrhagic stroke within 3 months is an ABSOLUTE contraindication to thrombolytic therapy due to the risk of catastrophic intracranial bleeding. Even though door-to-balloon time of ≤90 minutes is the usual goal, absolute contraindications override the timing preference — this patient must be transferred for PCI even if that means a longer delay.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Give thrombolytics now since 90 minutes of ongoing STEMI outweighs the stroke history</b> &mdash; Incorrect. This inverts the risk calculus. Hemorrhagic stroke within 3 months is an ABSOLUTE contraindication — absolute contraindications are not overridden by infarct size or time pressure.</li>
+              <li><b>Obtain a CT head to re-evaluate stroke risk before deciding on thrombolytics</b> &mdash; Incorrect. A normal CT does not remove the contraindication. The risk derives from recently disrupted cerebral vasculature, which imaging cannot exclude, and the delay costs myocardium.</li>
+              <li><b>Manage medically with anticoagulation and antiplatelet therapy only, without reperfusion</b> &mdash; Incorrect. Abandoning reperfusion entirely is unnecessary. Transfer for primary PCI provides mechanical reperfusion without any bleeding-risk contraindication, so the patient is not limited to medical therapy.</li>
+              <li><b>Give half-dose thrombolytics to reduce bleeding risk while still achieving reperfusion</b> &mdash; Incorrect. Dose reduction is not a recognized strategy for circumventing an absolute contraindication. It does not reliably prevent intracranial hemorrhage and compromises reperfusion efficacy.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Absolute contraindications outrank timing goals every time. <b>Haemorrhagic stroke within 3 months, ischaemic stroke within 3 months, any prior intracranial haemorrhage, known structural cerebrovascular lesion, intracranial neoplasm, active bleeding, and suspected aortic dissection</b> are absolute. Relative ones &mdash; recent major surgery, uncontrolled hypertension, pregnancy, recent internal bleeding &mdash; are judgement calls. When an absolute contraindication is present, transfer for a mechanical option rather than accepting a lytic.</div>
+            <div class="ix-where">Covered below under <span>Module 3 &mdash; Stroke &amp; Cerebrovascular Disease &middot; contraindications</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="stroke">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1310,6 +1385,97 @@ body.pw-unlocked .tc-lock-prompt {
   <div class="sh-tag">Domain 3 · Episodic Disorders</div>
   <div class="sh-title">Headache &amp; Seizures</div>
 </div>
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Headache & Seizures</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="n-sah" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Headache · SAH</span>
+        <div class="ix-q">A 48-year-old man with a history of migraines presents with a headache he describes as 'the worst of my life,' maximal at onset, while exercising. He is afebrile. CT head is negative.</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Start sumatriptan and recheck in 2 hours</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Prescribe NSAIDs and neurology follow-up</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Discharge with migraine medications</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Perform lumbar puncture to evaluate for xanthochromia</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>MRI brain with gadolinium</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Perform lumbar puncture to evaluate for xanthochromia</div>
+            <div>Thunderclap headache (maximal at onset) with a negative CT requires LP to rule out SAH. CT misses ~2% of SAH in the first 12 hours and more beyond 24 hours. Xanthochromia (yellow CSF) indicates blood breakdown and is diagnostic. The history of migraines does NOT change the workup when headache characteristics are atypical.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Start sumatriptan and recheck in 2 hours</b> &mdash; Incorrect. Treating this as migraine is the dangerous error. A known migraine history does not protect against subarachnoid hemorrhage, and triptans are vasoconstrictors that are inappropriate before SAH is excluded.</li>
+              <li><b>Prescribe NSAIDs and neurology follow-up</b> &mdash; Incorrect. Outpatient management of an unexcluded thunderclap headache risks catastrophic rebleeding, which carries very high mortality. The negative CT is reassuring but insufficient at this point in the timeline.</li>
+              <li><b>Discharge with migraine medications</b> &mdash; Incorrect. Discharge is the highest-risk option. Maximal-at-onset headache during exertion is a classic SAH presentation, and a negative CT does not exclude it — sensitivity falls progressively after the first 6 to 12 hours.</li>
+              <li><b>MRI brain with gadolinium</b> &mdash; Incorrect. MRI is useful for many secondary headache causes but is not the standard next step for suspected SAH after a negative CT. LP directly detects xanthochromia and red cells, and is faster and more available.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Maximal at onset</b> is the phrase that changes the plan, and a known headache history does not soften it. CT sensitivity for subarachnoid haemorrhage is excellent within 6 hours but decays after that, so a negative CT with a thunderclap history still needs an <b>LP looking for xanthochromia</b> (or CT angiography where that pathway is used). Run the SNOOP red flags: systemic signs, neurologic deficit, onset sudden, older age, and a pattern that has changed.</div>
+            <div class="ix-where">Covered below under <span>Module 4 &mdash; Headaches &middot; SNOOP red flags</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-status" data-answer="0">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Seizure · Status Epilepticus</span>
+        <div class="ix-q">A 34-year-old woman has a witnessed generalized tonic-clonic seizure lasting 8 minutes in the ED. It is still ongoing. She received IV lorazepam 4mg 3 minutes ago without termination. What is the MOST appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>IV fosphenytoin or levetiracetam</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Oral levetiracetam via NG tube</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>CT head before further treatment</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Repeat lorazepam 4mg IV</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Emergent EEG</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; IV fosphenytoin or levetiracetam</div>
+            <div>Status epilepticus (seizure >5 min) protocol: 1st — benzodiazepine (lorazepam/diazepam). 2nd line after benzo failure — fosphenytoin, levetiracetam, or valproate IV. She received first-line benzo without effect; second-line IV agent is next. Do not give a second benzo before moving to second-line therapy.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Oral levetiracetam via NG tube</b> &mdash; Incorrect. Enteral dosing is far too slow for an actively seizing patient and carries aspiration risk. Status epilepticus requires IV therapy for immediate serum levels.</li>
+              <li><b>CT head before further treatment</b> &mdash; Incorrect. Imaging is important once the seizure is controlled, but transporting an actively convulsing patient to CT delays second-line therapy. Ongoing status causes progressive neuronal injury — stop the seizure first.</li>
+              <li><b>Repeat lorazepam 4mg IV</b> &mdash; Incorrect. A second benzodiazepine dose is reasonable practice if the first was underdosed, which makes this tempting — but she has already received an adequate 4mg without response. Guidelines move to a second-line agent rather than repeating a failed class.</li>
+              <li><b>Emergent EEG</b> &mdash; Incorrect. EEG is essential for suspected NON-convulsive status or to confirm resolution, but this seizure is clinically visible. Waiting for EEG before treating a witnessed convulsion delays urgent therapy.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Status epilepticus is any seizure beyond <b>5 minutes</b>, and the ladder is fixed: <b>benzodiazepine first</b>, then a <b>second-line IV agent</b> &mdash; fosphenytoin, levetiracetam, or valproate. The trap is stacking a second benzodiazepine after the first fails; that wastes time and adds respiratory depression without addressing the seizure. If second-line fails, move to anaesthetic infusion with intubation. Check glucose and give thiamine before glucose in anyone who may be alcohol-dependent.</div>
+            <div class="ix-where">Covered below under <span>Module 5 &mdash; Seizures &amp; Epilepsy &middot; status epilepticus</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-absence" data-answer="2">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Seizure · Drug Selection</span>
+        <div class="ix-q">An 8-year-old girl has absence seizures characterized by staring spells lasting 5–10 seconds with no post-ictal confusion. EEG shows 3Hz generalized spike-and-wave pattern. Which is the MOST appropriate first-line treatment?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Levetiracetam</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Phenytoin</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Ethosuximide</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Carbamazepine</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Valproate</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Ethosuximide</div>
+            <div>Ethosuximide is first-line for pure absence seizures. It reduces 3Hz spike-wave activity via T-type calcium channel blockade. Carbamazepine is CONTRAINDICATED in absence seizures — it worsens absence and can precipitate absence status. Valproate is used if absence coexists with other generalized seizure types. Phenytoin has no efficacy for absence.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Levetiracetam</b> &mdash; Incorrect. Levetiracetam is a broad-spectrum agent that is safe in generalized epilepsy and is sometimes used adjunctively, but it is not first-line for pure absence seizures and is less effective than ethosuximide for this syndrome.</li>
+              <li><b>Phenytoin</b> &mdash; Incorrect. Phenytoin is a sodium channel blocker effective for focal and generalized tonic-clonic seizures but ineffective for absence seizures, and it may aggravate generalized epilepsies.</li>
+              <li><b>Carbamazepine</b> &mdash; Incorrect. Carbamazepine is actively CONTRAINDICATED in absence epilepsy — it can worsen absence seizures and precipitate absence status. This is the classic tested error for this presentation.</li>
+              <li><b>Valproate</b> &mdash; Incorrect. Valproate is genuinely effective for absence seizures and is the main alternative, making this the strongest distractor. Ethosuximide is preferred first-line for PURE absence because head-to-head data showed comparable efficacy with fewer attentional adverse effects, and valproate carries teratogenic risk in a girl of childbearing potential.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Ethosuximide is first-line for pure absence</b>, working through T-type calcium channels, and the EEG signature is 3 Hz generalised spike-and-wave with no post-ictal confusion. The drug trap runs the other way: <b>carbamazepine and phenytoin can worsen absence</b> and may precipitate absence status. Use valproate instead when absence coexists with generalised tonic-clonic seizures, since ethosuximide covers absence only.</div>
+            <div class="ix-where">Covered below under <span>Module 5 &mdash; Seizures &amp; Epilepsy &middot; drug selection</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="headache">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -1496,6 +1662,97 @@ body.pw-unlocked .tc-lock-prompt {
   <div class="sh-tag">Domain 4 · Cranial Nerves &amp; Movement</div>
   <div class="sh-title">Cranial Neuropathies, Movement &amp; Cognition</div>
 </div>
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Cranial Neuropathies, Movement & Cognition</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="n-cn3" data-answer="0">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Cranial Nerve · CN III Palsy</span>
+        <div class="ix-q">A 38-year-old woman presents with sudden onset ptosis and a fixed, dilated right pupil. The right eye is deviated down and out. She has a severe headache. CT head is negative for hemorrhage.</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Posterior communicating artery aneurysm — CTA head immediately</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Diabetic CN III palsy — observe and monitor blood glucose</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Myasthenia gravis — acetylcholine receptor antibodies</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Horner syndrome — MRI of the lung apex</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Cavernous sinus thrombosis — CT with contrast</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Posterior communicating artery aneurysm — CTA head immediately</div>
+            <div>A complete CN III palsy with pupil involvement (dilated, unreactive) is a surgical emergency — posterior communicating artery aneurysm compresses the outer parasympathetic fibers of CN III. Urgent CTA or MRA is mandatory. Diabetic/ischemic CN III palsy classically SPARES the pupil (central ischemia spares outer fibers). Severe headache further supports an aneurysmal cause.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Diabetic CN III palsy — observe and monitor blood glucose</b> &mdash; Incorrect. This is the critical discrimination. Ischemic microvascular CN III palsy characteristically SPARES the pupil, because the parasympathetic fibers run peripherally and are supplied by the pial circulation. A dilated, fixed pupil indicates external compression until proven otherwise.</li>
+              <li><b>Myasthenia gravis — acetylcholine receptor antibodies</b> &mdash; Incorrect. MG causes fluctuating, fatigable ptosis and ophthalmoparesis but NEVER affects the pupil — pupillary function is not mediated by the neuromuscular junction. A fixed dilated pupil excludes MG.</li>
+              <li><b>Horner syndrome — MRI of the lung apex</b> &mdash; Incorrect. Horner syndrome produces the opposite pupillary finding — a small, MIOTIC pupil with mild ptosis and anhidrosis. It does not cause a down-and-out eye or a dilated pupil.</li>
+              <li><b>Cavernous sinus thrombosis — CT with contrast</b> &mdash; Incorrect. Cavernous sinus pathology usually involves several nerves together, producing CN III, IV, VI and V1 findings with proptosis, chemosis, and often fever. An isolated pupil-involving CN III palsy points to a posterior communicating artery aneurysm.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The pupil decides the urgency in a third nerve palsy. <b>Pupil-involving</b> means compression from outside &mdash; the parasympathetic fibres run on the surface &mdash; so think posterior communicating artery aneurysm or uncal herniation and image the vessels now. <b>Pupil-sparing</b> points to microvascular ischaemia, typically diabetic, because the infarct sits centrally and spares the outer fibres. Down-and-out with ptosis plus a severe headache is an aneurysm until angiography says otherwise.</div>
+            <div class="ix-where">Covered below under <span>Module 6 &mdash; Cranial Nerve Disorders</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-metoclopramide" data-answer="4">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Movement Disorders · Drug Trap</span>
+        <div class="ix-q">A 62-year-old man with Parkinson disease develops nausea after increasing his levodopa/carbidopa dose. His physician prescribes metoclopramide. Two days later his tremor and rigidity are dramatically worse. What caused this deterioration?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Cholinergic excess from metoclopramide</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Levodopa toxicity from excessive dosing</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Disease progression unrelated to medication</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Serotonin syndrome from drug interaction</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Metoclopramide's dopamine antagonism opposing levodopa's effect</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Metoclopramide's dopamine antagonism opposing levodopa's effect</div>
+            <div>Metoclopramide is a D2 receptor antagonist that crosses the blood-brain barrier and directly opposes dopaminergic therapy in Parkinson disease. It is CONTRAINDICATED in Parkinson patients. For nausea in Parkinson patients, use ondansetron (5-HT3 antagonist with no dopamine blockade) or trimethobenzamide.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Cholinergic excess from metoclopramide</b> &mdash; Incorrect. Metoclopramide does have prokinetic cholinergic effects in the gut, but its CNS action relevant here is dopamine D2 blockade. Cholinergic excess would produce salivation, bradycardia, and diarrhea, not worsening rigidity and tremor.</li>
+              <li><b>Levodopa toxicity from excessive dosing</b> &mdash; Incorrect. Levodopa excess causes dyskinesias, hallucinations, and involuntary movements — not increased rigidity and tremor. The parkinsonian features got WORSE, which points to too little dopaminergic effect, not too much.</li>
+              <li><b>Disease progression unrelated to medication</b> &mdash; Incorrect. Parkinson disease progresses over months to years, not over 48 hours. A dramatic decline with a clear temporal link to a new medication is a drug effect, not natural history.</li>
+              <li><b>Serotonin syndrome from drug interaction</b> &mdash; Incorrect. Serotonin syndrome features hyperthermia, clonus, hyperreflexia, agitation, and autonomic instability. Metoclopramide is primarily a dopamine antagonist, and the picture described is worsened parkinsonism rather than serotonergic excess.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Any central <b>D2 antagonist</b> will unmask or worsen parkinsonism: metoclopramide, prochlorperazine, promethazine, haloperidol, and the typical antipsychotics. For nausea in Parkinson disease use <b>ondansetron</b> or trimethobenzamide, which do not block dopamine. Run the same logic backwards too &mdash; when a patient develops new parkinsonism, review the medication list before diagnosing idiopathic disease, because <b>drug-induced parkinsonism is typically symmetric</b> whereas idiopathic Parkinson disease starts asymmetrically.</div>
+            <div class="ix-where">Covered below under <span>Module 7 &mdash; Movement Disorders &middot; drug-induced</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-nph" data-answer="1">
+        <span class="ix-n">Question 3 of 3 &middot; Medium &middot; Dementia · NPH</span>
+        <div class="ix-q">A 74-year-old man is brought by family for 'memory problems' and incontinence. Exam shows a wide-based shuffling gait with very short steps, inability to lift feet ('magnetic gait'). Head CT shows enlarged ventricles out of proportion to cortical atrophy. What is the MOST likely diagnosis and treatment?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Vascular dementia — control cardiovascular risk factors</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Normal pressure hydrocephalus — trial LP drainage followed by VP shunt</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Parkinson disease with dementia — start levodopa/carbidopa</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Frontotemporal dementia — behavioral management</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Alzheimer disease — start donepezil</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: B &mdash; Normal pressure hydrocephalus — trial LP drainage followed by VP shunt</div>
+            <div>Normal pressure hydrocephalus (NPH): classic triad = Wet (incontinence) + Wobbly (gait apraxia — most prominent/first symptom) + Wacky (dementia). CT: enlarged ventricles out of proportion to atrophy. Diagnosis confirmed with high-volume LP (30–50 mL CSF) improving gait. Definitive treatment: ventriculoperitoneal shunt. Gait responds best; cognition and continence less reliably.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Vascular dementia — control cardiovascular risk factors</b> &mdash; Incorrect. Vascular dementia typically shows stepwise decline with focal deficits and infarcts or extensive white matter disease on imaging, not ventriculomegaly out of proportion to atrophy with a magnetic gait.</li>
+              <li><b>Parkinson disease with dementia — start levodopa/carbidopa</b> &mdash; Incorrect. This is a genuine clinical mimic because both cause a shuffling gait. Parkinson disease features asymmetric rest tremor, cogwheel rigidity, and bradykinesia, and the gait does not have the wide-based magnetic quality — nor does PD explain the ventriculomegaly.</li>
+              <li><b>Frontotemporal dementia — behavioral management</b> &mdash; Incorrect. FTD presents with early personality change, disinhibition, or progressive aphasia, with frontal and temporal atrophy on imaging. Gait apraxia and incontinence as the leading features do not fit.</li>
+              <li><b>Alzheimer disease — start donepezil</b> &mdash; Incorrect. Alzheimer disease begins with episodic memory loss, and gait disturbance and incontinence appear late rather than first. Imaging shows hippocampal and cortical atrophy rather than disproportionate ventricular enlargement — and Alzheimer disease is not reversible, whereas NPH may be.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Normal pressure hydrocephalus is the <b>reversible</b> dementia, so it has to be excluded rather than assumed. The triad is wet, wobbly, and wacky &mdash; and the order matters: <b>gait comes first and responds best</b> to shunting, while cognition and continence improve less reliably. Imaging shows ventricles enlarged out of proportion to cortical atrophy. Confirm with a high-volume tap that improves gait before committing to a ventriculoperitoneal shunt.</div>
+            <div class="ix-where">Covered below under <span>Module 8 &mdash; Dementia &amp; Cognitive Disorders &middot; NPH</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-2" id="cn">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
@@ -1827,6 +2084,97 @@ body.pw-unlocked .tc-lock-prompt {
   <div class="sh-tag">Domain 5 · Neuromuscular &amp; Peripheral Nerve</div>
   <div class="sh-title">Junction, Motor Neuron &amp; Nerve Disease</div>
 </div>
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Junction, Motor Neuron & Nerve Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="n-lems" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; Neuromuscular · MG vs LEMS</span>
+        <div class="ix-q">A 55-year-old male smoker has 4 months of proximal leg weakness. His grip strength actually IMPROVES slightly after repeated testing. EMG shows incremental response with high-frequency stimulation. CXR shows a hilar mass.</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>ALS — EMG confirms motor neuron disease</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Polymyositis — check CK and anti-Jo-1</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>GBS — administer IVIG</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Lambert-Eaton myasthenic syndrome — workup for small cell lung cancer</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Myasthenia gravis — start pyridostigmine</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Lambert-Eaton myasthenic syndrome — workup for small cell lung cancer</div>
+            <div>Lambert-Eaton myasthenic syndrome (LEMS): proximal weakness that IMPROVES with repeated activity (facilitates), incremental EMG response, autonomic features, associated with SCLC in 60%. Anti-voltage-gated calcium channel antibodies. Unlike MG (decremental response, fatigable weakness). The hilar mass strongly suggests SCLC — this is a paraneoplastic syndrome.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>ALS — EMG confirms motor neuron disease</b> &mdash; Incorrect. ALS produces mixed upper and lower motor neuron signs with fasciculations, and its EMG shows denervation with fibrillations — not an incremental response to high-frequency stimulation. Improvement with repeated effort also argues strongly against ALS.</li>
+              <li><b>Polymyositis — check CK and anti-Jo-1</b> &mdash; Incorrect. Polymyositis causes proximal weakness, so the pattern overlaps — but it produces markedly elevated CK and a myopathic EMG without incremental facilitation. Weakness in myositis does not improve with repetitive activity.</li>
+              <li><b>GBS — administer IVIG</b> &mdash; Incorrect. GBS presents subacutely over days with ascending weakness and areflexia, not over 4 months. The incremental EMG response and improvement with use are not GBS features.</li>
+              <li><b>Myasthenia gravis — start pyridostigmine</b> &mdash; Incorrect. This is the key discrimination. MG weakness FATIGUES with repetition and shows a DECREMENTAL EMG response, while this patient facilitates with an incremental response. The smoking history also points toward an underlying small cell lung cancer driving LEMS.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The direction of fatigue separates the two junction diseases. <b>Myasthenia gravis worsens with use</b> &mdash; fatigable ptosis and diplopia, ocular onset, a decremental EMG response, anti-AChR antibodies, and an association with thymoma. <b>Lambert-Eaton improves with use</b> &mdash; proximal legs first, autonomic dryness, an incremental response at high-frequency stimulation, anti-voltage-gated calcium channel antibodies, and small cell lung cancer in roughly 60%. A smoker with proximal weakness and a hilar mass makes LEMS a cancer hunt.</div>
+            <div class="ix-where">Covered below under <span>Module 10 &mdash; Neuromuscular Disorders &middot; MG vs LEMS</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-gbscsf" data-answer="0">
+        <span class="ix-n">Question 2 of 3 &middot; Medium &middot; Peripheral Nerve · GBS Pattern</span>
+        <div class="ix-q">A 35-year-old man has progressive weakness over 5 days. He had a respiratory illness 2 weeks ago. Which CSF finding pattern BEST supports Guillain-Barré syndrome?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>WBC 4 cells/μL, protein 95 mg/dL, glucose 58 mg/dL</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>WBC 450 cells/μL (neutrophil predominant), protein 40 mg/dL, glucose 30 mg/dL</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>WBC 200 cells/μL (neutrophil predominant), protein 110 mg/dL, glucose 22 mg/dL</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>WBC 2 cells/μL, protein 18 mg/dL, glucose 62 mg/dL (normal)</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>WBC 80 cells/μL (lymphocyte predominant), protein 60 mg/dL, glucose 40 mg/dL</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; WBC 4 cells/μL, protein 95 mg/dL, glucose 58 mg/dL</div>
+            <div>Albumino-cytologic dissociation = elevated protein with normal or minimally elevated cell count. This is pathognomonic for GBS (and also seen in some other neuropathies). The elevated protein reflects nerve root inflammation without pleocytosis. High WBC suggests infection (meningitis). Normal CSF (option E) would argue against GBS.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>WBC 450 cells/μL (neutrophil predominant), protein 40 mg/dL, glucose 30 mg/dL</b> &mdash; Incorrect. This is a bacterial meningitis profile — high neutrophil count with low glucose from organism consumption. GBS produces essentially no pleocytosis.</li>
+              <li><b>WBC 200 cells/μL (neutrophil predominant), protein 110 mg/dL, glucose 22 mg/dL</b> &mdash; Incorrect. The high protein is compatible with GBS, but 200 neutrophils and glucose of 22 indicate bacterial infection. Albumino-cytologic dissociation requires elevated protein WITHOUT the cells.</li>
+              <li><b>WBC 2 cells/μL, protein 18 mg/dL, glucose 62 mg/dL (normal)</b> &mdash; Incorrect. This is an entirely normal CSF. The cell count fits GBS but the protein is normal, and it is the elevated protein reflecting nerve root inflammation that supports the diagnosis.</li>
+              <li><b>WBC 80 cells/μL (lymphocyte predominant), protein 60 mg/dL, glucose 40 mg/dL</b> &mdash; Incorrect. Lymphocytic pleocytosis with mildly elevated protein suggests viral or aseptic meningitis. The cell count is too high for the dissociation pattern that characterises GBS.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Albumino-cytologic dissociation</b> &mdash; high protein with a normal cell count &mdash; is the CSF signature of Guillain-Barré, reflecting nerve root inflammation without pleocytosis. It may be normal in the first week, so a normal early tap does not exclude it. Clinically the pattern is <i>ascending, symmetric, areflexic</i> weakness after a respiratory or GI illness. The thing that kills is respiratory failure, so trend <b>forced vital capacity and negative inspiratory force</b> rather than pulse oximetry, which falls too late.</div>
+            <div class="ix-where">Covered below under <span>Module 11 &mdash; Peripheral Neuropathies &middot; GBS</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-centralvertigo" data-answer="2">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Vertigo · Central vs Peripheral</span>
+        <div class="ix-q">A 59-year-old man has sudden severe vertigo. He cannot walk without falling. Neurologic exam shows direction-changing nystagmus that does not suppress with fixation, mild left-sided dysmetria, and dysarthria. Vital signs are normal.</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>BPPV — perform Epley maneuver</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Vestibular neuritis — prescribe meclizine and reassure</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Central vertigo — obtain MRI brain urgently</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Ménière disease — recommend low-sodium diet</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Labyrinthitis — prescribe oral steroids</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Central vertigo — obtain MRI brain urgently</div>
+            <div>This is central vertigo with multiple red flags: inability to walk, direction-changing nystagmus not suppressed by fixation (peripheral nystagmus suppresses with fixation), cerebellar signs (dysmetria, dysarthria). This is a posterior fossa stroke until proven otherwise. MRI with DWI is essential — CT misses posterior fossa infarcts in first 24–48h.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>BPPV — perform Epley maneuver</b> &mdash; Incorrect. BPPV produces brief positional vertigo lasting seconds with fatigable upbeat-torsional nystagmus, and patients can walk. Direction-changing nystagmus and cerebellar dysmetria are incompatible with BPPV.</li>
+              <li><b>Vestibular neuritis — prescribe meclizine and reassure</b> &mdash; Incorrect. Vestibular neuritis is the most dangerous misdiagnosis here because it is common and would justify discharge. It produces unidirectional nystagmus that suppresses with visual fixation and preserved gait — the opposite of this presentation.</li>
+              <li><b>Ménière disease — recommend low-sodium diet</b> &mdash; Incorrect. Ménière disease features episodic vertigo with fluctuating hearing loss, tinnitus, and aural fullness over months. There is no hearing complaint here and no cerebellar signs in Ménière.</li>
+              <li><b>Labyrinthitis — prescribe oral steroids</b> &mdash; Incorrect. Labyrinthitis is vestibular neuritis accompanied by hearing loss and remains a peripheral process. It does not cause dysmetria or nystagmus that fails to suppress with fixation.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Peripheral vertigo gives <b>unidirectional nystagmus that suppresses with visual fixation</b> and a patient who can still walk. Central vertigo gives <b>direction-changing nystagmus that does not suppress</b>, inability to walk unaided, and any cerebellar or brainstem sign &mdash; dysmetria, dysarthria, diplopia, dysphagia. Treat that combination as posterior circulation stroke and get <b>MRI with diffusion</b>, because CT misses posterior fossa infarcts in the first day or two.</div>
+            <div class="ix-where">Covered below under <span>Module 12 &mdash; Dizziness &amp; Vertigo &middot; central vs peripheral</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="nmj">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -2030,6 +2378,97 @@ body.pw-unlocked .tc-lock-prompt {
   <div class="sh-tag">Domain 6 · CNS Infection, Tumor &amp; Cord</div>
   <div class="sh-title">Meningitis, Mass Lesions &amp; Spinal Emergencies</div>
 </div>
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Meningitis, Mass Lesions & Spinal Emergencies</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="n-meningseq" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; CNS Infection · Sequencing</span>
+        <div class="ix-q">A 21-year-old presents with fever, neck stiffness, photophobia, and non-blanching petechiae. The team wants to do a CT head before LP. Which is the MOST appropriate sequence?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>LP immediately without CT — petechiae indicate meningococcemia not mass lesion</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Antibiotics → dexamethasone → blood cultures → CT → LP</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>CT head → LP → blood cultures → antibiotics → dexamethasone</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Blood cultures → dexamethasone → antibiotics → CT head → LP</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Blood cultures → CT head → LP → antibiotics → dexamethasone</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Blood cultures → dexamethasone → antibiotics → CT head → LP</div>
+            <div>Correct sequence: (1) Blood cultures ×2, (2) IV dexamethasone 0.15mg/kg, (3) IV ceftriaxone + vancomycin — then CT if indicated, then LP. Dexamethasone must be given BEFORE or WITH first antibiotic dose to reduce cytokine-mediated neurologic damage. Never delay antibiotics for CT or LP results. Petechiae suggest meningococcemia — add rifampin prophylaxis for close contacts.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>LP immediately without CT — petechiae indicate meningococcemia not mass lesion</b> &mdash; Incorrect. The reasoning about meningococcemia is clinically sound, and LP without CT is often appropriate — but the sequence still omits the critical early steps. Cultures, dexamethasone, and antibiotics must not wait for the LP.</li>
+              <li><b>Antibiotics → dexamethasone → blood cultures → CT → LP</b> &mdash; Incorrect. Two ordering errors. Blood cultures should precede antibiotics to maximise yield, and dexamethasone must be given before or with the first antibiotic dose to blunt the inflammatory response to bacterial lysis.</li>
+              <li><b>CT head → LP → blood cultures → antibiotics → dexamethasone</b> &mdash; Incorrect. This delays antibiotics behind two imaging and procedural steps. In bacterial meningitis, mortality rises with each hour of delayed antibiotics — treatment must not wait for imaging or LP.</li>
+              <li><b>Blood cultures → CT head → LP → antibiotics → dexamethasone</b> &mdash; Incorrect. Cultures first is correct, but antibiotics and dexamethasone are then pushed behind CT and LP. Antibiotics should be given immediately after cultures, and dexamethasone must not come after the first antibiotic dose.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The order is the whole question: <b>blood cultures, then dexamethasone, then antibiotics</b> &mdash; and neither CT nor LP is allowed to delay the antibiotic. Steroids must go in before or with the first dose to blunt the cytokine surge; giving them afterwards loses the benefit. CT before LP is only needed for focal deficits, papilloedema, seizure, immunosuppression, or altered consciousness. Non-blanching petechiae point to meningococcus, which means <b>droplet precautions and prophylaxis for close contacts</b>.</div>
+            <div class="ix-where">Covered below under <span>Module 13 &mdash; CNS Infections &middot; empiric sequencing</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-ringlesion" data-answer="2">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; HIV · Ring-Enhancing Lesion</span>
+        <div class="ix-q">A 38-year-old with HIV (CD4 45) presents with headache and confusion. MRI shows a SINGLE ring-enhancing lesion with mass effect. Which is MOST likely?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Cryptococcoma</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Bacterial brain abscess</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>CNS lymphoma (EBV-associated) — most likely with single lesion</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Toxoplasmosis — treat empirically with pyrimethamine + sulfadiazine</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>PML — no treatment available</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; CNS lymphoma (EBV-associated) — most likely with single lesion</div>
+            <div>Single ring-enhancing lesion in HIV = CNS lymphoma (EBV-associated). Multiple = toxoplasmosis. Workup: CSF EBV DNA, Toxoplasma IgG serology. May trial empiric toxo treatment × 2 weeks — if no radiographic/clinical improvement → brain biopsy to confirm lymphoma.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Cryptococcoma</b> &mdash; Incorrect. Cryptococcal CNS disease usually presents as meningitis with raised opening pressure rather than a solitary mass. Cryptococcomas are uncommon and would typically be accompanied by positive serum or CSF cryptococcal antigen.</li>
+              <li><b>Bacterial brain abscess</b> &mdash; Incorrect. A pyogenic abscess produces a ring-enhancing lesion, so the imaging overlaps — but patients are usually acutely febrile with an identifiable source such as sinusitis, otitis, or endocarditis. The subacute course at CD4 45 points to an opportunistic process.</li>
+              <li><b>Toxoplasmosis — treat empirically with pyrimethamine + sulfadiazine</b> &mdash; Incorrect. This is the key discrimination and the most tempting answer, since toxoplasmosis is common at this CD4 count. Toxoplasmosis characteristically produces MULTIPLE lesions, typically at the basal ganglia and grey-white junction; a SINGLE lesion favours CNS lymphoma.</li>
+              <li><b>PML — no treatment available</b> &mdash; Incorrect. Progressive multifocal leukoencephalopathy produces non-enhancing white matter lesions WITHOUT mass effect. Ring enhancement and mass effect are inconsistent with PML, and antiretroviral therapy can improve it.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Count the lesions in an HIV patient with CD4 under 100: <b>a single ring-enhancing lesion suggests CNS lymphoma</b> (EBV-associated), while <b>multiple lesions suggest toxoplasmosis</b>. Confirm with CSF EBV DNA and Toxoplasma IgG; a negative Toxoplasma IgG makes toxoplasmosis unlikely. The accepted pathway is an empiric two-week trial of toxoplasmosis therapy, with brain biopsy reserved for lesions that fail to improve radiographically.</div>
+            <div class="ix-where">Covered below under <span>Module 14 &mdash; Tumors &middot; ring-enhancing lesion differential</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="n-caudaequina" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Cauda Equina · Emergency</span>
+        <div class="ix-q">A 44-year-old man with low back pain presents with new urinary retention and perianal numbness. Exam shows bilateral leg weakness, diminished patellar and Achilles reflexes, and saddle anesthesia. What is the MOST appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Emergent MRI of the lumbar spine → urgent surgical decompression</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>CT myelogram — less expensive than MRI</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Oral NSAIDs and physical therapy referral</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>IV methylprednisolone for suspected inflammatory etiology</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Foley catheter insertion and outpatient MRI within 1 week</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Emergent MRI of the lumbar spine → urgent surgical decompression</div>
+            <div>Cauda equina syndrome: saddle anesthesia + urinary retention + bilateral leg weakness/numbness = surgical emergency. Emergent MRI (not CT — better soft tissue visualization) then immediate neurosurgical decompression within hours. Delay beyond 24–48h is associated with permanent bladder, bowel, and sexual dysfunction. Foley catheter is appropriate but never instead of emergency decompression.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>CT myelogram — less expensive than MRI</b> &mdash; Incorrect. Cost is not a relevant consideration in a surgical emergency, and MRI provides far superior visualisation of the cauda equina, disc, and soft tissue. CT myelography is invasive and reserved for patients who cannot have MRI.</li>
+              <li><b>Oral NSAIDs and physical therapy referral</b> &mdash; Incorrect. This is conservative management for uncomplicated mechanical back pain. Saddle anesthesia with urinary retention are red flags that mandate imaging and surgery — delay risks permanent bladder, bowel, and sexual dysfunction.</li>
+              <li><b>IV methylprednisolone for suspected inflammatory etiology</b> &mdash; Incorrect. Steroids are used for malignant cord compression to reduce edema, which is why this seems plausible. Cauda equina syndrome from disc herniation is a mechanical compression requiring decompression, and steroids do not substitute for surgery.</li>
+              <li><b>Foley catheter insertion and outpatient MRI within 1 week</b> &mdash; Incorrect. A catheter manages the retention symptomatically while leaving the compression untreated. Outcomes depend heavily on time to decompression, so a one-week delay risks permanent deficits.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Cauda equina syndrome is <b>saddle anaesthesia + urinary retention + bilateral leg weakness with reduced reflexes</b>, and it is a surgical emergency measured in hours &mdash; <b>MRI then decompression</b>, with delay past 24 to 48 hours risking permanent bladder, bowel, and sexual dysfunction. Contrast it with conus medullaris and with cord compression, which are <i>upper</i> motor neuron and hyperreflexic. Urinary retention with an elevated post-void residual is the most reliable early sign; a catheter is supportive care, never the treatment.</div>
+            <div class="ix-where">Covered below under <span>Module 15 &mdash; Spinal Cord Disorders &middot; cauda equina</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-1" id="cns-infection">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
@@ -2254,17 +2693,8 @@ body.pw-unlocked .tc-lock-prompt {
     <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
     <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Neurology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
   </div>
-
   <div class="tc-body">
-    
-<div class="vignette-block" id="vignette-emergencies-card">
-  <div class="vignette-header">
-    <div class="vignette-header-left">
-      <div class="vignette-label">🩺 Opening Clinical Vignette</div>
-      <div class="vignette-diff-badge" style="background:rgba(200,57,43,.1);color:#C8392B;">🔴 ADVANCED</div>
-  <div class="tc-body">
-    
-<div class="vignette-block" id="vignette-emergencies-card">
+    <div class="vignette-block" id="vignette-emergencies-card">
   <div class="vignette-header">
     <div class="vignette-header-left">
       <div class="vignette-label">🩺 Opening Clinical Vignette</div>
@@ -2302,8 +2732,6 @@ body.pw-unlocked .tc-lock-prompt {
       <div class="emer-card"><div class="emer-title">Giant cell arteritis</div><div class="emer-text">New headache &gt;50 + jaw claudication + high ESR → high-dose steroids immediately to save vision.</div></div>
     </div>
   </div>
-</div>
-</div>
 </div>
 <div class="topic-card pw-locked tier-2" id="bleeds">
   <div class="tc-header">
@@ -2357,8 +2785,6 @@ body.pw-unlocked .tc-lock-prompt {
       <li>Epidural: emergent craniotomy.</li>
     </ul>
   </div>
-</div>
-</div>
 </div>
 <div class="section-header" id="trauma-domain">
   <div class="sh-tag">Domain 8 · Trauma, Pediatric &amp; Additional Topics</div>
@@ -2779,8 +3205,7 @@ body.pw-unlocked .tc-lock-prompt {
 </div>
 
 <script>
-function toggleAnswer(btn){const stem=btn.closest('.qblock-stem');const ans=stem.parentElement.querySelector('.q-answer');if(ans.classList.contains('show')){ans.classList.remove('show');btn.textContent='▶ Show Answer';}else{ans.classList.add('show');btn.textContent='▼ Hide Answer';}}
-const sections=document.querySelectorAll('[id]');const links=document.querySelectorAll('.tb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});links.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+cur?'white':'rgba(255,255,255,.5)';});},{passive:true});
+const sections=document.querySelectorAll('[id]');
 </script>
 
 <script>
@@ -2964,6 +3389,686 @@ function openNeuroDiagram(key){
 function closeNeuroPopup(){document.getElementById('neuro-popup-overlay').classList.remove('active');document.body.style.overflow='';}
 function closeNeuroPopupOverlay(e){if(e.target===document.getElementById('neuro-popup-overlay'))closeNeuroPopup();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeNeuroPopup();}});
+</script>
+<script>
+/* Reveal/hide a clinical vignette's answer and teaching pearl together.
+   Contract: button onclick="toggleNeuroVig(key)" with a chevron in #nvi-<key>,
+   answer in #nva-<key>, pearl in #nvp-<key>; .show does the revealing. */
+function toggleNeuroVig(key){
+  var ans = document.getElementById('nva-' + key);
+  var pearl = document.getElementById('nvp-' + key);
+  var chev = document.getElementById('nvi-' + key);
+  if(!ans) return;
+  var open = ans.classList.toggle('show');
+  if(pearl) pearl.classList.toggle('show', open);
+  if(chev) chev.textContent = open ? '\u25B2' : '\u25BC';
+  var btn = chev && chev.closest ? chev.closest('.vignette-reveal-btn') : null;
+  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+</script>
+
+<script>
+/* ══ QUESTION POLL ENGINE — pure JS, no external service, works offline ══
+   Contract:  .ix-poll[data-answer="<index>"]
+                .ix-opt > input[type=radio]   (names assigned automatically)
+                .ix-sub-btn   .ix-fb   details.ix-rev
+   The reveal is display:none in CSS and only appears once .ix-done is set. */
+(function () {
+  function init() {
+    document.querySelectorAll('.ix-poll').forEach(function (poll, i) {
+      var name = 'ixp' + i;
+      poll.querySelectorAll('input[type=radio]').forEach(function (r) { r.name = name; });
+    });
+  }
+  function grade(poll) {
+    var opts   = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+    var radios = opts.map(function (o) { return o.querySelector('input[type=radio]'); });
+    var picked = radios.findIndex(function (r) { return r.checked; });
+    var fb     = poll.querySelector('.ix-fb');
+    var btn    = poll.querySelector('.ix-sub-btn');
+    var answer = parseInt(poll.getAttribute('data-answer'), 10);
+    if (picked < 0) { fb.textContent = 'Choose an answer first.'; fb.className = 'ix-fb warn'; return; }
+    opts[answer].classList.add('ix-ok');
+    if (picked !== answer) opts[picked].classList.add('ix-no');
+    radios.forEach(function (r) { r.disabled = true; });
+    btn.disabled = true; btn.textContent = 'Answer submitted';
+    poll.setAttribute('data-got', picked === answer ? '1' : '0');
+    poll.classList.add('ix-done');
+    fb.textContent = (picked === answer)
+      ? 'Correct — you are ahead of the module.'
+      : 'This is what the module covers. Open the explanation, then read on.';
+    fb.className = 'ix-fb ' + (picked === answer ? 'ok' : 'no');
+    /* ── optional response logging ─────────────────────────────
+       To collect answers centrally, POST them here. Without this the
+       question is a private self-check and nothing leaves the page.
+       window.IX_ENDPOINT && fetch(window.IX_ENDPOINT, {
+         method:'POST', mode:'no-cors',
+         headers:{'Content-Type':'application/json'},
+         body: JSON.stringify({ q: poll.id || 'wpw',
+                                picked: picked, correct: answer,
+                                ts: new Date().toISOString() })
+       });
+    ──────────────────────────────────────────────────────────── */
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!b) return;
+    var p = b.closest('.ix-poll'); if (p) grade(p);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIVE CLASS RESULTS — native bars, pluggable data layer
+   ───────────────────────────────────────────────────────────────────────────
+   A static HTML page has no server, so answers from different devices have to
+   meet somewhere. That "somewhere" is the only part that needs a service; the
+   bars, percentages and live updating below are entirely local code.
+
+   mode:'local'     works immediately. Tallies answers in this browser and
+                    syncs across open tabs of the same browser. Good for
+                    building, testing and demoing — NOT for a real class.
+
+   mode:'firebase'  real cross-device aggregation, updating live. Paste the
+                    module snippet below into <head>, set mode to 'firebase',
+                    and the same bars fill from the whole room.
+
+   ── to enable Firebase, add this to <head> and fill in your config ──
+   <script type="module">
+     // check firebase.google.com/docs/web/setup for the current version
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+     import { getDatabase, ref, push, onValue }
+       from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+     const app = initializeApp({
+       apiKey: "…", authDomain: "…", databaseURL: "https://…firebaseio.com", projectId: "…"
+     });
+     window.IX_FB = { db: getDatabase(app), ref: ref, push: push, onValue: onValue };
+   <\/script>
+
+   ── OR, with no new service: Google Apps Script + a Sheet ──
+   1. Create a Sheet, add a tab named "responses", copy its ID from the URL.
+   2. script.google.com → new project → paste:
+
+      const SHEET_ID = 'PASTE_SHEET_ID';
+      function sheet_(){ return SpreadsheetApp.openById(SHEET_ID).getSheetByName('responses'); }
+      function doPost(e){
+        var b = JSON.parse(e.postData.contents);
+        var lock = LockService.getScriptLock(); lock.waitLock(20000);
+        try { sheet_().appendRow([new Date(), b.session, b.q, b.c]); } finally { lock.releaseLock(); }
+        return ContentService.createTextOutput(JSON.stringify({ok:true}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+      function doGet(e){
+        var s = e.parameter.s, q = e.parameter.q, counts = {}, total = 0;
+        sheet_().getDataRange().getValues().forEach(function(r){
+          if (String(r[1]) === s && String(r[2]) === q) { counts[r[3]] = (counts[r[3]]||0)+1; total++; }
+        });
+        return ContentService.createTextOutput(JSON.stringify({counts:counts,total:total}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+
+   3. Deploy → New deployment → Web app → Execute as: me → Who has access: Anyone.
+   4. Paste the /exec URL into sheetsUrl below and set mode:'sheets'.
+
+   Database rules for an anonymous classroom poll (write-only, read-aggregate):
+     { "rules": { "polls": { ".read": true, ".write": true } } }
+   Tighten these before anything that matters — as written, anyone with the URL
+   can write. Scope by session id (below) so each class gets a clean tally.
+   ═══════════════════════════════════════════════════════════════════════════ */
+window.IX_RESULTS = {
+  enabled: true,
+  mode: 'local',              /* 'local' | 'firebase' | 'sheets' */
+  session: 'default',         /* change per class to reset the tally */
+  showBeforeAnswer: false,    /* or open the page with ?present=1 */
+  sheetsUrl: '',              /* Apps Script /exec URL, for mode:'sheets' */
+  sheetsPollMs: 3000          /* how often sheets mode re-fetches */
+};
+/* ?present=1 turns on projector mode without editing the file;
+   ?session=fall-2026 scopes the tally to one class. */
+(function () {
+  var p = new URLSearchParams(location.search);
+  if (p.get('present') === '1') window.IX_RESULTS.showBeforeAnswer = true;
+  if (p.get('session')) window.IX_RESULTS.session = p.get('session');
+})();
+
+(function () {
+  var CFG = window.IX_RESULTS, LET = 'ABCDE';
+
+  /* ── local store: this browser, synced across its own tabs ── */
+  var LocalStore = (function () {
+    var subs = {};
+    function key(q) { return 'ixres:' + CFG.session + ':' + q; }
+    function read(q) { try { return JSON.parse(localStorage.getItem(key(q))) || {}; } catch (e) { return {}; } }
+    function emit(q) { (subs[q] || []).forEach(function (cb) { cb(tally(read(q))); }); }
+    function tally(o) {
+      var counts = [], total = 0;
+      Object.keys(o).forEach(function (k) { var i = +k; counts[i] = o[k]; total += o[k]; });
+      return { counts: counts, total: total };
+    }
+    window.addEventListener('storage', function (e) {
+      if (e.key && e.key.indexOf('ixres:') === 0) {
+        var q = e.key.split(':').slice(2).join(':');
+        emit(q);
+      }
+    });
+    return {
+      submit: function (q, choice) {
+        var o = read(q); o[choice] = (o[choice] || 0) + 1;
+        try { localStorage.setItem(key(q), JSON.stringify(o)); } catch (e) {}
+        emit(q);
+      },
+      subscribe: function (q, cb) { (subs[q] = subs[q] || []).push(cb); cb(tally(read(q))); }
+    };
+  })();
+
+  /* ── firebase store: real cross-device, push-based ── */
+  var FirebaseStore = {
+    submit: function (q, choice) {
+      var F = window.IX_FB; if (!F) return;
+      F.push(F.ref(F.db, 'polls/' + CFG.session + '/' + q), { c: choice, t: Date.now() });
+    },
+    subscribe: function (q, cb) {
+      var F = window.IX_FB; if (!F) return;
+      F.onValue(F.ref(F.db, 'polls/' + CFG.session + '/' + q), function (snap) {
+        var counts = [], total = 0;
+        snap.forEach(function (child) {
+          var i = child.val().c; counts[i] = (counts[i] || 0) + 1; total++;
+        });
+        cb({ counts: counts, total: total });
+      });
+    }
+  };
+
+  /* ── google sheets store: no new service, but POLLED not pushed ──
+     Every subscribed device re-fetches on a timer. That is fine when only the
+     presenting laptop shows bars; it does NOT scale to 30 phones each polling,
+     because Apps Script will throttle. For live bars on every student device,
+     use firebase — it pushes, so there is no polling load at all. */
+  var SheetsStore = {
+    submit: function (q, choice) {
+      if (!CFG.sheetsUrl) return;
+      fetch(CFG.sheetsUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* avoids a CORS preflight */
+        body: JSON.stringify({ session: CFG.session, q: q, c: choice })
+      }).catch(function () {});
+    },
+    subscribe: function (q, cb) {
+      if (!CFG.sheetsUrl) return;
+      var url = CFG.sheetsUrl + '?s=' + encodeURIComponent(CFG.session) + '&q=' + encodeURIComponent(q);
+      var pull = function () {
+        fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+          var counts = [];
+          Object.keys(d.counts || {}).forEach(function (k) { counts[+k] = d.counts[k]; });
+          cb({ counts: counts, total: d.total || 0 });
+        }).catch(function () {});
+      };
+      pull();
+      setInterval(pull, Math.max(2000, CFG.sheetsPollMs || 3000));
+    }
+  };
+
+  function store() {
+    if (CFG.mode === 'firebase' && window.IX_FB) return FirebaseStore;
+    if (CFG.mode === 'sheets' && CFG.sheetsUrl) return SheetsStore;
+    return LocalStore;
+  }
+
+  /* ── the bars ── */
+  function build(poll) {
+    var n = poll.querySelectorAll('.ix-opt').length;
+    var correct = parseInt(poll.getAttribute('data-answer'), 10);
+    var live = CFG.mode === 'firebase' && window.IX_FB;
+    var wrap = document.createElement('div');
+    wrap.className = 'ix-res';
+    var rows = '';
+    for (var i = 0; i < n; i++) {
+      rows += '<div class="ix-res-row' + (i === correct ? ' ok' : '') + '" data-i="' + i + '">' +
+              '<span class="ix-res-let">' + LET[i] + '</span>' +
+              '<div class="ix-res-track"><div class="ix-res-fill"></div></div>' +
+              '<span class="ix-res-pct">&mdash;</span></div>';
+    }
+    wrap.innerHTML = '<div class="ix-res-hd">Class results<span class="ix-res-n"></span>' +
+                     (live ? '<span class="ix-res-live">live</span>' : '') + '</div>' + rows +
+                     '<div class="ix-res-empty">Waiting for the first response&hellip;</div>';
+    poll.querySelector('.ix-fb').insertAdjacentElement('afterend', wrap);
+    return wrap;
+  }
+
+  function paint(wrap, data, mine) {
+    var total = data.total || 0;
+    wrap.querySelector('.ix-res-n').textContent =
+      total ? '\u2014 ' + total + (total === 1 ? ' response' : ' responses') : '';
+    wrap.querySelector('.ix-res-empty').style.display = total ? 'none' : '';
+    Array.prototype.forEach.call(wrap.querySelectorAll('.ix-res-row'), function (row) {
+      var i = +row.getAttribute('data-i');
+      var c = data.counts[i] || 0;
+      var pct = total ? Math.round(c / total * 100) : 0;
+      row.querySelector('.ix-res-fill').style.width = pct + '%';
+      row.querySelector('.ix-res-pct').textContent = total ? pct + '%' : '\u2014';
+      row.classList.toggle('mine', mine === i);
+    });
+  }
+
+  function attach(poll, mine) {
+    if (poll.__ixres) return;
+    poll.__ixres = true;
+    var wrap = build(poll);
+    store().subscribe(poll.id || poll.getAttribute('data-answer'), function (data) {
+      paint(wrap, data, mine);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!CFG.enabled) return;
+    var btn = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!btn) return;
+    var poll = btn.closest('.ix-poll');
+    setTimeout(function () {                       /* run after the grader */
+      if (!poll || !poll.classList.contains('ix-done')) return;
+      var opts = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+      var mine = opts.findIndex(function (o) { return o.querySelector('input').checked; });
+      var qid = poll.id || ('q' + opts.length);
+      store().submit(qid, mine);
+      attach(poll, mine);
+    }, 0);
+  });
+
+  /* projector mode: show the bars without answering */
+  if (CFG.showBeforeAnswer) {
+    var go = function () {
+      document.querySelectorAll('.ix-poll').forEach(function (p) { attach(p, -1); });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+    else go();
+  }
+})();
+</script>
+
+<!-- ══ PENCIL ANNOTATION LAYER (presenter only; enable with ?annotate=1) ══ -->
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   PA BOOTCAMP — PENCIL ANNOTATION LAYER
+   ───────────────────────────────────────────────────────────────────────────
+   Presenter-only ink layer for live teaching. Off by default so student
+   devices never see it; enable with ?annotate=1 (combine with ?present=1).
+
+   Design decisions that matter on iPadOS Safari:
+
+   * Apple Pencil reports pointerType 'pen', so only pen events draw. Finger
+     and mouse are ignored for ink, which gives true palm rejection AND leaves
+     one-finger scrolling completely intact — you can scroll the page with your
+     hand while the Pencil stays in "draw" mode.
+   * The canvas is pointer-events:none at all times. Listeners sit on the
+     window in capture phase, so taps, links, radio buttons and the Submit
+     Answer flow keep working normally.
+   * iPadOS Scribble steals pen strokes for handwriting recognition. We
+     preventDefault on touchstart/touchmove *only* when the touch is a stylus
+     (touchType === 'stylus'), which both defeats Scribble and stops the page
+     scrolling under the pen. Finger touches are never prevented.
+   * Safari can report pen moves coarsely, producing visible straight segments.
+     Strokes are rendered as quadratic curves through midpoints to smooth that.
+   * Strokes are stored in DOCUMENT coordinates and re-rendered clipped to the
+     viewport, rather than allocating one giant canvas. These syllabus pages are
+     tens of thousands of pixels tall and would blow past Safari's canvas area
+     limit.
+   * Ink survives an accidental reload (localStorage, per page path), because
+     losing a morning of board work mid-class would be worse than the storage.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('annotate') !== '1') return;
+
+  var KEY = 'pa-ink:' + location.pathname;
+  var TOOLS = { pen: 'pen', hi: 'hi', erase: 'erase' };
+  var COLORS = ['#C8392B', '#0F1F3D', '#1A6B3A', '#B87333', '#5B2D8E'];
+
+  var state = {
+    on: true,
+    tool: TOOLS.pen,
+    color: COLORS[0],
+    width: 3,
+    strokes: [],
+    live: null,
+    visible: true
+  };
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY));
+    if (saved && saved.length) state.strokes = saved;
+  } catch (e) {}
+
+  function persist() {
+    try { localStorage.setItem(KEY, JSON.stringify(state.strokes)); } catch (e) {}
+  }
+
+  /* ── canvas: viewport-sized, fixed, never intercepts input ── */
+  var cv = document.createElement('canvas');
+  cv.id = 'pa-ink-canvas';
+  cv.style.cssText = 'position:fixed;inset:0;z-index:99990;pointer-events:none;';
+  document.body.appendChild(cv);
+  var ctx = cv.getContext('2d', { desynchronized: true }) || cv.getContext('2d');
+  if (!ctx) { cv.remove(); return; }   /* never let a missing 2d context break the page */
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(innerWidth * dpr);
+    cv.height = Math.floor(innerHeight * dpr);
+    cv.style.width = innerWidth + 'px';
+    cv.style.height = innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    render();
+  }
+
+  function strokePath(s, ox, oy) {
+    var p = s.pts;
+    if (!p.length) return;
+    ctx.beginPath();
+    if (p.length < 3) {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    } else {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      for (var i = 1; i < p.length - 1; i++) {
+        var mx = (p[i].x + p[i + 1].x) / 2, my = (p[i].y + p[i + 1].y) / 2;
+        ctx.quadraticCurveTo(p[i].x - ox, p[i].y - oy, mx - ox, my - oy);
+      }
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    }
+    ctx.stroke();
+  }
+
+  function bbox(s) {
+    var xs = s.pts.map(function (q) { return q.x; }), ys = s.pts.map(function (q) { return q.y; });
+    return { x1: Math.min.apply(null, xs), x2: Math.max.apply(null, xs),
+             y1: Math.min.apply(null, ys), y2: Math.max.apply(null, ys) };
+  }
+
+  var queued = false;
+  function render() {
+    queued = false;
+    var ox = scrollX, oy = scrollY;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    if (!state.visible) return;
+    var all = state.strokes.concat(state.live ? [state.live] : []);
+    for (var i = 0; i < all.length; i++) {
+      var s = all[i];
+      var b = bbox(s);
+      if (b.y2 < oy - 40 || b.y1 > oy + innerHeight + 40) continue;  /* off-screen */
+      ctx.save();
+      ctx.lineJoin = ctx.lineCap = 'round';
+      ctx.strokeStyle = s.color;
+      if (s.tool === TOOLS.hi) {
+        ctx.globalAlpha = 0.32;
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.lineWidth = s.width * 6;
+      } else {
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = s.width;
+      }
+      strokePath(s, ox, oy);
+      ctx.restore();
+    }
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(render); } }
+
+  /* ── stroke-level erase: removing whole strokes beats pixel-scrubbing
+        with a Pencil, and it keeps undo meaningful ── */
+  function eraseAt(x, y) {
+    var r = 14, hit = -1;
+    for (var i = state.strokes.length - 1; i >= 0; i--) {
+      var p = state.strokes[i].pts;
+      for (var j = 0; j < p.length; j++) {
+        if (Math.abs(p[j].x - x) < r && Math.abs(p[j].y - y) < r) { hit = i; break; }
+      }
+      if (hit >= 0) break;
+    }
+    if (hit >= 0) { state.strokes.splice(hit, 1); persist(); schedule(); }
+  }
+
+  /* ── pen input ── */
+  function docPt(e) { return { x: e.pageX, y: e.pageY, p: e.pressure || 0.5 }; }
+
+  function down(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch')) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e);
+    if (state.tool === TOOLS.erase) { eraseAt(pt.x, pt.y); return; }
+    state.live = { tool: state.tool, color: state.color, width: state.width, pts: [pt] };
+    schedule();
+  }
+  function move(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.tool === TOOLS.erase) {
+      if (e.buttons) { e.preventDefault(); eraseAt(e.pageX, e.pageY); }
+      return;
+    }
+    if (!state.live) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e), last = state.live.pts[state.live.pts.length - 1];
+    if (Math.abs(pt.x - last.x) + Math.abs(pt.y - last.y) < 1.2) return;
+    state.live.pts.push(pt);
+    schedule();
+  }
+  function up(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.live) {
+      if (state.live.pts.length > 1) state.strokes.push(state.live);
+      state.live = null; persist(); schedule();
+    }
+  }
+  addEventListener('pointerdown', down, { capture: true, passive: false });
+  addEventListener('pointermove', move, { capture: true, passive: false });
+  addEventListener('pointerup', up, { capture: true });
+  addEventListener('pointercancel', up, { capture: true });
+
+  /* Scribble defeat + scroll suppression, stylus touches only. Finger touches
+     fall straight through so the page still scrolls normally. */
+  function stylusTouch(e) {
+    if (!state.on) return false;
+    for (var i = 0; i < e.touches.length; i++) {
+      if (e.touches[i].touchType === 'stylus') return true;
+    }
+    return false;
+  }
+  ['touchstart', 'touchmove'].forEach(function (t) {
+    addEventListener(t, function (e) {
+      if (stylusTouch(e) && !(e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch'))) {
+        e.preventDefault();
+      }
+    }, { capture: true, passive: false });
+  });
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', resize);
+
+  /* ── scratchpad: blank movable surface for side diagrams ── */
+  var scratch = document.createElement('div');
+  scratch.id = 'pa-scratch';
+  scratch.style.display = 'none';
+  scratch.innerHTML =
+    '<div class="pa-sc-bar"><span>Scratchpad &mdash; drag to move</span>' +
+    '<button data-sc="clear">Clear</button><button data-sc="close">&times;</button></div>' +
+    '<canvas></canvas>';
+  document.body.appendChild(scratch);
+  var scv = scratch.querySelector('canvas');
+  var sctx = scv.getContext('2d', { desynchronized: true }) || scv.getContext('2d');
+  var scStrokes = [], scLive = null;
+
+  function scResize() {
+    if (!sctx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = scratch.clientWidth, h = scratch.clientHeight - 34;
+    scv.width = w * dpr; scv.height = h * dpr;
+    scv.style.width = w + 'px'; scv.style.height = h + 'px';
+    sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    scRender();
+  }
+  function scRender() {
+    if (!sctx) return;
+    sctx.clearRect(0, 0, scv.width, scv.height);
+    scStrokes.concat(scLive ? [scLive] : []).forEach(function (s) {
+      sctx.save(); sctx.lineJoin = sctx.lineCap = 'round';
+      sctx.strokeStyle = s.color; sctx.lineWidth = s.width;
+      var p = s.pts; sctx.beginPath(); sctx.moveTo(p[0].x, p[0].y);
+      for (var i = 1; i < p.length; i++) sctx.lineTo(p[i].x, p[i].y);
+      sctx.stroke(); sctx.restore();
+    });
+  }
+  scv.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive = { color: state.color, width: state.width, pts: [{ x: e.clientX - r.left, y: e.clientY - r.top }] };
+  }, true);
+  scv.addEventListener('pointermove', function (e) {
+    if (!scLive) return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive.pts.push({ x: e.clientX - r.left, y: e.clientY - r.top });
+    scRender();
+  }, true);
+  scv.addEventListener('pointerup', function () {
+    if (scLive) { scStrokes.push(scLive); scLive = null; scRender(); }
+  }, true);
+
+  /* drag the scratchpad by its bar */
+  (function () {
+    var bar = scratch.querySelector('.pa-sc-bar'), dragging = false, sx, sy, ox, oy;
+    bar.addEventListener('pointerdown', function (e) {
+      if (e.target.tagName === 'BUTTON') return;
+      dragging = true; sx = e.clientX; sy = e.clientY;
+      ox = scratch.offsetLeft; oy = scratch.offsetTop; e.preventDefault();
+    });
+    addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      scratch.style.left = (ox + e.clientX - sx) + 'px';
+      scratch.style.top = (oy + e.clientY - sy) + 'px';
+      scratch.style.right = 'auto';
+    });
+    addEventListener('pointerup', function () { dragging = false; });
+    bar.addEventListener('click', function (e) {
+      var a = e.target.getAttribute && e.target.getAttribute('data-sc');
+      if (a === 'clear') { scStrokes = []; scRender(); }
+      if (a === 'close') { scratch.style.display = 'none'; sync(); }
+    });
+  })();
+
+  /* ── toolbar ── */
+  var bar = document.createElement('div');
+  bar.id = 'pa-ink-bar';
+  bar.innerHTML =
+    '<button data-a="collapse" title="Hide toolbar">&#9700;</button>' +
+    '<div class="pa-grp">' +
+      '<button data-a="pen" class="on">&#9998; Pen</button>' +
+      '<button data-a="hi">&#9646; Highlight</button>' +
+      '<button data-a="erase">&#9003; Erase</button>' +
+    '</div>' +
+    '<div class="pa-grp pa-sw">' +
+      COLORS.map(function (c, i) {
+        return '<button data-c="' + c + '" class="pa-c' + (i ? '' : ' on') +
+               '" style="background:' + c + '"></button>';
+      }).join('') +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-w="2">thin</button><button data-w="3" class="on">med</button>' +
+      '<button data-w="6">thick</button>' +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-a="undo">Undo</button>' +
+      '<button data-a="hide">Hide ink</button>' +
+      '<button data-a="scratch">Scratchpad</button>' +
+      '<button data-a="clear" class="pa-danger">Clear page</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+
+  var pill = document.createElement('button');
+  pill.id = 'pa-ink-pill';
+  pill.textContent = '\u270E';
+  pill.title = 'Show annotation toolbar';
+  pill.style.display = 'none';
+  document.body.appendChild(pill);
+  pill.addEventListener('click', function () {
+    bar.style.display = ''; pill.style.display = 'none';
+  });
+
+  function sync() {
+    bar.querySelectorAll('[data-a]').forEach(function (b) {
+      var a = b.getAttribute('data-a');
+      if (a === 'pen' || a === 'hi' || a === 'erase') b.classList.toggle('on', state.tool === a);
+      if (a === 'hide') { b.classList.toggle('on', !state.visible); b.textContent = state.visible ? 'Hide ink' : 'Show ink'; }
+      if (a === 'scratch') b.classList.toggle('on', scratch.style.display !== 'none');
+    });
+    bar.querySelectorAll('[data-c]').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-c') === state.color);
+    });
+    bar.querySelectorAll('[data-w]').forEach(function (b) {
+      b.classList.toggle('on', +b.getAttribute('data-w') === state.width);
+    });
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var a = b.getAttribute('data-a'), c = b.getAttribute('data-c'), w = b.getAttribute('data-w');
+    if (c) state.color = c;
+    if (w) state.width = +w;
+    if (a === 'pen' || a === 'hi' || a === 'erase') state.tool = a;
+    if (a === 'undo') { state.strokes.pop(); persist(); schedule(); }
+    if (a === 'hide') { state.visible = !state.visible; schedule(); }
+    if (a === 'clear') {
+      if (confirm('Clear all ink on this page?')) { state.strokes = []; persist(); schedule(); }
+    }
+    if (a === 'scratch') {
+      var showing = scratch.style.display === 'none';
+      scratch.style.display = showing ? 'block' : 'none';
+      if (showing) scResize();
+    }
+    if (a === 'collapse') { bar.style.display = 'none'; pill.style.display = ''; }
+    sync();
+  });
+
+  var css = document.createElement('style');
+  css.textContent =
+  '#pa-ink-bar{position:fixed;right:12px;bottom:12px;z-index:99995;display:flex;flex-wrap:wrap;' +
+    'align-items:center;gap:6px;max-width:min(96vw,760px);padding:8px 10px;border-radius:14px;' +
+    "background:rgba(15,31,61,.96);box-shadow:0 6px 24px rgba(0,0,0,.3);font-family:'DM Sans',system-ui,sans-serif;}" +
+  '#pa-ink-bar .pa-grp{display:flex;align-items:center;gap:4px;padding:0 4px;' +
+    'border-left:1px solid rgba(255,255,255,.16);}' +
+  '#pa-ink-bar .pa-grp:first-of-type{border-left:none;}' +
+  '#pa-ink-bar button{min-height:38px;min-width:38px;padding:0 11px;border:none;border-radius:9px;' +
+    'background:rgba(255,255,255,.1);color:#fff;font:600 12.5px/1 inherit;cursor:pointer;' +
+    '-webkit-tap-highlight-color:transparent;touch-action:manipulation;}' +
+  '#pa-ink-bar button.on{background:#C8392B;}' +
+  '#pa-ink-bar button.pa-danger{background:rgba(200,57,43,.28);}' +
+  '#pa-ink-bar button.pa-c{width:30px;min-width:30px;height:30px;border-radius:50%;' +
+    'box-shadow:0 0 0 2px rgba(255,255,255,.25) inset;}' +
+  '#pa-ink-bar button.pa-c.on{box-shadow:0 0 0 3px #fff, 0 0 0 5px rgba(0,0,0,.25);}' +
+  '#pa-ink-pill{position:fixed;right:12px;bottom:12px;z-index:99995;width:52px;height:52px;' +
+    'border:none;border-radius:50%;background:rgba(15,31,61,.96);color:#fff;font-size:22px;' +
+    'box-shadow:0 6px 24px rgba(0,0,0,.3);cursor:pointer;touch-action:manipulation;}' +
+  '#pa-scratch{position:fixed;right:12px;bottom:86px;z-index:99993;width:min(46vw,460px);height:340px;' +
+    'background:#fff;border:1.5px solid #0F1F3D;border-radius:12px;overflow:hidden;resize:both;' +
+    'box-shadow:0 10px 30px rgba(0,0,0,.25);}' +
+  "#pa-scratch .pa-sc-bar{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;" +
+    "background:#0F1F3D;color:#fff;font:600 11.5px/1 'DM Sans',system-ui,sans-serif;cursor:move;" +
+    'touch-action:none;}' +
+  '#pa-scratch .pa-sc-bar span{flex:1;opacity:.75;}' +
+  '#pa-scratch .pa-sc-bar button{min-height:24px;padding:0 9px;border:none;border-radius:6px;' +
+    'background:rgba(255,255,255,.14);color:#fff;font:600 11px/1 inherit;cursor:pointer;}' +
+  '#pa-scratch canvas{display:block;background:#fff;touch-action:none;}' +
+  '@media print{#pa-ink-bar,#pa-ink-pill,#pa-scratch{display:none!important;}}';
+  document.head.appendChild(css);
+
+  resize();
+  sync();
+  window.PA_INK = state;   /* handy for a quick console check during setup */
+})();
+
 </script>
 </body>
 </html>

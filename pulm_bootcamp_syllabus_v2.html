@@ -18,7 +18,7 @@
   --red:#C8392B;--red-dk:#9B2B20;--red-lt:#FFF5F4;--red-bd:#F5C6C2;
   --amber:#B87333;--amber-lt:#FFF8EF;--amber-bd:#E8C99A;
   --teal:#0D6E6E;--teal-lt:#EEF8F8;--teal-bd:#B8DEDE;
-  --navy:#0F1F3D;--navy-md:#1C3160;--navy-lt:#EEF2FA;
+  --navy:#0F1F3D; --navy-bd: #C5D2EB;--navy-md:#1C3160;--navy-lt:#EEF2FA;
   --slate:#3D4A5C;--mid:#6B7A8D;
   --light:#F4F6F9;--border:#E2E8F0;
   --gold:#B8860B;--gold-lt:#FFFBEF;
@@ -33,11 +33,8 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:#ECEEF3;color:var(--black);font-size:14.5px;line-height:1.7;}
 
-.top-bar::-webkit-scrollbar{display:none;}
 
-.tb-brand span{color:var(--lung);}
 
-.tb-link:hover{color:white;background:rgba(255,255,255,.08);}
 
 .hero{background:var(--navy);padding:56px 64px 48px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;right:-60px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(3,105,161,.2) 0%,transparent 70%);}
@@ -140,9 +137,6 @@ strong,b{color:var(--black);}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
 @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
 
-.pearl{background:var(--light);border-left:4px solid var(--navy);border-radius:5px;padding:13px 16px;margin:12px 0;}
-.pearl-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:7px;}
-.pearl-text{font-family:'Syne',sans-serif;font-size:13.5px;font-style:italic;color:var(--navy-md);line-height:1.65;}
 
 .trick{background:var(--gold-lt);border-left:4px solid var(--gold);border-radius:5px;padding:12px 15px;margin:12px 0;}
 .trick-label{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
@@ -153,22 +147,7 @@ strong,b{color:var(--black);}
 .vig-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;}
 .vig-ans{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:7px;font-style:italic;}
 
-.toggle-btn{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);background:var(--light);border:1px solid var(--border);border-radius:4px;padding:5px 11px;cursor:pointer;margin:7px 0 4px;transition:all .12s;}
-.toggle-btn:hover{background:var(--navy);color:white;}
-.q-answer{display:none;margin-top:6px;}
-.q-answer.show{display:block;}
 
-.qblock{border:1.5px solid var(--border);border-radius:7px;overflow:hidden;margin-bottom:14px;}
-.qblock-stem{padding:14px 16px;background:white;}
-.q-num{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;}
-.q-text{font-size:14px;font-weight:600;color:var(--black);line-height:1.6;margin-bottom:11px;}
-.q-choices{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;}
-.q-choices li{font-size:13px;color:var(--slate);padding:4px 9px;border-radius:4px;border:1px solid transparent;transition:all .1s;}
-.q-choices li:hover{background:var(--light);border-color:var(--border);}
-.q-choices li .ltr{font-family:'DM Mono',monospace;font-weight:700;color:var(--navy);margin-right:5px;}
-.q-ans-block{background:var(--green-lt);border-top:1.5px solid var(--green-bd);padding:11px 16px;}
-.q-ans-lbl{font-family:'DM Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
-.q-ans-text{font-size:13px;color:var(--slate);line-height:1.6;}
 
 .rf-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
 .rf-item{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--lung);}
@@ -209,10 +188,8 @@ strong,b{color:var(--black);}
 .trap-text b{color:var(--black);}
 
 @media print{
-  .top-bar,.toggle-btn{display:none!important;}
-  .q-answer{display:block!important;}
   body{background:white;}
-  .topic-card,.qblock,.emer-card{break-inside:avoid;}
+  .topic-card,.emer-card{break-inside:avoid;}
 }
 
 /* ════════════════════════════════════════
@@ -938,6 +915,89 @@ body.pw-unlocked .tc-lock-prompt {
 }
 .tc-lock-cta:hover { background: #1d4ed8; }
 /* ══════════════════════════════════════════════════════════ */
+
+/* ══ INTERACTIVE QUESTIONS (ported from ECG syllabus) ══ */
+.ix{margin:0 0 22px;border:1px solid var(--border);border-radius:14px;background:var(--light);overflow:hidden;}
+.ix-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
+.ix-kick{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--red);padding:4px 10px;border-radius:20px;white-space:nowrap;}
+.ix-ttl{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;}
+.ix-count{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-left:auto;}
+.ix-intro{padding:13px 18px 0;font-size:12.5px;line-height:1.6;color:var(--slate);}
+.ix-intro b{color:var(--navy);}
+.ix-body{padding:13px 18px 18px;}
+.ix-item{background:#fff;border:1px solid var(--border);border-radius:11px;padding:15px 17px;}
+.ix-n{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:8px;}
+.ix-q{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:11px;}
+.ix-opts{margin-bottom:10px;}
+.ix-opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;margin-bottom:7px;cursor:pointer;font-size:12.5px;line-height:1.5;color:var(--slate);transition:border-color .12s,background .12s;}
+.ix-opt:hover{border-color:var(--navy-bd);background:var(--navy-lt);}
+.ix-opt input{margin:3px 0 0;accent-color:var(--red);flex:none;}
+.ix-opt .ix-let{font-family:'DM Mono',monospace;font-weight:600;color:var(--mid);flex:none;}
+.ix-opt.ix-ok{border-color:var(--green);background:var(--green-lt);}
+.ix-opt.ix-ok .ix-let{color:var(--green);}
+.ix-opt.ix-no{border-color:var(--red);background:var(--red-lt);}
+.ix-opt.ix-no .ix-let{color:var(--red);}
+.ix-done .ix-opt{cursor:default;}
+.ix-done .ix-opt:hover{border-color:var(--border);background:#fff;}
+.ix-done .ix-opt.ix-ok:hover{border-color:var(--green);background:var(--green-lt);}
+.ix-done .ix-opt.ix-no:hover{border-color:var(--red);background:var(--red-lt);}
+.ix-sub-btn{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;background:var(--navy);color:#fff;border:none;border-radius:9px;padding:10px 20px;cursor:pointer;}
+.ix-sub-btn:hover{background:var(--red);}
+.ix-sub-btn:disabled{opacity:.45;cursor:default;}
+.ix-fb{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-top:10px;line-height:1.5;}
+.ix-fb.ok{color:var(--green);}
+.ix-fb.no{color:var(--navy);}
+.ix-fb.warn{color:var(--amber);}
+details.ix-rev{display:none;margin-top:12px;border-top:1px solid var(--border);}
+.ix-done details.ix-rev{display:block;}
+details.ix-rev>summary{cursor:pointer;list-style:none;padding:11px 0 0;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--red);display:flex;align-items:center;gap:8px;}
+details.ix-rev>summary::-webkit-details-marker{display:none;}
+details.ix-rev>summary::before{content:'\25B8';font-size:11px;transition:transform .15s;}
+details.ix-rev[open]>summary::before{transform:rotate(90deg);}
+.ix-rev-body{padding:11px 0 2px;font-size:12.5px;line-height:1.64;color:var(--slate);}
+.ix-ans{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.ix-lbl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:block;margin:12px 0 5px;}
+.ix-why{margin:0;padding-left:19px;}
+.ix-why li{margin-bottom:5px;}
+.ix-bp{margin-top:13px;background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 9px 9px 0;padding:11px 14px;font-size:12.5px;line-height:1.6;}
+.ix-bp b{color:var(--amber);font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:5px;}
+.ix-where{margin-top:11px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);border-top:1px dashed var(--border);padding-top:9px;}
+.ix-where span{color:var(--navy);}
+.ix-ecg{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:13px;}
+.ix-ecg-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ix-ecg img{display:block;width:100%;min-width:660px;height:auto;}
+.ix-ecg-cap{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);padding:9px 13px 0;}
+@media(max-width:640px){.ix-body{padding:11px 12px 13px;}.ix-intro{padding:11px 12px 0;}.ix-item{padding:13px;}.ix-count{display:none;}}
+
+.grp{margin:26px 0 12px;padding:0 0 0 13px;border-left:3px solid var(--red);}
+.grp:first-of-type{margin-top:4px;}
+.grp-n{display:block;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+.grp{font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);line-height:1.5;}
+
+/* ── live-poll handoff button (Poll Everywhere) ── */
+
+/* ══ LIVE CLASS RESULTS ══ */
+.ix-res{margin-top:13px;padding-top:12px;border-top:1px solid var(--border);}
+.ix-res-hd{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);display:flex;align-items:baseline;gap:8px;margin-bottom:9px;}
+.ix-res-n{color:var(--navy);font-weight:600;}
+.ix-res-live{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--green);}
+.ix-res-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:ixpulse 1.6s ease-in-out infinite;}
+@keyframes ixpulse{0%,100%{opacity:1}50%{opacity:.25}}
+.ix-res-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
+.ix-res-let{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:600;color:var(--mid);width:11px;flex:none;}
+.ix-res-track{flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.ix-res-fill{height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}
+.ix-res-pct{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--slate);width:42px;text-align:right;flex:none;}
+.ix-res-row.ok .ix-res-let{color:var(--green);}
+.ix-res-row.ok .ix-res-fill{background:var(--green);}
+.ix-res-row.mine .ix-res-let::after{content:'\2190';margin-left:3px;color:var(--red);}
+.ix-res-empty{font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--mid);font-style:italic;}
+
+/* ══ PRE-DOMAIN QUESTIONS — paywall parity with topic cards ══ */
+.ix-lock{display:none;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);font-style:italic;padding:13px 18px 16px;}
+body:not(.pw-unlocked) .ix-gated .ix-intro,
+body:not(.pw-unlocked) .ix-gated .ix-body{display:none!important;}
+body:not(.pw-unlocked) .ix-gated .ix-lock{display:block;}
 </style>
 </head>
 <body>
@@ -1023,6 +1083,96 @@ body.pw-unlocked .tc-lock-prompt {
   <div class="sh-title">Obstructive Lung Diseases</div>
 </div>
 
+<div class="ix">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Obstructive Lung Diseases</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-asthmastep" data-answer="2">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; Asthma GINA 2024 Stepwise Therapy</span>
+        <div class="ix-q">A 22-year-old woman with asthma uses albuterol 4 times per week and wakes with symptoms twice a month, with no exacerbations requiring oral steroids. According to 2024 GINA guidelines, what is the preferred controller regimen, including the paradigm shift in rescue therapy?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Leukotriene receptor antagonist (montelukast) monotherapy as first-line controller</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Oral corticosteroids as a daily maintenance regimen</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>ICS-formoterol used as needed (SMART — single maintenance and reliever therapy), preferred over SABA-only rescue</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Albuterol (SABA) used alone as needed, since her symptoms are infrequent</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>High-dose inhaled corticosteroid plus long-acting beta-agonist daily</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; ICS-formoterol used as needed (SMART — single maintenance and reliever therapy), preferred over SABA-only rescue</div>
+            <div>This presentation represents mild persistent asthma. The 2024 GINA paradigm shift recommends ICS-formoterol as needed (the SMART/MART approach) even for mild asthma, replacing the older SABA-alone rescue strategy. SABA-only treatment, even for mild symptoms, is no longer recommended because SABA monotherapy is associated with increased asthma mortality and exacerbation risk — every symptomatic asthmatic patient should receive ICS-containing therapy.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Leukotriene receptor antagonist (montelukast) monotherapy as first-line controller</b> &mdash; Incorrect. While montelukast can be used as an alternative or add-on, ICS-containing therapy (specifically ICS-formoterol as needed per the SMART approach) is the GINA-preferred first-line option, not montelukast monotherapy.</li>
+              <li><b>Oral corticosteroids as a daily maintenance regimen</b> &mdash; Incorrect. Daily oral corticosteroids are never appropriate for mild persistent asthma and are reserved for severe, refractory disease due to their substantial long-term side effect burden.</li>
+              <li><b>Albuterol (SABA) used alone as needed, since her symptoms are infrequent</b> &mdash; Incorrect. This reflects the outdated pre-2022 approach. Current GINA guidelines no longer recommend SABA-only therapy at any severity level, even for mild, infrequent symptoms — SABA monotherapy increases mortality risk.</li>
+              <li><b>High-dose inhaled corticosteroid plus long-acting beta-agonist daily</b> &mdash; Incorrect. This regimen is excessive for mild persistent asthma (Step 2) — it represents a higher GINA step appropriate for more severe, poorly controlled disease, not this patient's presentation.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The 2024 shift is worth memorising as a rule, not a step: <b>SABA-only rescue is obsolete at every severity</b>, because SABA monotherapy raises exacerbation and mortality risk. Every symptomatic asthmatic gets ICS-containing therapy, and in the SMART/MART approach the <i>same</i> ICS-formoterol inhaler serves as both controller and reliever. Note the exception &mdash; only <b>formoterol</b> is fast-acting enough for this; salmeterol cannot be used as a reliever.</div>
+            <div class="ix-where">Covered below under <span>Topic 1 &mdash; Asthma</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-hypoxicdrive" data-answer="4">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Hypoxic Drive in COPD</span>
+        <div class="ix-q">A 66-year-old male smoker with COPD presents with worsening dyspnea and increased sputum. SpO₂ is 81% on room air. High-flow oxygen is applied, bringing SpO₂ to 99%. Thirty minutes later he is drowsier and repeat ABG shows pCO₂ 68 mmHg (baseline 52). What is the appropriate oxygen saturation target that should have been used?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>SpO₂ target of 95–100%, the same as for any other hypoxic patient</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>SpO₂ target of 85% to minimize any risk of oxygen toxicity</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>100% FiO₂ should be maintained continuously regardless of CO2 levels, since oxygenation always takes priority</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>No specific target is needed; oxygen should be titrated based on respiratory rate alone</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>SpO₂ target of 88–92%, titrating oxygen down and considering BiPAP</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; SpO₂ target of 88–92%, titrating oxygen down and considering BiPAP</div>
+            <div>This patient is a chronic CO2 retainer who developed worsened hypercapnia and somnolence after receiving high-flow oxygen that corrected his SpO₂ to a supraphysiologic 99%. The mechanism involves elimination of hypoxic respiratory drive plus the Haldane effect, leading to hypoventilation and CO2 retention. The correct target SpO₂ in a COPD exacerbation with chronic hypercapnia is 88-92%, not normal oxygen saturation — oxygen should be carefully titrated to this range, with consideration of non-invasive ventilation (BiPAP) if hypercapnia or mental status worsens.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>SpO₂ target of 95–100%, the same as for any other hypoxic patient</b> &mdash; Incorrect &mdash; and represents exactly the error described in the vignette. Targeting normal/high SpO₂ in a chronic CO2 retainer eliminates the hypoxic respiratory drive, leading to hypoventilation and dangerous CO2 accumulation, as seen in this patient.</li>
+              <li><b>SpO₂ target of 85% to minimize any risk of oxygen toxicity</b> &mdash; Incorrect. A target this low risks inadequate oxygenation and tissue hypoxia — the correct evidence-based target range is 88-92%, balancing adequate oxygenation against the risk of suppressing hypoxic drive.</li>
+              <li><b>100% FiO₂ should be maintained continuously regardless of CO2 levels, since oxygenation always takes priority</b> &mdash; Incorrect &mdash; and represents the exact dangerous practice that caused this patient's deterioration. In chronic CO2 retainers, oxygenation must be balanced against the risk of suppressing respiratory drive — sustained high FiO2 caused this patient's hypercapnic deterioration.</li>
+              <li><b>No specific target is needed; oxygen should be titrated based on respiratory rate alone</b> &mdash; Incorrect. SpO₂ monitoring with a specific target range (88-92%) is the standard, evidence-based approach to oxygen titration in COPD exacerbations — respiratory rate alone is an inadequate and unreliable substitute.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Target <b>SpO&#8322; 88&ndash;92%</b> in a COPD exacerbation with chronic hypercapnia. Correcting to 99% removes hypoxic drive and, via the Haldane effect, drives pCO&#8322; up into somnolence. But do not overcorrect the correction: <b>hypoxia kills faster than hypercapnia</b>, so never withhold oxygen from a hypoxic patient &mdash; titrate it. Rising pCO&#8322; with acidosis and drowsiness is the <b>BiPAP</b> trigger, and BiPAP in COPD exacerbation reduces both intubation and mortality.</div>
+            <div class="ix-where">Covered below under <span>Topic 2 &mdash; Chronic Obstructive Pulmonary Disease (COPD)</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-dlco" data-answer="2">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; PFTs · DLCO</span>
+        <div class="ix-q">A patient has COPD confirmed by spirometry with a reduced DLCO. His neighbor also has obstructive spirometry but a normal DLCO. Which is the MOST likely pathologic distinction?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>First has asthma; second has COPD</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>First has pulmonary hypertension; second has COPD</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>First has emphysema; second has chronic bronchitis</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>DLCO is not useful in COPD</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>First has pulmonary fibrosis; second has emphysema</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; First has emphysema; second has chronic bronchitis</div>
+            <div>DLCO discriminates emphysema from chronic bronchitis: Emphysema = low DLCO (alveolar wall destruction reduces surface area for gas exchange). Chronic bronchitis = normal DLCO (airway disease without alveolar destruction — gas exchange surface intact). Both have obstructive spirometry. Asthma also has normal or elevated DLCO.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>First has asthma; second has COPD</b> &mdash; Incorrect. Asthma characteristically shows a normal or even elevated DLCO, not a reduced one. The reduced DLCO in the first patient points to alveolar destruction rather than reversible airway inflammation.</li>
+              <li><b>First has pulmonary hypertension; second has COPD</b> &mdash; Incorrect. Pulmonary hypertension does reduce DLCO, so the direction is right — but the stem specifies both patients have spirometry-confirmed COPD. The question asks which COPD phenotype each represents.</li>
+              <li><b>DLCO is not useful in COPD</b> &mdash; Incorrect. DLCO is in fact one of the most useful discriminators in COPD, separating emphysema from chronic bronchitis and helping assess severity and surgical candidacy.</li>
+              <li><b>First has pulmonary fibrosis; second has emphysema</b> &mdash; Incorrect. Both patients have OBSTRUCTIVE spirometry, whereas pulmonary fibrosis produces a restrictive pattern. Emphysema also reduces DLCO, so assigning it to the patient with a normal DLCO is backwards.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>DLCO is what separates the two obstructive phenotypes: <b>emphysema is low</b> (alveolar surface destroyed), <b>chronic bronchitis is normal</b> (airways diseased, alveoli intact), and asthma is normal or high. Generalise the pattern &mdash; DLCO is <i>low</i> in emphysema, ILD, and pulmonary vascular disease, and <i>high</i> in alveolar haemorrhage and polycythaemia. A restrictive pattern with low DLCO points to lung parenchyma; restriction with normal DLCO points to the chest wall or neuromuscular weakness.</div>
+            <div class="ix-where">Covered below under <span>Topic 3 &mdash; Pulmonary Function Test Interpretation</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <!-- TOPIC 1: ASTHMA -->
 <div class="topic-card tier-1" id="asthma">
   <div class="tc-header">
@@ -1393,6 +1543,97 @@ Reversibility: "12% and 200mL = Asthma switch. Less than that = COPD"</div></div
   <div class="sh-title">Infectious Lung Disease</div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Infectious Lung Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-capabx" data-answer="4">
+        <span class="ix-n">Question 1 of 3 &middot; High Yield &middot; CAP · Antibiotic Selection</span>
+        <div class="ix-q">A 72-year-old with diabetes and heart failure is admitted for CAP (non-severe). Which is the MOST appropriate antibiotic regimen?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Ceftriaxone + metronidazole</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Azithromycin monotherapy</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Levofloxacin monotherapy as first-line</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Amoxicillin monotherapy</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Ceftriaxone + azithromycin</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Ceftriaxone + azithromycin</div>
+            <div>Inpatient non-severe CAP: β-lactam (ceftriaxone) + macrolide (azithromycin) is the preferred combination per ATS/IDSA 2019. Azithromycin monotherapy is inadequate (≥30% pneumococcal resistance). Fluoroquinolone monotherapy is an alternative ONLY if β-lactam/macrolide cannot be used. Metronidazole is NOT indicated — adding anti-anaerobic coverage to CAP increases mortality.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Ceftriaxone + metronidazole</b> &mdash; Incorrect. Metronidazole adds anaerobic coverage appropriate for aspiration or lung abscess, but it does not cover the atypical organisms — Legionella, Mycoplasma, Chlamydophila — that inpatient CAP regimens must address.</li>
+              <li><b>Azithromycin monotherapy</b> &mdash; Incorrect. Macrolide monotherapy is an outpatient option only in healthy patients without comorbidities. Pneumococcal macrolide resistance exceeds 30% in many regions, and this patient has diabetes and heart failure.</li>
+              <li><b>Levofloxacin monotherapy as first-line</b> &mdash; Incorrect. Respiratory fluoroquinolone monotherapy is an accepted ALTERNATIVE for inpatient CAP, which makes this a strong distractor. Beta-lactam plus macrolide is preferred first-line given fluoroquinolone concerns about tendinopathy, dysglycemia, aortic events, and resistance stewardship.</li>
+              <li><b>Amoxicillin monotherapy</b> &mdash; Incorrect. Amoxicillin is an outpatient option for otherwise healthy patients with mild CAP. It provides no atypical coverage and is insufficient for an admitted patient with significant comorbidities.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Sort CAP by setting. <b>Outpatient, healthy:</b> amoxicillin or doxycycline. <b>Outpatient with comorbidity:</b> β-lactam + macrolide, or a respiratory fluoroquinolone. <b>Inpatient, non-severe:</b> β-lactam + macrolide (fluoroquinolone monotherapy only if that combination cannot be used). Macrolide monotherapy fails on pneumococcal resistance of roughly 30%, and adding anaerobic coverage to ordinary CAP is not neutral &mdash; it raises mortality.</div>
+            <div class="ix-where">Covered below under <span>Topic 4 &mdash; Community-Acquired Pneumonia (CAP)</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-aspiration" data-answer="2">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; CAP · Aspiration Pneumonia Trap</span>
+        <div class="ix-q">An 82-year-old nursing home resident with dementia is admitted for aspiration pneumonia. A colleague adds metronidazole for anaerobic coverage. Which is MOST accurate?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Correct — clindamycin should be added instead</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Correct only if immunocompromised</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Incorrect — ATS/IDSA 2019 shows higher mortality with anaerobic antibiotics for aspiration pneumonia</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Correct — anaerobes are common in aspiration pneumonia</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Incorrect — clindamycin is preferred over metronidazole</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Incorrect — ATS/IDSA 2019 shows higher mortality with anaerobic antibiotics for aspiration pneumonia</div>
+            <div>ATS/IDSA 2019: adding anaerobic coverage (metronidazole, clindamycin) to aspiration pneumonia is associated with 5–6% higher mortality and increased C. diff risk. Standard CAP antibiotics are adequate. Reserve anaerobic coverage for lung abscess with putrid sputum or documented empyema.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Correct — clindamycin should be added instead</b> &mdash; Incorrect. Substituting clindamycin does not solve the problem, since the issue is anaerobic coverage itself rather than which anaerobic agent is chosen. Clindamycin also carries a particularly high risk of C. difficile infection.</li>
+              <li><b>Correct only if immunocompromised</b> &mdash; Incorrect. Immune status does not change this recommendation. Routine anaerobic coverage is not advised for aspiration pneumonia in any group unless there is evidence of lung abscess or empyema.</li>
+              <li><b>Correct — anaerobes are common in aspiration pneumonia</b> &mdash; Incorrect. This reflects older teaching based on studies of severe, often alcohol-related aspiration with abscess formation. Contemporary data show typical aspiration pneumonia is caused by ordinary respiratory flora, and adding anaerobic cover worsens outcomes.</li>
+              <li><b>Incorrect — clindamycin is preferred over metronidazole</b> &mdash; Incorrect. The first half is right — adding anaerobic coverage is incorrect — but the reasoning then recommends a different anaerobic drug. No anaerobic agent should be added routinely.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>This one reverses the intuition most students bring: <b>aspiration pneumonia does not get anaerobic coverage</b>. ATS/IDSA found added metronidazole or clindamycin carried higher mortality and more <i>C. difficile</i>. Standard CAP therapy is adequate. Reserve anaerobic coverage for the two situations where anaerobes are genuinely established &mdash; <b>lung abscess with putrid sputum</b> and <b>empyema</b>. Distinguish aspiration <i>pneumonitis</i> (chemical, often needs no antibiotic at all) from aspiration <i>pneumonia</i>.</div>
+            <div class="ix-where">Covered below under <span>Topic 4 &mdash; Community-Acquired Pneumonia (CAP) &middot; aspiration</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-latenttb" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Latent Tuberculosis Treatment</span>
+        <div class="ix-q">A 34-year-old refugee has a positive IGRA. CXR shows a left upper lobe calcified nodule without infiltrates. He is asymptomatic and HIV negative. He reports prior TB treatment 12 years ago with a 'short course.' What is the appropriate management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Treat for latent TB infection, since his prior treatment was likely inadequate; preferred regimens include 3HP (isoniazid + rifapentine weekly x 12 weeks) or 4 months of rifampin</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>No treatment needed since he was already treated for TB 12 years ago</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Active TB treatment with a 4-drug regimen (RIPE) should be started immediately given the CXR findings</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Sputum AFB smear and culture must be obtained before any treatment decision can be made</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Isoniazid for 9 months is now the CDC's preferred regimen over all shorter alternatives</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Treat for latent TB infection, since his prior treatment was likely inadequate; preferred regimens include 3HP (isoniazid + rifapentine weekly x 12 weeks) or 4 months of rifampin</div>
+            <div>A positive IGRA with a calcified nodule and no active infiltrates, combined with an inadequately documented prior treatment course ('short course' raises concern for incomplete therapy), indicates latent TB infection requiring treatment. The CDC now preferentially recommends shorter regimens for better completion rates: 3HP (isoniazid + rifapentine once weekly for 12 weeks) or 4 months of daily rifampin, both preferred over the older 9-month isoniazid monotherapy regimen due to improved adherence.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>No treatment needed since he was already treated for TB 12 years ago</b> &mdash; Incorrect. His report of a 'short course' raises significant concern for an incomplete or inadequate treatment course — without verified documentation of a complete, adequate regimen, his current positive IGRA should be treated as latent TB requiring therapy.</li>
+              <li><b>Active TB treatment with a 4-drug regimen (RIPE) should be started immediately given the CXR findings</b> &mdash; Incorrect. The calcified nodule without active infiltrates and the patient being asymptomatic are consistent with latent (not active) TB — active 4-drug RIPE therapy is reserved for confirmed active disease, which is not supported by this presentation.</li>
+              <li><b>Sputum AFB smear and culture must be obtained before any treatment decision can be made</b> &mdash; Incorrect &mdash; as a blanket requirement. While excluding active disease is important when there's any clinical suspicion, this asymptomatic patient with a stable calcified nodule and no infiltrates does not require sputum studies before initiating standard latent TB treatment — though confirming absence of active disease via clinical and radiographic assessment remains appropriate.</li>
+              <li><b>Isoniazid for 9 months is now the CDC's preferred regimen over all shorter alternatives</b> &mdash; Incorrect. — this reverses current guidance. The CDC now preferentially recommends the SHORTER regimens (3HP or 4 months rifampin) specifically because they have better completion rates than the older 9-month isoniazid monotherapy regimen, which remains an option but is no longer preferred.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The step that gets skipped: <b>exclude active TB before treating latent TB</b> &mdash; symptom review plus chest imaging &mdash; because treating active disease with a latent regimen breeds resistance. Once excluded, CDC prefers the short rifamycin-based regimens for completion: <b>3HP</b> (weekly isoniazid + rifapentine for 12 weeks) or <b>4R</b> (daily rifampin for 4 months), both ahead of 9 months of isoniazid. A positive IGRA or TST cannot distinguish latent from active infection, and prior BCG does not cause a positive IGRA.</div>
+            <div class="ix-where">Covered below under <span>Topic 5 &mdash; Tuberculosis (TB)</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <!-- TOPIC 4: CAP -->
 <div class="topic-card pw-locked tier-1" id="cap">
   <div class="tc-header">
@@ -1566,6 +1807,97 @@ LTBI modern: "3HP (INH + Rifapentine weekly × 12 doses) = fastest, best adheren
   <div class="sh-title">Interstitial &amp; Parenchymal Lung Disease</div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Interstitial & Parenchymal Lung Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-ipfsteroid" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; IPF and the Steroid Trap</span>
+        <div class="ix-q">A 64-year-old man with 40 pack-years of smoking has progressive dry cough and dyspnea over 18 months. Exam shows bilateral inspiratory crackles and digital clubbing. HRCT shows bilateral subpleural honeycombing with traction bronchiectasis (UIP pattern). PFTs show restriction with reduced DLCO. What would be the most significant medication error in managing this patient?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Prescribing nintedanib, since antifibrotics are contraindicated in UIP pattern disease</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Withholding supplemental oxygen even when the patient becomes hypoxic</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Starting pirfenidone instead of nintedanib, since pirfenidone is contraindicated in this disease</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Prescribing corticosteroids, which worsen outcomes and are not effective for UIP-pattern disease</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Referring for early lung transplant evaluation in an appropriate candidate</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Prescribing corticosteroids, which worsen outcomes and are not effective for UIP-pattern disease</div>
+            <div>This presentation (HRCT showing UIP pattern with subpleural honeycombing and traction bronchiectasis) is diagnostic of idiopathic pulmonary fibrosis (IPF). Standard of care is antifibrotic therapy (nintedanib or pirfenidone). The critical error to avoid is prescribing corticosteroids — unlike inflammatory ILDs (hypersensitivity pneumonitis, sarcoidosis, cryptogenic organizing pneumonia), IPF is a fibrotic, not primarily inflammatory, process, and corticosteroids have been shown to worsen outcomes in IPF specifically.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Prescribing nintedanib, since antifibrotics are contraindicated in UIP pattern disease</b> &mdash; Incorrect. — this reverses the correct relationship. Nintedanib (along with pirfenidone) IS the standard of care antifibrotic therapy for IPF/UIP pattern disease, not a contraindicated medication.</li>
+              <li><b>Withholding supplemental oxygen even when the patient becomes hypoxic</b> &mdash; Incorrect. Supplemental oxygen is appropriate supportive care when IPF patients develop hypoxia — withholding indicated oxygen therapy would be inappropriate, but this is not the classic 'trap' error associated with this disease.</li>
+              <li><b>Starting pirfenidone instead of nintedanib, since pirfenidone is contraindicated in this disease</b> &mdash; Incorrect. Both pirfenidone and nintedanib are appropriate, guideline-recommended antifibrotic options for IPF — neither is contraindicated, and the choice between them is based on side effect profile and patient factors, not disease-specific contraindication.</li>
+              <li><b>Referring for early lung transplant evaluation in an appropriate candidate</b> &mdash; Incorrect. — this is appropriate, not an error. Early referral for lung transplant evaluation is part of standard IPF management given its progressive, often fatal course, and should be considered in eligible patients.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The dividing line in ILD is <b>fibrotic versus inflammatory</b>, and it dictates the drug. <b>IPF is fibrotic</b> &mdash; corticosteroids do not help and immunosuppression actively harms, as the PANTHER trial showed when triple therapy increased death and hospitalisation. <b>Inflammatory ILDs do respond to steroids</b>: hypersensitivity pneumonitis, sarcoidosis, cryptogenic organising pneumonia, and connective-tissue-disease ILD. Reaching for prednisone on a UIP pattern is the classic wrong answer.</div>
+            <div class="ix-where">Covered below under <span>Topic 6 &mdash; Interstitial Lung Disease (ILD) &amp; IPF</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-ipftreat" data-answer="3">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; ILD · IPF Treatment</span>
+        <div class="ix-q">A 68-year-old male smoker with 18 months of progressive exertional dyspnea and dry cough. Exam: bibasilar Velcro crackles, clubbing. HRCT: subpleural basal honeycombing with traction bronchiectasis. Most appropriate management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Bronchodilator therapy (LAMA + LABA)</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>N-acetylcysteine monotherapy</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Cyclophosphamide + azathioprine + prednisone (triple therapy)</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Antifibrotic therapy (nintedanib or pirfenidone) + supportive care</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>High-dose prednisone</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Antifibrotic therapy (nintedanib or pirfenidone) + supportive care</div>
+            <div>Classic IPF: elderly male smoker, progressive dry cough, Velcro crackles, clubbing, honeycombing + traction bronchiectasis on HRCT in basal/subpleural distribution = UIP pattern. Antifibrotics (nintedanib or pirfenidone) slow FVC decline. Corticosteroids do NOT help IPF. Triple immunosuppression (cyclophosphamide + AZA + prednisone) was found harmful in the PANTHER trial. Lung transplant for eligible patients.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Bronchodilator therapy (LAMA + LABA)</b> &mdash; Incorrect. Bronchodilators treat airflow obstruction, but IPF is a restrictive fibrotic process. They do not modify fibrosis or alter disease trajectory.</li>
+              <li><b>N-acetylcysteine monotherapy</b> &mdash; Incorrect. The PANTHER-IPF trial found no benefit from N-acetylcysteine monotherapy in IPF. It is not disease-modifying.</li>
+              <li><b>Cyclophosphamide + azathioprine + prednisone (triple therapy)</b> &mdash; Incorrect. This is the most important trap because it was once standard practice. The PANTHER-IPF trial found the prednisone, azathioprine, and NAC combination caused INCREASED mortality and hospitalisation, and it was stopped early.</li>
+              <li><b>High-dose prednisone</b> &mdash; Incorrect. Corticosteroids help inflammatory interstitial lung diseases such as hypersensitivity pneumonitis or NSIP, but IPF is predominantly fibrotic rather than inflammatory. Steroids add toxicity without benefit.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>A confident <b>UIP pattern on HRCT</b> &mdash; basal, subpleural honeycombing with traction bronchiectasis &mdash; is diagnostic, so <b>no biopsy is required</b>. Treat with an antifibrotic (nintedanib or pirfenidone), and be precise about what that achieves: it <i>slows FVC decline</i>, it does not reverse fibrosis or improve symptoms. Refer eligible patients for transplant early, since IPF median survival is only 3&ndash;5 years. Velcro crackles plus clubbing in an older male smoker is the exam's opening signal.</div>
+            <div class="ix-where">Covered below under <span>Topic 6 &mdash; Interstitial Lung Disease (ILD) &amp; IPF</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-lofgren" data-answer="1">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Sarcoidosis · Löfgren Syndrome</span>
+        <div class="ix-q">A 32-year-old Black woman presents with bilateral hilar lymphadenopathy on CXR, tender red nodules on both shins, and ankle swelling. She has no dyspnea. Most appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Bronchoscopy with BAL and transbronchial biopsy</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Clinical diagnosis of Löfgren syndrome — no biopsy required; observe for spontaneous resolution</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>CT-guided biopsy of a hilar lymph node</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Serum ACE level to confirm diagnosis</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Start prednisone immediately</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: B &mdash; Clinical diagnosis of Löfgren syndrome — no biopsy required; observe for spontaneous resolution</div>
+            <div>Löfgren syndrome = BHL + erythema nodosum + ankle periarthritis (± fever) — clinical diagnosis, NO biopsy required. Excellent prognosis: 85–90% spontaneous resolution within 2 years. Young Black woman + BHL + erythema nodosum on shins = textbook Löfgren. ACE is neither sensitive nor specific enough to confirm sarcoidosis. Steroids are not required for asymptomatic Löfgren.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Bronchoscopy with BAL and transbronchial biopsy</b> &mdash; Incorrect. Biopsy is appropriate for atypical or uncertain sarcoidosis presentations, but Löfgren syndrome is a recognised clinical diagnosis. Subjecting this patient to an invasive procedure adds risk without changing management.</li>
+              <li><b>CT-guided biopsy of a hilar lymph node</b> &mdash; Incorrect. Hilar nodes are difficult and risky targets percutaneously given adjacent vascular structures, and biopsy is unnecessary when the clinical triad is complete.</li>
+              <li><b>Serum ACE level to confirm diagnosis</b> &mdash; Incorrect. Serum ACE is elevated in only about half to two-thirds of sarcoidosis patients and lacks both sensitivity and specificity. It cannot confirm or exclude the diagnosis.</li>
+              <li><b>Start prednisone immediately</b> &mdash; Incorrect. Most Löfgren syndrome resolves spontaneously within two years, so immediate systemic steroids expose the patient to unnecessary toxicity. NSAIDs manage the arthralgia; steroids are reserved for organ-threatening disease.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Löfgren syndrome is the sarcoidosis presentation you diagnose <b>clinically and do not biopsy</b>: bilateral hilar adenopathy + erythema nodosum + ankle periarthritis, often with fever. Prognosis is excellent, with 85&ndash;90% remitting spontaneously within two years, so asymptomatic patients are observed rather than steroided. <b>Serum ACE is neither sensitive nor specific enough to diagnose sarcoidosis</b> &mdash; a frequent distractor. Treat when there is cardiac, neurologic, ocular, or progressive pulmonary involvement, or hypercalcaemia.</div>
+            <div class="ix-where">Covered below under <span>Topic 7 &mdash; Sarcoidosis</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <!-- TOPIC 6: ILD / IPF (GAP) -->
 <div class="topic-card pw-locked tier-2" id="ild-topic">
   <div class="tc-header">
@@ -1715,6 +2047,97 @@ Cardiac sarcoid: "Young person with heart block + no obvious cause = think sarco
   <div class="sh-title">Pulmonary Vascular Disease</div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Pulmonary Vascular Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-wells" data-answer="2">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; PE · Wells Algorithm</span>
+        <div class="ix-q">A 45-year-old woman presents with dyspnea. Wells score is 3. Which is the MOST appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>CT pulmonary angiography immediately</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Apply PERC criteria — if all 8 met, discharge</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>D-dimer testing</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Lower extremity Doppler ultrasound</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>V/Q scan immediately</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; D-dimer testing</div>
+            <div>Wells score 3 = "PE unlikely" (≤4). Per algorithm: PE unlikely → D-dimer first. Negative D-dimer (age-adjusted threshold: age × 10 for age &gt;50) → PE excluded. Positive → CTPA. PERC applies only to &lt;15% pre-test probability; Wells 3 is too high for PERC without D-dimer. CTPA is for Wells &gt;4 or positive D-dimer.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>CT pulmonary angiography immediately</b> &mdash; Incorrect. Going straight to CTPA in a low-probability patient exposes them to contrast and radiation unnecessarily. A negative D-dimer can exclude PE without imaging when pretest probability is low.</li>
+              <li><b>Apply PERC criteria — if all 8 met, discharge</b> &mdash; Incorrect. PERC is designed for patients in whom PE has already been judged very low probability — typically under 15%. A Wells score of 3 is at the upper end of 'PE unlikely,' so D-dimer is the correct next step.</li>
+              <li><b>Lower extremity Doppler ultrasound</b> &mdash; Incorrect. Leg ultrasound can support the diagnosis if positive but a negative study does not exclude PE, since many emboli occur without residual detectable DVT. It is not the primary diagnostic pathway.</li>
+              <li><b>V/Q scan immediately</b> &mdash; Incorrect. V/Q scanning is reserved for patients who cannot receive iodinated contrast, such as those with severe renal impairment or contrast allergy. It yields indeterminate results more often and is not the first step at low pretest probability.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The Wells pathway turns on one threshold: <b>4 or less means PE unlikely &rarr; D-dimer first</b>; above 4 means likely &rarr; straight to CTPA. A negative D-dimer in the unlikely group excludes PE, and over age 50 you may use the <b>age-adjusted cutoff (age × 10)</b> to reduce false positives. D-dimer is worthless in a high-probability patient &mdash; it cannot exclude anything there and only delays imaging. PERC applies only when pretest probability is already under 15%.</div>
+            <div class="ix-where">Covered below under <span>Topic 8 &mdash; Pulmonary Embolism</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-massivepe" data-answer="0">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Massive PE and Thrombolytics</span>
+        <div class="ix-q">A 44-year-old woman on OCPs, 3 weeks post-knee replacement, presents with pleuritic chest pain, dyspnea, HR 116, SpO₂ 89%, new S1Q3T3 on ECG, Wells score 7, and BP 68/40. What makes this 'massive' PE and how does her recent surgery affect treatment?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Hemodynamic instability (BP <90) defines this as massive PE; recent surgery is only a RELATIVE (not absolute) contraindication to thrombolytics, which may still be appropriate given the life-threatening presentation</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>This is submassive PE, since she remains conscious and responsive</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Recent surgery is an absolute contraindication, so thrombolytics cannot be given under any circumstances</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Anticoagulation alone with a DOAC is sufficient given her hemodynamic instability</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Surgical embolectomy is the only acceptable treatment option given the contraindication concerns</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Hemodynamic instability (BP <90) defines this as massive PE; recent surgery is only a RELATIVE (not absolute) contraindication to thrombolytics, which may still be appropriate given the life-threatening presentation</div>
+            <div>The defining feature of massive PE is hemodynamic instability (systolic BP <90 mmHg), which this patient has. Systemic thrombolytics are indicated for massive PE with shock. Recent major surgery is a RELATIVE, not absolute, contraindication to thrombolysis — in a patient who is actively dying from massive PE, the benefit of thrombolysis may outweigh the bleeding risk from recent surgery, making this a clinical judgment call rather than an automatic exclusion. Catheter-directed thrombolysis is also a reasonable alternative that may reduce systemic bleeding risk.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>This is submassive PE, since she remains conscious and responsive</b> &mdash; Incorrect. Mental status alone does not define PE severity — the key distinguishing feature is hemodynamic stability. Her BP of 68/40 represents shock/hemodynamic instability, which is the defining criterion for MASSIVE (not submassive) PE.</li>
+              <li><b>Recent surgery is an absolute contraindication, so thrombolytics cannot be given under any circumstances</b> &mdash; Incorrect. Recent surgery is a RELATIVE contraindication, not absolute — in life-threatening massive PE, thrombolysis may still be the appropriate choice after weighing risks and benefits, or catheter-directed therapy may be used to mitigate bleeding risk while still achieving clot reduction.</li>
+              <li><b>Anticoagulation alone with a DOAC is sufficient given her hemodynamic instability</b> &mdash; Incorrect. Standard anticoagulation alone is inadequate for massive PE with shock — the clot burden causing hemodynamic compromise requires more aggressive clot-reducing therapy (thrombolysis or catheter-directed intervention) in addition to anticoagulation.</li>
+              <li><b>Surgical embolectomy is the only acceptable treatment option given the contraindication concerns</b> &mdash; Incorrect. While surgical embolectomy is an option in select cases (particularly when thrombolysis is truly contraindicated or has failed), it is not the ONLY acceptable option — systemic or catheter-directed thrombolysis remain appropriate first-line considerations even with recent surgery as a relative contraindication.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Massive (high-risk) PE is defined <b>haemodynamically</b> &mdash; SBP under 90 or a pressor requirement &mdash; not by clot burden on CT, and that is the threshold for systemic thrombolysis. Learn which contraindications are which: <b>recent major surgery is relative</b>, so in a patient dying of massive PE it becomes a judgement call rather than an automatic exclusion. Absolute contraindications are prior intracranial haemorrhage, known structural cerebrovascular lesion, intracranial neoplasm, ischaemic stroke within 3 months, and active bleeding. Catheter-directed therapy is the option when systemic lysis is genuinely barred.</div>
+            <div class="ix-where">Covered below under <span>Topic 8 &mdash; Pulmonary Embolism</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-who3" data-answer="3">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Pulmonary HTN · WHO Group 3</span>
+        <div class="ix-q">A 55-year-old with COPD and resting SpO₂ 87% develops right heart failure. Echo shows elevated RVSP 48 mmHg. Which is MOST appropriate regarding PAH-specific therapy?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Start bosentan — ERAs are first-line regardless of WHO group</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>PAH-specific drugs benefit all WHO groups equally</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Start epoprostenol — most potent agent should be used first</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>PAH-specific drugs NOT indicated for WHO Group 3 — treat with LTOT and optimize COPD</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Start sildenafil — PDE5 inhibitors are first-line for any pulmonary hypertension</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; PAH-specific drugs NOT indicated for WHO Group 3 — treat with LTOT and optimize COPD</div>
+            <div>WHO Group 3 = lung disease-related PH. PAH-specific drugs are NOT indicated and may be harmful — they vasodilate non-ventilated lung units, worsening V/Q mismatch and hypoxemia. Treat the underlying lung disease + LTOT (SpO₂ ≤88% qualifies here at 87%). PAH-specific drugs are reserved for WHO Group 1 after right heart catheterization confirmation.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Start bosentan — ERAs are first-line regardless of WHO group</b> &mdash; Incorrect. The phrase 'regardless of WHO group' is the tell. Endothelin receptor antagonists are indicated for WHO Group 1 pulmonary arterial hypertension, not for pulmonary hypertension secondary to lung disease.</li>
+              <li><b>PAH-specific drugs benefit all WHO groups equally</b> &mdash; Incorrect. The WHO classification exists precisely because the groups respond differently. In Group 3, pulmonary vasodilators can worsen gas exchange rather than help.</li>
+              <li><b>Start epoprostenol — most potent agent should be used first</b> &mdash; Incorrect. Potency is not the deciding factor, and parenteral prostacyclin is reserved for advanced Group 1 disease. In Group 3 it would worsen V/Q matching while adding considerable treatment burden.</li>
+              <li><b>Start sildenafil — PDE5 inhibitors are first-line for any pulmonary hypertension</b> &mdash; Incorrect. PDE5 inhibitors are first-line for Group 1 PAH, so the drug class is right for the wrong group. In hypoxic lung disease they vasodilate poorly ventilated units, increasing shunt and worsening hypoxemia.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Classify pulmonary hypertension before treating it, because the treatment differs by group. <b>Group 1 (PAH)</b> gets PAH-specific drugs, but only after right heart catheterisation confirms it. <b>Group 3 (lung-disease PH)</b> does not &mdash; pulmonary vasodilators dilate poorly ventilated units, worsening V/Q matching and hypoxaemia. Treat the lung disease and add <b>long-term oxygen when SpO&#8322; is 88% or less</b>, the one intervention with a mortality benefit in COPD alongside smoking cessation. Group 2 is left heart disease, Group 4 is chronic thromboembolic.</div>
+            <div class="ix-where">Covered below under <span>Topic 9 &mdash; Pulmonary Hypertension &amp; Cor Pulmonale</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <!-- TOPIC 8: PE -->
 <div class="topic-card pw-locked tier-1" id="pe">
   <div class="tc-header">
@@ -1898,6 +2321,97 @@ APS: "Antiphospholipid syndrome = Warfarin ONLY. DOACs fail in APS."</div></div>
   <div class="sh-title">Pleural Disease</div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Pleural Disease</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-lights" data-answer="2">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; Light's Criteria with Bloody Effusion</span>
+        <div class="ix-q">A 58-year-old man with recently diagnosed lung adenocarcinoma develops a large right pleural effusion. Thoracentesis yields 1.2L of bloody fluid with a pleural:serum LDH ratio of 0.8. Does the bloody appearance of the fluid by itself confirm malignancy as the cause?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>No further testing is needed since the LDH ratio alone definitively confirms malignant pleural effusion</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Yes — any bloody pleural effusion in a cancer patient automatically confirms malignant pleural effusion without need for cytology</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>No — bloody appearance alone does not indicate malignancy; trauma, PE, and tuberculosis can also cause bloody effusions, though cytology will likely be positive given the known lung cancer</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>All three Light's criteria must be met simultaneously to classify an effusion as exudative</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>The LDH ratio of 0.8 classifies this as a transudate, ruling out malignancy as the source</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; No — bloody appearance alone does not indicate malignancy; trauma, PE, and tuberculosis can also cause bloody effusions, though cytology will likely be positive given the known lung cancer</div>
+            <div>By Light's criteria, a pleural:serum LDH ratio >0.6 classifies this as an exudate (one criterion alone is sufficient — 'ANY ONE of three = exudate'). However, the bloody appearance of the fluid does NOT by itself indicate malignancy — multiple conditions including trauma, pulmonary embolism, and tuberculosis can also produce bloody (hemorrhagic) effusions. In this specific clinical context (known lung adenocarcinoma), cytology will likely confirm malignant cells, but this determination requires cytologic examination, not visual appearance alone.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>No further testing is needed since the LDH ratio alone definitively confirms malignant pleural effusion</b> &mdash; Incorrect. While the LDH ratio confirms this is an exudate, it does not specify the etiology — cytology is still required to confirm malignancy as the specific cause, since exudates have many possible causes (infection, malignancy, inflammatory conditions, PE).</li>
+              <li><b>Yes — any bloody pleural effusion in a cancer patient automatically confirms malignant pleural effusion without need for cytology</b> &mdash; Incorrect. This is a classic trap — appearance of the fluid (bloody) does not equal etiology. Cytologic examination is required to confirm malignancy; bloody effusions have multiple possible causes beyond cancer.</li>
+              <li><b>All three Light's criteria must be met simultaneously to classify an effusion as exudative</b> &mdash; Incorrect. This is a commonly tested misconception — Light's criteria require only ONE of the three criteria (protein ratio >0.5, LDH ratio >0.6, or pleural LDH >2/3 upper limit of normal serum LDH) to classify an effusion as exudative, not all three.</li>
+              <li><b>The LDH ratio of 0.8 classifies this as a transudate, ruling out malignancy as the source</b> &mdash; Incorrect. An LDH ratio of 0.8 is well above the 0.6 threshold and clearly classifies this as an EXUDATE, not a transudate — malignancy remains a likely cause given this exudative pattern and the patient's known cancer.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Light's criteria are deliberately over-inclusive: <b>any one of the three makes it an exudate</b> &mdash; pleural:serum protein above 0.5, pleural:serum LDH above 0.6, or pleural LDH above two-thirds the upper limit of normal serum LDH. Do not require all three. And separate appearance from aetiology: <b>bloody fluid does not equal malignancy</b>, since trauma, PE, and TB all produce haemorrhagic effusions. Cytology, not colour, establishes malignancy &mdash; and a single cytology is only about 60% sensitive, so repeat sampling is often needed.</div>
+            <div class="ix-where">Covered below under <span>Topic 10 &mdash; Pleural Effusions</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-parapneumonic" data-answer="4">
+        <span class="ix-n">Question 2 of 3 &middot; High Yield &middot; Pleural · Parapneumonic Drainage</span>
+        <div class="ix-q">A hospitalized patient with pneumonia develops a right pleural effusion. Thoracentesis: pH 7.18, glucose 48, LDH 1200, Gram stain positive. Most appropriate management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Increase antibiotic dose only</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Observation — repeat imaging in 1 week</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Continue antibiotics alone — effusion will resolve</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Serial thoracentesis every 48 hours</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Chest tube drainage + antibiotics</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Chest tube drainage + antibiotics</div>
+            <div>This is a complicated parapneumonic effusion: pH ≤7.2 (most critical criterion), glucose ≤60, LDH &gt;1000, positive Gram stain. All criteria for drainage are met. Antibiotics alone will NOT resolve a complicated effusion — it will progress to empyema. Chest tube placement is mandatory. If loculated → intrapleural fibrinolytics (tPA/DNase) or VATS.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Increase antibiotic dose only</b> &mdash; Incorrect. Antibiotic penetration into an infected, loculating pleural space is poor, and higher doses do not overcome that. A complicated parapneumonic effusion is a drainage problem as much as an antimicrobial one.</li>
+              <li><b>Observation — repeat imaging in 1 week</b> &mdash; Incorrect. Observation risks progression to frank empyema and loculation, which then requires fibrinolytics or surgical decortication. The pH of 7.18 already establishes the need for immediate drainage.</li>
+              <li><b>Continue antibiotics alone — effusion will resolve</b> &mdash; Incorrect. Uncomplicated effusions with pH above 7.2 and negative Gram stain may indeed resolve on antibiotics alone, which is what makes this tempting. This effusion meets every criterion for complication, so it will not.</li>
+              <li><b>Serial thoracentesis every 48 hours</b> &mdash; Incorrect. Repeated needle drainage is inadequate for an infected space that reaccumulates and loculates, and it exposes the patient to repeated procedural risk. Definitive tube drainage is required.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>pH of 7.2 or less is the drainage trigger</b> in a parapneumonic effusion, and it is the single most important number &mdash; supported by glucose under 60, LDH above 1000, a positive Gram stain or culture, or frank pus. Antibiotics alone will not resolve a complicated effusion; it organises into empyema. Place a chest tube. If drainage is incomplete because the collection is loculated, escalate to <b>intrapleural tPA plus DNase</b> or VATS decortication.</div>
+            <div class="ix-where">Covered below under <span>Topic 10 &mdash; Pleural Effusions &middot; complicated parapneumonic effusion</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-tensionptx" data-answer="3">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Pneumothorax · Tension PTX</span>
+        <div class="ix-q">A 25-year-old man is brought to the ED after an MVA with severe respiratory distress, absent breath sounds on the right, tracheal deviation to the left, BP 70/40, JVD, HR 140. Most appropriate IMMEDIATE action?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Endotracheal intubation first, then imaging</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Portable CXR to confirm pneumothorax</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>IV morphine for pain control</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Needle decompression with 14–16G needle at 2nd ICS, MCL on the right</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>CT chest for complete characterization</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Needle decompression with 14–16G needle at 2nd ICS, MCL on the right</div>
+            <div>Tension pneumothorax is a clinical diagnosis — DO NOT wait for imaging. Classic triad: absent breath sounds (right) + tracheal deviation AWAY from affected side (to the left) + hemodynamic collapse. Immediate needle decompression at 2nd ICS, MCL, right side. Follow with chest tube. Imaging here = wrong answer. Seconds matter.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Endotracheal intubation first, then imaging</b> &mdash; Incorrect. Positive pressure ventilation in an undecompressed tension pneumothorax forces more air into the pleural space and can cause immediate cardiovascular collapse. Decompress before or immediately alongside intubation.</li>
+              <li><b>Portable CXR to confirm pneumothorax</b> &mdash; Incorrect. This is the classic fatal delay. Tension pneumothorax is a clinical diagnosis made from absent breath sounds, tracheal deviation, hypotension, and distended neck veins — waiting for a film costs the patient their life.</li>
+              <li><b>IV morphine for pain control</b> &mdash; Incorrect. Opioids blunt respiratory drive and lower blood pressure in a patient already at 70/40. Analgesia is a secondary consideration behind relieving the mechanical obstruction.</li>
+              <li><b>CT chest for complete characterization</b> &mdash; Incorrect. CT provides excellent detail but takes the patient away from resuscitation and delays a procedure that takes seconds. Imaging has no role before decompression in a hemodynamically unstable tension pneumothorax.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Tension pneumothorax is a <b>clinical diagnosis and imaging is the wrong answer</b> &mdash; absent breath sounds, tracheal deviation <i>away</i> from the affected side, distended neck veins, and haemodynamic collapse. Decompress immediately, then place a chest tube. Know both landmarks: boards classically use the <b>2nd intercostal space at the midclavicular line</b>, while current ATLS teaching favours the <b>5th intercostal space at the anterior axillary line</b> in adults, where the chest wall is thinner and the needle more reliably reaches the pleura. Suspect it in any ventilated patient whose peak airway pressures spike as the blood pressure falls.</div>
+            <div class="ix-where">Covered below under <span>Topic 11 &mdash; Pneumothorax</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <!-- TOPIC 10: PLEURAL EFFUSION -->
 <div class="topic-card pw-locked tier-1" id="effusion">
   <div class="tc-header">
@@ -2055,6 +2569,97 @@ Recurrence after first primary PTX: "30% chance — warn the patient. Second PTX
   <div class="sh-title">Lung Cancer <span class="gap-tag">★ Gap Added</span></div>
 </div>
 
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">Lung Cancer</span><span class="ix-count">3 questions</span></div>
+      <div class="ix-intro"><b>Answer these three before you read the domain.</b> Getting them wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="p-uspstf" data-answer="3">
+        <span class="ix-n">Question 1 of 3 &middot; Medium &middot; Lung Cancer · USPSTF Screening</span>
+        <div class="ix-q">Which patient meets USPSTF 2021 criteria for annual low-dose CT lung cancer screening?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>50-year-old, 20 pack-years, quit 20 years ago</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>82-year-old, 40 pack-years, currently smoking</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>55-year-old, 18 pack-years, currently smoking</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>52-year-old, 22 pack-years, quit 10 years ago</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>48-year-old, 25 pack-years, currently smoking</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; 52-year-old, 22 pack-years, quit 10 years ago</div>
+            <div>USPSTF 2021 criteria (all 3 required): Age 50–80, ≥20 pack-years, currently smoking OR quit within past 15 years. Patient C: age 52 ✓, 22 pack-years ✓, quit 10 years ago ✓ (within 15-year window). Patient A: age 48 (too young). B: 18 pack-years (insufficient). D: quit 20 years ago (beyond 15-year window). E: age 82 (too old).</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>50-year-old, 20 pack-years, quit 20 years ago</b> &mdash; Incorrect. Age and pack-years both qualify, but quitting 20 years ago falls outside the 15-year window. Risk declines substantially with sustained abstinence, which is why the cessation interval is part of the criteria.</li>
+              <li><b>82-year-old, 40 pack-years, currently smoking</b> &mdash; Incorrect. The smoking history easily qualifies but age 82 exceeds the upper limit of 80. Screening beyond this age is limited by competing mortality and the reduced likelihood of benefit from treating a detected cancer.</li>
+              <li><b>55-year-old, 18 pack-years, currently smoking</b> &mdash; Incorrect. Age and current smoking both qualify, but 18 pack-years falls just short of the 20 pack-year threshold. This is the closest miss of the set — all three criteria must be met simultaneously.</li>
+              <li><b>48-year-old, 25 pack-years, currently smoking</b> &mdash; Incorrect. Pack-years and smoking status qualify, but age 48 is below the lower bound of 50. The USPSTF lowered the starting age from 55 to 50 in 2021, but not below that.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>All three USPSTF 2021 criteria must be met for annual low-dose CT: <b>age 50&ndash;80</b>, <b>at least 20 pack-years</b>, and <b>currently smoking or quit within the past 15 years</b>. The 2021 revision lowered the entry age from 55 and the burden from 30 pack-years, roughly doubling eligibility. Screening stops once 15 years have passed since quitting, or when a health problem would prevent curative treatment. Chest radiography is not a screening test for lung cancer at any risk level.</div>
+            <div class="ix-where">Covered below under <span>Topic 12 &mdash; Lung Cancer &middot; screening</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-egfr" data-answer="4">
+        <span class="ix-n">Question 2 of 3 &middot; Medium &middot; EGFR-Mutated NSCLC Targeted Therapy</span>
+        <div class="ix-q">A 67-year-old woman with 45 pack-years has a solitary lung mass biopsied as adenocarcinoma, positive for EGFR exon 19 deletion, staged as IVA. What treatment is indicated based on this genetic finding, and how does this change the standard approach to stage IV NSCLC?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Radiation therapy alone is the appropriate treatment given the genetic finding</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Crizotinib should be started, since it is the standard targeted therapy for this mutation</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Standard platinum-based chemotherapy (carboplatin/pemetrexed) remains first-line regardless of the EGFR mutation status</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Immunotherapy with pembrolizumab is indicated based on this EGFR mutation finding</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Osimertinib (a third-generation EGFR tyrosine kinase inhibitor) as first-line targeted therapy, replacing standard platinum-based chemotherapy</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Osimertinib (a third-generation EGFR tyrosine kinase inhibitor) as first-line targeted therapy, replacing standard platinum-based chemotherapy</div>
+            <div>An EGFR exon 19 deletion identifies this tumor as EGFR-mutated NSCLC, for which osimertinib (a third-generation EGFR TKI) is the first-line treatment of choice. This fundamentally changes the standard approach to stage IV NSCLC — when an actionable mutation is identified, targeted therapy replaces standard platinum-based chemotherapy as first-line treatment, since targeted agents offer improved efficacy and tolerability for mutation-positive tumors. This underscores why molecular/genetic testing is now mandatory before initiating treatment for any stage IV NSCLC.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Radiation therapy alone is the appropriate treatment given the genetic finding</b> &mdash; Incorrect. Radiation alone does not address systemic stage IV disease and is not indicated as primary treatment based on EGFR mutation status — systemic targeted therapy (osimertinib) is the appropriate treatment approach.</li>
+              <li><b>Crizotinib should be started, since it is the standard targeted therapy for this mutation</b> &mdash; Incorrect. Crizotinib targets ALK rearrangements, not EGFR mutations — this represents pairing the wrong targeted drug with the wrong mutation. Osimertinib is the correct EGFR-targeted agent.</li>
+              <li><b>Standard platinum-based chemotherapy (carboplatin/pemetrexed) remains first-line regardless of the EGFR mutation status</b> &mdash; Incorrect. This ignores the fundamental shift in NSCLC treatment paradigm — when an actionable driver mutation like EGFR exon 19 deletion is identified, targeted therapy (osimertinib) replaces chemotherapy as first-line treatment due to superior outcomes.</li>
+              <li><b>Immunotherapy with pembrolizumab is indicated based on this EGFR mutation finding</b> &mdash; Incorrect. Pembrolizumab and other checkpoint inhibitors are generally used based on PD-L1 expression status, not EGFR mutation status — in fact, EGFR-mutated tumors tend to respond poorly to immunotherapy, making targeted TKI therapy (osimertinib) the appropriate choice instead.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The rule for advanced non-squamous NSCLC: <b>an actionable driver mutation replaces first-line chemotherapy with targeted therapy</b>. EGFR exon 19 deletion &rarr; osimertinib. This is why molecular testing precedes treatment rather than following a chemotherapy failure &mdash; the panel covers EGFR, ALK, ROS1, BRAF, RET, MET, KRAS G12C, and PD-L1 expression. Note the epidemiologic trap: EGFR mutations are commonest in adenocarcinoma, in women, and in non-smokers or light smokers, but a heavy smoking history does <i>not</i> exclude them, so test regardless.</div>
+            <div class="ix-where">Covered below under <span>Topic 12 &mdash; Lung Cancer &middot; staging and treatment</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="p-paraneo" data-answer="0">
+        <span class="ix-n">Question 3 of 3 &middot; High Yield &middot; Lung Cancer · Paraneoplastic</span>
+        <div class="ix-q">A 62-year-old smoker has a central hilar mass with cavitation. Labs: calcium 12.4 mg/dL, PTH undetectable, PTHrP elevated. Most likely lung cancer cell type?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Squamous cell carcinoma</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Small cell carcinoma (SCLC)</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Large cell carcinoma</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Carcinoid tumor</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Adenocarcinoma</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Squamous cell carcinoma</div>
+            <div>Classic squamous cell carcinoma: central hilar + cavitation + PTHrP-mediated hypercalcemia. PTHrP stimulates the PTH receptor → hypercalcemia → PTH is suppressed. SCLC causes SIADH (hyponatremia) + Cushing's (ectopic ACTH) + Lambert-Eaton. Adenocarcinoma is peripheral. SCLC is also central but produces SIADH not PTHrP.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Small cell carcinoma (SCLC)</b> &mdash; Incorrect. SCLC is also central and strongly smoking-associated, making this the closest distractor. Its paraneoplastic syndromes are SIADH and ectopic ACTH, and it characteristically does NOT cavitate — cavitation with PTHrP hypercalcemia points to squamous cell.</li>
+              <li><b>Large cell carcinoma</b> &mdash; Incorrect. Large cell carcinoma is typically peripheral and may cavitate, but it is not associated with PTHrP-mediated hypercalcemia. Its rare paraneoplastic association is gynecomastia through beta-hCG.</li>
+              <li><b>Carcinoid tumor</b> &mdash; Incorrect. Carcinoid tumours are usually central but occur in younger, often non-smoking patients, rarely cavitate, and produce carcinoid syndrome through serotonin rather than hypercalcemia.</li>
+              <li><b>Adenocarcinoma</b> &mdash; Incorrect. Adenocarcinoma is the most common lung cancer overall and in non-smokers, but it is characteristically PERIPHERAL and does not cavitate or cause PTHrP hypercalcemia.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Map each cell type to its signature. <b>Squamous:</b> central, cavitates, PTHrP-mediated hypercalcaemia (PTH suppressed &mdash; that is what separates it from primary hyperparathyroidism). <b>Small cell:</b> central, and the endocrine syndromes &mdash; SIADH, ectopic ACTH, and Lambert-Eaton. <b>Adenocarcinoma:</b> peripheral, the commonest type overall and in non-smokers. <b>Large cell:</b> peripheral and aggressive. Cavitation plus hypercalcaemia is squamous; hyponatraemia plus a central mass is small cell.</div>
+            <div class="ix-where">Covered below under <span>Topic 12 &mdash; Lung Cancer &middot; paraneoplastic syndromes</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+    </div>
 <div class="topic-card pw-locked tier-2" id="lung-cancer">
   <div class="tc-header">
     <div class="tc-tier">Tier 2</div>
@@ -2154,67 +2759,393 @@ Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face
 </div>
 
 <!-- TOPIC: ARDS -->
-<div class="topic-card pw-locked" id="ards">
+<div class="topic-card pw-locked tier-1" id="ards">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic 13 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Acute Respiratory Distress Syndrome (ARDS)</div>
       <div class="tc-subtitle">Berlin Criteria · P:F Ratio · Lung-Protective Ventilation · Prone Positioning · Neuromuscular Blockade</div>
+      <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Tidal Volume Trap</span></div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+    <div class="sub"><div class="sub-label sl-teal">Core Recognition Pattern</div>
+    <ul class="bl">
+      <li><b>Mechanism:</b> Diffuse alveolar injury → increased capillary permeability → protein-rich non-cardiogenic pulmonary edema → shunt physiology with poor compliance</li>
+      <li><b>Most common precipitant:</b> Sepsis. Then aspiration, pneumonia, multi-trauma, acute pancreatitis, massive transfusion (TRALI), near-drowning, inhalation injury</li>
+      <li><b>Clinical picture:</b> Refractory hypoxemia developing over hours to days, diffuse bilateral infiltrates, and falling compliance that forces rising ventilator pressures</li>
+      <li><b>What it is not:</b> Cardiogenic pulmonary edema. Filling pressures are normal — echocardiography is the practical way to exclude cardiac origin when no ARDS risk factor is obvious.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Berlin Definition — All Four Required</div>
+    <table class="btable">
+      <thead><tr><th>Criterion</th><th>Requirement</th><th>Board Key</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Timing</td><td>Within 1 week of a known insult or of new / worsening respiratory symptoms</td><td>Chronic fibrosis does not qualify</td></tr>
+        <tr><td class="td-bold">Imaging</td><td>Bilateral opacities not fully explained by effusion, lobar collapse, or nodules</td><td>Chest radiograph or CT both acceptable</td></tr>
+        <tr><td class="td-bold">Origin of edema</td><td>Not fully explained by cardiac failure or fluid overload</td><td class="td-red">Objective assessment (echo) needed when no risk factor is present</td></tr>
+        <tr><td class="td-bold">Oxygenation</td><td>PaO₂/FiO₂ measured on <b>PEEP ≥5 cmH₂O</b></td><td class="td-red">Without PEEP ≥5 the ratio cannot be used to stage</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-blue">Severity by P:F Ratio (on PEEP ≥5)</div>
+    <table class="btable">
+      <thead><tr><th>Severity</th><th>PaO₂/FiO₂</th><th>Implication</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Mild</td><td>200–300</td><td>Selected patients manageable with non-invasive support</td></tr>
+        <tr><td class="td-bold td-amber">Moderate</td><td>100–200</td><td>Higher-PEEP strategy; prone positioning once the ratio falls below 150</td></tr>
+        <tr><td class="td-bold td-red">Severe</td><td>≤100</td><td class="td-red">Prone positioning, consider neuromuscular blockade, ECMO referral if refractory</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-green">Management — What Actually Changes Mortality</div>
+    <ul class="bl">
+      <li><b>Lung-protective ventilation (mortality benefit):</b> Tidal volume <b>6 mL/kg of PREDICTED body weight</b>, plateau pressure ≤30 cmH₂O, with <b>permissive hypercapnia</b> tolerated to a pH of roughly 7.20–7.25</li>
+      <li><b>Prone positioning (mortality benefit):</b> 12–16 hours per day when PaO₂/FiO₂ is under 150 (PROSEVA)</li>
+      <li><b>Conservative fluid strategy:</b> Improves oxygenation and ventilator-free days; no independent mortality benefit (FACTT)</li>
+      <li><b>Neuromuscular blockade:</b> Cisatracurium reserved for severe disease with ventilator dyssynchrony — routine early paralysis is not supported (ROSE)</li>
+      <li><b>ECMO:</b> Consider for refractory severe hypoxemia at an experienced centre</li>
+      <li><b>Corticosteroids:</b> Clear benefit in COVID-19-associated ARDS (dexamethasone); still debated for other causes</li>
+      <li><b>No mortality benefit:</b> Inhaled nitric oxide (transient oxygenation gain only), routine pulmonary artery catheter, and raising tidal volume to normalise CO₂</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — ARDS</div>
+      <ul class="box-items">
+        <li><b>Tidal volume is dosed on PREDICTED body weight</b>, derived from height and sex — never actual weight. An obese patient does not receive a larger tidal volume.</li>
+        <li><b>Do not raise tidal volume to correct a rising CO₂.</b> Permissive hypercapnia is the accepted trade-off, because ventilator-induced lung injury kills and a pH of 7.22 does not.</li>
+        <li><b>The P:F ratio only counts on PEEP ≥5</b> — a ratio quoted on room air cannot stage ARDS</li>
+        <li><b>Prone positioning carries a mortality benefit; neuromuscular blockade and inhaled nitric oxide do not.</b> This is the pair most often reversed.</li>
+        <li><b>ARDS versus cardiogenic edema:</b> ARDS has normal filling pressures. Bilateral infiltrates with a raised BNP and an S3 point to heart failure instead.</li>
+        <li><b>Bilateral infiltrates within 6 hours of transfusion</b> is TRALI — a recognised ARDS precipitant, and distinct from simple volume overload (TACO)</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Berlin, four boxes: "1 week · Bilateral · not Cardiac · P:F on PEEP ≥5"
+Severity: "300 – 200 – 100" — mild, moderate, severe, as the ratio falls and the lung stiffens
+Ventilator settings: "6 and 30" — 6 mL/kg predicted body weight, plateau ≤30
+What saves lives: "Small breaths and face down." Paralysis and nitric oxide do not.</div></div>
   </div>
 </div>
 
 <!-- TOPIC: OBSTRUCTIVE SLEEP APNEA -->
-<div class="topic-card pw-locked" id="osa">
+<div class="topic-card pw-locked tier-1" id="osa">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic 14 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Obstructive Sleep Apnea (OSA)</div>
       <div class="tc-subtitle">AHI Thresholds · Epworth Scale · Polysomnography · CPAP · Cardiovascular Consequences · Obesity Hypoventilation</div>
+      <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Pediatric Treatment Trap</span></div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+    <div class="sub"><div class="sub-label sl-teal">Core Recognition Pattern</div>
+    <ul class="bl">
+      <li><b>Mechanism:</b> Repetitive pharyngeal collapse during sleep → apneas and hypopneas → intermittent hypoxemia, sympathetic surges, and arousals that fragment sleep architecture</li>
+      <li><b>Risk factors:</b> Obesity and increased neck circumference, male sex, advancing age, retrognathia, adenotonsillar hypertrophy (the dominant cause in children), alcohol and sedatives, hypothyroidism, acromegaly</li>
+      <li><b>Nocturnal symptoms:</b> Loud snoring, witnessed apneas, gasping or choking arousals, nocturia</li>
+      <li><b>Daytime symptoms:</b> Non-restorative sleep, morning headache, excessive daytime sleepiness, impaired concentration, and a materially raised motor vehicle collision risk</li>
+      <li><b>Screening tools:</b> STOP-BANG, and the Epworth Sleepiness Scale (above 10 indicates excessive sleepiness; 16 or more is severe)</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Severity by Apnea-Hypopnea Index (events per hour)</div>
+    <table class="btable">
+      <thead><tr><th>AHI</th><th>Severity</th><th>Treatment implication</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Under 5</td><td>Normal</td><td>No OSA</td></tr>
+        <tr><td class="td-bold">5–15</td><td>Mild</td><td>Treat if symptomatic, or if cardiovascular comorbidity is present</td></tr>
+        <tr><td class="td-bold td-amber">15–30</td><td>Moderate</td><td>CPAP indicated</td></tr>
+        <tr><td class="td-bold td-red">Over 30</td><td>Severe</td><td class="td-red">CPAP indicated regardless of symptoms</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-blue">Diagnosis</div>
+    <ul class="bl">
+      <li><b>In-laboratory polysomnography is the gold standard</b>, and is required whenever comorbidity clouds the picture — heart failure, COPD, neuromuscular disease, or suspected central apnea or hypoventilation</li>
+      <li><b>Home sleep apnea testing</b> is acceptable for uncomplicated patients with a high pretest probability. A negative home study in a symptomatic patient does not exclude OSA and must be followed by polysomnography.</li>
+      <li><b>Epworth measures sleepiness, not severity.</b> The AHI defines severity, and the two correlate poorly — a patient can have severe OSA and a modest Epworth score.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-red">Cardiovascular and Metabolic Consequences</div>
+    <ul class="bl">
+      <li><b>Resistant hypertension</b> — OSA is the most common identifiable cause, driven by hypoxia-induced sympathetic surges</li>
+      <li><b>Atrial fibrillation</b> — untreated OSA sharply raises recurrence after cardioversion or ablation</li>
+      <li><b>Pulmonary hypertension</b> — WHO Group 3, with cor pulmonale in advanced disease</li>
+      <li><b>Also:</b> Stroke, coronary disease, insulin resistance, and nocturnal sudden cardiac death clustering in the early morning hours</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Treatment</div>
+    <ul class="bl">
+      <li><b>CPAP is first-line</b> for moderate-to-severe disease and for symptomatic mild disease. Adherence is the limiting factor, so address it before declaring failure.</li>
+      <li><b>Behavioural:</b> Weight loss (curative in some), positional therapy, and avoiding alcohol and sedatives near bedtime</li>
+      <li><b>Mandibular advancement device:</b> Mild-to-moderate disease, or CPAP intolerance</li>
+      <li><b>Hypoglossal nerve stimulation:</b> Selected CPAP-intolerant patients meeting anatomic criteria</li>
+      <li><b>Children: adenotonsillectomy is first-line</b>, because adenotonsillar hypertrophy is the usual cause</li>
+      <li><b>Residual sleepiness on adherent CPAP:</b> Modafinil or solriamfetol, after re-checking adherence data and pressure settings</li>
+      <li><b>Obesity hypoventilation syndrome:</b> BMI 30 or above with an awake PaCO₂ above 45 mmHg and no alternative explanation. Frequently coexists with OSA, often needs bilevel rather than CPAP, and weight reduction is definitive.</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — OSA</div>
+      <ul class="box-items">
+        <li><b>A child with OSA gets the tonsils and adenoids out, not CPAP</b> — the most reliable pediatric pulmonary trap on this topic</li>
+        <li><b>Daytime hypercapnia is not explained by OSA alone.</b> An awake PaCO₂ above 45 in an obese patient means obesity hypoventilation syndrome, which changes both the device and the prognosis.</li>
+        <li><b>OSA is the most common identifiable cause of resistant hypertension</b> — screen before escalating to a fourth antihypertensive</li>
+        <li><b>CPAP lowers blood pressure only modestly</b> and never substitutes for antihypertensive therapy</li>
+        <li><b>A negative home sleep study does not rule out OSA</b> — it under-detects, so a symptomatic patient proceeds to polysomnography</li>
+        <li><b>Screen before elective surgery.</b> Undiagnosed OSA raises perioperative airway and opioid risk, which is precisely what STOP-BANG exists for.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">AHI severity: "5 · 15 · 30" — mild, moderate, severe
+Treatment by age: "Kids lose the tonsils, adults get the mask."
+Epworth versus AHI: "Epworth says how sleepy. AHI says how bad." They disagree constantly.
+Resistant hypertension: "Ask about snoring before adding a fourth drug."</div></div>
   </div>
 </div>
 
 <!-- TOPIC: CYSTIC FIBROSIS -->
-<div class="topic-card pw-locked" id="cf">
+<div class="topic-card pw-locked tier-2" id="cf">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic 15 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Cystic Fibrosis</div>
       <div class="tc-subtitle">CFTR Mutation · ΔF508 · Sweat Chloride · Pseudomonas Colonization · ABPA · CFTR Modulators · Pancreatic Insufficiency</div>
+      <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Diagnostic Test Trap</span></div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+    <div class="sub"><div class="sub-label sl-teal">Core Recognition Pattern</div>
+    <ul class="bl">
+      <li><b>Genetics:</b> Autosomal recessive, <i>CFTR</i> gene on <b>chromosome 7</b>, with <b>ΔF508 (F508del)</b> the commonest mutation. It is the most common lethal inherited disease in people of Northern European ancestry.</li>
+      <li><b>Mechanism:</b> Defective CFTR chloride and bicarbonate transport → dehydrated viscous secretions → obstruction, chronic infection, and progressive organ damage</li>
+      <li><b>Newborn:</b> Meconium ileus (10–20%, and essentially pathognomonic), prolonged cholestatic jaundice</li>
+      <li><b>Infant and child:</b> Failure to thrive despite a good appetite, steatorrhea, recurrent sinopulmonary infection, <b>nasal polyps</b>, rectal prolapse</li>
+      <li><b>Adolescent and adult:</b> Bronchiectasis with chronic productive cough and hemoptysis, pancreatic insufficiency, CF-related diabetes, distal intestinal obstruction syndrome, and male infertility</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Diagnosis</div>
+    <table class="btable">
+      <thead><tr><th>Test</th><th>Result</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Newborn screen</td><td>Elevated immunoreactive trypsinogen</td><td>A screen, not a diagnosis — always confirm</td></tr>
+        <tr><td class="td-bold">Sweat chloride</td><td class="td-red">≥60 mmol/L</td><td class="td-red">Diagnostic. This is the confirmatory test.</td></tr>
+        <tr><td class="td-bold">Sweat chloride</td><td>30–59 mmol/L</td><td>Intermediate — proceed to CFTR genotyping</td></tr>
+        <tr><td class="td-bold">Sweat chloride</td><td>Under 30 mmol/L</td><td>Normal; CF unlikely</td></tr>
+        <tr><td class="td-bold">CFTR genotyping</td><td>Two disease-causing variants</td><td>Confirms the diagnosis and, critically, selects the modulator</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-red">Airway Microbiology Shifts With Age</div>
+    <ul class="bl">
+      <li><b>Infancy and early childhood:</b> <i>Staphylococcus aureus</i> and <i>Haemophilus influenzae</i></li>
+      <li><b>Later childhood onward:</b> <b><i>Pseudomonas aeruginosa</i></b> — chronic colonisation marks a clear inflection in lung function decline and prognosis</li>
+      <li><b><i>Burkholderia cepacia</i> complex:</b> Accelerated decline, and at many centres a contraindication to transplantation. Requires strict infection-control segregation.</li>
+      <li><b>Allergic bronchopulmonary aspergillosis (ABPA):</b> Suspect when a patient deteriorates despite good therapy with a rising <b>total IgE</b> and <i>Aspergillus</i>-specific IgE. Treat with corticosteroids plus itraconazole — not with more antibacterials.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Management</div>
+    <ul class="bl">
+      <li><b>Airway clearance:</b> Chest physiotherapy, inhaled hypertonic saline, and dornase alfa (recombinant human DNase) to reduce sputum viscosity</li>
+      <li><b>Chronic suppression:</b> Inhaled tobramycin for established <i>Pseudomonas</i>; chronic azithromycin for its anti-inflammatory effect</li>
+      <li><b>CFTR modulators — the transformative change:</b> <b>ivacaftor</b> is a potentiator for gating mutations such as G551D, while <b>elexacaftor / tezacaftor / ivacaftor</b> covers F508del and now treats the large majority of patients. Therapy is genotype-directed, which is why genotyping matters well beyond diagnosis.</li>
+      <li><b>Nutrition:</b> Pancreatic enzyme replacement with meals, a high-calorie diet, and supplementation of the fat-soluble vitamins <b>A, D, E and K</b></li>
+      <li><b>Exacerbation:</b> Intravenous antipseudomonal therapy, conventionally two agents of different classes, guided by sputum sensitivities</li>
+      <li><b>Advanced disease:</b> Referral for lung transplantation</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Cystic Fibrosis</div>
+      <ul class="box-items">
+        <li><b>Sweat chloride is the confirmatory test, not genetic testing.</b> Genotyping follows, and its principal job is choosing the modulator.</li>
+        <li><b>Nasal polyps in a child should prompt a CF evaluation</b> — they are rare in otherwise healthy children</li>
+        <li><b>Male infertility is obstructive:</b> congenital bilateral absence of the vas deferens affects roughly 98%, while spermatogenesis is normal — so fatherhood is achievable with sperm retrieval</li>
+        <li><b>Match the vitamin to its deficiency syndrome:</b> A → night blindness, D → osteopenia, E → neuropathy and hemolysis, K → coagulopathy</li>
+        <li><b>Deterioration despite optimal therapy with a rising total IgE is ABPA</b>, and it needs corticosteroids rather than escalating antibacterials</li>
+        <li><b>Failure to thrive with a voracious appetite and greasy stools</b> is pancreatic insufficiency, not inadequate intake</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Genetics: "CFTR sits on 7, and ΔF508 is the one to know."
+Confirmation: "Sweat the diagnosis — chloride 60 or more."
+Vitamins: "ADEK" — the fat-soluble four that vanish without enzymes.
+Organisms: "Staph first, Pseudomonas forever." Cepacia is the one that costs a transplant.</div></div>
   </div>
 </div>
 
 <!-- TOPIC: PERTUSSIS + ACUTE BRONCHITIS -->
-<div class="topic-card pw-locked" id="pertussis">
+<div class="topic-card pw-locked tier-2" id="pertussis">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic 16 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Pertussis &amp; Acute Bronchitis</div>
-      <div class="tc-subtitle">Whooping Cough Stages · Lymphocytosis · Azithromycin · Vaccine Prevention · Bronchitis — Viral, No ABx</div>
+      <div class="tc-subtitle">Whooping Cough Stages · Lymphocytosis · Azithromycin · Vaccine Prevention · Bronchitis — Viral, No Antibiotics</div>
+      <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Antibiotic Stewardship Trap</span></div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+    <div class="sub"><div class="sub-label sl-teal">Pertussis — Core Recognition Pattern</div>
+    <ul class="bl">
+      <li><b>Organism:</b> <i>Bordetella pertussis</i>, a gram-negative coccobacillus whose injury is toxin-mediated — which is exactly why antibiotics alter transmission far more than they alter symptoms</li>
+      <li><b>Hallmark laboratory finding:</b> Marked <b>absolute lymphocytosis</b>, often above 10,000/µL, with the degree tracking severity in infants. It is lymphocytosis, not a neutrophil-predominant leukocytosis.</li>
+      <li><b>Usually afebrile</b> or barely febrile despite a dramatic cough — a useful discriminator from pneumonia</li>
+      <li><b>Infants under 6 months</b> are the danger group: they may present with <b>apnea and cyanosis and never produce a whoop</b>. They carry nearly all the mortality and usually require admission.</li>
+      <li><b>Complications:</b> Secondary pneumonia, seizures, encephalopathy, rib fracture and pneumothorax from coughing, and refractory pulmonary hypertension with extreme leukocytosis in infants</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">The Three Stages</div>
+    <table class="btable">
+      <thead><tr><th>Stage</th><th>Duration</th><th>Features</th><th>Board key</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Catarrhal</td><td>1–2 weeks</td><td>Indistinguishable from a common cold — coryza, mild cough, minimal fever</td><td class="td-red">MOST contagious, and the only window in which treatment alters the course</td></tr>
+        <tr><td class="td-bold">Paroxysmal</td><td>2–6 weeks</td><td>Staccato coughing fits, inspiratory whoop, post-tussive emesis, exhaustion between paroxysms</td><td>Diagnosis is usually made here — too late to shorten the illness</td></tr>
+        <tr><td class="td-bold">Convalescent</td><td>Weeks to months</td><td>Gradually waning cough</td><td class="td-green">The "100-day cough"</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-blue">Diagnosis and Treatment</div>
+    <ul class="bl">
+      <li><b>Testing:</b> Nasopharyngeal <b>PCR</b> is the test of choice and performs best within the first 3–4 weeks of cough. Culture is highly specific but slow and insensitive. Serology is reserved for late presentation.</li>
+      <li><b>Treatment:</b> A macrolide, with <b>azithromycin</b> preferred. Treat within 3 weeks of cough onset, extended to 6 weeks in infants and in pregnancy.</li>
+      <li><b>Neonates:</b> Azithromycin specifically, because <b>erythromycin is associated with hypertrophic pyloric stenosis</b> in infants under 1 month</li>
+      <li><b>Post-exposure prophylaxis:</b> The same macrolide for close contacts <b>regardless of vaccination status</b></li>
+      <li><b>Prevention:</b> DTaP in the childhood series with Tdap boosters, plus <b>Tdap in every pregnancy at 27–36 weeks</b>, so maternal antibody crosses to protect the newborn before its own immunisation</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Acute Bronchitis — The Stewardship Half of This Card</div>
+    <ul class="bl">
+      <li><b>Almost always viral:</b> Rhinovirus, influenza, coronaviruses, RSV, adenovirus, parainfluenza</li>
+      <li><b>Presentation:</b> Cough with or without sputum for up to 3 weeks, often with transient bronchial hyperreactivity, and a <b>normal chest radiograph</b></li>
+      <li><b>Antibiotics are not indicated</b> — among the most frequently tested antibiotic-stewardship points on the exam</li>
+      <li><b>Management:</b> Symptomatic care, with a bronchodilator only where there is genuine wheeze or airflow limitation</li>
+      <li><b>When to reconsider:</b> A cough beyond 2–3 weeks with paroxysms, whoop, or post-tussive emesis should trigger pertussis testing rather than another antibiotic course</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Pertussis &amp; Bronchitis</div>
+      <ul class="box-items">
+        <li><b>Purulent sputum does not mean bacterial infection</b> in acute bronchitis — the colour reflects shed cells, not organisms, and is not a reason to prescribe</li>
+        <li><b>An infant with apnea and no whoop can still have pertussis.</b> Waiting for the classic sound in a young infant is how this diagnosis gets missed.</li>
+        <li><b>Erythromycin in a neonate risks pyloric stenosis</b> — use azithromycin</li>
+        <li><b>Antibiotics started in the paroxysmal stage reduce spread, not duration.</b> Treat anyway for public-health reasons, but do not promise symptom relief.</li>
+        <li><b>Expect lymphocytosis, not neutrophilia.</b> A neutrophil-predominant count should redirect you toward bacterial pneumonia.</li>
+        <li><b>Prophylax close contacts even when fully vaccinated</b> — immunity wanes, which is why adolescent and adult cases occur at all</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Stages: "Catarrhal is Contagious → Paroxysmal is the Whoop → Convalescent is the 100-day cough."
+Treatment timing: "Antibiotics stop the spread, not the cough."
+Neonates: "Azithro for the newborn — erythro brings pyloric stenosis."
+Bronchitis: "Normal film, viral cause, no prescription."</div></div>
   </div>
 </div>
 
 <!-- TOPIC: PNEUMOCONIOSIS -->
-<div class="topic-card pw-locked" id="pneumoconiosis">
+<div class="topic-card pw-locked tier-2" id="pneumoconiosis">
   <div class="tc-header">
-    <div class="tc-tier"></div>
+    <div class="tc-tier">Tier 2</div>
     <div class="tc-main">
-      
+      <div class="tc-num">Topic 17 <span class="gap-tag">★ Gap Added</span></div>
       <div class="tc-title">Pneumoconiosis — Occupational Lung Diseases</div>
       <div class="tc-subtitle">Silicosis · Asbestosis · Coal Workers' Pneumoconiosis · Berylliosis · Byssinosis</div>
+      <div class="tc-badges"><span class="badge badge-pance">★★ High Yield</span><span class="badge badge-trap">Lobe Distribution Trap</span></div>
     </div>
     
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Pulmonary');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+    <div class="sub"><div class="sub-label sl-teal">Core Recognition Pattern</div>
+    <ul class="bl">
+      <li><b>Definition:</b> Interstitial lung disease caused by inhaled <b>inorganic</b> dust, with a latency measured in years to decades between exposure and disease</li>
+      <li><b>The exam always supplies the occupation</b> — the history is the diagnostic test, so read it first</li>
+      <li><b>Physiology:</b> Restrictive pattern with reduced DLCO — except byssinosis, which is obstructive</li>
+      <li><b>No therapy reverses established fibrosis.</b> Management is removal from exposure, smoking cessation, influenza and pneumococcal vaccination, oxygen where indicated, surveillance for the associated malignancies, and transplant referral in advanced disease.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">The Five to Know</div>
+    <table class="btable">
+      <thead><tr><th>Disease</th><th>Exposure</th><th>Imaging</th><th>Key association</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Silicosis</td><td>Mining, quarrying, sandblasting, foundry work, engineered-stone countertop fabrication</td><td><b>Upper-lobe</b> nodules; <b>eggshell calcification</b> of hilar nodes; progressive massive fibrosis</td><td class="td-red">Markedly raised <b>tuberculosis</b> risk — screen annually. Also lung cancer, rheumatoid arthritis (Caplan), scleroderma.</td></tr>
+        <tr><td class="td-bold">Asbestosis</td><td>Shipbuilding, insulation, pipefitting, brake linings, demolition of older buildings</td><td><b>Lower-lobe</b> fibrosis; pleural plaques, often calcified on the diaphragm</td><td class="td-red"><b>Mesothelioma</b> and bronchogenic carcinoma</td></tr>
+        <tr><td class="td-bold">Coal workers' pneumoconiosis</td><td>Coal mining ("black lung")</td><td><b>Upper-lobe</b> nodules; progressive massive fibrosis</td><td>Caplan syndrome (pneumoconiosis + rheumatoid arthritis + lung nodules). Unlike silica, it does not raise tuberculosis risk.</td></tr>
+        <tr><td class="td-bold">Berylliosis</td><td>Aerospace, electronics, alloy and nuclear industries</td><td>Hilar adenopathy with upper-lobe granulomas — <b>radiographically mimics sarcoidosis</b></td><td class="td-amber">The beryllium lymphocyte proliferation test distinguishes it; unusually among these, it responds to corticosteroids</td></tr>
+        <tr><td class="td-bold">Byssinosis</td><td>Cotton, flax and hemp textile processing</td><td>Usually unremarkable — the abnormality is physiologic</td><td class="td-green"><b>Obstructive</b>, with chest tightness on returning to work that eases across the week — "Monday chest tightness"</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-green">Asbestos — Separating the Two Cancers</div>
+    <ul class="bl">
+      <li><b>Mesothelioma:</b> Arises from pleura (occasionally peritoneum) with a latency of 20–40 years, and the risk is <b>not increased by smoking</b>. Presents with a unilateral pleural effusion, chest pain and dyspnea.</li>
+      <li><b>Bronchogenic carcinoma:</b> The commoner asbestos-related malignancy overall, and its risk is <b>multiplicative with smoking</b> — which makes cessation the single highest-value intervention in an exposed smoker</li>
+      <li><b>Pleural plaques signal exposure, not disease.</b> Isolated plaques are benign, do not impair function, and do not by themselves establish asbestosis.</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Pneumoconiosis</div>
+      <ul class="box-items">
+        <li><b>Lobe distribution is the fastest discriminator: silica and coal go UP, asbestos goes DOWN</b></li>
+        <li><b>Silicosis obliges tuberculosis surveillance.</b> Impaired macrophage function raises risk substantially, and silicotuberculosis is a recognised entity. Coal dust carries no comparable association.</li>
+        <li><b>Smoking multiplies bronchogenic carcinoma risk in asbestos exposure but does not raise mesothelioma risk</b> — the pair most often reversed on this topic</li>
+        <li><b>Pleural plaques alone are not asbestosis</b> and need no treatment; asbestosis means parenchymal fibrosis</li>
+        <li><b>Berylliosis is the sarcoidosis mimic.</b> Non-caseating granulomas with hilar adenopathy in an aerospace or electronics worker should prompt the beryllium lymphocyte proliferation test before settling on sarcoidosis.</li>
+        <li><b>Byssinosis is obstructive, not restrictive</b>, and the Monday-morning pattern of symptoms is the giveaway</li>
+        <li><b>A young engineered-stone countertop worker with upper-lobe fibrosis is silicosis</b> — an emerging occupational epidemic and increasingly examinable</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Distribution: "Silica and Coal rise to the top; Asbestos sinks to the bottom."
+Silica: "Eggshell nodes — and always ask about TB."
+Asbestos cancers: "Smoking multiplies the lung cancer. Mesothelioma does not care whether you smoke."
+Caplan: "Pneumoconiosis + Rheumatoid arthritis + nodules."
+Byssinosis: "Monday tightness in the cotton mill — obstructive, not restrictive."</div></div>
   </div>
 </div>
 
@@ -2225,9 +3156,6 @@ Pancoast: "Apical tumor + Horner's syndrome (drooping eye, small pupil, dry face
 
 <div style="background:var(--lung-lt);border:1.5px solid var(--sky-bd);border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:13px;color:var(--mid);font-style:italic;">
   The following differentials represent the highest-frequency diagnostic challenges in pulmonary medicine on the PANCE/PANRE. Each framework identifies the single pivotal feature that separates one diagnosis from another — the exact skill boards reward.
-</div>
-
-</div>
 </div>
 
 <!-- DIFF 1: DYSPNEA -->
@@ -2280,6 +3208,7 @@ BNP: "&lt;100 rules OUT HF. &gt;400 rules IN HF. 100–400 = clinical judgment."
 PE: "Normal CXR + hypoxia + tachycardia = PE until proven otherwise"
 Silent chest: "Quiet = Dangerous. Wheeze = air moving. Silence = NOTHING moving."</div></div>
   </div>
+</div>
 
 
 <!-- DIFF 2: CHRONIC COUGH -->
@@ -2877,6 +3806,7 @@ Elevated DLCO: "Hemorrhage into alveoli — blood absorbs CO"</div></div>
   <div style="font-size:12px;color:rgba(255,255,255,.4);">— Rajiv Choudhary, MD, MPH</div>
 </div>
 
+</div>
 <!-- end wrap -->
 
 <div class="page-footer">
@@ -2885,19 +3815,7 @@ Elevated DLCO: "Hemorrhage into alveoli — blood absorbs CO"</div></div>
 </div>
 
 <script>
-function toggleAnswer(btn){
-  const stem=btn.closest('.qblock-stem');
-  const ans=stem.parentElement.querySelector('.q-answer');
-  if(ans.classList.contains('show')){ans.classList.remove('show');btn.textContent='▶ Show Answer';}
-  else{ans.classList.add('show');btn.textContent='▼ Hide Answer';}
-}
-const sections=document.querySelectorAll('[id]');
-const links=document.querySelectorAll('.tb-link');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
-  links.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+cur?'white':'rgba(255,255,255,.5)';});
-},{passive:true});
+
 </script>
 
 <!-- ═══ PULM POPUP SYSTEM ═══ -->
@@ -3865,7 +4783,6 @@ function stopPulmAudio() {
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closePulmPopup(); closePulmECG(); } });
 </script>
 
-<script>function navToggle(btn){var n=btn.closest(".nav,.site-nav,.xsite");if(!n)return;var o=n.classList.toggle("open");btn.setAttribute("aria-expanded",o?"true":"false");}</script>
 
 <script>
 (function() {
@@ -4003,6 +4920,670 @@ document.addEventListener('click', function() {
   window.pwSubmitCode = pwSubmitCode;
   window.pwUnlock = pwUnlock;
 })();
+</script>
+
+<script>
+/* ══ QUESTION POLL ENGINE — pure JS, no external service, works offline ══
+   Contract:  .ix-poll[data-answer="<index>"]
+                .ix-opt > input[type=radio]   (names assigned automatically)
+                .ix-sub-btn   .ix-fb   details.ix-rev
+   The reveal is display:none in CSS and only appears once .ix-done is set. */
+(function () {
+  function init() {
+    document.querySelectorAll('.ix-poll').forEach(function (poll, i) {
+      var name = 'ixp' + i;
+      poll.querySelectorAll('input[type=radio]').forEach(function (r) { r.name = name; });
+    });
+  }
+  function grade(poll) {
+    var opts   = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+    var radios = opts.map(function (o) { return o.querySelector('input[type=radio]'); });
+    var picked = radios.findIndex(function (r) { return r.checked; });
+    var fb     = poll.querySelector('.ix-fb');
+    var btn    = poll.querySelector('.ix-sub-btn');
+    var answer = parseInt(poll.getAttribute('data-answer'), 10);
+    if (picked < 0) { fb.textContent = 'Choose an answer first.'; fb.className = 'ix-fb warn'; return; }
+    opts[answer].classList.add('ix-ok');
+    if (picked !== answer) opts[picked].classList.add('ix-no');
+    radios.forEach(function (r) { r.disabled = true; });
+    btn.disabled = true; btn.textContent = 'Answer submitted';
+    poll.setAttribute('data-got', picked === answer ? '1' : '0');
+    poll.classList.add('ix-done');
+    fb.textContent = (picked === answer)
+      ? 'Correct — you are ahead of the module.'
+      : 'This is what the module covers. Open the explanation, then read on.';
+    fb.className = 'ix-fb ' + (picked === answer ? 'ok' : 'no');
+    /* ── optional response logging ─────────────────────────────
+       To collect answers centrally, POST them here. Without this the
+       question is a private self-check and nothing leaves the page.
+       window.IX_ENDPOINT && fetch(window.IX_ENDPOINT, {
+         method:'POST', mode:'no-cors',
+         headers:{'Content-Type':'application/json'},
+         body: JSON.stringify({ q: poll.id || 'wpw',
+                                picked: picked, correct: answer,
+                                ts: new Date().toISOString() })
+       });
+    ──────────────────────────────────────────────────────────── */
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!b) return;
+    var p = b.closest('.ix-poll'); if (p) grade(p);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIVE CLASS RESULTS — native bars, pluggable data layer
+   ───────────────────────────────────────────────────────────────────────────
+   A static HTML page has no server, so answers from different devices have to
+   meet somewhere. That "somewhere" is the only part that needs a service; the
+   bars, percentages and live updating below are entirely local code.
+
+   mode:'local'     works immediately. Tallies answers in this browser and
+                    syncs across open tabs of the same browser. Good for
+                    building, testing and demoing — NOT for a real class.
+
+   mode:'firebase'  real cross-device aggregation, updating live. Paste the
+                    module snippet below into <head>, set mode to 'firebase',
+                    and the same bars fill from the whole room.
+
+   ── to enable Firebase, add this to <head> and fill in your config ──
+   <script type="module">
+     // check firebase.google.com/docs/web/setup for the current version
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+     import { getDatabase, ref, push, onValue }
+       from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+     const app = initializeApp({
+       apiKey: "…", authDomain: "…", databaseURL: "https://…firebaseio.com", projectId: "…"
+     });
+     window.IX_FB = { db: getDatabase(app), ref: ref, push: push, onValue: onValue };
+   <\/script>
+
+   ── OR, with no new service: Google Apps Script + a Sheet ──
+   1. Create a Sheet, add a tab named "responses", copy its ID from the URL.
+   2. script.google.com → new project → paste:
+
+      const SHEET_ID = 'PASTE_SHEET_ID';
+      function sheet_(){ return SpreadsheetApp.openById(SHEET_ID).getSheetByName('responses'); }
+      function doPost(e){
+        var b = JSON.parse(e.postData.contents);
+        var lock = LockService.getScriptLock(); lock.waitLock(20000);
+        try { sheet_().appendRow([new Date(), b.session, b.q, b.c]); } finally { lock.releaseLock(); }
+        return ContentService.createTextOutput(JSON.stringify({ok:true}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+      function doGet(e){
+        var s = e.parameter.s, q = e.parameter.q, counts = {}, total = 0;
+        sheet_().getDataRange().getValues().forEach(function(r){
+          if (String(r[1]) === s && String(r[2]) === q) { counts[r[3]] = (counts[r[3]]||0)+1; total++; }
+        });
+        return ContentService.createTextOutput(JSON.stringify({counts:counts,total:total}))
+               .setMimeType(ContentService.MimeType.JSON);
+      }
+
+   3. Deploy → New deployment → Web app → Execute as: me → Who has access: Anyone.
+   4. Paste the /exec URL into sheetsUrl below and set mode:'sheets'.
+
+   Database rules for an anonymous classroom poll (write-only, read-aggregate):
+     { "rules": { "polls": { ".read": true, ".write": true } } }
+   Tighten these before anything that matters — as written, anyone with the URL
+   can write. Scope by session id (below) so each class gets a clean tally.
+   ═══════════════════════════════════════════════════════════════════════════ */
+window.IX_RESULTS = {
+  enabled: true,
+  mode: 'local',              /* 'local' | 'firebase' | 'sheets' */
+  session: 'default',         /* change per class to reset the tally */
+  showBeforeAnswer: false,    /* or open the page with ?present=1 */
+  sheetsUrl: '',              /* Apps Script /exec URL, for mode:'sheets' */
+  sheetsPollMs: 3000          /* how often sheets mode re-fetches */
+};
+/* ?present=1 turns on projector mode without editing the file;
+   ?session=fall-2026 scopes the tally to one class. */
+(function () {
+  var p = new URLSearchParams(location.search);
+  if (p.get('present') === '1') window.IX_RESULTS.showBeforeAnswer = true;
+  if (p.get('session')) window.IX_RESULTS.session = p.get('session');
+})();
+
+(function () {
+  var CFG = window.IX_RESULTS, LET = 'ABCDE';
+
+  /* ── local store: this browser, synced across its own tabs ── */
+  var LocalStore = (function () {
+    var subs = {};
+    function key(q) { return 'ixres:' + CFG.session + ':' + q; }
+    function read(q) { try { return JSON.parse(localStorage.getItem(key(q))) || {}; } catch (e) { return {}; } }
+    function emit(q) { (subs[q] || []).forEach(function (cb) { cb(tally(read(q))); }); }
+    function tally(o) {
+      var counts = [], total = 0;
+      Object.keys(o).forEach(function (k) { var i = +k; counts[i] = o[k]; total += o[k]; });
+      return { counts: counts, total: total };
+    }
+    window.addEventListener('storage', function (e) {
+      if (e.key && e.key.indexOf('ixres:') === 0) {
+        var q = e.key.split(':').slice(2).join(':');
+        emit(q);
+      }
+    });
+    return {
+      submit: function (q, choice) {
+        var o = read(q); o[choice] = (o[choice] || 0) + 1;
+        try { localStorage.setItem(key(q), JSON.stringify(o)); } catch (e) {}
+        emit(q);
+      },
+      subscribe: function (q, cb) { (subs[q] = subs[q] || []).push(cb); cb(tally(read(q))); }
+    };
+  })();
+
+  /* ── firebase store: real cross-device, push-based ── */
+  var FirebaseStore = {
+    submit: function (q, choice) {
+      var F = window.IX_FB; if (!F) return;
+      F.push(F.ref(F.db, 'polls/' + CFG.session + '/' + q), { c: choice, t: Date.now() });
+    },
+    subscribe: function (q, cb) {
+      var F = window.IX_FB; if (!F) return;
+      F.onValue(F.ref(F.db, 'polls/' + CFG.session + '/' + q), function (snap) {
+        var counts = [], total = 0;
+        snap.forEach(function (child) {
+          var i = child.val().c; counts[i] = (counts[i] || 0) + 1; total++;
+        });
+        cb({ counts: counts, total: total });
+      });
+    }
+  };
+
+  /* ── google sheets store: no new service, but POLLED not pushed ──
+     Every subscribed device re-fetches on a timer. That is fine when only the
+     presenting laptop shows bars; it does NOT scale to 30 phones each polling,
+     because Apps Script will throttle. For live bars on every student device,
+     use firebase — it pushes, so there is no polling load at all. */
+  var SheetsStore = {
+    submit: function (q, choice) {
+      if (!CFG.sheetsUrl) return;
+      fetch(CFG.sheetsUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* avoids a CORS preflight */
+        body: JSON.stringify({ session: CFG.session, q: q, c: choice })
+      }).catch(function () {});
+    },
+    subscribe: function (q, cb) {
+      if (!CFG.sheetsUrl) return;
+      var url = CFG.sheetsUrl + '?s=' + encodeURIComponent(CFG.session) + '&q=' + encodeURIComponent(q);
+      var pull = function () {
+        fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+          var counts = [];
+          Object.keys(d.counts || {}).forEach(function (k) { counts[+k] = d.counts[k]; });
+          cb({ counts: counts, total: d.total || 0 });
+        }).catch(function () {});
+      };
+      pull();
+      setInterval(pull, Math.max(2000, CFG.sheetsPollMs || 3000));
+    }
+  };
+
+  function store() {
+    if (CFG.mode === 'firebase' && window.IX_FB) return FirebaseStore;
+    if (CFG.mode === 'sheets' && CFG.sheetsUrl) return SheetsStore;
+    return LocalStore;
+  }
+
+  /* ── the bars ── */
+  function build(poll) {
+    var n = poll.querySelectorAll('.ix-opt').length;
+    var correct = parseInt(poll.getAttribute('data-answer'), 10);
+    var live = CFG.mode === 'firebase' && window.IX_FB;
+    var wrap = document.createElement('div');
+    wrap.className = 'ix-res';
+    var rows = '';
+    for (var i = 0; i < n; i++) {
+      rows += '<div class="ix-res-row' + (i === correct ? ' ok' : '') + '" data-i="' + i + '">' +
+              '<span class="ix-res-let">' + LET[i] + '</span>' +
+              '<div class="ix-res-track"><div class="ix-res-fill"></div></div>' +
+              '<span class="ix-res-pct">&mdash;</span></div>';
+    }
+    wrap.innerHTML = '<div class="ix-res-hd">Class results<span class="ix-res-n"></span>' +
+                     (live ? '<span class="ix-res-live">live</span>' : '') + '</div>' + rows +
+                     '<div class="ix-res-empty">Waiting for the first response&hellip;</div>';
+    poll.querySelector('.ix-fb').insertAdjacentElement('afterend', wrap);
+    return wrap;
+  }
+
+  function paint(wrap, data, mine) {
+    var total = data.total || 0;
+    wrap.querySelector('.ix-res-n').textContent =
+      total ? '\u2014 ' + total + (total === 1 ? ' response' : ' responses') : '';
+    wrap.querySelector('.ix-res-empty').style.display = total ? 'none' : '';
+    Array.prototype.forEach.call(wrap.querySelectorAll('.ix-res-row'), function (row) {
+      var i = +row.getAttribute('data-i');
+      var c = data.counts[i] || 0;
+      var pct = total ? Math.round(c / total * 100) : 0;
+      row.querySelector('.ix-res-fill').style.width = pct + '%';
+      row.querySelector('.ix-res-pct').textContent = total ? pct + '%' : '\u2014';
+      row.classList.toggle('mine', mine === i);
+    });
+  }
+
+  function attach(poll, mine) {
+    if (poll.__ixres) return;
+    poll.__ixres = true;
+    var wrap = build(poll);
+    store().subscribe(poll.id || poll.getAttribute('data-answer'), function (data) {
+      paint(wrap, data, mine);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!CFG.enabled) return;
+    var btn = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
+    if (!btn) return;
+    var poll = btn.closest('.ix-poll');
+    setTimeout(function () {                       /* run after the grader */
+      if (!poll || !poll.classList.contains('ix-done')) return;
+      var opts = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
+      var mine = opts.findIndex(function (o) { return o.querySelector('input').checked; });
+      var qid = poll.id || ('q' + opts.length);
+      store().submit(qid, mine);
+      attach(poll, mine);
+    }, 0);
+  });
+
+  /* projector mode: show the bars without answering */
+  if (CFG.showBeforeAnswer) {
+    var go = function () {
+      document.querySelectorAll('.ix-poll').forEach(function (p) { attach(p, -1); });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+    else go();
+  }
+})();
+</script>
+
+<!-- ══ PENCIL ANNOTATION LAYER (presenter only; enable with ?annotate=1) ══ -->
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   PA BOOTCAMP — PENCIL ANNOTATION LAYER
+   ───────────────────────────────────────────────────────────────────────────
+   Presenter-only ink layer for live teaching. Off by default so student
+   devices never see it; enable with ?annotate=1 (combine with ?present=1).
+
+   Design decisions that matter on iPadOS Safari:
+
+   * Apple Pencil reports pointerType 'pen', so only pen events draw. Finger
+     and mouse are ignored for ink, which gives true palm rejection AND leaves
+     one-finger scrolling completely intact — you can scroll the page with your
+     hand while the Pencil stays in "draw" mode.
+   * The canvas is pointer-events:none at all times. Listeners sit on the
+     window in capture phase, so taps, links, radio buttons and the Submit
+     Answer flow keep working normally.
+   * iPadOS Scribble steals pen strokes for handwriting recognition. We
+     preventDefault on touchstart/touchmove *only* when the touch is a stylus
+     (touchType === 'stylus'), which both defeats Scribble and stops the page
+     scrolling under the pen. Finger touches are never prevented.
+   * Safari can report pen moves coarsely, producing visible straight segments.
+     Strokes are rendered as quadratic curves through midpoints to smooth that.
+   * Strokes are stored in DOCUMENT coordinates and re-rendered clipped to the
+     viewport, rather than allocating one giant canvas. These syllabus pages are
+     tens of thousands of pixels tall and would blow past Safari's canvas area
+     limit.
+   * Ink survives an accidental reload (localStorage, per page path), because
+     losing a morning of board work mid-class would be worse than the storage.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('annotate') !== '1') return;
+
+  var KEY = 'pa-ink:' + location.pathname;
+  var TOOLS = { pen: 'pen', hi: 'hi', erase: 'erase' };
+  var COLORS = ['#C8392B', '#0F1F3D', '#1A6B3A', '#B87333', '#5B2D8E'];
+
+  var state = {
+    on: true,
+    tool: TOOLS.pen,
+    color: COLORS[0],
+    width: 3,
+    strokes: [],
+    live: null,
+    visible: true
+  };
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY));
+    if (saved && saved.length) state.strokes = saved;
+  } catch (e) {}
+
+  function persist() {
+    try { localStorage.setItem(KEY, JSON.stringify(state.strokes)); } catch (e) {}
+  }
+
+  /* ── canvas: viewport-sized, fixed, never intercepts input ── */
+  var cv = document.createElement('canvas');
+  cv.id = 'pa-ink-canvas';
+  cv.style.cssText = 'position:fixed;inset:0;z-index:99990;pointer-events:none;';
+  document.body.appendChild(cv);
+  var ctx = cv.getContext('2d', { desynchronized: true }) || cv.getContext('2d');
+  if (!ctx) { cv.remove(); return; }   /* never let a missing 2d context break the page */
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.floor(innerWidth * dpr);
+    cv.height = Math.floor(innerHeight * dpr);
+    cv.style.width = innerWidth + 'px';
+    cv.style.height = innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    render();
+  }
+
+  function strokePath(s, ox, oy) {
+    var p = s.pts;
+    if (!p.length) return;
+    ctx.beginPath();
+    if (p.length < 3) {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    } else {
+      ctx.moveTo(p[0].x - ox, p[0].y - oy);
+      for (var i = 1; i < p.length - 1; i++) {
+        var mx = (p[i].x + p[i + 1].x) / 2, my = (p[i].y + p[i + 1].y) / 2;
+        ctx.quadraticCurveTo(p[i].x - ox, p[i].y - oy, mx - ox, my - oy);
+      }
+      ctx.lineTo(p[p.length - 1].x - ox, p[p.length - 1].y - oy);
+    }
+    ctx.stroke();
+  }
+
+  function bbox(s) {
+    var xs = s.pts.map(function (q) { return q.x; }), ys = s.pts.map(function (q) { return q.y; });
+    return { x1: Math.min.apply(null, xs), x2: Math.max.apply(null, xs),
+             y1: Math.min.apply(null, ys), y2: Math.max.apply(null, ys) };
+  }
+
+  var queued = false;
+  function render() {
+    queued = false;
+    var ox = scrollX, oy = scrollY;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    if (!state.visible) return;
+    var all = state.strokes.concat(state.live ? [state.live] : []);
+    for (var i = 0; i < all.length; i++) {
+      var s = all[i];
+      var b = bbox(s);
+      if (b.y2 < oy - 40 || b.y1 > oy + innerHeight + 40) continue;  /* off-screen */
+      ctx.save();
+      ctx.lineJoin = ctx.lineCap = 'round';
+      ctx.strokeStyle = s.color;
+      if (s.tool === TOOLS.hi) {
+        ctx.globalAlpha = 0.32;
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.lineWidth = s.width * 6;
+      } else {
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = s.width;
+      }
+      strokePath(s, ox, oy);
+      ctx.restore();
+    }
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(render); } }
+
+  /* ── stroke-level erase: removing whole strokes beats pixel-scrubbing
+        with a Pencil, and it keeps undo meaningful ── */
+  function eraseAt(x, y) {
+    var r = 14, hit = -1;
+    for (var i = state.strokes.length - 1; i >= 0; i--) {
+      var p = state.strokes[i].pts;
+      for (var j = 0; j < p.length; j++) {
+        if (Math.abs(p[j].x - x) < r && Math.abs(p[j].y - y) < r) { hit = i; break; }
+      }
+      if (hit >= 0) break;
+    }
+    if (hit >= 0) { state.strokes.splice(hit, 1); persist(); schedule(); }
+  }
+
+  /* ── pen input ── */
+  function docPt(e) { return { x: e.pageX, y: e.pageY, p: e.pressure || 0.5 }; }
+
+  function down(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch')) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e);
+    if (state.tool === TOOLS.erase) { eraseAt(pt.x, pt.y); return; }
+    state.live = { tool: state.tool, color: state.color, width: state.width, pts: [pt] };
+    schedule();
+  }
+  function move(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.tool === TOOLS.erase) {
+      if (e.buttons) { e.preventDefault(); eraseAt(e.pageX, e.pageY); }
+      return;
+    }
+    if (!state.live) return;
+    e.preventDefault(); e.stopPropagation();
+    var pt = docPt(e), last = state.live.pts[state.live.pts.length - 1];
+    if (Math.abs(pt.x - last.x) + Math.abs(pt.y - last.y) < 1.2) return;
+    state.live.pts.push(pt);
+    schedule();
+  }
+  function up(e) {
+    if (!state.on || e.pointerType !== 'pen') return;
+    if (state.live) {
+      if (state.live.pts.length > 1) state.strokes.push(state.live);
+      state.live = null; persist(); schedule();
+    }
+  }
+  addEventListener('pointerdown', down, { capture: true, passive: false });
+  addEventListener('pointermove', move, { capture: true, passive: false });
+  addEventListener('pointerup', up, { capture: true });
+  addEventListener('pointercancel', up, { capture: true });
+
+  /* Scribble defeat + scroll suppression, stylus touches only. Finger touches
+     fall straight through so the page still scrolls normally. */
+  function stylusTouch(e) {
+    if (!state.on) return false;
+    for (var i = 0; i < e.touches.length; i++) {
+      if (e.touches[i].touchType === 'stylus') return true;
+    }
+    return false;
+  }
+  ['touchstart', 'touchmove'].forEach(function (t) {
+    addEventListener(t, function (e) {
+      if (stylusTouch(e) && !(e.target.closest && e.target.closest('#pa-ink-bar, #pa-scratch'))) {
+        e.preventDefault();
+      }
+    }, { capture: true, passive: false });
+  });
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', resize);
+
+  /* ── scratchpad: blank movable surface for side diagrams ── */
+  var scratch = document.createElement('div');
+  scratch.id = 'pa-scratch';
+  scratch.style.display = 'none';
+  scratch.innerHTML =
+    '<div class="pa-sc-bar"><span>Scratchpad &mdash; drag to move</span>' +
+    '<button data-sc="clear">Clear</button><button data-sc="close">&times;</button></div>' +
+    '<canvas></canvas>';
+  document.body.appendChild(scratch);
+  var scv = scratch.querySelector('canvas');
+  var sctx = scv.getContext('2d', { desynchronized: true }) || scv.getContext('2d');
+  var scStrokes = [], scLive = null;
+
+  function scResize() {
+    if (!sctx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = scratch.clientWidth, h = scratch.clientHeight - 34;
+    scv.width = w * dpr; scv.height = h * dpr;
+    scv.style.width = w + 'px'; scv.style.height = h + 'px';
+    sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    scRender();
+  }
+  function scRender() {
+    if (!sctx) return;
+    sctx.clearRect(0, 0, scv.width, scv.height);
+    scStrokes.concat(scLive ? [scLive] : []).forEach(function (s) {
+      sctx.save(); sctx.lineJoin = sctx.lineCap = 'round';
+      sctx.strokeStyle = s.color; sctx.lineWidth = s.width;
+      var p = s.pts; sctx.beginPath(); sctx.moveTo(p[0].x, p[0].y);
+      for (var i = 1; i < p.length; i++) sctx.lineTo(p[i].x, p[i].y);
+      sctx.stroke(); sctx.restore();
+    });
+  }
+  scv.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'pen' && e.pointerType !== 'mouse') return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive = { color: state.color, width: state.width, pts: [{ x: e.clientX - r.left, y: e.clientY - r.top }] };
+  }, true);
+  scv.addEventListener('pointermove', function (e) {
+    if (!scLive) return;
+    e.preventDefault(); e.stopPropagation();
+    var r = scv.getBoundingClientRect();
+    scLive.pts.push({ x: e.clientX - r.left, y: e.clientY - r.top });
+    scRender();
+  }, true);
+  scv.addEventListener('pointerup', function () {
+    if (scLive) { scStrokes.push(scLive); scLive = null; scRender(); }
+  }, true);
+
+  /* drag the scratchpad by its bar */
+  (function () {
+    var bar = scratch.querySelector('.pa-sc-bar'), dragging = false, sx, sy, ox, oy;
+    bar.addEventListener('pointerdown', function (e) {
+      if (e.target.tagName === 'BUTTON') return;
+      dragging = true; sx = e.clientX; sy = e.clientY;
+      ox = scratch.offsetLeft; oy = scratch.offsetTop; e.preventDefault();
+    });
+    addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      scratch.style.left = (ox + e.clientX - sx) + 'px';
+      scratch.style.top = (oy + e.clientY - sy) + 'px';
+      scratch.style.right = 'auto';
+    });
+    addEventListener('pointerup', function () { dragging = false; });
+    bar.addEventListener('click', function (e) {
+      var a = e.target.getAttribute && e.target.getAttribute('data-sc');
+      if (a === 'clear') { scStrokes = []; scRender(); }
+      if (a === 'close') { scratch.style.display = 'none'; sync(); }
+    });
+  })();
+
+  /* ── toolbar ── */
+  var bar = document.createElement('div');
+  bar.id = 'pa-ink-bar';
+  bar.innerHTML =
+    '<button data-a="collapse" title="Hide toolbar">&#9700;</button>' +
+    '<div class="pa-grp">' +
+      '<button data-a="pen" class="on">&#9998; Pen</button>' +
+      '<button data-a="hi">&#9646; Highlight</button>' +
+      '<button data-a="erase">&#9003; Erase</button>' +
+    '</div>' +
+    '<div class="pa-grp pa-sw">' +
+      COLORS.map(function (c, i) {
+        return '<button data-c="' + c + '" class="pa-c' + (i ? '' : ' on') +
+               '" style="background:' + c + '"></button>';
+      }).join('') +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-w="2">thin</button><button data-w="3" class="on">med</button>' +
+      '<button data-w="6">thick</button>' +
+    '</div>' +
+    '<div class="pa-grp">' +
+      '<button data-a="undo">Undo</button>' +
+      '<button data-a="hide">Hide ink</button>' +
+      '<button data-a="scratch">Scratchpad</button>' +
+      '<button data-a="clear" class="pa-danger">Clear page</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+
+  var pill = document.createElement('button');
+  pill.id = 'pa-ink-pill';
+  pill.textContent = '\u270E';
+  pill.title = 'Show annotation toolbar';
+  pill.style.display = 'none';
+  document.body.appendChild(pill);
+  pill.addEventListener('click', function () {
+    bar.style.display = ''; pill.style.display = 'none';
+  });
+
+  function sync() {
+    bar.querySelectorAll('[data-a]').forEach(function (b) {
+      var a = b.getAttribute('data-a');
+      if (a === 'pen' || a === 'hi' || a === 'erase') b.classList.toggle('on', state.tool === a);
+      if (a === 'hide') { b.classList.toggle('on', !state.visible); b.textContent = state.visible ? 'Hide ink' : 'Show ink'; }
+      if (a === 'scratch') b.classList.toggle('on', scratch.style.display !== 'none');
+    });
+    bar.querySelectorAll('[data-c]').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-c') === state.color);
+    });
+    bar.querySelectorAll('[data-w]').forEach(function (b) {
+      b.classList.toggle('on', +b.getAttribute('data-w') === state.width);
+    });
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var a = b.getAttribute('data-a'), c = b.getAttribute('data-c'), w = b.getAttribute('data-w');
+    if (c) state.color = c;
+    if (w) state.width = +w;
+    if (a === 'pen' || a === 'hi' || a === 'erase') state.tool = a;
+    if (a === 'undo') { state.strokes.pop(); persist(); schedule(); }
+    if (a === 'hide') { state.visible = !state.visible; schedule(); }
+    if (a === 'clear') {
+      if (confirm('Clear all ink on this page?')) { state.strokes = []; persist(); schedule(); }
+    }
+    if (a === 'scratch') {
+      var showing = scratch.style.display === 'none';
+      scratch.style.display = showing ? 'block' : 'none';
+      if (showing) scResize();
+    }
+    if (a === 'collapse') { bar.style.display = 'none'; pill.style.display = ''; }
+    sync();
+  });
+
+  var css = document.createElement('style');
+  css.textContent =
+  '#pa-ink-bar{position:fixed;right:12px;bottom:12px;z-index:99995;display:flex;flex-wrap:wrap;' +
+    'align-items:center;gap:6px;max-width:min(96vw,760px);padding:8px 10px;border-radius:14px;' +
+    "background:rgba(15,31,61,.96);box-shadow:0 6px 24px rgba(0,0,0,.3);font-family:'DM Sans',system-ui,sans-serif;}" +
+  '#pa-ink-bar .pa-grp{display:flex;align-items:center;gap:4px;padding:0 4px;' +
+    'border-left:1px solid rgba(255,255,255,.16);}' +
+  '#pa-ink-bar .pa-grp:first-of-type{border-left:none;}' +
+  '#pa-ink-bar button{min-height:38px;min-width:38px;padding:0 11px;border:none;border-radius:9px;' +
+    'background:rgba(255,255,255,.1);color:#fff;font:600 12.5px/1 inherit;cursor:pointer;' +
+    '-webkit-tap-highlight-color:transparent;touch-action:manipulation;}' +
+  '#pa-ink-bar button.on{background:#C8392B;}' +
+  '#pa-ink-bar button.pa-danger{background:rgba(200,57,43,.28);}' +
+  '#pa-ink-bar button.pa-c{width:30px;min-width:30px;height:30px;border-radius:50%;' +
+    'box-shadow:0 0 0 2px rgba(255,255,255,.25) inset;}' +
+  '#pa-ink-bar button.pa-c.on{box-shadow:0 0 0 3px #fff, 0 0 0 5px rgba(0,0,0,.25);}' +
+  '#pa-ink-pill{position:fixed;right:12px;bottom:12px;z-index:99995;width:52px;height:52px;' +
+    'border:none;border-radius:50%;background:rgba(15,31,61,.96);color:#fff;font-size:22px;' +
+    'box-shadow:0 6px 24px rgba(0,0,0,.3);cursor:pointer;touch-action:manipulation;}' +
+  '#pa-scratch{position:fixed;right:12px;bottom:86px;z-index:99993;width:min(46vw,460px);height:340px;' +
+    'background:#fff;border:1.5px solid #0F1F3D;border-radius:12px;overflow:hidden;resize:both;' +
+    'box-shadow:0 10px 30px rgba(0,0,0,.25);}' +
+  "#pa-scratch .pa-sc-bar{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;" +
+    "background:#0F1F3D;color:#fff;font:600 11.5px/1 'DM Sans',system-ui,sans-serif;cursor:move;" +
+    'touch-action:none;}' +
+  '#pa-scratch .pa-sc-bar span{flex:1;opacity:.75;}' +
+  '#pa-scratch .pa-sc-bar button{min-height:24px;padding:0 9px;border:none;border-radius:6px;' +
+    'background:rgba(255,255,255,.14);color:#fff;font:600 11px/1 inherit;cursor:pointer;}' +
+  '#pa-scratch canvas{display:block;background:#fff;touch-action:none;}' +
+  '@media print{#pa-ink-bar,#pa-ink-pill,#pa-scratch{display:none!important;}}';
+  document.head.appendChild(css);
+
+  resize();
+  sync();
+  window.PA_INK = state;   /* handy for a quick console check during setup */
+})();
+
 </script>
 </body>
 </html>
