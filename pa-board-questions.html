@@ -576,15 +576,17 @@ a{text-decoration:none;color:inherit}
     </a>
     <div class="nav-links">
       <a href="index.html#bootcamp">The Bootcamp</a>
-      <a href="pa-board-questions.html">Question Banks</a>
+      <a href="pa-board-questions.html" class="active" aria-current="page">Question Banks</a>
       <div class="nav-dd">
         <button class="nav-dd-btn" onclick="navDD(this,event)">Curriculum <span>▾</span></button>
         <div class="nav-dd-menu">
           <div class="nav-dd-eyebrow">Board syllabi</div>
-          <a href="cardiology_bootcamp_syllabus_v10.html">Cardiology</a>
+          <a href="cardiology_bootcamp_syllabus_v11.html">Cardiology</a>
           <a href="pulm_bootcamp_syllabus_v5.html">Pulmonary</a>
+          <a href="gi_bootcamp_syllabus_v2.html">GI &amp; Hepatology</a>
           <a href="id_bootcamp_syllabus_v8.html">Infectious Disease</a>
           <a href="pa-neuro-bootcamp-syllabus.html">Neurology</a>
+          <a href="pance_strategy_syllabus.html">Board Strategy</a>
         </div>
       </div>
       <a href="pa-bootcamp-ecg-v3-standalone.html">ECG</a>
@@ -1937,6 +1939,12 @@ updateSummary();
     var val = inp.value.trim().toUpperCase();
     if (val === CODE.toUpperCase()) {
       try { localStorage.setItem(LS_KEY, '1'); } catch(e) {}
+      /* one code unlocks the whole site — grant syllabus access too */
+      try {
+        ['pcb_access_v1_ALL','pcb_access_v1_Cardiology','pcb_access_v1_Pulmonary',
+         'pcb_access_v1_Infectious_Disease','pcb_access_v1_Neurology',
+         'pcb_access_v1_Strategy'].forEach(function(k){ localStorage.setItem(k,'1'); });
+      } catch(e) {}
       inp.classList.remove('error');
       if (err) err.classList.remove('show');
       qbUnlock();
