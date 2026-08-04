@@ -873,166 +873,8 @@ body:not(.pw-unlocked) .ix-gated .ix-lock{display:block;}
 .sh-sub { font-size: 12.5px; color: var(--mid); font-style: italic; margin-top: 6px; padding-left: 18px; line-height: 1.55; }
 .btn-icon { font-size: 11px; }
 </style>
-
-<style>
-/* ════════ BOOTCAMP ACCESS GATE ════════ */
-#pcb-gate-overlay{position:fixed;inset:0;z-index:99000;
-  background:linear-gradient(160deg,#0B172E 0%,#1a3058 100%);
-  display:flex;align-items:center;justify-content:center;padding:24px;
-  overflow-y:auto;-webkit-overflow-scrolling:touch;}
-#pcb-gate-overlay.pcbg-hidden{display:none!important;}
-.pcbg-card{background:#fff;border-radius:20px;padding:44px 40px;max-width:460px;
-  width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.4);
-  position:relative;overflow:hidden;margin:auto;
-  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-.pcbg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;
-  background:linear-gradient(90deg,#0F1F3D,#3b82f6,#C8392B);}
-.pcbg-icon{font-size:38px;margin-bottom:14px;line-height:1;}
-.pcbg-eyebrow{font-family:'DM Mono',ui-monospace,monospace;font-size:10px;
-  font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:#C8392B;margin-bottom:10px;}
-.pcbg-card h1{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;
-  color:#0F1F3D;margin:0 0 10px;line-height:1.2;letter-spacing:-.3px;}
-.pcbg-card p.pcbg-lead{font-size:14px;color:#6B7A8D;line-height:1.6;
-  margin:0 0 24px;}
-.pcbg-err{font-family:'DM Mono',ui-monospace,monospace;font-size:11px;
-  font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C8392B;
-  display:none;margin-bottom:9px;}
-.pcbg-err.pcbg-show{display:block;}
-.pcbg-row{display:flex;gap:8px;margin-bottom:12px;}
-.pcbg-input{flex:1;min-width:0;padding:13px 16px;border:2px solid #E2E8F0;
-  border-radius:11px;font-family:'DM Mono',ui-monospace,monospace;font-size:16px;
-  font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F1F3D;
-  outline:none;text-align:center;transition:border-color .15s;background:#fff;}
-.pcbg-input:focus{border-color:#0F1F3D;}
-.pcbg-input.pcbg-bad{border-color:#C8392B;animation:pcbgshake .3s;}
-@keyframes pcbgshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}
-  75%{transform:translateX(6px)}}
-.pcbg-btn{padding:13px 22px;background:#0F1F3D;color:#fff;border:none;
-  border-radius:11px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;white-space:nowrap;transition:background .15s;}
-.pcbg-btn:hover{background:#1a3058;}
-.pcbg-note{font-family:'DM Mono',ui-monospace,monospace;font-size:10px;
-  letter-spacing:.1em;text-transform:uppercase;color:#aebbd2;margin-bottom:4px;}
-.pcbg-div{display:flex;align-items:center;gap:12px;margin:18px 0;
-  color:#aebbd2;font-size:12px;}
-.pcbg-div::before,.pcbg-div::after{content:'';flex:1;height:1px;background:#E2E8F0;}
-.pcbg-enroll{font-size:13px;color:#6B7A8D;text-decoration:none;}
-.pcbg-enroll b{color:#0F1F3D;}
-.pcbg-enroll:hover b{text-decoration:underline;}
-.pcbg-back{display:inline-block;margin-top:18px;font-size:12.5px;color:#aebbd2;
-  text-decoration:none;}
-.pcbg-back:hover{color:#0F1F3D;}
-.pcbg-foot{margin-top:22px;padding-top:16px;border-top:1px solid #E2E8F0;
-  font-family:'DM Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:#aebbd2;}
-html.pcbg-locked,body.pcbg-locked{overflow:hidden!important;}
-@media(max-width:520px){
-  .pcbg-card{padding:34px 22px;border-radius:16px;}
-  .pcbg-card h1{font-size:20px;}
-  .pcbg-row{flex-direction:column;}
-}
-</style>
 </head>
 <body>
-<!-- ════════ BOOTCAMP ACCESS GATE ════════ -->
-<div id="pcb-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="pcbg-title">
-  <div class="pcbg-card">
-    <div class="pcbg-icon">&#128274;</div>
-    <div class="pcbg-eyebrow">Bootcamp Access Required</div>
-    <h1 id="pcbg-title">Infectious Disease Board Syllabus</h1>
-    <p class="pcbg-lead">The full infectious disease curriculum — HIV, urinary tract infection, sexually transmitted infection, tuberculosis, endocarditis, meningitis, and the remaining blueprint topics — plus the Top 22 Board Traps grid.</p>
-    <div class="pcbg-err" id="pcbg-err">&#10060;&nbsp; Incorrect code &mdash; check with your instructor</div>
-    <div class="pcbg-row">
-      <input class="pcbg-input" id="pcbg-input" type="text" placeholder="ENTER CODE"
-             maxlength="30" autocomplete="off" spellcheck="false"
-             aria-label="Access code"
-             onkeydown="if(event.key==='Enter'){event.preventDefault();pcbGateSubmit();}">
-      <button class="pcbg-btn" type="button" onclick="pcbGateSubmit()">Unlock &rarr;</button>
-    </div>
-    <div class="pcbg-note">One code unlocks every syllabus &amp; question bank</div>
-    <div class="pcbg-div">or</div>
-    <a class="pcbg-enroll" href="index.html#contact">Don't have a code? <b>Enroll in the bootcamp &rarr;</b></a>
-    <br>
-    <a class="pcbg-back" href="index.html">&larr; Back to homepage</a>
-    <noscript>
-      <div class="pcbg-foot">JavaScript must be enabled to enter your access code.</div>
-    </noscript>
-    <div class="pcbg-foot">PA Clinical Bootcamp &middot; PANCE &amp; PANRE Board Preparation</div>
-  </div>
-</div>
-<script>
-/* ══ BOOTCAMP ACCESS GATE — runs synchronously, no flash in either direction ══ */
-(function(){
-  var CODE   = 'BOOTCAMP2026';
-  var MASTER = 'pcb_access_v1_ALL';
-  var KEYS   = ["pcb_access_v1_Cardiology", "pcb_access_v1_Pulmonary", "pcb_access_v1_Infectious_Disease", "pcb_access_v1_Neurology", "pcb_access_v1_Strategy", "pcb_qbank_v1"];
-
-  function writeAll(){
-    try{
-      localStorage.setItem(MASTER,'1');
-      for(var i=0;i<KEYS.length;i++){ localStorage.setItem(KEYS[i],'1'); }
-    }catch(e){}
-  }
-
-  function reveal(){
-    var ov = document.getElementById('pcb-gate-overlay');
-    if(ov) ov.classList.add('pcbg-hidden');
-    document.documentElement.classList.remove('pcbg-locked');
-    if(document.body) document.body.classList.remove('pcbg-locked');
-    /* clear the legacy partial-lock layer so nothing stays hidden inside */
-    function clearLegacy(){
-      if(document.body) document.body.classList.add('pw-unlocked');
-      if(typeof window.pwUnlock === 'function'){ try{ window.pwUnlock(); }catch(e){} }
-    }
-    if(document.readyState === 'loading'){
-      document.addEventListener('DOMContentLoaded', clearLegacy);
-      clearLegacy();
-    } else { clearLegacy(); }
-  }
-
-  window.pcbGateSubmit = function(){
-    var inp = document.getElementById('pcbg-input');
-    var err = document.getElementById('pcbg-err');
-    if(!inp) return;
-    if(inp.value.trim().toUpperCase() === CODE.toUpperCase()){
-      writeAll();
-      inp.classList.remove('pcbg-bad');
-      if(err) err.classList.remove('pcbg-show');
-      reveal();
-    } else {
-      inp.classList.add('pcbg-bad');
-      if(err) err.classList.add('pcbg-show');
-      inp.value = '';
-      inp.focus();
-      setTimeout(function(){ inp.classList.remove('pcbg-bad'); }, 600);
-    }
-  };
-
-  var open = false;
-  try{
-    var p = new URLSearchParams(window.location.search);
-    /* ?admin=1 and ?present=1 bypass the gate for instructor use */
-    if(localStorage.getItem(MASTER) === '1' || p.get('admin') === '1' || p.get('present') === '1'){
-      open = true;
-    }
-  }catch(e){}
-
-  if(open){
-    writeAll();
-    reveal();
-  } else {
-    document.documentElement.classList.add('pcbg-locked');
-    if(document.body) document.body.classList.add('pcbg-locked');
-    document.addEventListener('DOMContentLoaded', function(){
-      document.body.classList.add('pcbg-locked');
-      var inp = document.getElementById('pcbg-input');
-      if(inp) inp.focus();
-    });
-  }
-})();
-</script>
-
 <nav class="site-nav" id="site-nav">
   <div class="site-nav-inner">
     <a class="site-brand" href="index.html">
@@ -1272,9 +1114,6 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PAYWALL GATE
-     ══════════════════════════════════════════ -->
 <div class="pw-gate" id="pw-gate">
   <div class="pw-gate-eyebrow">🔒 Full Bootcamp Access</div>
   <h2>You've seen the preview.<br>Unlock all 18 Infectious Disease topics.</h2>
@@ -1356,6 +1195,10 @@ CD4 &lt;50: CMV + MAC + CNS lymphoma → "the deadly fifty"
   </div>
 </div>
 
+
+<!-- ══════════════════════════════════════════
+     PAYWALL GATE
+     ══════════════════════════════════════════ -->
 <div class="ix ix-gated">
       <div class="ix-bar"><span class="ix-kick">Before you begin</span><span class="ix-ttl">UTI &mdash; Cystitis &amp; Pyelonephritis</span><span class="ix-count">1 question</span></div>
       <div class="ix-intro"><b>Answer this one before you read the topic.</b> Getting it wrong is expected and useful &mdash; attempting a question first is what makes the material below stick. The explanation unlocks only after you submit.</div>
@@ -2923,6 +2766,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
 </div>
 
 <!-- TOPIC: EBV / INFECTIOUS MONONUCLEOSIS -->
@@ -2936,6 +2786,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
 </div>
 
 <!-- TOPIC: VZV + HSV -->
@@ -2949,6 +2806,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
 </div>
 
 <!-- TOPIC: GIARDIASIS + AMEBIASIS -->
@@ -2962,6 +2826,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
 </div>
 
 <!-- TOPIC: MMR — Measles, Mumps, Rubella -->
@@ -2975,6 +2846,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
 </div>
 
 <div class="section-header" id="differentials">
@@ -2987,7 +2865,7 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
 </div>
 
 <!-- DIFF 1: FEVER + RASH -->
-<div class="topic-card tier-1" id="diff-fever-rash">
+<div class="topic-card pw-locked tier-1" id="diff-fever-rash">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -2997,6 +2875,13 @@ Molnupiravir in pregnancy: "Mutagenic = NEVER in pregnancy"</div></div>
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Most-Tested ID Differential</span><span class="badge badge-trap">Multiple Fatal Diagnosis Traps</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">The Pivotal Distinguishing Feature Table</div>
     <table class="btable">
@@ -3030,7 +2915,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 
 
 <!-- DIFF 2: MENINGITIS CSF PATTERNS -->
-<div class="topic-card tier-1" id="diff-meningitis">
+<div class="topic-card pw-locked tier-1" id="diff-meningitis">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3040,6 +2925,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">LP Sequencing Trap</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">CSF Pattern Recognition — The Most-Tested Table in ID</div>
     <table class="btable">
@@ -3077,7 +2969,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- DIFF 3: SKIN AND SOFT TISSUE -->
-<div class="topic-card tier-1" id="diff-ssti">
+<div class="topic-card pw-locked tier-1" id="diff-ssti">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3087,6 +2979,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Necrotizing Fasciitis Cannot Miss</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">The IDSA Framework — Purulent vs Non-Purulent</div>
     <table class="btable">
@@ -3121,7 +3020,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- DIFF 4: URETHRAL DISCHARGE / STI -->
-<div class="topic-card tier-1" id="diff-sti">
+<div class="topic-card pw-locked tier-1" id="diff-sti">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3131,6 +3030,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">STI Presentation and Treatment Comparison</div>
     <table class="btable">
@@ -3158,7 +3064,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- DIFF 5: IMMUNOCOMPROMISED FEVER -->
-<div class="topic-card tier-1" id="diff-immunocompromised">
+<div class="topic-card pw-locked tier-1" id="diff-immunocompromised">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3168,6 +3074,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">HIV — CD4-Guided Differential</div>
     <table class="btable">
@@ -3202,7 +3115,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- DIFF 6: DIARRHEA + INFECTION -->
-<div class="topic-card tier-1" id="diff-infectious-diarrhea">
+<div class="topic-card pw-locked tier-1" id="diff-infectious-diarrhea">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3212,6 +3125,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span><span class="badge badge-trap">Anti-motility Agent Traps</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">Incubation Time → Organism Identification</div>
     <table class="btable">
@@ -3249,7 +3169,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- DIFF 7: ANTIBIOTIC SELECTION -->
-<div class="topic-card tier-1" id="diff-antibiotics">
+<div class="topic-card pw-locked tier-1" id="diff-antibiotics">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3259,6 +3179,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Most-Tested ID Pharmacology</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <div class="sub"><div class="sub-label sl-id">Coverage Gaps — The Most Tested Antibiotic Facts</div>
     <table class="btable">
@@ -3318,7 +3245,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- PEARLS: SYSTEMIC & RESPIRATORY -->
-<div class="topic-card tier-1" id="pearls-systemic">
+<div class="topic-card pw-locked tier-1" id="pearls-systemic">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3327,6 +3254,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Highest Yield</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <ul class="bl">
       <li><b>Sepsis-3 = SOFA ≥2, NOT SIRS.</b> qSOFA is a screening tool only — do NOT use qSOFA alone to diagnose sepsis per SSC 2021.</li>
@@ -3343,7 +3277,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- PEARLS: STI, C. DIFF, HIV -->
-<div class="topic-card tier-1" id="pearls-sti-hiv">
+<div class="topic-card pw-locked tier-1" id="pearls-sti-hiv">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3352,6 +3286,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Highest Yield</span><span class="badge badge-trap">Multiple Guideline Update Traps</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <ul class="bl">
       <li><b>Gonorrhea: ceftriaxone MONOTHERAPY — no azithromycin co-treatment (CDC 2021).</b> Azithromycin-resistant gonorrhea increased significantly. If chlamydia not excluded by NAAT, add doxycycline 100mg BID × 7 days separately.</li>
@@ -3369,7 +3310,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- PEARLS: ENDOCARDITIS & SSTI -->
-<div class="topic-card tier-1" id="pearls-endo-ssti">
+<div class="topic-card pw-locked tier-1" id="pearls-endo-ssti">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3378,6 +3319,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Highest Yield</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <ul class="bl">
       <li><b>S. gallolyticus (bovis) endocarditis = colonoscopy mandatory.</b> ~60% association with colorectal neoplasia. Non-negotiable board fact — appears in every ID exam.</li>
@@ -3395,7 +3343,7 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
 </div>
 
 <!-- PEARLS: COVID & PHARMACOLOGY -->
-<div class="topic-card tier-1" id="pearls-covid-pharm">
+<div class="topic-card pw-locked tier-1" id="pearls-covid-pharm">
   <div class="tc-header">
     <div class="tc-tier">Tier 1</div>
     <div class="tc-main">
@@ -3404,6 +3352,13 @@ Secondary syphilis: "Copper penny rash on palms and soles = syphilis. Check RPR.
     </div>
     <div class="tc-badges"><span class="badge badge-pance">★★★ Highest Yield</span></div>
   </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">&#128274;</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code to unlock this topic card &mdash; clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Infectious_Disease');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code &rarr;</button>
+  </div>
+
   <div class="tc-body">
     <ul class="bl">
       <li><b>Paxlovid (nirmatrelvir/ritonavir): ritonavir is a potent CYP3A4 inhibitor.</b> Check all medications before prescribing. Critical interactions: rivaroxaban, apixaban (increased bleeding), tacrolimus/cyclosporine (toxic levels), statin toxicity, many others. Always use an interaction checker.</li>
@@ -4592,6 +4547,8 @@ document.addEventListener('click', function() {
 
   function pwUnlock() {
     document.body.classList.add('pw-unlocked');
+    document.body.classList.add('ecg-unlocked');
+    if (typeof window.__ecgForceUnlock === 'function') { try { window.__ecgForceUnlock(); } catch(e) {} }
     var banner = document.getElementById('pw-unlocked-banner-' + SYS);
     if (banner) banner.classList.add('show');
     var wrap = document.getElementById('pw-code-wrap-' + SYS);
@@ -4609,6 +4566,8 @@ document.addEventListener('click', function() {
     if (!inp) return;
     var val = inp.value.trim().toUpperCase();
     if (val === code.toUpperCase()) {
+      /* one code unlocks every syllabus + the question bank */
+      try { ['pcb_access_v1_ALL','pcb_access_v1_Cardiology','pcb_access_v1_Pulmonary','pcb_access_v1_Infectious_Disease','pcb_access_v1_Neurology','pcb_access_v1_Strategy','pcb_qbank_v1','pa_ecg_unlocked'].forEach(function(k){ localStorage.setItem(k,'1'); }); } catch(e) {}
       try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
       inp.classList.remove('error');
       if (err) err.classList.remove('show');
@@ -4639,7 +4598,10 @@ document.addEventListener('click', function() {
     // Check if already unlocked
     var alreadyUnlocked = false;
     try {
-      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') {
+      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1' ||
+          localStorage.getItem('pcb_access_v1_ALL') === '1' ||
+          new URLSearchParams(location.search).get('admin') === '1' ||
+          new URLSearchParams(location.search).get('present') === '1') {
         alreadyUnlocked = true;
       }
     } catch(e) {}

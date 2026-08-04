@@ -1943,7 +1943,7 @@ updateSummary();
       try {
         ['pcb_access_v1_ALL','pcb_access_v1_Cardiology','pcb_access_v1_Pulmonary',
          'pcb_access_v1_Infectious_Disease','pcb_access_v1_Neurology',
-         'pcb_access_v1_Strategy'].forEach(function(k){ localStorage.setItem(k,'1'); });
+         'pcb_access_v1_Strategy','pa_ecg_unlocked'].forEach(function(k){ localStorage.setItem(k,'1'); });
       } catch(e) {}
       inp.classList.remove('error');
       if (err) err.classList.remove('show');
