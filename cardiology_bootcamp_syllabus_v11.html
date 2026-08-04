@@ -1272,6 +1272,14 @@ body:not(.pw-unlocked) .ix-gated .ix-lock{display:block;}
 .ix-split::before,.ix-split::after{content:'';height:1px;background:var(--border);flex:1;}
 .ix-item.ix-hw{background:var(--navy-lt);}
 @media(max-width:640px){.ix-tag{margin-right:6px;}}
+
+/* --- Guideline recommendation-class chips (added with V-3..V-6) --- */
+.vcls{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;font-weight:800;
+  letter-spacing:.04em;white-space:nowrap;text-align:center;vertical-align:middle}
+.vcls-1{background:#0B2545;color:#fff}
+.vcls-2a{background:#E8EEF6;color:#0B2545}
+.vcls-2b{background:#F4F6F8;color:#5A6472}
+.vcls-3{background:#C8102E;color:#fff}
 </style>
 </head>
 <body>
@@ -1602,7 +1610,7 @@ SVR: "Nitrates ↓ preload. ACE-I ↓ afterload. Dobutamine ↑ contractility."<
 
 <div class="pw-gate" id="pw-gate">
   <div class="pw-gate-eyebrow">🔒 Full Bootcamp Access</div>
-  <h2>The full Cardiology syllabus is locked.<br>Unlock all 28 topics.</h2>
+  <h2>The full Cardiology syllabus is locked.<br>Unlock all 32 topics.</h2>
   <p class="pw-gate-lead">
     All <strong>28 clinical topics</strong>, the <strong>48 PANCE-style board questions</strong>,
     Module D differentials, Module E board pearls, the rapid-review rules and the
@@ -3132,7 +3140,7 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     <table class="btable">
       <thead><tr><th>Valve Lesion</th><th>Murmur</th><th>Classic Findings</th><th>Key Traps</th></tr></thead>
       <tbody>
-        <tr><td class="td-bold">Aortic Stenosis</td><td>Systolic crescendo-decrescendo, RUSB → carotids. Parvus et tardus.</td><td>SAD triad: Syncope → Angina → Dyspnea (in order of worsening prognosis). Single/absent S2.</td><td class="td-red">NO vasodilators or nitrates (fixed obstruction → catastrophic hypotension). Murmur becomes SOFT as CO falls — severe AS can have a quiet murmur.</td></tr>
+        <tr><td class="td-bold">Aortic Stenosis</td><td>Systolic crescendo-decrescendo, RUSB → carotids. Parvus et tardus.</td><td>ASD triad: Angina → Syncope → Dyspnea (in order of worsening prognosis — angina ≈ 5 yr, syncope ≈ 3 yr, dyspnea/HF ≈ 2 yr). Single/absent S2.</td><td class="td-red">NO vasodilators or nitrates (fixed obstruction → catastrophic hypotension). Murmur becomes SOFT as CO falls — severe AS can have a quiet murmur.</td></tr>
         <tr><td class="td-bold">Aortic Regurgitation</td><td>Diastolic decrescendo, LUSB. Wide pulse pressure.</td><td>Bounding pulses (water-hammer), de Musset sign (head bobbing), Duroziez sign, Quincke pulse</td><td>Surgery when LVEF ≤55% or LVESD ≥50mm. Vasodilators (nifedipine, ACEi) reduce afterload in chronic severe AR.</td></tr>
         <tr><td class="td-bold">Mitral Stenosis</td><td>Diastolic rumble at apex, best with bell + left lateral decubitus. Opening snap.</td><td>Rheumatic fever. LA dilation → AFib, hemoptysis, pulmonary HTN.</td><td class="td-amber">Most associated with AFib (LA dilation). Opening snap — shorter S2-OS interval = more severe. PMBC for pliable valves.</td></tr>
         <tr><td class="td-bold">Mitral Regurgitation</td><td>Holosystolic, apex → axilla</td><td>Volume overload → LV dilation. Acute MR (papillary muscle rupture) = flash pulmonary edema, soft murmur</td><td class="td-red">Acute MR = surgical emergency. Nitroprusside + IABP bridge. Surgery when LVEF ≤60% or LVESD ≥40mm in chronic MR.</td></tr>
@@ -3231,6 +3239,811 @@ Only 3 BBs work: "Can My Boss care?" = Carvedilol · Metoprolol succinate · Bis
     </div>
   </div>
 </div>
+
+
+<div class="ix ix-gated">
+      <div class="ix-bar"><span class="ix-kick">Deep dive check</span><span class="ix-ttl">Valvular Lesions &mdash; Intervention Thresholds</span><span class="ix-count">8 in-session &middot; 4 homework</span></div>
+      <div class="ix-intro"><b>Core Topic 4, Part 2 &mdash; The Four Lesions in Depth.</b> These twelve questions go past murmur recognition and into the decisions that actually get tested: when the numbers say operate, which drug is harmful, and which reassuring finding is a trap. Two in-session questions per lesion run in the room; the four homework questions are for tonight. Each explanation unlocks only after you submit.</div>
+      <div class="ix-lock">Enter your bootcamp access code above to unlock these questions along with the rest of this domain.</div>
+      <div class="ix-body">
+      <div class="ix-item ix-poll" id="c6-vhd-6" data-answer="3">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q1 of 8 &middot; Aortic Stenosis &middot; Severity Assessment</span>
+        <div class="ix-q">A 74-year-old man with exertional dyspnea has a late-peaking systolic murmur at the right upper sternal border and a single S2. Echocardiogram shows an aortic valve area of 0.8 cm&sup2;, a mean gradient of 28 mmHg, and an LVEF of 32%. What is the most appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Reassure him that the stenosis is moderate and repeat the echocardiogram in one year</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Begin high-intensity statin therapy to slow progression of the valve lesion</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Proceed directly to aortic valve replacement based on valve area alone</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Obtain a dobutamine stress echocardiogram to confirm true-severe stenosis</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Perform right heart catheterization to measure pulmonary vascular resistance</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Obtain a dobutamine stress echocardiogram to confirm true-severe stenosis</div>
+            <div>A small valve area with a <b>low mean gradient</b> and a <b>reduced LVEF</b> is the classic setup for <b>low-flow, low-gradient aortic stenosis</b>. Gradient depends on flow, so a weak ventricle cannot generate 40 mmHg even across a critically narrowed valve. <b>Dobutamine stress echocardiography</b> augments flow and separates <b>true-severe</b> AS (gradient rises, area stays small) from <b>pseudo-severe</b> AS (area opens up as flow improves), which is the distinction that determines whether the valve or the myocardium is the primary problem. A CT aortic valve calcium score is a reasonable flow-independent alternative.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Reassure him that the stenosis is moderate and repeat the echocardiogram in one year</b> &mdash; Incorrect. The low gradient reflects low output, not mild disease. Dismissing this as moderate AS in a symptomatic patient with a valve area of 0.8 cm&sup2; misses true-severe stenosis.</li>
+              <li><b>Begin high-intensity statin therapy to slow progression of the valve lesion</b> &mdash; Incorrect. <b>Statins do not slow the progression of aortic stenosis.</b> No medical therapy alters the natural history. Statins are given for atherosclerotic risk, not for the valve.</li>
+              <li><b>Proceed directly to aortic valve replacement based on valve area alone</b> &mdash; Incorrect. Premature. Roughly a third of these patients have pseudo-severe AS, in which the real problem is cardiomyopathy and valve replacement will not help. Confirm severity first.</li>
+              <li><b>Perform right heart catheterization to measure pulmonary vascular resistance</b> &mdash; Incorrect. Pulmonary pressures may be useful later for risk assessment, but they do not resolve the question at hand, which is whether the stenosis is genuinely severe.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>When the valve area and the gradient disagree, <b>trust neither until you check the flow</b>. Low gradient plus low EF calls for dobutamine stress echo or a CT calcium score (&gt;1300 AU in women, &gt;2000 AU in men).</div>
+            <div class="ix-where">Covered below under <span>Topic V-3 &mdash; Aortic Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-7" data-answer="0">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q2 of 8 &middot; Aortic Stenosis &middot; The Trap</span>
+        <div class="ix-q">A 69-year-old woman reports two episodes of syncope while climbing stairs. Exam shows a harsh crescendo-decrescendo systolic murmur radiating to the carotids and a delayed carotid upstroke. Which of the following is contraindicated in this patient?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Exercise treadmill stress testing</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Transthoracic echocardiography</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Twelve-lead electrocardiography</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Measurement of serum B-type natriuretic peptide</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Referral for evaluation by a multidisciplinary heart valve team</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Exercise treadmill stress testing</div>
+            <div>Exertional syncope plus a late-peaking systolic murmur and a delayed carotid upstroke means <b>symptomatic severe aortic stenosis</b>. <b>Exercise testing is contraindicated once a patient with severe AS becomes symptomatic</b> because provoking further outflow demand can cause syncope, malignant arrhythmia, or arrest. Exercise testing has a role only in the <b>apparently asymptomatic</b> patient, where it is used to unmask symptoms or detect an abnormal blood pressure response.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Transthoracic echocardiography</b> &mdash; Incorrect. This is the diagnostic test of choice and is entirely safe. It confirms severity and assesses LV function.</li>
+              <li><b>Twelve-lead electrocardiography</b> &mdash; Incorrect. Harmless and useful. It typically shows left ventricular hypertrophy with or without left atrial enlargement.</li>
+              <li><b>Measurement of serum B-type natriuretic peptide</b> &mdash; Incorrect. Safe and sometimes informative; a BNP greater than three times the upper limit of normal suggests decompensation in severe AS.</li>
+              <li><b>Referral for evaluation by a multidisciplinary heart valve team</b> &mdash; Incorrect. This is precisely what she needs. Symptomatic severe AS is a Class I indication for valve replacement, and the team decides between SAVR and TAVI.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Exertional syncope with a systolic murmur is a <b>stop sign for the treadmill</b>. Echocardiogram first, always. The same stem with an <i>asymptomatic</i> patient flips the answer, and exercise testing becomes appropriate.</div>
+            <div class="ix-where">Covered below under <span>Topic V-3 &mdash; Aortic Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-8" data-answer="4">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q3 of 8 &middot; Mitral Stenosis &middot; Recognition</span>
+        <div class="ix-q">A 38-year-old woman who emigrated from India as a teenager has progressive exertional dyspnea. Auscultation reveals a loud S1, an opening snap shortly after S2, and a low-pitched diastolic rumble at the apex. Compared with a patient whose opening snap occurs later after S2, this short S2&ndash;opening snap interval indicates which of the following?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>A more pliable valve that is better suited to balloon commissurotomy</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Coexisting mitral regurgitation rather than isolated stenosis</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Preserved left atrial size with a low likelihood of atrial fibrillation</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Left ventricular systolic dysfunction from pressure overload</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>More severe stenosis, reflecting higher pressure within the left atrium</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; More severe stenosis, reflecting higher pressure within the left atrium</div>
+            <div>The opening snap occurs when left atrial pressure exceeds left ventricular pressure and forces the stenotic valve open. <b>The higher the left atrial pressure, the earlier in diastole that crossover happens</b>, so a <b>shorter S2&ndash;opening snap interval indicates more severe stenosis</b>. This relationship is counterintuitive and therefore heavily tested.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>A more pliable valve that is better suited to balloon commissurotomy</b> &mdash; Incorrect. The <b>presence</b> of an opening snap suggests a pliable, non-calcified valve, but the <b>interval</b> encodes severity, not morphology. Suitability for PMBC is determined by echocardiographic scoring, not by timing.</li>
+              <li><b>Coexisting mitral regurgitation rather than isolated stenosis</b> &mdash; Incorrect. Significant MR would produce a holosystolic apical murmur radiating to the axilla. It does not shorten the S2&ndash;opening snap interval, and more than moderate MR is actually a contraindication to PMBC.</li>
+              <li><b>Preserved left atrial size with a low likelihood of atrial fibrillation</b> &mdash; Incorrect. The opposite. A short interval means high left atrial pressure, which accompanies atrial dilation and a <b>high</b> risk of atrial fibrillation, thrombus, and embolic stroke.</li>
+              <li><b>Left ventricular systolic dysfunction from pressure overload</b> &mdash; Incorrect. In isolated mitral stenosis the <b>left ventricle is normal</b>. The obstruction sits upstream of it, so there is no pressure overload on the LV and no reason for systolic dysfunction.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Short snap, severe stenosis.</b> Remember which chamber is sick: in mitral stenosis the left atrium and lungs bear the burden while the left ventricle stays normal, which is why hemoptysis, atrial fibrillation, stroke, and hoarseness (Ortner syndrome) dominate the picture.</div>
+            <div class="ix-where">Covered below under <span>Topic V-4 &mdash; Mitral Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-9" data-answer="2">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q4 of 8 &middot; Mitral Stenosis &middot; Management</span>
+        <div class="ix-q">A 46-year-old woman with severe rheumatic mitral stenosis (valve area 1.3 cm&sup2;) develops new atrial fibrillation with a heart rate of 128/min and worsening dyspnea. After rate control is achieved, which anticoagulation strategy is most appropriate?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Apixaban, because it is non-inferior to warfarin for stroke prevention in atrial fibrillation</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Aspirin plus clopidogrel, reserving anticoagulation for a documented left atrial thrombus</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Warfarin with a target INR of 2.0 to 3.0</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>No anticoagulation, because her CHA&#8322;DS&#8322;-VASc score is below the treatment threshold</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Low-dose rivaroxaban with aspirin for combined arterial and venous protection</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; Warfarin with a target INR of 2.0 to 3.0</div>
+            <div><b>Rheumatic mitral stenosis with atrial fibrillation is a warfarin indication.</b> Direct oral anticoagulants have not been established in rheumatic mitral valve disease, and the INVICTUS trial found rivaroxaban <b>inferior</b> to warfarin for this population, with more deaths. Warfarin with an INR target of 2.0 to 3.0 is standard. Anticoagulation is also indicated for prior embolism or documented left atrial thrombus regardless of rhythm.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Apixaban, because it is non-inferior to warfarin for stroke prevention in atrial fibrillation</b> &mdash; Incorrect. The DOAC non-inferiority trials <b>excluded</b> moderate-to-severe rheumatic mitral disease. Extrapolating from non-valvular atrial fibrillation is exactly the error the question is testing.</li>
+              <li><b>Aspirin plus clopidogrel, reserving anticoagulation for a documented left atrial thrombus</b> &mdash; Incorrect. Antiplatelet therapy is inadequate for cardioembolic stroke prevention. Waiting for a visible thrombus means waiting for the stroke.</li>
+              <li><b>No anticoagulation, because her CHA&#8322;DS&#8322;-VASc score is below the treatment threshold</b> &mdash; Incorrect. CHA&#8322;DS&#8322;-VASc scoring does not apply here. Atrial fibrillation in the setting of rheumatic mitral stenosis is an anticoagulation indication <b>on its own</b>, independent of the score.</li>
+              <li><b>Low-dose rivaroxaban with aspirin for combined arterial and venous protection</b> &mdash; Incorrect. This is a vascular-protection regimen for stable atherosclerotic disease. It provides inadequate stroke prophylaxis in atrial fibrillation and uses the wrong drug class for rheumatic disease.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Two anticoagulation settings where <b>DOACs are wrong and warfarin is right</b>: rheumatic mitral stenosis and <b>any mechanical prosthetic valve</b>. Both appear repeatedly on the PANCE.</div>
+            <div class="ix-where">Covered below under <span>Topic V-4 &mdash; Mitral Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-10" data-answer="3">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q5 of 8 &middot; Aortic Regurgitation &middot; Recognition</span>
+        <div class="ix-q">A 58-year-old man with hypertension arrives with sudden severe chest pain radiating to his back, followed by rapidly worsening dyspnea. He is tachycardic at 122/min with a blood pressure of 96/78 mmHg, has crackles throughout both lung fields, and a short soft early diastolic murmur at the left sternal border. Which finding best explains why the classic peripheral signs of aortic regurgitation are absent?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>The regurgitant volume is too small to generate detectable peripheral findings</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Concurrent aortic stenosis is masking the regurgitant physiology</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Peripheral signs require left ventricular hypertrophy, which takes years to develop</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>The left ventricle has not had time to dilate, so pulse pressure stays narrow</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Beta-blockade has blunted the reflex tachycardia and bounding pulses</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; The left ventricle has not had time to dilate, so pulse pressure stays narrow</div>
+            <div>This is <b>acute severe aortic regurgitation from a type A aortic dissection</b>. In chronic AR the ventricle dilates over years, accepting a large regurgitant volume and ejecting a huge stroke volume, which produces the <b>wide pulse pressure</b> that generates every eponym. In acute AR there has been no time to remodel: the <b>non-compliant ventricle</b> cannot accommodate the regurgitant volume, so left ventricular end-diastolic pressure rises abruptly, forward stroke volume falls, and the <b>pulse pressure is narrow</b> with compensatory tachycardia. The murmur is short and soft because the aortic and ventricular diastolic pressures equalize early.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>The regurgitant volume is too small to generate detectable peripheral findings</b> &mdash; Incorrect. The regurgitant volume is large. It is the ventricle’s inability to dilate, not the size of the leak, that eliminates the peripheral signs.</li>
+              <li><b>Concurrent aortic stenosis is masking the regurgitant physiology</b> &mdash; Incorrect. Nothing in the stem suggests stenosis, and mixed disease would not produce this presentation. The acute chest pain radiating to the back points to dissection.</li>
+              <li><b>Peripheral signs require left ventricular hypertrophy, which takes years to develop</b> &mdash; Incorrect. Close, but the mechanism is wrong. The peripheral signs come from the <b>wide pulse pressure</b> created by ventricular dilation and a large stroke volume, not from hypertrophy itself.</li>
+              <li><b>Beta-blockade has blunted the reflex tachycardia and bounding pulses</b> &mdash; Incorrect. He is tachycardic at 122/min, so no meaningful beta-blockade is present. The tachycardia is a compensatory response that is maintaining cardiac output.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b><b>Chronic AR has a wide pulse pressure; acute AR has a narrow one.</b> Expecting a water-hammer pulse in the acute setting is how a dissection gets missed. Sudden chest pain radiating to the back plus a new diastolic murmur plus pulmonary edema means imaging the aorta now.</div>
+            <div class="ix-where">Covered below under <span>Topic V-5 &mdash; Aortic Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-11" data-answer="1">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q6 of 8 &middot; Aortic Regurgitation &middot; The Trap</span>
+        <div class="ix-q">A 62-year-old woman with acute severe aortic regurgitation from infective endocarditis is hypotensive with pulmonary edema while awaiting the operating room. Which intervention would be harmful?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Intravenous sodium nitroprusside for afterload reduction</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Insertion of an intra-aortic balloon pump for temporary hemodynamic support</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Intravenous dobutamine for inotropic support</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Emergency surgical consultation for aortic valve replacement</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Blood cultures followed by empiric intravenous antibiotics</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: B &mdash; Insertion of an intra-aortic balloon pump for temporary hemodynamic support</div>
+            <div>An <b>intra-aortic balloon pump is contraindicated in acute severe aortic regurgitation</b>. The device works by inflating during diastole to augment diastolic aortic pressure, which is precisely the pressure gradient that drives blood backward through an incompetent aortic valve. It would <b>worsen the regurgitation</b>. Temporizing measures are afterload reduction and inotropic support while arranging emergency surgery. Heavy beta-blockade is also harmful here, since the tachycardia shortens diastole and limits regurgitant time.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Intravenous sodium nitroprusside for afterload reduction</b> &mdash; Incorrect. Appropriate. Lowering systemic vascular resistance favors forward flow over regurgitant flow and reduces left ventricular filling pressure.</li>
+              <li><b>Intravenous dobutamine for inotropic support</b> &mdash; Incorrect. Appropriate as a temporizing measure. It augments forward stroke volume and modestly increases heart rate, which shortens diastole and reduces the regurgitant volume.</li>
+              <li><b>Emergency surgical consultation for aortic valve replacement</b> &mdash; Incorrect. This is the definitive treatment. Acute severe AR is a surgical emergency, and no medical regimen substitutes for valve replacement.</li>
+              <li><b>Blood cultures followed by empiric intravenous antibiotics</b> &mdash; Incorrect. Essential in endocarditis and does not delay surgery. Obtain cultures first when feasible, then treat empirically.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Learn the two <b>harmful</b> reflexes in acute AR: <b>no balloon pump</b> and <b>no aggressive beta-blockade</b>. Contrast this with acute severe <i>mitral</i> regurgitation, where an IABP is a legitimate bridge to surgery.</div>
+            <div class="ix-where">Covered below under <span>Topic V-5 &mdash; Aortic Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-12" data-answer="0">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q7 of 8 &middot; Mitral Regurgitation &middot; Management</span>
+        <div class="ix-q">A 57-year-old asymptomatic man with severe primary mitral regurgitation from a flail posterior leaflet has an LVEF of 58% and a left ventricular end-systolic diameter of 43 mm. He exercises daily without limitation. What is the most appropriate management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Refer for mitral valve repair</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Start lisinopril and repeat the echocardiogram in six months</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Continue observation with annual echocardiography until symptoms develop</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Start metoprolol and furosemide to reduce the regurgitant volume</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Refer for transcatheter edge-to-edge repair rather than surgery</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Refer for mitral valve repair</div>
+            <div>In severe primary mitral regurgitation, an <b>LVEF of 60% or less</b> or a <b>left ventricular end-systolic diameter of 40 mm or more</b> is a <b>Class I indication for mitral valve intervention even in an asymptomatic patient</b>. He meets both. Because the ventricle unloads into the low-impedance left atrium, LVEF reads deceptively high, so an "almost normal" 58% already signals meaningful dysfunction. <b>Repair is strongly preferred over replacement</b> when the anatomy allows, and a flail posterior leaflet is highly repairable.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Start lisinopril and repeat the echocardiogram in six months</b> &mdash; Incorrect. Vasodilators have no role in <b>normotensive asymptomatic</b> primary MR and do not delay the need for surgery. This is a mechanical problem requiring a mechanical solution.</li>
+              <li><b>Continue observation with annual echocardiography until symptoms develop</b> &mdash; Incorrect. Waiting for symptoms or for a clearly low EF means operating on an already injured ventricle. He has crossed the Class I thresholds now, and outcomes are best with timely repair.</li>
+              <li><b>Start metoprolol and furosemide to reduce the regurgitant volume</b> &mdash; Incorrect. Neither drug reduces the regurgitant orifice. Diuretics may mask congestion and delay definitive treatment.</li>
+              <li><b>Refer for transcatheter edge-to-edge repair rather than surgery</b> &mdash; Incorrect. TEER is reserved for patients at <b>high or prohibitive surgical risk</b>. He is a healthy 57-year-old who exercises daily and should have durable surgical repair.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>The MR numbers are <b>60 and 40</b>: LVEF &le;60% or LVESD &ge;40 mm. Compare the AR numbers, <b>55 and 50</b>: LVEF &le;55% or LVESD &gt;50 mm. In severe MR, a "normal" ejection fraction is abnormal.</div>
+            <div class="ix-where">Covered below under <span>Topic V-6 &mdash; Mitral Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll" id="c6-vhd-13" data-answer="4">
+        <span class="ix-n"><span class="ix-tag ix-tag-live">In-session</span>Q8 of 8 &middot; Mitral Regurgitation &middot; Classification</span>
+        <div class="ix-q">A 68-year-old man with ischemic cardiomyopathy, an LVEF of 28%, and NYHA class III symptoms has severe mitral regurgitation. Echocardiography shows structurally normal mitral leaflets with a dilated annulus and tethered chordae. He takes lisinopril 5 mg daily and no other cardiac medications. What is the most appropriate next step?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Refer for surgical mitral valve replacement with chordal preservation</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Refer for transcatheter edge-to-edge repair now, given his symptom burden</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Refer for surgical mitral annuloplasty combined with coronary bypass grafting</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Continue current therapy and reassess regurgitation severity in one year</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Optimize guideline-directed medical therapy for heart failure, then reassess</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: E &mdash; Optimize guideline-directed medical therapy for heart failure, then reassess</div>
+            <div>Structurally <b>normal leaflets</b> with annular dilation and chordal tethering in a dilated, ischemic ventricle defines <b>secondary (functional) mitral regurgitation</b>. The valve is a victim of the ventricle, so the ventricle is treated first. He is on a submaximal ACE inhibitor and is missing a beta-blocker, a mineralocorticoid receptor antagonist, and an SGLT2 inhibitor. <b>Full guideline-directed medical therapy</b>, plus cardiac resynchronization if indicated, frequently reduces regurgitant severity by reversing remodeling. Severity is then reassessed on optimal therapy.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Refer for surgical mitral valve replacement with chordal preservation</b> &mdash; Incorrect. Surgery for secondary MR is only Class IIb and <b>has not been shown to improve survival</b>. It is considered for persistent NYHA III&ndash;IV symptoms <b>after</b> medical therapy is optimized, which has not happened.</li>
+              <li><b>Refer for transcatheter edge-to-edge repair now, given his symptom burden</b> &mdash; Incorrect. TEER is a reasonable Class IIa option for secondary MR with an LVEF of 20&ndash;50%, but only <b>after</b> guideline-directed medical therapy has been optimized under heart failure specialist supervision. The sequence matters.</li>
+              <li><b>Refer for surgical mitral annuloplasty combined with coronary bypass grafting</b> &mdash; Incorrect. Annuloplasty at the time of bypass is considered for <b>moderate</b> secondary MR and carries uncertain benefit. It is not the next step in an undertreated patient with severe MR.</li>
+              <li><b>Continue current therapy and reassess regurgitation severity in one year</b> &mdash; Incorrect. Unacceptable. He has NYHA class III symptoms on clearly inadequate therapy. Waiting a year without optimizing treatment abandons the intervention most likely to help.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Ask first: <b>primary or secondary?</b> Primary MR means fix the valve. Secondary MR means fix the ventricle, reassess, and only then consider TEER. Reversing the order is the single most common error on functional MR questions.</div>
+            <div class="ix-where">Covered below under <span>Topic V-6 &mdash; Mitral Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-split">Homework &mdash; after the session</div>
+      <div class="ix-item ix-poll ix-hw" id="c6-vhd-14" data-answer="3">
+        <span class="ix-n"><span class="ix-tag ix-tag-hw">Homework</span>Q1 of 4 &middot; Aortic Stenosis &middot; Physical Examination</span>
+        <div class="ix-q">An 83-year-old woman with known aortic stenosis is admitted with decompensated heart failure. Her murmur, previously loud and harsh, is now noticeably softer, and it is heard best at the apex. Her carotid upstroke feels brisk. Which conclusion is best supported?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Her aortic stenosis has regressed and the murmur reflects mild residual disease</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>The apical location indicates that mitral regurgitation has become the dominant lesion</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>A brisk carotid upstroke excludes severe stenosis</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Her stenosis may still be severe despite the softer murmur</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>The softer murmur indicates that left ventricular hypertrophy has resolved</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: D &mdash; Her stenosis may still be severe despite the softer murmur</div>
+            <div>Three findings in this stem are traps, and all point the same way. A murmur <b>softens as cardiac output falls</b>, so loudness tracks flow rather than severity. Radiation to the apex in an elderly patient is the <b>Gallavardin phenomenon</b>, in which the aortic murmur is transmitted to the apex and mimics mitral regurgitation. A <b>brisk carotid upstroke can be falsely reassuring</b> in the elderly because arterial stiffening masks pulsus parvus et tardus. Severity is judged by the timing of the murmur peak, the character of S2, and echocardiography.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Her aortic stenosis has regressed and the murmur reflects mild residual disease</b> &mdash; Incorrect. Calcific aortic stenosis does not regress. A softer murmur in a decompensating patient signals falling stroke volume, which is a worse sign rather than a better one.</li>
+              <li><b>The apical location indicates that mitral regurgitation has become the dominant lesion</b> &mdash; Incorrect. This is the Gallavardin phenomenon. The aortic murmur radiates to the apex and imitates MR. Genuine MR would be holosystolic and radiate to the <b>axilla</b>.</li>
+              <li><b>A brisk carotid upstroke excludes severe stenosis</b> &mdash; Incorrect. Pulsus parvus et tardus is roughly 100% specific but only about 12% sensitive, so its <b>absence excludes nothing</b>. Stiff arteries in the elderly can produce a falsely brisk upstroke.</li>
+              <li><b>The softer murmur indicates that left ventricular hypertrophy has resolved</b> &mdash; Incorrect. Hypertrophy does not resolve over the course of an admission, and murmur intensity does not measure wall thickness.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>In aortic stenosis, <b>loudness is the least reliable severity marker</b>. Trust the <b>late-peaking</b> quality, a <b>single or soft S2</b>, and a <b>delayed carotid upstroke</b> when it is present, then confirm with echocardiography.</div>
+            <div class="ix-where">Covered below under <span>Topic V-3 &mdash; Aortic Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll ix-hw" id="c6-vhd-15" data-answer="2">
+        <span class="ix-n"><span class="ix-tag ix-tag-hw">Homework</span>Q2 of 4 &middot; Mitral Stenosis &middot; Special Population</span>
+        <div class="ix-q">A 29-year-old woman at 26 weeks of gestation develops orthopnea and dyspnea at rest. She is tachycardic at 116/min and in sinus rhythm. Auscultation reveals a loud S1, an opening snap, and a diastolic rumble at the apex. Echocardiography shows a mitral valve area of 1.2 cm&sup2; with a normal LVEF. What is the most appropriate initial therapy?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Intravenous normal saline to improve left ventricular preload and stroke volume</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Urgent percutaneous mitral balloon commissurotomy before any medical therapy</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>A beta-blocker for heart rate control, with a diuretic for congestion</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Intravenous dobutamine to augment cardiac output across the stenotic valve</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Therapeutic anticoagulation with warfarin for stroke prophylaxis</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: C &mdash; A beta-blocker for heart rate control, with a diuretic for congestion</div>
+            <div>Pregnancy produces the two things mitral stenosis tolerates worst: <b>tachycardia</b> and <b>volume expansion</b>. Both peak in the second and early third trimesters, which is why previously silent rheumatic MS is classically unmasked at this point. The immediate therapy targets the physiology: a <b>beta-blocker lengthens diastolic filling time</b> and lowers the transmitral gradient, while a <b>diuretic</b> relieves pulmonary congestion. Beta-1 selective agents such as metoprolol are preferred in pregnancy.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Intravenous normal saline to improve left ventricular preload and stroke volume</b> &mdash; Incorrect. Harmful. The problem is filling <b>time</b> across a fixed obstruction, not intravascular volume depletion. Additional fluid raises left atrial pressure and worsens pulmonary edema.</li>
+              <li><b>Urgent percutaneous mitral balloon commissurotomy before any medical therapy</b> &mdash; Incorrect. PMBC is appropriate for severe symptomatic MS that <b>fails</b> medical therapy, and it can be performed during pregnancy with favorable anatomy. It is not the first step before rate control and diuresis are tried.</li>
+              <li><b>Intravenous dobutamine to augment cardiac output across the stenotic valve</b> &mdash; Incorrect. Actively harmful. Inotropes increase heart rate, shortening diastole and <b>raising</b> the transmitral gradient. The left ventricle is normal here and needs no inotropic support.</li>
+              <li><b>Therapeutic anticoagulation with warfarin for stroke prophylaxis</b> &mdash; Incorrect. She is in sinus rhythm without prior embolism or documented thrombus, so there is no current indication. Warfarin is also teratogenic and generally avoided in pregnancy.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>Mitral stenosis is a <b>filling-time disease</b>. Anything that shortens diastole makes it worse: exercise, fever, anemia, pregnancy, and new atrial fibrillation. The therapeutic lever is almost always <b>slow the heart rate</b>.</div>
+            <div class="ix-where">Covered below under <span>Topic V-4 &mdash; Mitral Stenosis, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll ix-hw" id="c6-vhd-16" data-answer="0">
+        <span class="ix-n"><span class="ix-tag ix-tag-hw">Homework</span>Q3 of 4 &middot; Aortic Regurgitation &middot; Surgical Timing</span>
+        <div class="ix-q">A 44-year-old asymptomatic man with chronic severe aortic regurgitation from a bicuspid aortic valve has serial echocardiograms. The most recent study shows an LVEF of 52%, a left ventricular end-systolic diameter of 46 mm, and an ascending aorta of 42 mm. No other cause of systolic dysfunction is identified. What is the most appropriate management?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Refer for aortic valve replacement without further delay</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Start nifedipine and repeat the echocardiogram in six months</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Continue surveillance, because he remains asymptomatic</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Refer for transcatheter aortic valve implantation</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Refer for combined valve and ascending aortic replacement based on the aortic diameter</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: A &mdash; Refer for aortic valve replacement without further delay</div>
+            <div>Chronic severe aortic regurgitation with an <b>LVEF of 55% or less</b>, when no other cause of systolic dysfunction is present, is a <b>Class I indication for aortic valve surgery regardless of symptoms</b>. His LVEF of 52% has crossed that threshold. The absence of symptoms is not reassuring in AR, because the long compensated phase allows irreversible ventricular injury to accumulate silently, and postoperative outcomes deteriorate once dysfunction is established.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Start nifedipine and repeat the echocardiogram in six months</b> &mdash; Incorrect. Vasodilators treat hypertension in AR but <b>do not substitute for surgery</b> once an indication exists. Another six months of observation risks permanent ventricular injury.</li>
+              <li><b>Continue surveillance, because he remains asymptomatic</b> &mdash; Incorrect. Symptoms are only one of several triggers. The LVEF criterion is independent of symptoms precisely because AR patients stay asymptomatic while the ventricle deteriorates.</li>
+              <li><b>Refer for transcatheter aortic valve implantation</b> &mdash; Incorrect. TAVI for <b>isolated severe aortic regurgitation</b> in a patient who is a surgical candidate is Class III, Harm. Regurgitant lesions usually lack the calcified annulus needed to anchor the device.</li>
+              <li><b>Refer for combined valve and ascending aortic replacement based on the aortic diameter</b> &mdash; Incorrect. He needs valve surgery, but 42 mm alone does not meet the threshold for aortic replacement. Concomitant aortic surgery is generally considered at 45 mm or more with a bicuspid valve plus risk factors, or at 55 mm otherwise.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>For chronic severe AR the Class I triggers are <b>symptoms</b> or <b>LVEF &le;55%</b>. The Class IIa trigger is <b>LVESD &gt;50 mm</b>. Do not import the aortic stenosis threshold of LVEF &lt;50%, because AR is operated on earlier.</div>
+            <div class="ix-where">Covered below under <span>Topic V-5 &mdash; Aortic Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      <div class="ix-item ix-poll ix-hw" id="c6-vhd-17" data-answer="1">
+        <span class="ix-n"><span class="ix-tag ix-tag-hw">Homework</span>Q4 of 4 &middot; Mitral Regurgitation &middot; Emergency</span>
+        <div class="ix-q">Four days after an inferior ST-elevation myocardial infarction treated with percutaneous intervention, a 66-year-old man abruptly develops severe dyspnea and hypotension. He has diffuse crackles and a soft, short early systolic murmur at the apex. Echocardiography shows severe mitral regurgitation with a normal-sized left atrium and left ventricle. What is the most likely diagnosis?</div>
+        <div class="ix-opts">
+        <label class="ix-opt"><input type="radio" value="0"><span class="ix-let">A</span><span>Ventricular free wall rupture with subacute tamponade</span></label>
+        <label class="ix-opt"><input type="radio" value="1"><span class="ix-let">B</span><span>Papillary muscle rupture causing acute mitral regurgitation</span></label>
+        <label class="ix-opt"><input type="radio" value="2"><span class="ix-let">C</span><span>Progression of pre-existing chronic degenerative mitral regurgitation</span></label>
+        <label class="ix-opt"><input type="radio" value="3"><span class="ix-let">D</span><span>Ventricular septal rupture with a new left-to-right shunt</span></label>
+        <label class="ix-opt"><input type="radio" value="4"><span class="ix-let">E</span><span>Post-infarction pericarditis with a large pericardial effusion</span></label>
+        </div>
+        <button class="ix-sub-btn" type="button">Submit Answer</button>
+        <div class="ix-fb"></div>
+        <details class="ix-rev"><summary>Click to Reveal Answer</summary>
+          <div class="ix-rev-body">
+            <div class="ix-ans">Correct answer: B &mdash; Papillary muscle rupture causing acute mitral regurgitation</div>
+            <div><b>Papillary muscle rupture</b> classically occurs <b>2 to 7 days after myocardial infarction</b> and is most common with <b>inferior</b> infarcts, because the posteromedial papillary muscle has a single blood supply from the posterior descending artery. Two features confirm the acute nature: the murmur is <b>soft and short</b> because left atrial pressure rises so rapidly that the systolic gradient disappears early, and the <b>chambers are normal-sized</b> because there has been no time to remodel. Management is afterload reduction with nitroprusside, an intra-aortic balloon pump as a bridge, and <b>urgent surgery</b>.</div>
+            <span class="ix-lbl">Why the other choices are wrong</span>
+            <ul class="ix-why">
+              <li><b>Ventricular free wall rupture with subacute tamponade</b> &mdash; Incorrect. This presents with obstructive shock, elevated jugular venous pressure, and pulsus paradoxus, and echocardiography shows pericardial blood. It does not cause severe mitral regurgitation.</li>
+              <li><b>Progression of pre-existing chronic degenerative mitral regurgitation</b> &mdash; Incorrect. Chronic severe MR produces a <b>dilated</b> left atrium and left ventricle along with a loud holosystolic murmur radiating to the axilla. Normal chamber sizes make a chronic process very unlikely.</li>
+              <li><b>Ventricular septal rupture with a new left-to-right shunt</b> &mdash; Incorrect. A reasonable consideration on the same timeline, but septal rupture produces a <b>harsh holosystolic murmur at the left lower sternal border</b>, often with a thrill, and echocardiography would show a septal defect with shunt flow rather than mitral regurgitation.</li>
+              <li><b>Post-infarction pericarditis with a large pericardial effusion</b> &mdash; Incorrect. Early post-infarction pericarditis causes positional pleuritic chest pain and a friction rub. It does not produce severe mitral regurgitation or flash pulmonary edema.</li>
+            </ul>
+            <div class="ix-bp"><b>Board pearl</b>A <b>soft murmur can mean catastrophic regurgitation</b>. Days 2 to 7 after an infarct with new pulmonary edema and shock should trigger an immediate echocardiogram and a surgical call. Chamber size is the tell: normal chambers mean the lesion is acute.</div>
+            <div class="ix-where">Covered below under <span>Topic V-6 &mdash; Mitral Regurgitation, Deep Dive</span></div>
+          </div>
+        </details>
+      </div>
+      </div>
+</div>
+
+<!-- TOPIC V-3: Aortic Stenosis — Deep Dive -->
+<div class="topic-card pw-locked tier-1" id="v3">
+  <div class="tc-header">
+    <div class="tc-tier">Tier 1</div>
+    <div class="tc-main">
+      <div class="tc-num">Topic V-3</div>
+      <div class="tc-title">Aortic Stenosis — Deep Dive</div>
+      <div class="tc-subtitle">Etiology by Age · Severity Criteria · Low-Flow/Low-Gradient · AVR Indications</div>
+    </div>
+    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
+    <p>Aortic stenosis is the <b>most tested valvular lesion on the PANCE</b>. The exam almost never asks you to pick a drug — it asks you to recognize severity from the exam, choose the confirmatory study, and decide whether this patient needs a valve. Symptom onset is the hinge: before symptoms the disease is followed, after symptoms it is operated on.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Etiology by Age</div>
+    <table class="btable">
+      <thead><tr><th>Cause</th><th>Typical Age</th><th>Board Key</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Calcific degeneration of a trileaflet valve</td><td>Elderly (&gt;65)</td><td>Most common cause overall. Shares risk factors with atherosclerosis, but <b>statins do not slow progression</b>.</td></tr>
+        <tr><td class="td-bold">Bicuspid aortic valve</td><td>5th–6th decade</td><td class="td-red">Most common cause in patients &lt;65. Look for associated <b>coarctation</b> and <b>ascending aortic dilation</b> — image the aorta.</td></tr>
+        <tr><td class="td-bold">Rheumatic disease</td><td>Variable</td><td>Commissural fusion. <b>Almost never isolated</b> — if the stem gives rheumatic AS, look for coexisting mitral valve disease.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-amber">Pathophysiology — One Chain</div>
+    <p>Fixed obstruction → LV <b>pressure</b> overload → <b>concentric hypertrophy</b> → diastolic dysfunction and subendocardial ischemia → eventual systolic failure.</p>
+    <ul class="bl">
+      <li>The hypertrophied, non-compliant ventricle is <b>critically preload-dependent</b> — this single fact explains every medication warning in this topic.</li>
+      <li>It is also <b>rate- and rhythm-dependent</b>: loss of the atrial kick with new AF can precipitate abrupt decompensation.</li>
+      <li>Angina occurs <b>without epicardial coronary disease</b> — supply–demand mismatch from a thick ventricle with a high pressure load.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-red">Presentation — Symptoms Mark a Cliff</div>
+    <ul class="bl">
+      <li>Classic triad: <b>angina, exertional syncope, dyspnea/heart failure</b>. All three signify severe, late disease.</li>
+      <li>Approximate untreated survival after symptom onset: <b>angina ≈ 5 years, syncope ≈ 3 years, heart failure ≈ 2 years</b>. Learn them in that order — <b>dyspnea/heart failure carries the worst prognosis</b>.</li>
+      <li>Exertional syncope is a mechanical failure to augment cardiac output against a fixed obstruction — not a vasovagal event.</li>
+    </ul>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> Asymptomatic severe AS and symptomatic severe AS are different diseases for exam purposes. The severity numbers do not change management — <b>symptoms do</b>.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Physical Examination</div>
+    <table class="btable">
+      <thead><tr><th>Finding</th><th>What It Means</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Harsh crescendo–decrescendo systolic murmur, right 2nd ICS → carotids</td><td>The lesion itself. Increases with squatting/leg raise, <b>decreases with Valsalva</b>.</td></tr>
+        <tr><td class="td-bold">Late-peaking murmur</td><td class="td-red">Marker of <b>severe</b> disease — timing of the peak matters more than loudness.</td></tr>
+        <tr><td class="td-bold">Single or soft S2</td><td class="td-red">Severe disease — the calcified valve no longer closes audibly.</td></tr>
+        <tr><td class="td-bold">Pulsus parvus et tardus (delayed carotid upstroke)</td><td class="td-red"><b>100% specific but only ~12% sensitive.</b> Its absence proves nothing; its presence clinches severity.</td></tr>
+        <tr><td class="td-bold">S4</td><td>LVH with reduced ventricular compliance.</td></tr>
+        <tr><td class="td-bold">Murmur radiating to the apex in an elderly patient</td><td class="td-amber"><b>Gallavardin phenomenon</b> — mimics MR. Do not call it mitral disease.</td></tr>
+        <tr><td class="td-bold">Falsely brisk carotid upstroke</td><td class="td-amber">Arterial stiffening in the elderly masks parvus et tardus.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Diagnostics</div>
+    <ul class="bl">
+      <li><b>ECG:</b> LVH ± left atrial enlargement. <b>CXR:</b> valve calcification, post-stenotic aortic dilation.</li>
+      <li><b>TTE is the diagnostic test of choice.</b> Severe AS — any one of: <b>Vmax ≥4.0 m/s</b>, <b>mean gradient ≥40 mmHg</b>, <b>AVA ≤1.0 cm²</b> (or ≤0.6 cm²/m² indexed).</li>
+      <li><b>Uncontrolled hypertension underestimates severity</b> — repeat the study after blood pressure control.</li>
+      <li><b>Low-flow / low-gradient AS:</b> when LVEF is reduced, a low gradient does <b>not</b> exclude severe AS. Use <b>dobutamine stress echo</b> to separate true-severe from pseudo-severe, and <b>CT aortic valve calcium score</b> (&gt;1300 AU women, &gt;2000 AU men) as a flow-independent confirmation.</li>
+      <li><b>BNP &gt;3× upper limit of normal</b> in severe AS suggests decompensation.</li>
+      <li><b>Exercise testing:</b> <span class="td-red">contraindicated once symptomatic</span> (risk of syncope and arrest). It is useful <b>only</b> to unmask symptoms in the apparently asymptomatic patient, or to detect an abnormal BP response.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-red">Medical Management — What Not to Do</div>
+    <ul class="bl">
+      <li><b>No medical therapy alters the natural history.</b> Statins do not slow progression. Treat hypertension and comorbidities on their own merits.</li>
+      <li><b>Preload and afterload are precious.</b> Use nitrates, other vasodilators, and diuretics with real caution in severe AS — dropping preload against a fixed obstruction causes catastrophic hypotension.</li>
+      <li>Maintain sinus rhythm where possible; treat new AF promptly.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Indications for AVR — Surgical or Transcatheter</div>
+    <table class="btable">
+      <thead><tr><th>Class</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Symptomatic severe AS — angina, syncope, or dyspnea — regardless of gradient category.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Asymptomatic severe AS with LVEF &lt;50%.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Severe AS in a patient undergoing other cardiac surgery.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Very severe AS (Vmax &gt;5.0 m/s), abnormal BP response on exercise testing, or rapid progression with low operative risk.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Symptomatic low-flow/low-gradient AS confirmed as true-severe.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Moderate AS (V 3.0–3.9 m/s or gradient 20–39 mmHg) in a patient already undergoing cardiac surgery for another indication.</td></tr>
+      </tbody>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> <b>SAVR vs TAVI</b> is shared decision-making weighing age, surgical risk, lifetime valve strategy, and anatomy — not a memorized cutoff. TAVI indications continue to expand across risk categories. European guidelines differ from U.S. guidelines on LVEF thresholds and use age ≥65 as the bioprosthesis cutoff.</p></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Aortic Stenosis</div>
+      <ul class="box-items">
+        <li><b>Ordering exercise stress testing</b> for exertional syncope with a systolic murmur — symptomatic severe AS is a <b>contraindication</b>. Get the echo.</li>
+        <li><b>Calling AS non-severe because the mean gradient is low</b> — gradient is flow-dependent. With reduced LVEF, use dobutamine stress echo or CT calcium score.</li>
+        <li><b>Starting a statin or beta-blocker "to slow progression"</b> — no medical therapy changes the natural history. The answer is AVR.</li>
+        <li><b>Nitroglycerin for the "angina"</b> — preload reduction against a fixed obstruction causes syncope or arrest.</li>
+        <li><b>Measuring severity during a hypertensive episode</b> — severity is underestimated. Control the BP and repeat.</li>
+        <li><b>Mistaking the Gallavardin phenomenon for MR</b> — an AS murmur radiating to the apex in an elderly patient is still AS.</li>
+        <li><b>Assuming a loud murmur means severe disease</b> — as cardiac output falls the murmur gets <b>softer</b>. Judge by timing of the peak, S2, and carotid upstroke.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Severe AS — "4, 40, 1": Vmax ≥4 m/s · mean gradient ≥40 mmHg · area ≤1 cm²
+Prognosis order — Angina 5, Syncope 3, Failure 2 (the countdown gets shorter as the symptom gets worse)
+"Late peak, soft S2, slow carotid" = the three severity signs at the bedside
+"Fixed obstruction hates a low tank" — no nitrates, careful with diuretics and vasodilators
+Symptoms = surgery. Everything else = surveillance.</div></div>
+
+  </div>
+</div>
+
+<!-- TOPIC V-4: Mitral Stenosis — Deep Dive -->
+<div class="topic-card pw-locked tier-1" id="v4">
+  <div class="tc-header">
+    <div class="tc-tier">Tier 1</div>
+    <div class="tc-main">
+      <div class="tc-num">Topic V-4</div>
+      <div class="tc-title">Mitral Stenosis — Deep Dive</div>
+      <div class="tc-subtitle">Rheumatic Etiology · Filling-Time Physiology · Warfarin · PMBC Indications</div>
+    </div>
+    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
+    <p>Mitral stenosis is <b>rheumatic until proven otherwise</b>. The PANCE stem almost always plants a clue — immigration from a region with endemic rheumatic disease, untreated childhood strep pharyngitis, or a young pregnant patient who suddenly cannot breathe. The physiology is entirely about <b>diastolic filling time</b>, and every management decision follows from that.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Etiology</div>
+    <ul class="bl">
+      <li><b>Rheumatic heart disease — overwhelmingly dominant.</b> Commissural fusion, leaflet thickening, chordal shortening.</li>
+      <li>Mitral annular calcification (elderly, usually mild).</li>
+      <li>Congenital mitral stenosis (rare).</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-amber">Pathophysiology — The Consequence Chain</div>
+    <p>Obstructed LA emptying → ↑ LA pressure → <b>LA dilation</b> → pulmonary venous congestion → pulmonary hypertension → right heart failure.</p>
+    <ul class="bl">
+      <li><b>LA dilation is the source of most complications:</b> atrial fibrillation, LA thrombus, and systemic embolism including stroke.</li>
+      <li><b>Tachycardia shortens diastole and worsens the gradient.</b> This is why decompensation is triggered by <b>exercise, pregnancy, fever, anemia, or new-onset AF</b> — the valve did not change, the filling time did.</li>
+      <li>Note what is <b>preserved</b>: the LV is normal. Heart failure symptoms here are from the left atrium and lungs, not from LV systolic dysfunction.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-red">Presentation</div>
+    <ul class="bl">
+      <li>Exertional dyspnea and orthopnea, fatigue, palpitations or AF, <b>hemoptysis</b>, embolic stroke.</li>
+      <li><b>Ortner syndrome</b> — hoarseness from a dilated left atrium compressing the recurrent laryngeal nerve.</li>
+      <li>Dysphagia from esophageal compression by the enlarged left atrium.</li>
+      <li><b>Progression is slow — over decades.</b> A patient can be asymptomatic for 20–40 years after the initial rheumatic insult.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Physical Examination</div>
+    <table class="btable">
+      <thead><tr><th>Finding</th><th>Mechanism / Board Key</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Loud S1</td><td>Thickened leaflets slam shut from a wide-open position.</td></tr>
+        <tr><td class="td-bold">Opening snap after S2</td><td>Sudden halt of the doming stenotic valve. Its presence implies a still-pliable valve.</td></tr>
+        <tr><td class="td-bold">Low-pitched diastolic rumble at the apex</td><td>Best heard in the <b>left lateral decubitus position with the bell</b>. Presystolic accentuation if in sinus rhythm.</td></tr>
+        <tr><td class="td-bold">S2–opening snap interval</td><td class="td-red"><b>SHORTER interval = MORE severe.</b> Higher LA pressure opens the valve sooner after S2. This is counterintuitive and heavily tested.</td></tr>
+        <tr><td class="td-bold">Loud P2, RV heave, elevated JVP, edema</td><td>Pulmonary hypertension with right heart failure — late findings.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Diagnostics</div>
+    <ul class="bl">
+      <li><b>ECG:</b> left atrial enlargement (<b>P mitrale</b> — notched P in lead II), atrial fibrillation, RVH.</li>
+      <li><b>CXR:</b> straightened left heart border, <b>double density</b> at the right heart border, elevated left mainstem bronchus, Kerley B lines.</li>
+      <li><b>TTE:</b> valve morphology, mitral valve area, mean gradient, PA pressure. <b>Severe MS: MVA ≤1.5 cm².</b></li>
+      <li><b>TEE is mandatory before percutaneous mitral balloon commissurotomy (PMBC)</b> — to exclude LA thrombus and quantify MR.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Medical Management</div>
+    <ul class="bl">
+      <li><b>Rate control</b> — beta-blockers or non-dihydropyridine calcium channel blockers — to <b>lengthen diastolic filling time</b>. This is the therapeutic lever.</li>
+      <li><b>Diuretics</b> for pulmonary congestion.</li>
+      <li><b>Anticoagulation with warfarin</b> for atrial fibrillation, prior embolism, or LA thrombus. <span class="td-red">DOACs are not established in rheumatic mitral stenosis — use warfarin.</span></li>
+      <li>Secondary rheumatic fever prophylaxis where indicated.</li>
+      <li>No medical therapy alters valve anatomy — relief requires a mechanical intervention.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Indications for Intervention</div>
+    <table class="btable">
+      <thead><tr><th>Class</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">PMBC for symptomatic (NYHA II–IV) severe rheumatic MS (MVA ≤1.5 cm²) with favorable morphology, less than moderate MR, and no LA thrombus — at a Comprehensive Valve Center.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Mitral valve surgery (repair, commissurotomy, or replacement) for severely symptomatic (NYHA III–IV) severe MS who are not PMBC candidates, failed prior PMBC, require other cardiac surgery, or lack access to PMBC.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>PMBC in <b>asymptomatic</b> severe MS with favorable morphology and <b>PASP &gt;50 mmHg</b>.</td></tr>
+        <tr><td class="vcls vcls-2b">IIb</td><td>Asymptomatic severe MS with favorable anatomy and <b>new-onset AF</b>; symptomatic patients with MVA &gt;1.5 cm² if PCWP &gt;25 mmHg or mean gradient &gt;15 mmHg with exercise; NYHA III–IV severe MS with suboptimal anatomy who are non-surgical or high surgical risk.</td></tr>
+      </tbody>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> Because progression is slow, surgery is generally <b>deferred until NYHA III–IV symptoms</b>, particularly when repair is being contemplated. Contrast this with AS and MR, where earlier intervention is favored.</p></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Mitral Stenosis</div>
+      <ul class="box-items">
+        <li><b>Choosing a DOAC for AF in rheumatic MS</b> — this is a <b>warfarin</b> indication. Do not be swayed by "AF" alone.</li>
+        <li><b>Thinking a LONGER S2–opening snap interval means worse disease</b> — it is the <b>opposite</b>. Shorter interval, higher LA pressure, worse stenosis.</li>
+        <li><b>Giving a fluid bolus or an inotrope</b> to a decompensated MS patient — the problem is filling <b>time</b>, not filling volume or squeeze. Slow the rate.</li>
+        <li><b>Attributing dyspnea in pregnancy to normal physiology</b> — the tachycardia and volume expansion of pregnancy classically unmask previously silent MS.</li>
+        <li><b>Skipping the TEE before PMBC</b> — an undetected LA thrombus turns the procedure into a stroke.</li>
+        <li><b>Looking for LV dysfunction</b> — the LV is normal in isolated MS. Congestion is upstream.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">MS = a filling-TIME disease. Anything that shortens diastole makes it worse: exercise, fever, pregnancy, AF.
+"Short snap = severe" — shorter S2–OS interval means higher LA pressure and tighter valve.
+Severe MS = valve area ≤1.5 cm² (MS is the "1.5" valve; AS is the "1.0" valve)
+Rheumatic MS + AF = WARFARIN, not a DOAC
+Big left atrium, normal left ventricle — hoarseness (Ortner), hemoptysis, AF, stroke all come from that atrium.</div></div>
+
+  </div>
+</div>
+
+<!-- TOPIC V-5: Aortic Regurgitation — Deep Dive -->
+<div class="topic-card pw-locked tier-1" id="v5">
+  <div class="tc-header">
+    <div class="tc-tier">Tier 1</div>
+    <div class="tc-main">
+      <div class="tc-num">Topic V-5</div>
+      <div class="tc-title">Aortic Regurgitation — Deep Dive</div>
+      <div class="tc-subtitle">Valve vs Root · Acute vs Chronic · Eponyms · Surgical Thresholds · Aortopathy</div>
+    </div>
+    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
+    <p>Aortic regurgitation is tested in two completely different forms. <b>Chronic AR</b> is a slow, eponym-rich disease with a long compensated phase. <b>Acute AR</b> is a surgical emergency in which <b>none of the famous peripheral signs appear</b> — and expecting them is how a dissection gets missed.</p></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Etiology — Valve vs Root</div>
+    <table class="btable">
+      <thead><tr><th>Category</th><th>Causes</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Valvular</td><td>Bicuspid aortic valve, calcific degeneration with leaflet retraction, rheumatic disease, endocarditis, cusp prolapse</td></tr>
+        <tr><td class="td-bold">Aortic root / annulus</td><td>Root or annular dilation, <b>Marfan syndrome</b>, aortic dissection, syphilitic aortitis, ankylosing spondylitis</td></tr>
+        <tr><td class="td-bold">Acute AR</td><td class="td-red"><b>Endocarditis, type A aortic dissection, trauma</b> — a surgical emergency</td></tr>
+      </tbody>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> Always ask whether the problem is the <b>valve</b> or the <b>aorta</b>. Root pathology changes the operation (valve-sparing root replacement) and mandates aortic imaging and family screening.</p></div>
+
+    <div class="sub"><div class="sub-label sl-red">Chronic vs Acute AR — The Central Distinction</div>
+    <table class="btable">
+      <thead><tr><th>Feature</th><th>Chronic AR</th><th>Acute AR</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Left ventricle</td><td>Eccentric hypertrophy and dilation — <b>cor bovinum</b>; combined volume + pressure overload with a long compensated phase</td><td class="td-red">Normal-sized and <b>non-compliant</b> — cannot accommodate the regurgitant volume</td></tr>
+        <tr><td class="td-bold">Pulse pressure</td><td class="td-bold">WIDE — the source of every eponym below</td><td class="td-red"><b>NARROW</b>, with tachycardia</td></tr>
+        <tr><td class="td-bold">Murmur</td><td>Long, obvious decrescendo diastolic murmur</td><td class="td-red">Short and soft — easily missed despite profound compromise</td></tr>
+        <tr><td class="td-bold">Presentation</td><td>Asymptomatic for years, then exertional dyspnea</td><td class="td-red">Abrupt ↑ LVEDP → <b>flash pulmonary edema, cardiogenic shock</b></td></tr>
+        <tr><td class="td-bold">Management</td><td>Serial imaging; surgery by criteria</td><td class="td-red"><b>Emergency surgery</b></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Physical Examination — Chronic AR</div>
+    <ul class="bl">
+      <li><b>Early, high-pitched, blowing decrescendo diastolic murmur</b> at the left sternal border (3rd–4th ICS) — best heard <b>sitting, leaning forward, in held expiration</b>; louder with <b>handgrip</b> (increased afterload).</li>
+      <li><b>Austin Flint murmur</b> — low-pitched apical mid-to-late diastolic rumble from the regurgitant jet striking the mitral leaflet. Do not mistake it for mitral stenosis: <b>there is no opening snap and S1 is not loud</b>.</li>
+      <li>Displaced, hyperdynamic apical impulse.</li>
+    </ul>
+    <table class="btable">
+      <thead><tr><th>Eponym</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Corrigan pulse</td><td>Water-hammer pulse — rapid rise and collapse</td></tr>
+        <tr><td class="td-bold">de Musset sign</td><td>Head bobbing with each systole</td></tr>
+        <tr><td class="td-bold">Quincke sign</td><td>Visible nailbed capillary pulsation</td></tr>
+        <tr><td class="td-bold">Traube sign</td><td>"Pistol-shot" sounds over the femoral arteries</td></tr>
+        <tr><td class="td-bold">Duroziez sign</td><td>To-and-fro femoral bruit with light compression</td></tr>
+        <tr><td class="td-bold">Müller sign</td><td>Pulsation of the uvula</td></tr>
+        <tr><td class="td-bold">Hill sign</td><td>Popliteal systolic pressure exceeds brachial</td></tr>
+      </tbody>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> All seven eponyms are <b>one finding — a wide pulse pressure</b>. Learn the mechanism and you own the list.</p></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Diagnostics</div>
+    <ul class="bl">
+      <li><b>TTE</b> is first-line — severity, LV dimensions, LVEF, and root/ascending aortic dimensions.</li>
+      <li><b>Cardiac MR</b> quantifies regurgitant volume and fraction and detects fibrosis when echo is equivocal. <b>CT</b> for aortic anatomy and procedural planning.</li>
+      <li><b>The serial numbers that drive surgery:</b> LVEF, <b>LVESD</b>, LVESD index, LVEDD. These are followed over time — a single value matters less than the trajectory.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Medical Management</div>
+    <ul class="bl">
+      <li><b>Vasodilators</b> — ACE inhibitors/ARBs, dihydropyridine CCBs — for hypertension in AR. Medical therapy is <b>not</b> a substitute for surgery once an indication exists.</li>
+      <li><b>Bradycardia is poorly tolerated</b> — a longer diastole means more regurgitation. Avoid non-vasodilating beta-blockers where possible. <b>Exception:</b> beta-blockade remains appropriate in Marfan syndrome and other aortopathy.</li>
+      <li><b>Acute severe AR:</b> emergency surgery. Temporize with vasodilators and inotropes. <span class="td-red">Intra-aortic balloon pump is CONTRAINDICATED</span> (diastolic augmentation worsens the regurgitation), as is heavy beta-blockade (the tachycardia is compensatory).</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Indications for Surgery</div>
+    <table class="btable">
+      <thead><tr><th>Class</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Symptomatic severe AR, regardless of LV function.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Chronic severe AR with LVEF ≤55% when no other cause of systolic dysfunction is identified.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Severe AR in a patient undergoing cardiac surgery for another indication.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Asymptomatic severe AR, LVEF &gt;55%, with severe LV enlargement — <b>LVESD &gt;50 mm</b> or LVESD index &gt;25 mm/m².</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Moderate AR in a patient undergoing cardiac or aortic surgery for another indication.</td></tr>
+        <tr><td class="vcls vcls-2b">IIb</td><td>Asymptomatic severe AR, LVEF &gt;55%, low surgical risk, with progressive LVEF decline across ≥3 serial studies into the 55–60% range, or progressive dilation to LVEDD &gt;65 mm.</td></tr>
+        <tr><td class="vcls vcls-3">III · Harm</td><td class="td-red">TAVI for isolated severe AR in a patient who is a SAVR candidate.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-amber">Aortopathy Thresholds (ESC/EACTS)</div>
+    <ul class="bl">
+      <li>Ascending aortic surgery for <b>Marfan with root disease ≥50 mm</b> — Class I.</li>
+      <li>Consider at <b>≥55 mm in all patients</b>; <b>≥45 mm with Marfan plus additional risk factors</b>; <b>≥50 mm with a bicuspid valve plus risk factors or coarctation</b>.</li>
+      <li><b>Valve-sparing root replacement (David procedure)</b> is preferred in younger patients with normal cusps and root dilation, at experienced centers.</li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Aortic Regurgitation</div>
+      <ul class="box-items">
+        <li><b>Expecting a water-hammer pulse in acute AR</b> — acute AR has a <b>narrow</b> pulse pressure and tachycardia. The eponyms belong to chronic disease only.</li>
+        <li><b>Placing an IABP to stabilize acute severe AR</b> — <b>contraindicated</b>. Diastolic augmentation drives more blood backward.</li>
+        <li><b>Beta-blocking the tachycardia in acute AR</b> — that tachycardia is keeping the patient alive by shortening diastole.</li>
+        <li><b>Using LVEF ≤50% as the surgical threshold</b> — the current Class I trigger for chronic severe AR is <b>LVEF ≤55%</b>.</li>
+        <li><b>Mistaking an Austin Flint murmur for mitral stenosis</b> — no opening snap, no loud S1, and there is a diastolic murmur at the base.</li>
+        <li><b>Offering TAVI for isolated severe AR</b> in a surgical candidate — Class III, Harm.</li>
+        <li><b>Treating chronic AR medically once criteria are met</b> — vasodilators control BP; they do not replace an operation.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">Every AR eponym = ONE finding: a wide pulse pressure. Corrigan, de Musset, Quincke, Traube, Duroziez, Müller, Hill.
+CHRONIC AR = wide pulse pressure. ACUTE AR = NARROW pulse pressure + tachycardia + shock. Opposite exams, same valve.
+"AR hates a slow heart" — bradycardia lengthens diastole and increases regurgitation.
+Acute AR: NO balloon pump, NO beta-blocker, YES operating room.
+AR surgery numbers: EF ≤55% (Class I) · LVESD &gt;50 mm (Class IIa)</div></div>
+
+  </div>
+</div>
+
+<!-- TOPIC V-6: Mitral Regurgitation — Deep Dive -->
+<div class="topic-card pw-locked tier-1" id="v6">
+  <div class="tc-header">
+    <div class="tc-tier">Tier 1</div>
+    <div class="tc-main">
+      <div class="tc-num">Topic V-6</div>
+      <div class="tc-title">Mitral Regurgitation — Deep Dive</div>
+      <div class="tc-subtitle">Primary vs Secondary · Severity Criteria · TEER · Acute MR Post-MI</div>
+    </div>
+    <div class="tc-badges"><span class="badge badge-pance">★★★ PANCE Priority</span></div>
+  </div>
+  <div class="tc-lock-prompt">
+    <div class="tc-lock-icon">🔒</div>
+    <div class="tc-lock-title">Full content locked</div>
+    <div class="tc-lock-sub">Enter your bootcamp access code below to unlock all topic cards, clinical pearls, vignettes, and board traps.</div>
+    <button class="tc-lock-cta" onclick="var el=document.getElementById('pw-code-wrap-Cardiology');if(el){el.scrollIntoView({behavior:'smooth'});}" >Unlock with Access Code →</button>
+  </div>
+
+  <div class="tc-body">
+
+    <div class="sub"><div class="sub-label sl-navy">Why It Matters for Boards</div>
+    <p>The single most important step in any MR question is <b>classifying it as primary or secondary</b>. Primary MR is a broken valve that needs a mechanical repair. Secondary MR is a sick ventricle with a structurally normal valve, and it needs the ventricle treated first. Give the "primary MR" answer to a secondary MR stem and you will get it wrong every time.</p></div>
+
+    <div class="sub"><div class="sub-label sl-red">Primary vs Secondary MR — The Critical Distinction</div>
+    <table class="btable">
+      <thead><tr><th>&nbsp;</th><th>Primary (degenerative / organic)</th><th>Secondary (functional)</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">The problem</td><td>Intrinsic disease of the leaflets or apparatus</td><td class="td-red"><b>Structurally normal leaflets</b> — LV dysfunction and annular dilation</td></tr>
+        <tr><td class="td-bold">Causes</td><td>MVP / myxomatous degeneration (<b>most common in developed countries</b>), flail leaflet, chordal rupture, endocarditis, rheumatic disease, papillary muscle rupture post-MI</td><td>Ischemic or non-ischemic cardiomyopathy</td></tr>
+        <tr><td class="td-bold">Treatment logic</td><td class="td-bold">Mechanical problem → mechanical solution</td><td class="td-bold">Treat the ventricle first — severity may improve with GDMT</td></tr>
+        <tr><td class="td-bold">Prognosis</td><td>Excellent after timely repair</td><td class="td-amber">Poor without intervention; reflects the underlying myopathy</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-amber">Pathophysiology</div>
+    <ul class="bl">
+      <li><b>Chronic:</b> LV volume overload → eccentric hypertrophy, LA dilation, atrial fibrillation, pulmonary hypertension.</li>
+      <li><b>LVEF reads deceptively "supranormal"</b> because the ventricle ejects into the low-impedance left atrium. <span class="td-red">An LVEF of 50–60% in severe MR already signals meaningful dysfunction</span> — this is why the surgical threshold is set unusually high.</li>
+      <li><b>Acute:</b> papillary muscle rupture <b>2–7 days post-MI</b>, chordal rupture, or endocarditis → abrupt pulmonary edema and shock <b>with a normal-sized LA and LV</b>. No time has passed for compensatory dilation.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-teal">Physical Examination</div>
+    <ul class="bl">
+      <li><b>Holosystolic blowing apical murmur radiating to the axilla</b> — louder with <b>handgrip and squatting</b> (increased afterload), softer with Valsalva.</li>
+      <li>Soft S1, S3, laterally displaced apex with chronic severe MR.</li>
+      <li><b>Mitral valve prolapse:</b> mid-systolic click ± late systolic murmur. <b>Valsalva or standing moves the click EARLIER and lengthens the murmur</b>; squatting moves it later. This is the opposite direction from most murmurs.</li>
+      <li><span class="td-red">Acute severe MR may produce only a soft, short, early systolic murmur</span> despite profound hemodynamic compromise — the LA pressure rises so fast that the gradient disappears in late systole.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">Diagnostics</div>
+    <ul class="bl">
+      <li><b>TTE:</b> mechanism, severity, LVEF, LVESD, PA pressure. <b>TEE</b> for repair feasibility and intraoperative guidance.</li>
+      <li><b>Severe primary MR:</b> effective regurgitant orifice area <b>≥0.40 cm²</b>, regurgitant volume <b>≥60 mL</b>, regurgitant fraction <b>≥50%</b>, vena contracta <b>≥0.7 cm</b>.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Medical Management</div>
+    <ul class="bl">
+      <li><b>Primary MR:</b> no medical therapy delays the need for surgery. Treat hypertension if present; <span class="td-red">do NOT give vasodilators to the normotensive asymptomatic patient</span>.</li>
+      <li><b>Secondary MR:</b> full guideline-directed medical therapy for HFrEF first — ACEi/ARB/ARNI, beta-blocker, MRA, SGLT2 inhibitor — plus CRT when indicated. Reassess severity after optimization.</li>
+      <li><b>Acute severe MR:</b> afterload reduction with <b>nitroprusside</b>, IABP as a bridge, <b>urgent surgery</b>.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">Intervention — Primary MR</div>
+    <table class="btable">
+      <thead><tr><th>Class</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Symptomatic severe primary MR (Stage D) with LVEF &gt;30%.</td></tr>
+        <tr><td class="vcls vcls-1">I</td><td class="td-bold">Asymptomatic severe primary MR with LVEF ≤60% or LVESD ≥40 mm (Stage C2).</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Asymptomatic severe MR with preserved function when durable repair likelihood exceeds 95% with &lt;1% expected mortality at a Comprehensive Valve Center.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td>Progressive LV enlargement or declining LVEF on serial imaging, <b>new-onset AF (&lt;3 months)</b>, or resting <b>PASP &gt;50 mmHg</b>.</td></tr>
+        <tr><td class="vcls vcls-2a">IIa</td><td><b>Transcatheter edge-to-edge repair (TEER / MitraClip)</b> for severely symptomatic primary MR at high or prohibitive surgical risk with suitable anatomy.</td></tr>
+      </tbody>
+    </table>
+    <p class="pnote">🩺 <b>PANCE Pearl:</b> <b>Repair is strongly preferred over replacement</b> whenever anatomically feasible. Timely successful repair yields survival equivalent to an age-matched population — which is why the exam pushes early referral.</p></div>
+
+    <div class="sub"><div class="sub-label sl-green">Intervention — Secondary MR</div>
+    <table class="btable">
+      <thead><tr><th>Class</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td class="vcls vcls-2a">IIa</td><td class="td-bold">TEER for severe symptomatic secondary MR with LVEF 20–50% after GDMT supervised by a heart failure specialist.</td></tr>
+        <tr><td class="vcls vcls-2b">IIb</td><td>Surgery for persistent NYHA III–IV symptoms despite optimized GDMT — <b>has not been shown to improve survival</b>.</td></tr>
+        <tr><td class="vcls vcls-2b">IIb</td><td>Annuloplasty for moderate secondary MR at the time of CABG — benefit uncertain.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — Mitral Regurgitation</div>
+      <ul class="box-items">
+        <li><b>Calling LVEF 58% "normal" in severe MR</b> — <b>LVEF ≤60% or LVESD ≥40 mm</b> is a Class I trigger to operate in an asymptomatic patient. Waiting for a low EF means waiting too long.</li>
+        <li><b>Assuming a soft murmur means mild MR post-MI</b> — day 2–7 after infarct with new pulmonary edema and shock is <b>papillary muscle rupture</b>. Echo and surgery, not more diuretic.</li>
+        <li><b>Giving vasodilators to an asymptomatic normotensive patient with primary MR</b> — no benefit. It is a mechanical problem.</li>
+        <li><b>Sending severe secondary MR straight to surgery</b> — <b>GDMT first</b>. TEER is Class IIa at LVEF 20–50% after optimization; surgery is only IIb and has not improved survival.</li>
+        <li><b>Choosing replacement over repair</b> when the anatomy is favorable — repair is preferred.</li>
+        <li><b>Missing MVP dynamics</b> — standing and Valsalva move the click <b>earlier</b>; this is opposite to the AS and HCM murmur behavior students memorize.</li>
+        <li><b>Expecting a dilated LA on echo in acute MR</b> — chambers are normal-sized because there has been no time to remodel.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">First question, always: PRIMARY (broken valve → fix the valve) or SECONDARY (sick ventricle → fix the ventricle)?
+MR surgery numbers: EF ≤60% or LVESD ≥40 mm — "60 and 40" for MR; "55 and 50" for AR.
+In severe MR, a "normal" EF is abnormal — the LA is an escape hatch that flatters the ventricle.
+Acute MR = soft short murmur + flash pulmonary edema + NORMAL-sized chambers. Days 2–7 post-MI.
+Secondary MR: GDMT → reassess → TEER. Surgery does not improve survival.</div></div>
+
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════════════
   SECTION 6: CARDIOMYOPATHIES
@@ -4932,6 +5745,68 @@ Coarctation: "High up top, low down below" — arm hypertension, weak femorals
 Tet spell: "Squat to stop the spell"
 Eisenmenger: "Once it reverses, don't repair"
 Turner → coarctation · Down → cushion defects · DiGeorge → conotruncal</div></div>
+
+    <div class="sub"><div class="sub-label sl-red">Ventricular Septal Defect — Full Detail (Most Common Congenital Defect)</div>
+    <ul class="bl">
+      <li><b>Epidemiology:</b> the most common congenital heart defect in childhood; in adults second only to bicuspid aortic valve. Incidence roughly 5–50 per 1,000 live births.</li>
+      <li><b>Anatomic types:</b> perimembranous (<b>~75%</b>), muscular, inlet/AV-canal type, outlet/conal. Clinically grouped as <b>muscular vs nonmuscular</b>, because natural history diverges sharply between the two.</li>
+      <li><b>Acquired VSD:</b> post-MI septal rupture (typically <b>3–5 days</b> after infarct) and chest trauma. A new harsh holosystolic murmur with shock several days after an MI is septal rupture, not a congenital defect.</li>
+    </ul>
+    <table class="btable">
+      <thead><tr><th>Type</th><th>Natural History</th><th>Added Risks</th></tr></thead>
+      <tbody>
+        <tr><td class="td-bold">Muscular</td><td class="td-green">Most often <b>shrink or close spontaneously</b></td><td>Low. Rare endocarditis risk only.</td></tr>
+        <tr><td class="td-bold">Nonmuscular (perimembranous, inlet, outlet)</td><td>May be partially occluded by aneurysmal tricuspid septal leaflet tissue, but rarely closes fully</td><td class="td-red">Double-chambered right ventricle, <b>aortic valve prolapse and aortic regurgitation</b>, subaortic membrane, arrhythmia, left heart dilation, endocarditis</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub"><div class="sub-label sl-amber">VSD — Presentation and Exam</div>
+    <ul class="bl">
+      <li><b>Small defect:</b> asymptomatic with a <b>loud</b> murmur. <span class="td-red">Smaller defect = louder murmur</span> — intensity tracks the pressure gradient, not the shunt volume.</li>
+      <li><b>Moderate or large defect:</b> pulmonary overcirculation — tachypnea, tachycardia, diaphoresis with feeds, poor feeding, hepatomegaly, failure to thrive. Onset typically at <b>4–8 weeks</b> as pulmonary vascular resistance falls.</li>
+      <li><b>Murmur:</b> harsh holosystolic at the <b>left lower sternal border</b> ± palpable thrill; <b>increases with handgrip</b> (raised afterload increases the left-to-right shunt).</li>
+      <li><b>Large shunts:</b> apical mid-diastolic mitral flow rumble, loud P2, hyperdynamic precordium.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-navy">VSD — Diagnostics and Management</div>
+    <ul class="bl">
+      <li><b>TTE with color Doppler</b> defines location, size, shunt direction and magnitude, chamber sizes, and estimated PA pressure.</li>
+      <li><b>ECG/CXR:</b> LA and LV enlargement with large shunts. <span class="td-red">RVH suggests pulmonary hypertension</span> — a warning sign, not a normal finding.</li>
+      <li><b>Cardiac catheterization</b> to measure pulmonary vascular resistance before closure in selected patients, particularly with late presentation.</li>
+      <li><b>Small muscular VSD:</b> reassurance; follow every 3–5 years until the murmur resolves, then discharge. Repeat TTE adds no value absent clinical change. Counsel on the rare endocarditis risk.</li>
+      <li><b>All nonmuscular VSDs</b> need ongoing cardiology follow-up unless spontaneous closure occurs; small defects without left heart dilation followed every 1–2 years with TTE.</li>
+      <li><b>Moderate/large VSD in infancy:</b> infants &lt;3 months seen every 2–4 weeks. Medical therapy for pulmonary overcirculation — diuretics, afterload reduction, calorie-dense or NG feeds. <b>Pulmonary artery banding</b> as palliation when complete repair is not feasible in a young infant.</li>
+    </ul></div>
+
+    <div class="sub"><div class="sub-label sl-green">VSD — Indications for Closure</div>
+    <ul class="bl">
+      <li>Symptoms or left heart dilation that fail to improve with medical therapy.</li>
+      <li><b>Large defects should be closed in infancy regardless of symptoms</b> — to prevent irreversible pulmonary vascular disease.</li>
+      <li>Children &gt;6 months with persistent or progressive LV dilation or symptoms.</li>
+      <li>Outlet/perimembranous defects with <b>aortic valve prolapse or progressive aortic regurgitation</b> — consider closure <b>even if the shunt is small</b>.</li>
+      <li><b>Modality:</b> surgical patch closure is standard; transcatheter device closure is an option for selected muscular and perimembranous defects.</li>
+      <li><span class="td-red"><b>Eisenmenger physiology is a contraindication to closure.</b></span></li>
+    </ul></div>
+
+    <div class="box box-red">
+      <div class="box-label">⚑ Board Traps — VSD and Shunt Physiology</div>
+      <ul class="box-items">
+        <li><b>Assuming a loud murmur means a big dangerous defect</b> — the relationship is <b>inverse</b>. A small restrictive VSD keeps a large gradient and screams; a large defect equalizes pressures and goes quiet.</li>
+        <li><b>Reading a softening murmur and resolving heart failure as improvement</b> — with a <b>persistently loud P2</b>, this is rising pulmonary vascular resistance and a closing surgical window, not recovery.</li>
+        <li><b>Closing the defect in an established Eisenmenger patient</b> — <b>contraindicated</b>. The right-to-left shunt has become the decompression pathway.</li>
+        <li><b>Ordering serial echoes on a small muscular VSD</b> — no added value without a clinical change.</li>
+        <li><b>Dismissing a small outlet/perimembranous defect</b> — aortic valve prolapse and progressive AR justify closure regardless of shunt size.</li>
+        <li><b>Waiting for symptoms in a large defect</b> — close it in infancy to protect the pulmonary vasculature.</li>
+      </ul>
+    </div>
+
+    <div class="trick"><div class="trick-label">★ Memory Trick</div>
+    <div class="trick-text">"Small hole, big noise" — murmur loudness tracks the GRADIENT, not the shunt size.
+Muscular VSDs close themselves. Nonmuscular ones need a cardiologist for life.
+The deceptive improvement: murmur softens + heart failure resolves + P2 STAYS LOUD = rising PVR, closing window.
+"Once it reverses, don't repair" — Eisenmenger is a contraindication to closure.
+Post-MI day 3–5 + new harsh LLSB murmur + shock = acquired septal rupture.</div></div>
+
   </div>
 </div>
 
