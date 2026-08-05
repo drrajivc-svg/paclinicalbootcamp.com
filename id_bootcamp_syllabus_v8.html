@@ -101,6 +101,10 @@ strong,b{color:var(--black);}
 .box-id{background:var(--id-lt);border-color:var(--id);}
 .box-id .box-label{color:var(--id);}.box-id .box-items li::before{color:var(--id);}
 .btable{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:12.5px;border-radius:6px;overflow:hidden;border:1px solid var(--border);}
+/* Overflow containment: width:100% does not cap a table (its minimum is
+   content-driven), so one long token can push the document sideways. */
+.btable,table{max-width:100%;}
+.btable th,.btable td,table th,table td{overflow-wrap:anywhere;}
 .btable thead tr{background:var(--navy);}
 .btable thead th{padding:8px 11px;text-align:left;color:white;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;}
 .btable tbody tr:nth-child(even){background:var(--light);}
@@ -838,22 +842,7 @@ details.ix-rev[open]>summary::before{transform:rotate(90deg);}
 .pe-note b{color:var(--red);}
 @media(max-width:640px){.pe-row{flex-direction:column;align-items:stretch;}.pe-btn{justify-content:center;}}
 
-/* ══ LIVE CLASS RESULTS ══ */
-.ix-res{margin-top:13px;padding-top:12px;border-top:1px solid var(--border);}
-.ix-res-hd{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);display:flex;align-items:baseline;gap:8px;margin-bottom:9px;}
-.ix-res-n{color:var(--navy);font-weight:600;}
-.ix-res-live{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--green);}
-.ix-res-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:ixpulse 1.6s ease-in-out infinite;}
-@keyframes ixpulse{0%,100%{opacity:1}50%{opacity:.25}}
-.ix-res-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
-.ix-res-let{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:600;color:var(--mid);width:11px;flex:none;}
-.ix-res-track{flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
-.ix-res-fill{height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}
-.ix-res-pct{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--slate);width:42px;text-align:right;flex:none;}
-.ix-res-row.ok .ix-res-let{color:var(--green);}
-.ix-res-row.ok .ix-res-fill{background:var(--green);}
-.ix-res-row.mine .ix-res-let::after{content:'\2190';margin-left:3px;color:var(--red);}
-.ix-res-empty{font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--mid);font-style:italic;}
+/* IX_RESULTS bar styles removed with its script. */
 
 /* ══ PRE-DOMAIN QUESTIONS — paywall parity with topic cards ══ */
 .ix-lock{display:none;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--mid);font-style:italic;padding:13px 18px 16px;}
@@ -4671,233 +4660,7 @@ document.addEventListener('click', function() {
   else init();
 })();
 </script>
-<script>
-/* ═══════════════════════════════════════════════════════════════════════════
-   LIVE CLASS RESULTS — native bars, pluggable data layer
-   ───────────────────────────────────────────────────────────────────────────
-   A static HTML page has no server, so answers from different devices have to
-   meet somewhere. That "somewhere" is the only part that needs a service; the
-   bars, percentages and live updating below are entirely local code.
-
-   mode:'local'     works immediately. Tallies answers in this browser and
-                    syncs across open tabs of the same browser. Good for
-                    building, testing and demoing — NOT for a real class.
-
-   mode:'firebase'  real cross-device aggregation, updating live. Paste the
-                    module snippet below into <head>, set mode to 'firebase',
-                    and the same bars fill from the whole room.
-
-   ── to enable Firebase, add this to <head> and fill in your config ──
-   <script type="module">
-     // check firebase.google.com/docs/web/setup for the current version
-     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-     import { getDatabase, ref, push, onValue }
-       from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
-     const app = initializeApp({
-       apiKey: "…", authDomain: "…", databaseURL: "https://…firebaseio.com", projectId: "…"
-     });
-     window.IX_FB = { db: getDatabase(app), ref: ref, push: push, onValue: onValue };
-   <\/script>
-
-   ── OR, with no new service: Google Apps Script + a Sheet ──
-   1. Create a Sheet, add a tab named "responses", copy its ID from the URL.
-   2. script.google.com → new project → paste:
-
-      const SHEET_ID = 'PASTE_SHEET_ID';
-      function sheet_(){ return SpreadsheetApp.openById(SHEET_ID).getSheetByName('responses'); }
-      function doPost(e){
-        var b = JSON.parse(e.postData.contents);
-        var lock = LockService.getScriptLock(); lock.waitLock(20000);
-        try { sheet_().appendRow([new Date(), b.session, b.q, b.c]); } finally { lock.releaseLock(); }
-        return ContentService.createTextOutput(JSON.stringify({ok:true}))
-               .setMimeType(ContentService.MimeType.JSON);
-      }
-      function doGet(e){
-        var s = e.parameter.s, q = e.parameter.q, counts = {}, total = 0;
-        sheet_().getDataRange().getValues().forEach(function(r){
-          if (String(r[1]) === s && String(r[2]) === q) { counts[r[3]] = (counts[r[3]]||0)+1; total++; }
-        });
-        return ContentService.createTextOutput(JSON.stringify({counts:counts,total:total}))
-               .setMimeType(ContentService.MimeType.JSON);
-      }
-
-   3. Deploy → New deployment → Web app → Execute as: me → Who has access: Anyone.
-   4. Paste the /exec URL into sheetsUrl below and set mode:'sheets'.
-
-   Database rules for an anonymous classroom poll (write-only, read-aggregate):
-     { "rules": { "polls": { ".read": true, ".write": true } } }
-   Tighten these before anything that matters — as written, anyone with the URL
-   can write. Scope by session id (below) so each class gets a clean tally.
-   ═══════════════════════════════════════════════════════════════════════════ */
-window.IX_RESULTS = {
-  enabled: true,
-  mode: 'local',              /* 'local' | 'firebase' | 'sheets' */
-  session: 'default',         /* change per class to reset the tally */
-  showBeforeAnswer: false,    /* or open the page with ?present=1 */
-  sheetsUrl: '',              /* Apps Script /exec URL, for mode:'sheets' */
-  sheetsPollMs: 3000          /* how often sheets mode re-fetches */
-};
-/* ?present=1 turns on projector mode without editing the file;
-   ?session=fall-2026 scopes the tally to one class. */
-(function () {
-  var p = new URLSearchParams(location.search);
-  if (p.get('present') === '1') window.IX_RESULTS.showBeforeAnswer = true;
-  if (p.get('session')) window.IX_RESULTS.session = p.get('session');
-})();
-
-(function () {
-  var CFG = window.IX_RESULTS, LET = 'ABCDE';
-
-  /* ── local store: this browser, synced across its own tabs ── */
-  var LocalStore = (function () {
-    var subs = {};
-    function key(q) { return 'ixres:' + CFG.session + ':' + q; }
-    function read(q) { try { return JSON.parse(localStorage.getItem(key(q))) || {}; } catch (e) { return {}; } }
-    function emit(q) { (subs[q] || []).forEach(function (cb) { cb(tally(read(q))); }); }
-    function tally(o) {
-      var counts = [], total = 0;
-      Object.keys(o).forEach(function (k) { var i = +k; counts[i] = o[k]; total += o[k]; });
-      return { counts: counts, total: total };
-    }
-    window.addEventListener('storage', function (e) {
-      if (e.key && e.key.indexOf('ixres:') === 0) {
-        var q = e.key.split(':').slice(2).join(':');
-        emit(q);
-      }
-    });
-    return {
-      submit: function (q, choice) {
-        var o = read(q); o[choice] = (o[choice] || 0) + 1;
-        try { localStorage.setItem(key(q), JSON.stringify(o)); } catch (e) {}
-        emit(q);
-      },
-      subscribe: function (q, cb) { (subs[q] = subs[q] || []).push(cb); cb(tally(read(q))); }
-    };
-  })();
-
-  /* ── firebase store: real cross-device, push-based ── */
-  var FirebaseStore = {
-    submit: function (q, choice) {
-      var F = window.IX_FB; if (!F) return;
-      F.push(F.ref(F.db, 'polls/' + CFG.session + '/' + q), { c: choice, t: Date.now() });
-    },
-    subscribe: function (q, cb) {
-      var F = window.IX_FB; if (!F) return;
-      F.onValue(F.ref(F.db, 'polls/' + CFG.session + '/' + q), function (snap) {
-        var counts = [], total = 0;
-        snap.forEach(function (child) {
-          var i = child.val().c; counts[i] = (counts[i] || 0) + 1; total++;
-        });
-        cb({ counts: counts, total: total });
-      });
-    }
-  };
-
-  /* ── google sheets store: no new service, but POLLED not pushed ──
-     Every subscribed device re-fetches on a timer. That is fine when only the
-     presenting laptop shows bars; it does NOT scale to 30 phones each polling,
-     because Apps Script will throttle. For live bars on every student device,
-     use firebase — it pushes, so there is no polling load at all. */
-  var SheetsStore = {
-    submit: function (q, choice) {
-      if (!CFG.sheetsUrl) return;
-      fetch(CFG.sheetsUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* avoids a CORS preflight */
-        body: JSON.stringify({ session: CFG.session, q: q, c: choice })
-      }).catch(function () {});
-    },
-    subscribe: function (q, cb) {
-      if (!CFG.sheetsUrl) return;
-      var url = CFG.sheetsUrl + '?s=' + encodeURIComponent(CFG.session) + '&q=' + encodeURIComponent(q);
-      var pull = function () {
-        fetch(url).then(function (r) { return r.json(); }).then(function (d) {
-          var counts = [];
-          Object.keys(d.counts || {}).forEach(function (k) { counts[+k] = d.counts[k]; });
-          cb({ counts: counts, total: d.total || 0 });
-        }).catch(function () {});
-      };
-      pull();
-      setInterval(pull, Math.max(2000, CFG.sheetsPollMs || 3000));
-    }
-  };
-
-  function store() {
-    if (CFG.mode === 'firebase' && window.IX_FB) return FirebaseStore;
-    if (CFG.mode === 'sheets' && CFG.sheetsUrl) return SheetsStore;
-    return LocalStore;
-  }
-
-  /* ── the bars ── */
-  function build(poll) {
-    var n = poll.querySelectorAll('.ix-opt').length;
-    var correct = parseInt(poll.getAttribute('data-answer'), 10);
-    var live = CFG.mode === 'firebase' && window.IX_FB;
-    var wrap = document.createElement('div');
-    wrap.className = 'ix-res';
-    var rows = '';
-    for (var i = 0; i < n; i++) {
-      rows += '<div class="ix-res-row' + (i === correct ? ' ok' : '') + '" data-i="' + i + '">' +
-              '<span class="ix-res-let">' + LET[i] + '</span>' +
-              '<div class="ix-res-track"><div class="ix-res-fill"></div></div>' +
-              '<span class="ix-res-pct">&mdash;</span></div>';
-    }
-    wrap.innerHTML = '<div class="ix-res-hd">Class results<span class="ix-res-n"></span>' +
-                     (live ? '<span class="ix-res-live">live</span>' : '') + '</div>' + rows +
-                     '<div class="ix-res-empty">Waiting for the first response&hellip;</div>';
-    poll.querySelector('.ix-fb').insertAdjacentElement('afterend', wrap);
-    return wrap;
-  }
-
-  function paint(wrap, data, mine) {
-    var total = data.total || 0;
-    wrap.querySelector('.ix-res-n').textContent =
-      total ? '\u2014 ' + total + (total === 1 ? ' response' : ' responses') : '';
-    wrap.querySelector('.ix-res-empty').style.display = total ? 'none' : '';
-    Array.prototype.forEach.call(wrap.querySelectorAll('.ix-res-row'), function (row) {
-      var i = +row.getAttribute('data-i');
-      var c = data.counts[i] || 0;
-      var pct = total ? Math.round(c / total * 100) : 0;
-      row.querySelector('.ix-res-fill').style.width = pct + '%';
-      row.querySelector('.ix-res-pct').textContent = total ? pct + '%' : '\u2014';
-      row.classList.toggle('mine', mine === i);
-    });
-  }
-
-  function attach(poll, mine) {
-    if (poll.__ixres) return;
-    poll.__ixres = true;
-    var wrap = build(poll);
-    store().subscribe(poll.id || poll.getAttribute('data-answer'), function (data) {
-      paint(wrap, data, mine);
-    });
-  }
-
-  document.addEventListener('click', function (e) {
-    if (!CFG.enabled) return;
-    var btn = e.target.closest ? e.target.closest('.ix-sub-btn') : null;
-    if (!btn) return;
-    var poll = btn.closest('.ix-poll');
-    setTimeout(function () {                       /* run after the grader */
-      if (!poll || !poll.classList.contains('ix-done')) return;
-      var opts = Array.prototype.slice.call(poll.querySelectorAll('.ix-opt'));
-      var mine = opts.findIndex(function (o) { return o.querySelector('input').checked; });
-      var qid = poll.id || ('q' + opts.length);
-      store().submit(qid, mine);
-      attach(poll, mine);
-    }, 0);
-  });
-
-  /* projector mode: show the bars without answering */
-  if (CFG.showBeforeAnswer) {
-    var go = function () {
-      document.querySelectorAll('.ix-poll').forEach(function (p) { attach(p, -1); });
-    };
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
-    else go();
-  }
-})();
-</script>
+<!-- IX_RESULTS removed; superseded by IX_LIVE below. -->
 
 <!-- ══ PENCIL ANNOTATION LAYER v3 (presenter only; enable with ?annotate=1) ══ -->
 <script>
@@ -5422,20 +5185,35 @@ window.IX_RESULTS = {
 ═══════════════════════════════════════════════════════════════════════════ -->
 <script>
 window.IX_LIVE = {
+  /* ── TALLY-ONLY MODE ──────────────────────────────────────────────────────
+     This build records votes and shows live cross-device tallies. It does NOT
+     hold answers back for a presenter-controlled reveal.
+
+     Why: presenter-controlled reveal needs a writable per-question control
+     node, and with no Firebase Authentication there is no way to tell a
+     presenter from a student — any writable control path is writable by
+     anyone who reads the page source. Rather than pretend ?present=1 is
+     security, the hold is removed entirely. Students get the normal
+     reveal-on-submit behavior; you get live counts.
+
+     Consequence for teaching: gate verbally ("don't scroll past the question
+     until I say"). Reveal control and instructor-only reset both return in
+     the Auth phase, together, since they need the same privileged writer.
+
+     Writes are confined to two leaf paths, never a parent:
+       sessions/{session}/presence/{deviceId}          <- true
+       sessions/{session}/votes/{questionId}/{deviceId} <- 'A'..'E'
+     ──────────────────────────────────────────────────────────────────────── */
   mode: 'firebase',      /* 'firebase' = real class · 'rehearsal' = multi-tab on one machine */
   classSize: 40,         /* the denominator in "27 / 40 answered"; editable live in the panel */
-  gate: 'manual',        /* 'manual' = you press Reveal · 'threshold' = auto at responseTarget */
-  responseTarget: 0.9,   /* used only when gate:'threshold' */
-  timerSeconds: 90,      /* countdown length; 0 disables the timer button */
-  closeOnTimeUp: true,   /* when the clock hits zero, stop accepting answers */
-  openAfterRelease: true,/* once released, the explanation is readable even by someone
-                            who never answered — a late joiner or a mid-question reload */
-  revealOnTimeUp: false, /* and also reveal automatically */
   firebase: {
-    apiKey:      'PASTE_API_KEY',
-    authDomain:  'PASTE_PROJECT.firebaseapp.com',
-    databaseURL: 'https://PASTE_PROJECT-default-rtdb.firebaseio.com',
-    projectId:   'PASTE_PROJECT'
+    apiKey:            'AIzaSyDm7KU_H2rG0mOMYl76WfUSjDkkJb6Dv-I',
+    authDomain:        'pa-bootcamp-live.firebaseapp.com',
+    databaseURL:       'https://pa-bootcamp-live-default-rtdb.firebaseio.com',
+    projectId:         'pa-bootcamp-live',
+    storageBucket:     'pa-bootcamp-live.firebasestorage.app',
+    messagingSenderId: '996843405973',
+    appId:             '1:996843405973:web:f785cc31326cee280a919c'
   }
 };
 
@@ -5451,11 +5229,15 @@ window.IX_LIVE = {
   /* Dormant unless a session is named — self-study behavior is untouched. */
   if (!SESSION) return;
 
-  /* Take over from the built-in local tally so bars are not drawn twice. */
-  if (window.IX_RESULTS) { window.IX_RESULTS.enabled = false; window.IX_RESULTS.showBeforeAnswer = false; }
+  /* IX_RESULTS is gone; IX_LIVE is now the only tally system, so there is
+     nothing to hand off from. */
 
   var LET = 'ABCDE';
-  var polls = [], byId = {}, ctrl = {}, counts = {}, myPick = {};
+
+  /* Firebase keys may not contain . # $ / [ ] — question ids come from element
+     ids, so sanitise before any id becomes a path segment. */
+  function KEY(q) { return String(q).replace(/[.#$/[\]]/g, '-').slice(0, 120); }
+  var polls = [], byId = {}, counts = {}, myPick = {};
   var connected = 0, panel = null, curId = null;
 
   /* ── identity: per device for real classes, per tab when rehearsing ────── */
@@ -5507,8 +5289,8 @@ window.IX_LIVE = {
     '.ixl-bars{margin-top:12px;padding-top:11px;border-top:1px solid var(--border);}',
     '.ixl-row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}',
     ".ixl-let{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:600;color:var(--mid);width:11px;flex:none;}",
-    '.ixl-track{flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}',
-    '.ixl-fill{height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}',
+    '.ixl-track{display:block;flex:1;height:15px;background:var(--light);border:1px solid var(--border);border-radius:8px;overflow:hidden;}',
+    '.ixl-fill{display:block;height:100%;width:0;background:var(--mid);border-radius:7px;transition:width .45s cubic-bezier(.4,0,.2,1);}',
     ".ixl-pct{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--slate);width:52px;text-align:right;flex:none;}",
     '.ixl-row.ixl-key .ixl-let{color:var(--green);} .ixl-row.ixl-key .ixl-fill{background:var(--green);}',
     '.ixl-row.ixl-mine .ixl-let::after{content:"\\2190";margin-left:3px;color:var(--red);}',
@@ -5535,13 +5317,12 @@ window.IX_LIVE = {
     '#ixl-panel .ixl-foot{margin-top:9px;font-size:10px;opacity:.55;line-height:1.5;}',
     '#ixl-panel input.ixl-n{width:44px;background:rgba(255,255,255,.14);border:none;color:#fff;',
       "border-radius:5px;padding:2px 5px;font-family:'DM Mono',monospace;font-size:10px;}",
-    '@media print{#ixl-panel{display:none!important;}}',
-    /* released questions become readable without having answered, when enabled */
-    (CFG.openAfterRelease
-      ? 'body.ixl-live .ix-poll.ixl-open details.ix-rev{display:block!important;}' : '')
+    '@media print{#ixl-panel{display:none!important;}}'
   ].join('');
   document.head.appendChild(css);
-  document.body.classList.add('ixl-live');
+  /* TALLY-ONLY: body.ixl-live is deliberately NOT applied. Every hold rule in
+     the stylesheet above is scoped to it, so leaving it off means the page keeps
+     its normal reveal-on-submit behavior while the tally layer still runs. */
 
   /* ══ TRANSPORTS ═══════════════════════════════════════════════════════════
      Both expose the same five methods, so the UI below never knows which is
@@ -5554,12 +5335,11 @@ window.IX_LIVE = {
     var K = 'ixl:' + SESSION + ':';
     function rd(k, d) { try { return JSON.parse(localStorage.getItem(K + k)) || d; } catch (e) { return d; } }
     function wr(k, v) { try { localStorage.setItem(K + k, JSON.stringify(v)); } catch (e) {} ping(k); }
-    var subs = { v: {}, c: {}, p: [] };
+    var subs = { v: {}, p: [] };
     function ping(k) { if (CH) CH.postMessage(k); fire(k); }
     function fire(k) {
       var p = k.split('/');
       if (p[0] === 'v' && subs.v[p[1]]) subs.v[p[1]](rd(k, {}));
-      if (p[0] === 'c' && subs.c[p[1]]) subs.c[p[1]](rd(k, {}));
       if (p[0] === 'p') subs.p.forEach(function (cb) { cb(Object.keys(rd('p', {})).length); });
     }
     if (CH) CH.onmessage = function (e) { fire(e.data); };
@@ -5574,30 +5354,26 @@ window.IX_LIVE = {
       ready: Promise.resolve(),
       vote: function (q, c) { var o = rd('v/' + q, {}); o[DEV] = c; wr('v/' + q, o); },
       onVotes: function (q, cb) { subs.v[q] = cb; cb(rd('v/' + q, {})); },
-      onCtrl: function (q, cb) { subs.c[q] = cb; cb(rd('c/' + q, {})); },
-      setCtrl: function (q, o) { wr('c/' + q, o); },
-      onPresence: function (cb) { subs.p.push(cb); cb(Object.keys(rd('p', {})).length); },
-      wipe: function () {
-        Object.keys(localStorage).filter(function (k) { return k.indexOf(K) === 0; })
-          .forEach(function (k) { localStorage.removeItem(k); });
-        location.reload();
-      }
+      onPresence: function (cb) { subs.p.push(cb); cb(Object.keys(rd('p', {})).length); }
+      /* no setCtrl / onCtrl / wipe — tally-only mode has no control channel and
+         no client-side reset. Clear test data from the Firebase console. */
     };
   }
 
   function FirebaseT() {
-    var api = {}, pending = { v: {}, c: {}, p: [] };
+    var api = {}, pending = { v: {}, p: [] };
     var ready = Promise.all([
       import('https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js'),
       import('https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js')
     ]).then(function (m) {
       var app = m[0].initializeApp(CFG.firebase), D = m[1];
-      var db = D.getDatabase(app), root = 's/' + SESSION;
+      /* Root is 'sessions' — matches the approved database structure and the
+         published rules. Nothing writes above a device-id leaf. */
+      var db = D.getDatabase(app), root = 'sessions/' + SESSION;
       api.set = function (p, v) { return D.set(D.ref(db, root + '/' + p), v); };
       api.on  = function (p, cb) { return D.onValue(D.ref(db, root + '/' + p), function (s) { cb(s.val() || {}); }); };
-      api.rm  = function (p) { return D.remove(D.ref(db, root + '/' + p)); };
       /* presence: drop this device from the roster the moment it disconnects */
-      var me = D.ref(db, root + '/p/' + DEV);
+      var me = D.ref(db, root + '/presence/' + DEV);
       D.onDisconnect(me).remove();
       /* ── PROVE THE DATABASE IS REACHABLE ────────────────────────────────
          Loading the SDK is not the same as connecting. With a placeholder
@@ -5617,9 +5393,8 @@ window.IX_LIVE = {
           setTimeout(function () { un && un(); rej(new Error('database unreachable')); }, 8000);
         })
       ]).then(function () {
-        Object.keys(pending.v).forEach(function (q) { api.on('v/' + q, pending.v[q]); });
-        Object.keys(pending.c).forEach(function (q) { api.on('c/' + q, pending.c[q]); });
-        if (pending.p.length) api.on('p', function (o) {
+        Object.keys(pending.v).forEach(function (q) { api.on('votes/' + q, pending.v[q]); });
+        if (pending.p.length) api.on('presence', function (o) {
           pending.p.forEach(function (cb) { cb(Object.keys(o).length); });
         });
       });
@@ -5632,15 +5407,15 @@ window.IX_LIVE = {
        TypeError in the student's browser. */
     return {
       ready: ready,
-      vote:    function (q, c) { ready.then(function () { if (api.set) api.set('v/' + q + '/' + DEV, c); }); },
-      onVotes: function (q, cb) { pending.v[q] = cb; if (api.on) api.on('v/' + q, cb); },
-      onCtrl:  function (q, cb) { pending.c[q] = cb; if (api.on) api.on('c/' + q, cb); },
-      setCtrl: function (q, o) { ready.then(function () { if (api.set) api.set('c/' + q, o); }); },
+      /* The only write a student's browser ever makes: one letter at its own
+         device leaf under its own question. */
+      vote:    function (q, c) { ready.then(function () { if (api.set) api.set('votes/' + KEY(q) + '/' + DEV, c); }); },
+      onVotes: function (q, cb) { pending.v[KEY(q)] = cb; if (api.on) api.on('votes/' + KEY(q), cb); },
       onPresence: function (cb) {
         pending.p.push(cb);
-        if (api.on) api.on('p', function (o) { cb(Object.keys(o).length); });
-      },
-      wipe: function () { ready.then(function () { if (api.rm) { api.rm('v'); api.rm('c'); location.reload(); } }); }
+        if (api.on) api.on('presence', function (o) { cb(Object.keys(o).length); });
+      }
+      /* no setCtrl / onCtrl / wipe — see the tally-only note in the config. */
     };
   }
 
@@ -5691,7 +5466,11 @@ window.IX_LIVE = {
 
   function tally(votes) {
     var c = [0, 0, 0, 0, 0], n = 0;
-    Object.keys(votes).forEach(function (d) { var i = +votes[d]; if (i >= 0) { c[i] = (c[i] || 0) + 1; n++; } });
+    Object.keys(votes || {}).forEach(function (d) {
+      var v = votes[d], i = LET.indexOf(String(v));   /* 'C' -> 2 */
+      if (i < 0 && /^[0-4]$/.test(String(v))) i = +v; /* tolerate any pre-existing numeric rows */
+      if (i >= 0) { c[i] = (c[i] || 0) + 1; n++; }
+    });
     return { c: c, n: n };
   }
 
@@ -5716,22 +5495,15 @@ window.IX_LIVE = {
   function paint(id) {
     if (degraded) return;
     var poll = byId[id]; if (!poll) return;
-    var t = tally(counts[id] || {}), c = ctrl[id] || {};
-    var open = !!c.revealed;
+    var t = tally(counts[id] || {});
 
-    poll.classList.toggle('ixl-open', open);
-    poll.classList.toggle('ixl-closed', !!c.closed && !open);
+    /* TALLY-ONLY: nothing is held or closed, so the submit button is never
+       disabled and no ixl-open / ixl-closed state is applied. */
 
-    /* a closed OR released question stops taking new answers */
-    var btn = poll.querySelector('.ix-sub-btn');
-    if (btn && !poll.classList.contains('ix-done')) {
-      btn.disabled = !!(c.closed || open);
-      if (btn.disabled && btn.textContent === 'Submit Answer') btn.textContent = open ? 'Answer released' : 'Answers closed';
-      if (!btn.disabled && /Answer released|Answers closed/.test(btn.textContent)) btn.textContent = 'Submit Answer';
-    }
-
-    /* students see the distribution only after release; presenter always */
-    if (open || PRESENT) {
+    /* A student sees the distribution once they have answered — which is also
+       when the explanation opens. The presenter always sees it. */
+    var answered = poll.classList.contains('ix-done');
+    if (answered || PRESENT) {
       var w = bars(poll);
       Array.prototype.forEach.call(w.querySelectorAll('.ixl-row'), function (row) {
         var i = +row.getAttribute('data-i'), v = t.c[i] || 0;
@@ -5750,23 +5522,12 @@ window.IX_LIVE = {
       s = document.createElement('div'); s.className = 'ixl-strip';
       (poll.querySelector('.ix-sub-btn') || poll).insertAdjacentElement('afterend', s);
     }
-    var left = c.deadline ? Math.max(0, Math.ceil((c.deadline - Date.now()) / 1000)) : null;
+    /* No reveal state, no countdown, no per-question control buttons — those
+       all required control-channel writes. Just the live count. */
     s.innerHTML =
-      (open ? '' : '<span class="ixl-dot"></span>') +
-      '<span>' + (open ? 'Answer released' : (c.closed ? 'Answers closed' : 'Collecting answers')) + '</span>' +
-      '<span>' + t.n + (PRESENT ? ' / ' + CFG.classSize : '') + ' answered</span>' +
-      (left !== null && !open
-        ? '<span class="ixl-clock' + (left <= 10 ? ' ixl-warn' : '') + '">' +
-          Math.floor(left / 60) + ':' + ('0' + (left % 60)).slice(-2) + '</span>' : '') +
-      /* presenter gets controls on the question itself, so nothing depends on
-         scroll detection guessing which question you mean */
-      (PRESENT
-        ? '<button class="ixl-mini" data-q="' + id + '" data-a="' + (open ? 'reset' : 'reveal') + '">' +
-            (open ? 'Re-hold' : 'Reveal') + '</button>' +
-          (CFG.timerSeconds && !open
-            ? '<button class="ixl-mini' + (c.deadline ? ' ixl-on' : '') + '" data-q="' + id + '" data-a="timer">' +
-              (c.deadline ? 'Stop' : CFG.timerSeconds + 's') + '</button>' : '')
-        : '');
+      '<span class="ixl-dot"></span>' +
+      '<span>Collecting answers</span>' +
+      '<span>' + t.n + (PRESENT ? ' / ' + CFG.classSize : '') + ' answered</span>';
 
     if (PRESENT && id === curId) drawPanel();
   }
@@ -5775,7 +5536,6 @@ window.IX_LIVE = {
     var id = poll.id; if (!id) return;
     byId[id] = poll; polls.push(poll);
     T.onVotes(id, function (v) { counts[id] = v; paint(id); });
-    T.onCtrl(id, function (c) { ctrl[id] = c || {}; paint(id); });
   }
 
   document.querySelectorAll('.ix-poll').forEach(function (p, i) {
@@ -5796,26 +5556,15 @@ window.IX_LIVE = {
       if (pick < 0) return;
       opts.forEach(function (o, i) { o.classList.toggle('ixl-mine', i === pick); });
       myPick[poll.id] = pick;
-      if (!PRESENT) T.vote(poll.id, pick);                      /* presenter demo clicks don't count */
+      /* Rules require a single letter A-E, so convert here. presenter demo
+         clicks don't count toward the class tally. */
+      if (!PRESENT && pick < LET.length) T.vote(poll.id, LET.charAt(pick));
       paint(poll.id);
     }, 0);
   });
 
-  /* one shared clock drives every countdown */
-  setInterval(function () {
-    var live = false;
-    Object.keys(ctrl).forEach(function (id) {
-      var c = ctrl[id]; if (!c || !c.deadline || c.revealed) return;
-      live = true;
-      if (Date.now() >= c.deadline) {
-        var patch = { deadline: null, revealed: !!CFG.revealOnTimeUp, closed: !!CFG.closeOnTimeUp };
-        if (PRESENT) T.setCtrl(id, patch);        /* only the presenter writes, to avoid 40 racing writes */
-        else { ctrl[id] = patch; }
-      }
-      paint(id);
-    });
-    if (!live && PRESENT) drawPanel();
-  }, 1000);
+  /* The shared countdown is gone with the control channel — a deadline has to
+     be broadcast to be shared, and that was a parent-level write. */
 
   /* ══ PRESENTER PANEL ═════════════════════════════════════════════════════ */
   if (!PRESENT) return;
@@ -5842,57 +5591,37 @@ window.IX_LIVE = {
     var poll = byId[curId] || nearest();
     if (!poll) { panel.innerHTML = '<div class="ixl-hd">ix-live &middot; scroll to a question</div>'; return; }
     curId = poll.id;
-    var t = tally(counts[curId] || {}), c = ctrl[curId] || {};
+    var t = tally(counts[curId] || {});
     var pct = CFG.classSize ? Math.min(100, Math.round(t.n / CFG.classSize * 100)) : 0;
     var label = (poll.querySelector('.ix-n') || {}).textContent || curId;
-    var left = c.deadline ? Math.max(0, Math.ceil((c.deadline - Date.now()) / 1000)) : null;
 
+    /* Read-only monitor. Reveal / re-hold / timer / reset all needed writes
+       above a device leaf, so they are gone until Auth lands. */
     panel.innerHTML =
       '<div class="ixl-hd"><span>ix-live &middot; ' + SESSION + '</span>' +
         '<button data-a="min" title="Collapse">&minus;</button></div>' +
       '<div class="ixl-hide">' +
         '<div class="ixl-qn">' + label.replace(/</g, '&lt;').slice(0, 74) + '</div>' +
-        '<div class="ixl-big">' + t.n + ' <span style="font-size:13px;opacity:.55">/ ' + CFG.classSize + '</span>' +
-          (left !== null ? ' <span style="font-size:14px;opacity:.8">&middot; ' +
-            Math.floor(left / 60) + ':' + ('0' + (left % 60)).slice(-2) + '</span>' : '') + '</div>' +
-        '<div class="ixl-sub">' + (c.revealed ? 'released' : (c.closed ? 'closed' : 'collecting')) +
-          ' &middot; ' + connected + ' device' + (connected === 1 ? '' : 's') + ' connected</div>' +
+        '<div class="ixl-big">' + t.n + ' <span style="font-size:13px;opacity:.55">/ ' + CFG.classSize + '</span></div>' +
+        '<div class="ixl-sub">collecting &middot; ' + connected + ' device' +
+          (connected === 1 ? '' : 's') + ' connected</div>' +
         '<div class="ixl-meter"><i style="width:' + pct + '%"></i></div>' +
-        '<div class="ixl-btns">' +
-          (CFG.timerSeconds ? '<button class="ixl-a ixl-b" data-a="timer">' +
-            (left !== null ? 'Stop' : '\u23F1 ' + CFG.timerSeconds + 's') + '</button>' : '') +
-          '<button class="ixl-a" data-a="reveal"' + (c.revealed ? ' disabled' : '') + '>\u{1F441} Reveal</button>' +
-          '<button class="ixl-a ixl-b" data-a="reset">\u21BA</button>' +
-        '</div>' +
         '<div class="ixl-foot">Class size <input class="ixl-n" data-a="size" value="' + CFG.classSize + '"> ' +
-          '&middot; keys: <b>R</b> reveal, <b>T</b> timer, <b>N</b> next' +
-          '<br><a href="#" data-a="wipe" style="color:#ff9b90">reset the whole session</a></div>' +
+          '&middot; key: <b>N</b> next question' +
+          '<br>Tally-only build &mdash; clear answers from the Firebase console.</div>' +
       '</div>';
   }
 
+  /* Navigation only. No branch here writes to Firebase. */
   function act(a, forId) {
     var id = forId || curId; if (!id) return;
     if (forId) curId = forId;
-    var c = ctrl[id] || {};
-    if (a === 'reveal') T.setCtrl(id, { revealed: true, closed: true, deadline: null });
-    if (a === 'reset')  T.setCtrl(id, { revealed: false, closed: false, deadline: null });
-    if (a === 'timer')  T.setCtrl(id, c.deadline
-      ? { revealed: false, closed: false, deadline: null }
-      : { revealed: false, closed: false, deadline: Date.now() + CFG.timerSeconds * 1000 });
     if (a === 'next') {
       var i = polls.findIndex(function (p) { return p.id === id; });
       if (polls[i + 1]) { curId = polls[i + 1].id; polls[i + 1].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     }
-    if (a === 'wipe' && confirm('Clear every answer and reveal state for session "' + SESSION + '"?')) T.wipe();
     drawPanel();
   }
-
-  document.addEventListener('click', function (e) {
-    var m = e.target.closest ? e.target.closest('.ixl-mini') : null;
-    if (!m) return;
-    e.preventDefault(); e.stopPropagation();
-    act(m.getAttribute('data-a'), m.getAttribute('data-q'));
-  });
 
   panel.addEventListener('click', function (e) {
     var el = e.target.closest('[data-a]'); if (!el) return;
@@ -5912,8 +5641,6 @@ window.IX_LIVE = {
   document.addEventListener('keydown', function (e) {
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.metaKey || e.ctrlKey) return;
     var k = e.key.toLowerCase();
-    if (k === 'r') { e.preventDefault(); act('reveal'); }
-    if (k === 't') { e.preventDefault(); act('timer'); }
     if (k === 'n') { e.preventDefault(); act('next'); }
   });
 
@@ -5923,18 +5650,7 @@ window.IX_LIVE = {
     tick = setTimeout(function () { var p = nearest(); if (p) { curId = p.id; drawPanel(); } }, 120);
   }, { passive: true });
 
-  /* optional automatic release once enough of the room has answered */
-  if (CFG.gate === 'threshold') {
-    setInterval(function () {
-      Object.keys(counts).forEach(function (id) {
-        var c = ctrl[id] || {};
-        if (c.revealed || !CFG.classSize) return;
-        if (tally(counts[id]).n / CFG.classSize >= CFG.responseTarget) {
-          T.setCtrl(id, { revealed: true, closed: true, deadline: null });
-        }
-      });
-    }, 1200);
-  }
+  /* Threshold auto-release removed with the control channel. */
 
   drawPanel();
 })();
