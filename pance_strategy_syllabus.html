@@ -518,12 +518,12 @@ body.pw-unlocked .pw-lockable {
         </button>
         <div class="site-dd-menu" id="site-dd-menu">
           <div class="site-dd-eyebrow">Board syllabi</div>
-          <a href="cardiology_bootcamp_syllabus_v11.html">Cardiology</a>
-          <a href="pulm_bootcamp_syllabus_v5.html">Pulmonary</a>
-          <a href="gi_bootcamp_syllabus_v2.html">GI &amp; Hepatology</a>
-          <a href="id_bootcamp_syllabus_v8.html">Infectious Disease</a>
-          <a href="pa-neuro-bootcamp-syllabus.html">Neurology</a>
-          <a href="pance_strategy_syllabus.html" class="site-active" aria-current="page">Board Strategy</a>
+        <a href="cardiology_bootcamp_syllabus_v11.html" class="">Cardiology</a>
+        <a href="pulm_bootcamp_syllabus_v5.html" class="">Pulmonary</a>
+        <a href="gi_bootcamp_syllabus_v2.html" class="">GI &amp; Hepatology</a>
+        <a href="id_bootcamp_syllabus_v8.html" class="site-active">Infectious Disease</a>
+        <a href="pa-neuro-bootcamp-syllabus.html" class="">Neurology</a>
+        <a href="pance_strategy_syllabus.html" class="site-active">Board Strategy</a>
         </div>
       </div>
       <a href="pa-bootcamp-ecg-v3-standalone.html">ECG</a>
@@ -716,34 +716,6 @@ body.pw-unlocked .pw-lockable {
 </details>
 </div>
 
-
-
-<!-- ══ ACCESS CODE GATE ══ -->
-<div class="wrap" style="margin-top:20px;margin-bottom:20px;">
-  <div class="pw-unlocked-banner" id="pw-unlocked-banner-Strategy">
-    ✅ Full Access Unlocked — Strategy Bootcamp
-  </div>
-  <div class="pw-code-wrap" id="pw-code-wrap-Strategy">
-    <div class="pw-code-icon">🔑</div>
-    <div class="pw-code-title">Have an access code?</div>
-    <div class="pw-code-sub">Enter your bootcamp access code to unlock the full syllabus.</div>
-    <div class="pw-code-error" id="pw-code-error-Strategy">❌ Incorrect code — check with your instructor</div>
-    <div class="pw-code-input-row">
-      <input class="pw-code-input" id="pw-code-input-Strategy"
-        type="text" placeholder="ENTER CODE"
-        maxlength="30"
-        onkeydown="if(event.key==='Enter') pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">
-      <button class="pw-code-btn" onclick="pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">Unlock →</button>
-    </div>
-    <div class="pw-code-divider">or</div>
-    <a class="pw-enroll-link" href="https://paclinicalbootcamp.com/#contact">
-      Don't have a code? <b>Enroll in the bootcamp →</b>
-    </a>
-  </div>
-</div>
-<!-- ══ LOCKED CONTENT BEGINS ══ -->
-<div class="pw-lockable">
-
 <!-- ===================== MODULE 2 ===================== -->
 <div class="modhead"><span class="modnum">Module 2</span><h2>Deconstructing the Clinical Vignette</h2></div>
 <p class="meta">Purpose: give students one repeatable framework for taking any vignette apart &middot; ~40 min</p>
@@ -779,6 +751,33 @@ body.pw-unlocked .pw-lockable {
 <p><span class="traptag">Trap A/D</span>Explain the pain but ignore hypoxia and tachycardia. <span class="traptag">Trap C</span>Clear lungs and no fever argue against it. <strong>Key clue:</strong> hypoxia + clear lungs + provoking risk factors.</p>
 </details>
 </div>
+
+
+<!-- ══ ACCESS CODE GATE ══ -->
+<div class="wrap" style="margin-top:20px;margin-bottom:20px;">
+  <div class="pw-unlocked-banner" id="pw-unlocked-banner-Strategy">
+    ✅ Full Access Unlocked — Strategy Bootcamp
+  </div>
+  <div class="pw-code-wrap" id="pw-code-wrap-Strategy">
+    <div class="pw-code-icon">🔑</div>
+    <div class="pw-code-title">Have an access code?</div>
+    <div class="pw-code-sub">Enter your bootcamp access code to unlock the full syllabus.</div>
+    <div class="pw-code-error" id="pw-code-error-Strategy">❌ Incorrect code — check with your instructor</div>
+    <div class="pw-code-input-row">
+      <input class="pw-code-input" id="pw-code-input-Strategy"
+        type="text" placeholder="ENTER CODE"
+        maxlength="30"
+        onkeydown="if(event.key==='Enter') pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">
+      <button class="pw-code-btn" onclick="pwSubmitCode('Strategy','BOOTCAMP2026','pcb_access_v1')">Unlock →</button>
+    </div>
+    <div class="pw-code-divider">or</div>
+    <a class="pw-enroll-link" href="https://paclinicalbootcamp.com/#contact">
+      Don't have a code? <b>Enroll in the bootcamp →</b>
+    </a>
+  </div>
+</div>
+<!-- ══ LOCKED CONTENT BEGINS ══ -->
+<div class="pw-lockable">
 
 <!-- ===================== MODULE 3 ===================== -->
 <div class="modhead"><span class="modnum">Module 3</span><h2>Pattern Recognition &amp; Illness Scripts</h2></div>
@@ -1184,8 +1183,6 @@ The same vignette yields three different "correct" answers depending on whether 
 
   function pwUnlock() {
     document.body.classList.add('pw-unlocked');
-    document.body.classList.add('ecg-unlocked');
-    if (typeof window.__ecgForceUnlock === 'function') { try { window.__ecgForceUnlock(); } catch(e) {} }
     var banner = document.getElementById('pw-unlocked-banner-' + SYS);
     if (banner) banner.classList.add('show');
     var wrap = document.getElementById('pw-code-wrap-' + SYS);
@@ -1202,8 +1199,6 @@ The same vignette yields three different "correct" answers depending on whether 
     if (!inp) return;
     var val = inp.value.trim().toUpperCase();
     if (val === code.toUpperCase()) {
-      /* one code unlocks every syllabus + the question bank */
-      try { ['pcb_access_v1_ALL','pcb_access_v1_Cardiology','pcb_access_v1_Pulmonary','pcb_access_v1_Infectious_Disease','pcb_access_v1_Neurology','pcb_access_v1_Strategy','pcb_qbank_v1','pa_ecg_unlocked'].forEach(function(k){ localStorage.setItem(k,'1'); }); } catch(e) {}
       try { localStorage.setItem(key + '_' + sys, '1'); } catch(e) {}
       inp.classList.remove('error');
       if (err) err.classList.remove('show');
@@ -1219,10 +1214,7 @@ The same vignette yields three different "correct" answers depending on whether 
 
   document.addEventListener('DOMContentLoaded', function() {
     var unlocked = false;
-    try { var _p = new URLSearchParams(location.search);
-      if (localStorage.getItem(LS_KEY + '_' + SYS) === '1'
-       || localStorage.getItem('pcb_access_v1_ALL') === '1'
-       || _p.get('admin') === '1' || _p.get('present') === '1') unlocked = true; } catch(e) {}
+    try { if (localStorage.getItem(LS_KEY + '_' + SYS) === '1') unlocked = true; } catch(e) {}
     if (unlocked) { pwUnlock(); }
     // If not unlocked, CSS already hides .pw-lockable by default — nothing to do
   });
